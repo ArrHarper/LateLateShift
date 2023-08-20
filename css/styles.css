@@ -2845,10 +2845,10 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #0d6efd;
-  --bs-btn-border-color: #0d6efd;
+  --bs-btn-bg: #5F01D3;
+  --bs-btn-border-color: #5F01D3;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #0b5ed7;
+  --bs-btn-hover-bg: #0d6efd;
   --bs-btn-hover-border-color: #0a58ca;
   --bs-btn-focus-shadow-rgb: 49, 132, 253;
   --bs-btn-active-color: #fff;
@@ -3149,6 +3149,7 @@ textarea.form-control-lg {
   --bs-btn-padding-x: 0.5rem;
   --bs-btn-font-size: 0.875rem;
   --bs-btn-border-radius: 0.25rem;
+  margin: 0 auto;
 }
 
 .fade {
@@ -4149,16 +4150,16 @@ textarea.form-control-lg {
 }
 
 .card {
-  --bs-card-spacer-y: 1rem;
-  --bs-card-spacer-x: 1rem;
+  --bs-card-spacer-y: .1rem;
+  --bs-card-spacer-x: .1rem;
   --bs-card-title-spacer-y: 0.5rem;
   --bs-card-border-width: 1px;
   --bs-card-border-color: var(--bs-border-color-translucent);
-  --bs-card-border-radius: 0.375rem;
+  /*--bs-card-border-radius: 0.375rem; */
   --bs-card-box-shadow: ;
   --bs-card-inner-border-radius: calc(0.375rem - 1px);
-  --bs-card-cap-padding-y: 0.5rem;
-  --bs-card-cap-padding-x: 1rem;
+  --bs-card-cap-padding-y: .5rem;
+  --bs-card-cap-padding-x: .5rem;
   --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
   --bs-card-cap-color: ;
   --bs-card-height: ;
@@ -7581,7 +7582,7 @@ textarea.form-control-lg {
 }
 
 .my-5 {
-  margin-top: 1.5rem !important;
+  /*margin-top: 1.5rem !important;*/
   margin-bottom: 1.5rem !important;
 }
 
@@ -7777,8 +7778,8 @@ textarea.form-control-lg {
 }
 
 .py-4 {
-  padding-top: 1.5rem !important;
-  padding-bottom: 1.5rem !important;
+  padding-top: .5rem !important;
+  padding-bottom: .5rem !important;
 }
 
 .py-5 {
@@ -8131,8 +8132,13 @@ textarea.form-control-lg {
 
 .bg-secondary {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
+  background-color: #C52233;
 }
+.bg-secondary:hover {
+  --bs-bg-opacity: 1;
+  background-color: #5F01D3;
+}
+
 
 .bg-success {
   --bs-bg-opacity: 1;
@@ -8161,7 +8167,7 @@ textarea.form-control-lg {
 
 .bg-dark {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  background-color: #001D3D;
 }
 
 .bg-black {
@@ -10887,4 +10893,49 @@ body, blockquote, p {
   text-align: left;
   background-color: #333;
   color: white;
+}
+
+/* League button */
+.btn-league {
+  display: block; /* Makes the button a block-level element to center it */
+  margin: 0 auto; /* Centers the button horizontally */
+  padding: 10px 20px;
+  background-color: #5F01D3;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Adds a drop shadow */
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 225px;
+}
+
+/* Hover effect */
+.btn-league:hover {
+  background-color: #0d6efd;
+}
+
+.champ-table { 
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.champ-row { 
+  border: 1px solid #ddd;
+  width: 50%;
+  padding: 6px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
