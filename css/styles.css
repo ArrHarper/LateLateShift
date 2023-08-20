@@ -10858,3 +10858,33 @@ body, blockquote, p {
   font-style: italic;
   color: #666;
 }
+
+.scoring-table {
+  margin: 0;
+  width: 25%;
+  min-width: 180px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.play-td {
+  width: 50%;
+  min-width: 104px;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+.pts-td { 
+  width: 50%;
+  min-width: 80px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+.scoring-th { 
+  padding-left:8px;
+  text-align: left;
+  background-color: #333;
+  color: white;
+}

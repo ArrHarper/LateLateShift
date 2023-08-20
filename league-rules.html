@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Keeper League Rules for The Late Late Shift" />
+        <meta name="description" content="Late Late Shift league rules" />
         <meta name="author" content="arrHarper" />
         <title>The Late Late Shift</title>
         <!-- Favicon-->
@@ -15,13 +15,13 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
-                <a class="navbar-brand" href="/LateLateShift/index.html">THE LATE LATE SHIFT</a>
+                <a class="navbar-brand" href="/LateLateShift">THE LATE LATE SHIFT</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/LateLateShift/index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/LateLateShift">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/LateLateShift/keeper-rules.html">Keeper Rules</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">League Rules</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/LateLateShift/league-rules.html">League Rules</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">League History</a></li>
                     </ul>
                 </div>
@@ -31,64 +31,174 @@
         <div class="container px-4 px-lg-5">
             <!-- Heading Row-->
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                <h1>Keeper League Ruleset</h1>
+                <h1>League Rules</h1>
                 <em>Last Updated: 8/20/23</em>
             </div>
             <!-- Content Row-->
                 <h3>General</h3>
                     <ul>
-                        <li>Up to <b>2 keepers per team</b>. Keeping players is <b>optional</b>.</li>
-                        <li> Keeper selection deadline is 24 hours prior to Draft Time.</li>
-                        
+                        <li>0.5 PPR (Yahoo)</li>
+                        <li>10 Teams</li>
+                        <li>$20 buy-in</li>
+                        <li>$150 to SB winner, $50 to SB loser</li>
                     </ul>
-                    <h3>Keeper Eligibility</h3>
+
+                <h3>Roster</h3>
+                    <p>Since the TE position drops off hard after the top 1-2, we've replaced it with a WR/TE flex. This makes teams less reliant on TE roulette and brings more value to mid-tier WRs. </p>
                     <ul>
-                        <li><b>Players can be kept for 2 consecutive seasons</b> after their draft year, then returned to the draft pool.</li>
-                        <li><b>Players drafted in the 1st round are are ineligible and cannot be kept</b>. This keeps a healthy pool of elite players in the draft mix each year.</li>
+                        <li>1 QB</li>
+                        <li>2 RB</li>
+                        <li>2 WR</li>
+                        <li>1 WE/TE Flex</li>
+                        <li>1 RB/WR/TE Flex</li>
+                        <li>1 K</li>
+                        <li>1 DST</li>
+                        <li>6 Bench</li>
+                        <li>2 IR</li>
                     </ul>
                 
-                <h3>Cost to Keep Drafted Players</h3>
-                    <ul>
-                        <li><b>Keeper cost is equal to the player’s most recent draft position</b>, e.g. a player selected in round 4 in 2021 costs a 4th round pick to keep in 2022.</li>
-                        <li><b>Keeping players for a second consecutive season increases the cost by one round</b>, so a 4th round selection costs a 3rd round pick to keep a second time.</li>   
-                    </ul>
-                    <div class="blockquote-container">
-                        <h4 class="blockquote-header"><em>Example</em></h4>
-                        <blockquote class="styled-blockquote">
-                            Mark Andrews was drafted 6th round 2020.</br> 
-                            Andrews costs a 6th rd pick to keep in 2021,</br>
-                            Andrews costs a 5th rd pick to keep in 2022. </br>
-                            In 2023, Andrews is ineligible and returns to the draft pool.
-                        </blockquote>
-                    </div>
+                <h3>Offensive Scoring</h3>
+                    <p>Mostly default Yahoo settings with some minor adjustments, mainly balancing the penalty for interceptions and fumbles. </p></br>
+                    <table class="scoring-table" border="1">
+                        <tr>
+                            <th class="scoring-th">Touchdowns</th>
+                            <th class="scoring-th"></th>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Pass TD</td>
+                            <td class="pts-td">4 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Rush TD</td>
+                            <td class="pts-td">6 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Rec TD</td>
+                            <td class="pts-td">6 pts</td>
+                        </tr>
+                    </table>
+                    <table class="scoring-table" border="1">
+                        <tr>
+                            <th class="scoring-th">Yards</th>
+                            <th class="scoring-th"></th>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Pass Yard</td>
+                            <td class="pts-td">0.04 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Rush Yard</td>
+                            <td class="pts-td">0.1 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Rec Yard</td>
+                            <td class="pts-td">0.1 pts</td>
+                        </tr>
+                    </table>
+                    <table class="scoring-table" border="1">
+                        <tr>
+                            <th class="scoring-th">Turnovers</th>
+                            <th class="scoring-th"></th>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Fumble</td>
+                            <td class="pts-td">-2.0 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">INT</td>
+                            <td class="pts-td">-2.0 pts*</td>
+                        </tr>
+                    </table>
+                    <p><Em>*Increased from -1.0</Em></p><br>
+                <h3>Defensive Scoring</h3>
+                    <p>We use modified scoring for defense, designed to properly reward or penalize based on in-game impact, and limit the chance for a defense to score big in fantasy while getting blown out in real life. <br/><br/>
+                    This system penalizes less for the first few scores, to reflect that NFL defenses give up an average of ~22 points per game (as of '22), and then penalties get steeper with more points and yards allowed.<br/><br/>
+
+                    <table class="scoring-table" border="1">
+                        <tr>
+                            <th class="scoring-th">DST Scoring (pts)</th>
+                            <th class="scoring-th"></th>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Allowed 0</td>
+                            <td class="pts-td">10 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Allowed 1-6</td>
+                            <td class="pts-td">9 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Allowed 7-13</td>
+                            <td class="pts-td">7 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Allowed 14-20</td>
+                            <td class="pts-td">4 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Allowed 21-27</td>
+                            <td class="pts-td">1 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Allowed 28-34</td>
+                            <td class="pts-td">-2 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Allowed 35+</td>
+                            <td class="pts-td">-5 pts</td>
+                        </tr>
+                    </table>
+                    <table class="scoring-table" border="1">
+                        <tr>
+                            <th class="scoring-th">DST scoring (Yds)</th>
+                            <th class="scoring-th"></th>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Yds Allowed 400-499</td>
+                            <td class="pts-td">-1 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Yds Allowed 500+</td>
+                            <td class="pts-td">-2 pts</td>
+                        </tr>
+                    </table>
+                    <table class="scoring-table" border="1">
+                        <tr>
+                            <th class="scoring-th">Turnovers, Stops, Scores</th>
+                            <th class="scoring-th"></th>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Sack</td>
+                            <td class="pts-td">1 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">4th Down Stop</td>
+                            <td class="pts-td">1 pts*</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Fumble Rec</td>
+                            <td class="pts-td">2 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Interception</td>
+                            <td class="pts-td">2 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Touchdown</td>
+                            <td class="pts-td">6 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Safety</td>
+                            <td class="pts-td">2 pts</td>
+                        </tr>
+                        <tr>
+                            <td class="play-td">Kick/Punt Return TD</td>
+                            <td class="pts-td">6 pts</td>
+                        </tr>
+                    </table>
+                    <p><Em>*Increased from 0</Em></p><br>
                     
-                <h3>Cost to Keep Undrafted Free Agents (UDFAs)</h3>
-                    <ul>
-                        <li>Undrafted Free Agents (UDFA) are players <i>not drafted by any team</i> in the most recent draft.</li> 
-                        <li>Keeping a UDFA costs an <b>8th round pick</b> for the first year. </li>
-                        <li>Keeping a UDFA costs a <b>7th round pick</b> for the second year. </li>
-                    </ul>
-                    <div class="blockquote-container">
-                        <h4 class="blockquote-header"><em>Example</em></h4>
-                        <blockquote class="styled-blockquote">
-                            Justin Jefferson was signed as an UDFA in 2020.</br> 
-                            Jefferson costs a 8th rd pick to keep in 2021,</br>
-                            Jefferson costs a 7th rd pick to keep in 2022.</br>
-                            In 2023, Jefferson is ineligible and returns to the draft pool.
-                        </blockquote>
-                    </div>
-
-                <h3>FAQ</h3>
-
-                <h5>What if I want to keep two UDFAs, or two players drafted in the same round?</h5>
-
-                <p>In this situation, the cost for the second keeper increases by one round. So keeping 2 UDFAs costs an 8th and 7th round pick. Keeping two players drafted in the 10th round costs a 10th and a 9th round pick.</p></br>
-
-                <h5>If I only keep a player for one season, can I pick him again in the draft?</h5>
-
-                <p>Yes, if you return a player to the draft pool and have the opportunity to draft them back onto your roster, you can do this and the keeper costs will reset.</p></br>
-                </ul>
-        </div>
+                </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
