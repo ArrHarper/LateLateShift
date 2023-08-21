@@ -9,7 +9,6 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <script src="js/table.js" async></script>
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/table.css" rel="stylesheet" />
     </head>
@@ -25,7 +24,7 @@
                         <li class="nav-item"><a class="nav-link" href="/LateLateShift/keeper-rules.html">Keeper Rules</a></li>
                         <li class="nav-item"><a class="nav-link" href="/LateLateShift/league-rules.html">League Rules</a></li>
                         <li class="nav-item"><a class="nav-link" href="/LateLateShift/league-history.html">League History</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/LateLateShift/teams.html">League History</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/LateLateShift/teams.html">Teams</a></li>
                     </ul>
                 </div>
             </div>
@@ -43,112 +42,115 @@
                     
                 </div>
             </div>
-            <!-- experimental table -->
-            <p>Sort Table Rows by Clicking on the Table Headers - Ascending and Descending (jQuery)</p>
-<div class="container">
-	
-	<div class="table">
-		<div class="table-header">
-			<div class="header__item"><a id="name" class="filter__link" href="#">Name</a></div>
-			<div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Wins</a></div>
-			<div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Draws</a></div>
-			<div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">Losses</a></div>
-			<div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Total</a></div>
-		</div>
-		<div class="table-content">	
-			<div class="table-row">		
-				<div class="table-data">Tom</div>
-				<div class="table-data">2</div>
-				<div class="table-data">0</div>
-				<div class="table-data">1</div>
-				<div class="table-data">5</div>
-			</div>
-			<div class="table-row">
-				<div class="table-data">Dick</div>
-				<div class="table-data">1</div>
-				<div class="table-data">1</div>
-				<div class="table-data">2</div>
-				<div class="table-data">3</div>
-			</div>
-			<div class="table-row">
-				<div class="table-data">Harry</div>
-				<div class="table-data">0</div>
-				<div class="table-data">2</div>
-				<div class="table-data">2</div>
-				<div class="table-data">2</div>
-			</div>
-		</div>	
-	</div>
-</div>
-
+                
             <!-- Content Row-->
             <div class="row gx-4 gx-lg-5">
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body" style="padding:.5em;">
-                            <h2 class="card-title">Season 3 (2022)</h2>
-                            <p class="card-text">
-                                <table class="champ-table" id="champ-22" border="1">
-                                    <tr>
-                                        <td class="champ-row">🏆 <b>Koo Runnings</b></td>
-                                        <td class="champ-row"><s>Wraith's Voidwalkers</s></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="champ-row"><b>128.02</b></td>
-                                        <td class="champ-row">90.20</td>
-                                    </tr>
-                                </table>
-                            </p>
+                <!-- experimental table -->
+            <h3 class="table-title">Current Teams</h3>
+            <div class="table-container">
+                <div class="tabletm">
+                    <div class="table-header">
+                        <div class="header__item"><a id="manager" class="filter__link" href="#">Manager</a>
                         </div>
-                        <div class="card-footer btn-container"><a class="btn btn-primary btn-sm" href="https://football.fantasysports.yahoo.com/league/latelateshift/2022">View Bracket</a>
-                            <a class="btn btn-primary btn-sm" href="https://football.fantasysports.yahoo.com/2022/f1/855021/draftresults?pspid=782203783&activity=draftresults">View Draft</a></div>
+                        <div class="header__item"><a id="team" class="filter__link" href="#">Team</a>
+                        </div>
+                        <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">W</a>
+                        </div>
+                        <div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">L</a>
+                        </div>
+                        <div class="header__item"><a id="pf" class="filter__link filter__link--number" href="#">PF</a>
+                        </div>
+                        <div class="header__item"><a id="pa" class="filter__link filter__link--number" href="#">PA</a>
+                        </div>
                     </div>
+                    <div class="table-content">	
+                        <div class="table-row">		
+                            <div class="table-data">Ben</div>
+                            <div class="table-data">Team</div>
+                            <div class="table-data">6</div>
+                            <div class="table-data">8</div>
+                            <div class="table-data">n/a</div>
+                            <div class="table-data">n/a</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-data">Cass</div>
+                            <div class="table-data">Team</div>
+                            <div class="table-data">28</div>
+                            <div class="table-data">13</div>
+                            <div class="table-data">n/a</div>
+                            <div class="table-data">n/a</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-data">Colin</div>
+                            <div class="table-data">Team</div>
+                            <div class="table-data">24</div>
+                            <div class="table-data">17</div>
+                            <div class="table-data">n/a</div>
+                            <div class="table-data">n/a</div>
+                        </div>
+                        <div class="table-row">		
+                            <div class="table-data">Dave</div>
+                            <div class="table-data">Team</div>
+                            <div class="table-data">23</div>
+                            <div class="table-data">18</div>
+                            <div class="table-data">n/a</div>
+                            <div class="table-data">n/a</div>
+                        </div>
+                        <div class="table-row">		
+                            <div class="table-data">Harper</div>
+                            <div class="table-data">Team</div>
+                            <div class="table-data">18</div>
+                            <div class="table-data">23</div>
+                            <div class="table-data">n/a</div>
+                            <div class="table-data">n/a</div>
+                        </div>
+                        <div class="table-row">		
+                            <div class="table-data">John</div>
+                            <div class="table-data">Team</div>
+                            <div class="table-data">16</div>
+                            <div class="table-data">25</div>
+                            <div class="table-data">n/a</div>
+                            <div class="table-data">n/a</div>
+                        </div>
+                        <div class="table-row">		
+                            <div class="table-data">Price</div>
+                            <div class="table-data">Team</div>
+                            <div class="table-data">18</div>
+                            <div class="table-data">23</div>
+                            <div class="table-data">n/a</div>
+                            <div class="table-data">n/a</div>
+                        </div>
+                        <div class="table-row">		
+                            <div class="table-data">Ray</div>
+                            <div class="table-data">Team</div>
+                            <div class="table-data">11</div>
+                            <div class="table-data">17</div>
+                            <div class="table-data">n/a</div>
+                            <div class="table-data">n/a</div>
+                        </div>
+                        <div class="table-row">		
+                            <div class="table-data">TK</div>
+                            <div class="table-data">Team</div>
+                            <div class="table-data">22</div>
+                            <div class="table-data">19</div>
+                            <div class="table-data">n/a</div>
+                            <div class="table-data">n/a</div>
+                        </div>
+                        <div class="table-row">		
+                            <div class="table-data">Uzoma</div>
+                            <div class="table-data">Team</div>
+                            <div class="table-data">27</div>
+                            <div class="table-data">14</div>
+                            <div class="table-data">n/a</div>
+                            <div class="table-data">n/a</div>
+                        </div>
+                    </div>	
                 </div>
+            </div>
 
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body" style="padding:.5em;">
-                            <h2 class="card-title">Season 2 (2021)</h2>
-                            <p class="card-text">
-                                <table class="champ-table" id="champ-21" border="1">
-                                    <tr>
-                                        <td class="champ-row">🏆 <b>Koo Runnings</b></td>
-                                        <td class="champ-row"><s>Can you diggs it</s></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="champ-row"><b>123.24</b></td>
-                                        <td class="champ-row">111.84</td>
-                                    </tr>
-                                </table>   
-                        </p>
-                        </div>
-                        <div class="card-footer btn-container"><a class="btn btn-primary btn-sm" href="https://football.fantasysports.yahoo.com/league/latelateshift/2021">View Bracket</a>
-                            <a class="btn btn-primary btn-sm" href="https://football.fantasysports.yahoo.com/2021/f1/929371/draftresults?pspid=782203783&activity=draftresults">View Draft</a></div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body" style="padding:.5em;">
-                            <h2 class="card-title">Season 1 (2020)</h2>
-                            <p class="card-text">
-                                <table class="champ-table" id="champ-20" border="1">
-                                <tr>
-                                    <td class="champ-row">🏆 <b>Wraith's Voidwalkers</b></td>
-                                    <td class="champ-row"><s>Gurley girl</s></td>
-                                </tr>
-                                <tr>
-                                    <td class="champ-row"><b>176.10</b></td>
-                                    <td class="champ-row">109.82</td>
-                                </tr>
-                            </table> 
-                            </p>
-                        </div>
-                        <div class="card-footer btn-container"><a class="btn btn-primary btn-sm" href="https://football.fantasysports.yahoo.com/league/latelateshift/2020">View Bracket</a>
-                        <a class="btn btn-primary btn-sm" href="https://football.fantasysports.yahoo.com/2020/f1/1008211/draftresults?pspid=782203783&activity=draftresults">View Draft</a>
-                        </div>
-                        
-                    </div>
-                </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src ="js/table.js"></script>
+                
             </div>
         </div>
         <!-- Footer-->
