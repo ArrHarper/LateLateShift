@@ -3735,7 +3735,7 @@ textarea.form-control-lg {
   --bs-navbar-active-color: rgba(0, 0, 0, 0.9);
   --bs-navbar-brand-padding-y: 0.3125rem;
   --bs-navbar-brand-margin-end: 1rem;
-  --bs-navbar-brand-font-size: 1.25rem;
+  --bs-navbar-brand-font-size: 1.75rem;
   --bs-navbar-brand-color: rgba(0, 0, 0, 0.9);
   --bs-navbar-brand-hover-color: rgba(0, 0, 0, 0.9);
   --bs-navbar-nav-link-padding-x: 0.5rem;
@@ -3783,6 +3783,7 @@ textarea.form-control-lg {
   --bs-nav-link-padding-x: 0;
   --bs-nav-link-padding-y: 0.5rem;
   --bs-nav-link-font-weight: ;
+  --bs-nav-link-font-size: 1.25rem;
   --bs-nav-link-color: var(--bs-navbar-color);
   --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
   --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
@@ -10989,6 +10990,7 @@ body, blockquote, p {
 .nav-link-2 {
   padding-left: var(--bs-navbar-nav-link-padding-x);
   padding-right:  var(--bs-navbar-nav-link-padding-x);
+  font-size: 1.10rem;
 }
 
 /* champ display container */
