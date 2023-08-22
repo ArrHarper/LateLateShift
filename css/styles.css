@@ -11020,3 +11020,27 @@ body, blockquote, p {
   text-align: left;
   background-color: #003F88;
 }
+
+/* logo box */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: space-around;
+  flex-direction: row;
+}
+
+.logo-image {
+  flex: 1; /* Fix the width of the image */
+  padding-right: 5px;
+}
+
+.logo-image img {
+  max-width: 8em; /* Ensure the image doesn't exceed its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.logo-text {
+  flex: 2; /* Allow text to take remaining width */
+  color: black;
+}
