@@ -10865,8 +10865,17 @@ body, blockquote, p {
   color: #666;
 }
 
+.scoring-table-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
 .scoring-table {
-  margin: 0;
+  margin: 5px;
   width: 25%;
   min-width: 180px;
   border-collapse: collapse;
@@ -11009,5 +11018,3 @@ body, blockquote, p {
   text-align: left;
   background-color: #003F88;
 }
-
-/* Add more styling as needed */
