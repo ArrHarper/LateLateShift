@@ -10973,13 +10973,41 @@ body, blockquote, p {
   text-decoration: none;
 }
 
-
 .dropdown-container:hover .dropdown-content {
   display: block;
-  
 }
 
 .nav-link-2 {
   padding-left: var(--bs-navbar-nav-link-padding-x);
   padding-right:  var(--bs-navbar-nav-link-padding-x);
 }
+
+/* champ display container */
+.champ-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.champ-image {
+  flex: 1; /* Fix the width of the image */
+}
+
+.champ-image img {
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.champ-text {
+  flex: 2; /* Allow text to take remaining width */
+  color: black;
+}
+
+.champ-td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+  background-color: #003F88;
+}
+
+/* Add more styling as needed */
