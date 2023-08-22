@@ -7758,6 +7758,13 @@ textarea.form-control-lg {
   padding-left: 3rem !important;
 }
 
+@media (max-width: 550px) {
+  .px-5 {
+      padding-right: 1rem !important;
+      padding-left: 1rem !important;
+  }
+}
+
 .py-0 {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
@@ -11043,4 +11050,9 @@ body, blockquote, p {
 .logo-text {
   flex: 2; /* Allow text to take remaining width */
   color: black;
+  padding: 10px;
+}
+
+.nav-toggle-container {
+  flex: 2;
 }
