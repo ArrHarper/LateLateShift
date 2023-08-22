@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 .table-header, .table-row {
   display: flex;
   width: 100%;
-  padding: 14px 0;
+  padding: 8px 0;
 }
 
 .table-header {
