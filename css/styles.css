@@ -658,16 +658,6 @@ progress {
   }
 }
 
-  @media (max-width: 992px) {
-    #nav-btn-bottom {
-      margin-top: 20px;
-  }
-  .dropdown-container:hover .dropdown-content {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-}
-
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
     max-width: 1140px;
@@ -3974,7 +3964,9 @@ textarea.form-control-lg {
     overflow-y: visible;
   }
 }
-@media (min-width: 992px) {
+
+/*Nav button switch breakpoint*/
+@media (min-width: 650px) {
   .navbar-expand-lg {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -4023,6 +4015,17 @@ textarea.form-control-lg {
     overflow-y: visible;
   }
 }
+
+@media (max-width: 650px) {
+  #nav-btn-bottom {
+    margin-top: 20px;
+  }
+  .dropdown-container:hover .dropdown-content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 @media (min-width: 1200px) {
   .navbar-expand-xl {
     flex-wrap: nowrap;
