@@ -2845,10 +2845,12 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
-  --bs-btn-color: white;
- /* --bs-btn-bg: #F0544F;
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #5F01D3;
+  --bs-btn-border-color: #5F01D3;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #EEE1B3;
+  --bs-btn-hover-bg: #7664ED;
+  --bs-btn-hover-border-color: #7664ED;
   --bs-btn-focus-shadow-rgb: 49, 132, 253;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #7664ED;
@@ -2856,12 +2858,7 @@ textarea.form-control-lg {
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: #0d6efd;
-  --bs-btn-disabled-border-color: #0d6efd;*/
-  background-image: radial-gradient(100% 100% at 100% 0, #F0544F 0, #5E239D 100%);
-  font-weight: bold;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 0.8rem;
-  font-size: 1rem;
+  --bs-btn-disabled-border-color: #0d6efd;
 }
 
 .btn-secondary {
@@ -3626,7 +3623,6 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-  font-family: "JetBrains Mono",monospace;
   font-size: var(--bs-nav-link-font-size);
   font-weight: var(--bs-nav-link-font-weight);
   color: var(--bs-nav-link-color);
@@ -3740,7 +3736,7 @@ textarea.form-control-lg {
   --bs-navbar-active-color: rgba(0, 0, 0, 0.9);
   --bs-navbar-brand-padding-y: 0.3125rem;
   --bs-navbar-brand-margin-end: 1rem;
-  --bs-navbar-brand-font-size: 1.75rem;
+  --bs-navbar-brand-font-size: 5rem;
   --bs-navbar-brand-color: rgba(0, 0, 0, 0.9);
   --bs-navbar-brand-hover-color: rgba(0, 0, 0, 0.9);
   --bs-navbar-nav-link-padding-x: 0.5rem;
@@ -4145,8 +4141,8 @@ textarea.form-control-lg {
 }
 
 .navbar-dark {
-  --bs-navbar-color: white;
-  --bs-navbar-hover-color: rgba(15, 15, 15, 0.75);
+  --bs-navbar-color: rgba(255, 255, 255, 0.55);
+  --bs-navbar-hover-color: rgba(255, 255, 255, 0.75);
   --bs-navbar-disabled-color: rgba(255, 255, 255, 0.25);
   --bs-navbar-active-color: #fff;
   --bs-navbar-brand-color: #fff;
@@ -4170,7 +4166,7 @@ textarea.form-control-lg {
   --bs-card-cap-color: ;
   --bs-card-height: ;
   --bs-card-color: ;
-  --bs-card-bg: #FBFEF9;
+  --bs-card-bg: #fff;
   --bs-card-img-overlay-padding: 1rem;
   --bs-card-group-margin: 0.75rem;
   position: relative;
@@ -4247,15 +4243,6 @@ textarea.form-control-lg {
   background-color: var(--bs-card-cap-bg);
   border-top: var(--bs-card-border-width) solid var(--bs-card-border-color);
 }
-
-.double-btn-footer {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
 .card-footer:last-child {
   border-radius: 0 0 var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius);
 }
@@ -6707,6 +6694,7 @@ textarea.form-control-lg {
 
 .text-bg-dark {
   color: #fff !important;
+  background-color: RGBA(33, 37, 41, var(--bs-bg-opacity, 1)) !important;
 }
 
 .link-primary {
@@ -7596,8 +7584,8 @@ textarea.form-control-lg {
 }
 
 .my-5 {
-  /*margin-top: 1.5rem !important;
-  margin-bottom: 1.5rem !important;*/
+  /*margin-top: 1.5rem !important;*/
+  margin-bottom: 1.5rem !important;
 }
 
 .my-auto {
@@ -8153,11 +8141,11 @@ textarea.form-control-lg {
 
 .bg-secondary {
   --bs-bg-opacity: 1;
-  background-color: #0A0908;
+  background-color: #C52233;
 }
 .bg-secondary:hover {
   --bs-bg-opacity: 1;
-  background-color: #F0544F;
+  background-color: #5F01D3;
 }
 
 
@@ -8188,8 +8176,7 @@ textarea.form-control-lg {
 
 .bg-dark {
   --bs-bg-opacity: 1;
-  /*background-color: #001D3D;*/
-  background-color: #5E239D;
+  background-color: #001D3D;
 }
 
 .bg-black {
@@ -10931,7 +10918,7 @@ body, blockquote, p {
   display: block; /* Makes the button a block-level element to center it */
   margin: 0 auto; /* Centers the button horizontally */
   padding: 10px 20px;
-  /*background-color: #5F01D3;*/
+  background-color: #5F01D3;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -10942,7 +10929,6 @@ body, blockquote, p {
   font-size: 16px;
   font-weight: bold;
   min-width: 225px;
-  
 }
 
 .champ-table { 
@@ -11058,100 +11044,11 @@ body, blockquote, p {
 }
 
 .logo-text {
-  display: flex;
+  flex: 2; /* Allow text to take remaining width */
   color: black;
   padding: 10px;
-  flex-wrap: nowrap;
 }
-
-.logo-text a {
-  display: flex;
-  font-size: 6vw;
-  color: black;
-  text-decoration: none;
-  flex-wrap: nowrap;
-  min-width: 250px;
-  justify-content: center;
-  -webkit-text-stroke: 3px white; /* WebKit browsers like Chrome and Safari */
-  /*text-stroke: 2px white;  Standard syntax */
-}
-
-@media (max-width: 1000px) {
-  .logo-text a {
-      font-size: 64px; /* Minimum font size for screens wider than 480px */
-  }
-}
-
 
 .nav-toggle-container {
   flex: 2;
-}
-
-.footy-div{
-display: flex;
-justify-content: center;
-}
-
-.footy-text{
-
-}
-
-#main-column {
-  background-color: #FBFEF9;
-  padding-top: 40px;
-}
-
-#heading-row {
-  margin-bottom: 20px;
-
-}
-
-/* cool CSS button */
-.button-29 {
-  align-items: center;
-  appearance: none;
-  margin: 10px;
-  background-color: #5E239D;
-  border: 0;
-  border-radius: 6px;
-  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  flex-wrap: nowrap;
-  font-family: "JetBrains Mono",monospace;
-  height: 48px;
-  justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
-  position: relative;
-  text-align: left;
-  text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow,transform;
-  font-size: 18px;
-}
-
-.button-29:focus {
-  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-}
-
-.button-29:hover {
-  background-image: radial-gradient(100% 100% at 100% 0, #F0544F 0, #5E239D 100%);
-  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-  transform: translateY(-2px);
-  color: white;
-}
-
-.button-29:active {
-  box-shadow: #3c4fe0 0 3px 7px inset;
-  transform: translateY(2px);
 }
