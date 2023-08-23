@@ -3848,6 +3848,7 @@ textarea.form-control-lg {
   box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
   margin: 10px;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .navbar-toggler {
     transition: none;
@@ -11069,6 +11070,7 @@ body, blockquote, p {
   align-content: space-around;
   flex-direction: row;
   row-gap: 1em;
+  padding: 5px;
 }
 
 .logo-image {
@@ -11085,7 +11087,6 @@ body, blockquote, p {
   flex: 0 1 auto;
   display: flex;
   color: black;
-  padding: 10px;
   text-align: center;
 }
 
@@ -11115,12 +11116,6 @@ body, blockquote, p {
   }
 }
   
-
-  .nav-toggle-container {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-
 @media (max-width: 1400px) {
   .logo-container {
     flex-direction: row;
@@ -11129,9 +11124,12 @@ body, blockquote, p {
 
 .nav-toggle-container {
   display: flex !important;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   flex-basis: auto;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: stretch;
+  padding: 5px;
 }
 
 .footy-div{
