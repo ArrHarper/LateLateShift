@@ -11,3 +11,19 @@ bg3 https://embed-ssl.wistia.com/deliveries/83a9d3accb4d0422696d89bf5153c18d.png
 bg4 https://embed-ssl.wistia.com/deliveries/f0128fff3a205459f08e4ca54b360398.png
 bg5 https://embed-ssl.wistia.com/deliveries/7521888536c6607c2cbd85a2bccd3949.png
 bg6 https://embed-ssl.wistia.com/deliveries/8d2402fd51a16c7f31961b33437c6792.png
+
+
+id="main-column"
+
+<style>
+            /* Define the font using @font-face */
+            @font-face {
+                font-family: 'PepperSauce'; /* Font name to use in CSS */
+                src: url('assets/PepperSauce.ttf') format('truetype'); /* Path to your font file */
+            }
+            
+            /* Apply the font to specific elements */
+            .logo-text {
+                font-family: 'PepperSauce', sans-serif; /* Use the defined font */
+            }
+</style>

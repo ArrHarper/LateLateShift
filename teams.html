@@ -18,6 +18,18 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/table.css" rel="stylesheet" />
+        <style>
+            /* Define the font using @font-face */
+            @font-face {
+                font-family: 'PepperSauce'; /* Font name to use in CSS */
+                src: url('assets/PepperSauce.ttf') format('truetype'); /* Path to your font file */
+            }
+            
+            /* Apply the font to specific elements */
+            .logo-text {
+                font-family: 'PepperSauce', sans-serif; /* Use the defined font */
+            }
+        </style>
     </head>
     <body>
         <!-- Google Tag Manager (noscript) -->
@@ -29,35 +41,39 @@
             <div class="container px-5">
                 <div class="logo-container">
                     <div class="logo-image">
-                        <img src="https://embed-ssl.wistia.com/deliveries/6a3cc695444d128345a496d09948ddaf.png" alt="LLS Logo" />
+                        <img src="https://embed-ssl.wistia.com/deliveries/171cba254a2390b5ddd2af0b0d61942d.png" alt="LLS Logo" />
                     </div>
                     <div class="logo-text">
-                        <a class="navbar-brand" href="/LateLateShift">THE LLS</a>
-                    </div>  
+                        <a href="/LateLateShift">THE LLS</a>
+                    </div> 
                     <div class="nav-toggle-container">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     </div> 
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="/LateLateShift">Home</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/LateLateShift/teams.html">Teams</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/LateLateShift/league-rules.html">Settings & Scoring</a></li>
-                        <li class="nav-item"><div class="dropdown-container"><a class="nav-link" href="/LateLateShift/keeper-rules.html">Keepers</a>
+                        <li class="nav-item"><a class="nav-btn" href="/LateLateShift">Home</a></li>
+                        <li class="nav-item"><a class="nav-btn nav-btn-active" aria-current="page" href="/LateLateShift/teams.html">Teams</a></li>
+                        <li class="nav-item"><a class="nav-btn" href="/LateLateShift/league-rules.html">League Info</a></li>
+                        <li class="nav-item"><div class="dropdown-container"><a class="nav-btn" style="margin-bottom:0px;" href="/LateLateShift/keeper-rules.html">Keepers</a>
                             <div class="dropdown-content">
-                                <a class="nav-link-2" href="/LateLateShift/keeper-rules.html">Keeper Rules</a>
-                                <a class="nav-link-2" href="/LateLateShift/keeper-history.html">Keeper History</a>
+                                <a class="nav-btn" id="nav-btn2" href="/LateLateShift/keeper-rules.html">Keeper Rules</a>
+                                <a class="nav-btn" id="nav-btn2" href="/LateLateShift/keeper-history.html">Keeper History</a>
                             </div>
                         </div></li>
-                        <li class="nav-item"><a class="nav-link" href="/LateLateShift/league-history.html">LLS History</a></li>
+                        <li class="nav-item"><a class="nav-btn" id="nav-btn-bottom" href="/LateLateShift/league-history.html">LLS History</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <!-- Call to Action-->
+        <div class="card text-white bg-secondary my-5 py-4 text-center">
+            <div class="card-body"><p class="text-white m-0"><b>Keeper Deadline is Sunday, 8/27 at midnight</b></p></div>
+        </div>
         <!-- Page Content-->
-        <div class="container px-4 px-lg-5">
+        <div class="container px-4 px-lg-5" id="main-column">
             <!-- Heading Row-->
-            <div class="row gx-4 gx-lg-5 align-items-center my-5" style="margin-top: 20px;">
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
                 <div class="col-lg-5">
                     <h1 class="font-weight-light">LLS Teams</h1>
                     <p>Current and former LLS franchises.</p><br>
