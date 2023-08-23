@@ -91,6 +91,10 @@
   }
 }
 
+html {
+  min-width: 340px;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -642,16 +646,17 @@ progress {
   margin-left: auto;
 }
 
-@media (min-width: 576px) {
+/*@media (min-width: 576px) {
   .container-sm, .container {
     max-width: 540px;
   }
 }
+
 @media (min-width: 768px) {
   .container-md, .container-sm, .container {
     max-width: 720px;
   }
-}
+}*/
 @media (min-width: 992px) {
   .container-lg, .container-md, .container-sm, .container {
     max-width: 960px;
@@ -3250,7 +3255,7 @@ textarea.form-control-lg {
   position: absolute;
   z-index: var(--bs-dropdown-zindex);
   display: none;
-  min-width: var(--bs-dropdown-min-width);
+  min-width: 340px;
   padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
   margin: 0;
   font-size: var(--bs-dropdown-font-size);
@@ -7789,16 +7794,16 @@ textarea.form-control-lg {
 }
 
 .px-5 {
-  padding-right: 3rem !important;
-  padding-left: 3rem !important;
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
 }
 
-@media (max-width: 550px) {
+/*@media (max-width: 550px) {
   .px-5 {
       padding-right: 1rem !important;
       padding-left: 1rem !important;
   }
-}
+} */
 
 .py-0 {
   padding-top: 0 !important;
@@ -11086,6 +11091,10 @@ body, blockquote, p {
   height: auto; /* Maintain aspect ratio */
 }
 
+.logo-the {
+  font-size: small;
+}
+
 .logo-text {
   flex: 0 1 auto;
   display: flex;
@@ -11093,25 +11102,32 @@ body, blockquote, p {
   text-align: center;
 }
 
+@media (max-width: 475px) {
+  .logo-text a {
+    font-size: .5em;
+  }
+}
+
+@media: (min-width: 476px) {
+  .logo-text a {
+    min-width: 280px;
+  }
+}
+
+.logo-text p {
+  text-align: right;
+}
+
 .logo-text a {
   font-size: 64px;
   color: black;
   text-decoration: none;
-  min-width: 250px;
   justify-content: center;
+  line-height: 80%;
   -webkit-text-stroke: 3px white; /* WebKit browsers like Chrome and Safari */
   /*text-stroke: 2px white;  Standard syntax */
 }
 
-@media (max-width: 1000px) {
-  .logo-text a {
-      font-size: 64px;
-  }
-  .logo-text {
-    font-size: 64px; /* Minimum font size for screens smaller than 1000px wide */
-    min-width: 100px;
-  }
-}
 
 @media (max-width: 1400px) {
   .logo-container {
@@ -11134,6 +11150,7 @@ body, blockquote, p {
   align-items: stretch;
   padding: 5px;
   position: relative;
+  min-width: 260px;
 }
 
 .footy-div{
