@@ -11318,3 +11318,9 @@ justify-content: center;
   color: #06f;
   fill: #06f;
 }
+
+.tb-01-wrapper {
+  width: 100%;        /* Adjust this width as needed */
+  overflow-x: auto;   /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent table content from wrapping */
+}
