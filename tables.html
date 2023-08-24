@@ -16,10 +16,17 @@
             })(window,document,'script','dataLayer','GTM-TRWVV3VF');</script>
         <!-- End Google Tag Manager -->
         <!-- Core theme CSS (includes Bootstrap)-->
-        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
-        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
         <link href="css/styles.css" rel="stylesheet" />
+        <!--<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css"/>
+        <link href="https://cdn.datatables.net/v/bs5/dt-1.13.6/b-2.4.1/b-colvis-2.4.1/fc-4.3.0/fh-3.4.0/datatables.min.css" rel="stylesheet">--> 
+        <link rel="stylesheet" href="css/tb-01.css"/>
+        <!--jquery-->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <!--dataTables.js-->
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-1.13.6/b-2.4.1/b-colvis-2.4.1/b-html5-2.4.1/fc-4.3.0/fh-3.4.0/sl-1.7.0/datatables.min.js"></script>
+    
+        <!--title font-->
         <style>
             /* Define the font using @font-face */
             @font-face {
@@ -77,23 +84,34 @@
         <!-- Page Content-->
         <div class="container px-4 px-lg-5" id="main-column">
             <!-- Heading Row-->
-            <div class="row gx-4 gx-lg-5 align-items-center my-5" id="heading-row">
-                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://embed-ssl.wistia.com/deliveries/7f048c1d12339c4d715848e521c17696.png" alt="overhead view of Gillette Stadium" /></div>
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
                 <div class="col-lg-5">
-                    <h1 class="font-weight-light">Welcome Back for the 2023 Season of the Late Late Shift!</h1>
-                    <p>Year Four of never being late, always right on time.</p><br>
-                    <a class="button-29" href="https://football.fantasysports.yahoo.com/league/latelateshift">Go to League on Yahoo!</a>
+                    <h1 class="font-weight-light">LLS Teams</h1>
+                    <p>Current and former LLS franchises.</p><br>
+                </div>
+                <div class="col-lg-7">
+                    <img class="img-fluid rounded mb-4 mb-lg-0" src="https://embed-ssl.wistia.com/deliveries/04b18769145f242f5e8dd0c80982d736.png" alt="Patriots players dump a water cooler over Bill Belichick to celebrate" />
                 </div>
             </div>
         <!-- Content Row-->
             <!-- Initialize dataTables.js -->    
             <script>
                 $(document).ready( function () {
+                    //parse json from tempData div
+                    var jsonData = JSON.parse(document.getElementById("tempData").textContent);
+                    //set defaults for our table
+                    $.extend( $.fn.dataTable.defaults, {
+                        paging: false, //disable paging
+                        lengthChange:  false, // disable 'results per page'
+                        fixedHeader:true, //keep header at top of table
+                    } );
+                    //initialize dataTables
                     $('#teamChart').DataTable( {
+                        select: true,
                         data: jsonData,
                         //ajax: {
-                            //url: 'assets/ManagerHistory.json', // Replace with the actual path to your JSON file
-                            //dataSrc: '' // Since the JSON file directly contains an array of data, set this to an empty string
+                            //url: 'assets/ManagerHistory.json',
+                            //dataSrc: ''
                         //},
                         columns: [
                             { data: 'manager' },
@@ -101,8 +119,6 @@
                             { data: 'seasonsCt' },
                             { data: 'winTotal' },
                             { data: 'lossTotal' },
-                            { data: 'winAvg' },
-                            { data: 'lossAvg' },
                             { data: 'win' },
                             { data: 'ptsForTotal' },
                             { data: 'ptsAgnstTotal' },
@@ -110,35 +126,27 @@
                             { data: 'ptsAgnstAvg' },
                             { data: 'movesTotal' },
                             { data: 'movesAvg' },
-                            { data: 'matchups20' },
-                            { data: 'matchups21' },
-                            { data: 'matchups22' }
                     ]} )}
                 );    
             </script>
             <!-- end dataTables init -->
             <div class="row gx-4 gx-lg-5">
                 <div class="tb-01-wrapper">
-                    <table id="teamChart" class="display tb-01">
+                    <table id="teamChart" class="compact hover stripe" style="margin-top:10px;">
                         <thead>
                             <tr>
-                                <th>manager</th>
-                                <th>joined</th>
-                                <th>seasonsCt</th>
-                                <th>winTotal</th>
-                                <th>lossTotal</th>
-                                <th>winAvg</th>
-                                <th>lossAvg</th>
-                                <th>win</th>
-                                <th>ptsForTotal</th>
-                                <th>ptsAgnstTotal</th>
-                                <th>ptsForAvg</th>
-                                <th>ptsAgnstAvg</th>
-                                <th>movesTotal</th>
-                                <th>movesAvg</th>
-                                <th>matchups20</th>
-                                <th>matchups21</th>
-                                <th>matchups22</th>
+                                <th>Manager</th>
+                                <th>Since</th>
+                                <th>Yrs</th>
+                                <th>W</th>
+                                <th>L</th>
+                                <th>win%</th>
+                                <th>PF Total</th>
+                                <th>PA Total</th>
+                                <th>PF Avg</th>
+                                <th>PA Avg</th>
+                                <th>Moves</th>
+                                <th>Moves/Season</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -155,11 +163,6 @@
                                 <td>Value 10</td>
                                 <td>Value 11</td>
                                 <td>Value 12</td>
-                                <td>Value 13</td>
-                                <td>Value 14</td>
-                                <td>Value 15</td>
-                                <td>Value 16</td>
-                                <td>Value 17</td>
                             </tr>
                             <tr>
                                 <td>Value 1</td>
@@ -174,11 +177,6 @@
                                 <td>Value 10</td>
                                 <td>Value 11</td>
                                 <td>Value 12</td>
-                                <td>Value 13</td>
-                                <td>Value 14</td>
-                                <td>Value 15</td>
-                                <td>Value 16</td>
-                                <td>Value 17</td>
                             </tr>
                             <tr>
                                 <td>Value 1</td>
@@ -193,11 +191,6 @@
                                 <td>Value 10</td>
                                 <td>Value 11</td>
                                 <td>Value 12</td>
-                                <td>Value 13</td>
-                                <td>Value 14</td>
-                                <td>Value 15</td>
-                                <td>Value 16</td>
-                                <td>Value 17</td>
                             </tr>
                             <tr>
                                 <td>Value 1</td>
@@ -212,11 +205,6 @@
                                 <td>Value 10</td>
                                 <td>Value 11</td>
                                 <td>Value 12</td>
-                                <td>Value 13</td>
-                                <td>Value 14</td>
-                                <td>Value 15</td>
-                                <td>Value 16</td>
-                                <td>Value 17</td>
                             </tr>
                             <tr>
                                 <td>Value 1</td>
@@ -231,11 +219,6 @@
                                 <td>Value 10</td>
                                 <td>Value 11</td>
                                 <td>Value 12</td>
-                                <td>Value 13</td>
-                                <td>Value 14</td>
-                                <td>Value 15</td>
-                                <td>Value 16</td>
-                                <td>Value 17</td>
                             </tr>
                             <tr>
                                 <td>Value 1</td>
@@ -250,11 +233,6 @@
                                 <td>Value 10</td>
                                 <td>Value 11</td>
                                 <td>Value 12</td>
-                                <td>Value 13</td>
-                                <td>Value 14</td>
-                                <td>Value 15</td>
-                                <td>Value 16</td>
-                                <td>Value 17</td>
                             </tr>
                             <tr>
                                 <td>Value 1</td>
@@ -269,11 +247,6 @@
                                 <td>Value 10</td>
                                 <td>Value 11</td>
                                 <td>Value 12</td>
-                                <td>Value 13</td>
-                                <td>Value 14</td>
-                                <td>Value 15</td>
-                                <td>Value 16</td>
-                                <td>Value 17</td>
                             </tr>
                             <tr>
                                 <td>Value 1</td>
@@ -288,11 +261,6 @@
                                 <td>Value 10</td>
                                 <td>Value 11</td>
                                 <td>Value 12</td>
-                                <td>Value 13</td>
-                                <td>Value 14</td>
-                                <td>Value 15</td>
-                                <td>Value 16</td>
-                                <td>Value 17</td>
                             </tr>
                             <tr>
                                 <td>Value 1</td>
@@ -307,11 +275,6 @@
                                 <td>Value 10</td>
                                 <td>Value 11</td>
                                 <td>Value 12</td>
-                                <td>Value 13</td>
-                                <td>Value 14</td>
-                                <td>Value 15</td>
-                                <td>Value 16</td>
-                                <td>Value 17</td>
                             </tr>
                             <tr>
                                 <td>Value 1</td>
@@ -326,11 +289,6 @@
                                 <td>Value 10</td>
                                 <td>Value 11</td>
                                 <td>Value 12</td>
-                                <td>Value 13</td>
-                                <td>Value 14</td>
-                                <td>Value 15</td>
-                                <td>Value 16</td>
-                                <td>Value 17</td>
                             </tr>
                             <tr>
                                 <td>Value 1</td>
@@ -345,11 +303,6 @@
                                 <td>Value 10</td>
                                 <td>Value 11</td>
                                 <td>Value 12</td>
-                                <td>Value 13</td>
-                                <td>Value 14</td>
-                                <td>Value 15</td>
-                                <td>Value 16</td>
-                                <td>Value 17</td>
                             </tr>
                             <tr>
                                 <td>Value 1</td>
@@ -364,11 +317,6 @@
                                 <td>Value 10</td>
                                 <td>Value 11</td>
                                 <td>Value 12</td>
-                                <td>Value 13</td>
-                                <td>Value 14</td>
-                                <td>Value 15</td>
-                                <td>Value 16</td>
-                                <td>Value 17</td>
                             </tr>
                         </tbody>
                     </table>   
