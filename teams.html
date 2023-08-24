@@ -106,7 +106,7 @@
                         fixedHeader:true, //keep header at top of table
                     } );
                     //initialize dataTables
-                    $('#teamChart').DataTable( {
+                    var table = $('#teamChart').DataTable( {
                         select: true,
                         data: jsonData,
                         //ajax: {
@@ -126,13 +126,46 @@
                             { data: 'ptsAgnstAvg' },
                             { data: 'movesTotal' },
                             { data: 'movesAvg' },
-                    ]} )}
-                );    
+                    ]} );
+                            
+                    // max/min value highlighting
+                    table.columns().every(function() {
+                        var column = this;
+                        var min = Number.POSITIVE_INFINITY;
+                        var max = Number.NEGATIVE_INFINITY;
+                        var minIndex = -1;
+                        var maxIndex = -1;
+
+                        // Get minimum and maximum values in the column
+                        column.data().each(function(value, index) {
+                        value = parseFloat(value); // Assuming the values are numeric
+                        if (!isNaN(value)) {
+                            if (value < min) {
+                            min = value;
+                            minIndex = index;
+                            }
+                            if (value > max) {
+                            max = value;
+                            maxIndex = index;
+                            }
+                        }
+                        });
+
+                        // Add minVal and maxVal classes to cells with minimum and maximum values
+                        column.nodes().to$().each(function(node, index) {
+                            if (index === minIndex) {
+                                $(node).addClass('minVal');
+                            } else if (index === maxIndex) {
+                                $(node).addClass('maxVal');
+                            }
+                        });
+                    });
+                } );
             </script>
             <!-- end dataTables init -->
             <div class="row gx-4 gx-lg-5">
                 <div class="tb-01-wrapper">
-                    <table id="teamChart" class="compact hover stripe" style="margin-top:10px;">
+                    <table id="teamChart" class="hover stripe" style="margin-top:10px;">
                         <thead>
                             <tr>
                                 <th>Manager</th>

@@ -1,9 +1,10 @@
-@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700");
+
 :root {
   --dt-row-selected: 13, 110, 253;
   --dt-row-selected-text: 255, 255, 255;
   --dt-row-selected-link: 9, 10, 11;
-  --dt-row-stripe: 0, 0, 0;
+  --dt-row-stripe: 182, 182, 182;
   --dt-row-hover: 0, 0, 0;
   --dt-column-ordering: 0, 0, 0;
   --dt-html-background: white;
@@ -42,70 +43,69 @@ table.dataTable thead > tr > td.sorting_desc_disabled {
   position: relative;
   padding-right: 26px;
 }
-table.dataTable thead > tr > th.sorting:before, table.dataTable thead > tr > th.sorting:after, table.dataTable thead > tr > th.sorting_asc:before, table.dataTable thead > tr > th.sorting_asc:after, table.dataTable thead > tr > th.sorting_desc:before, table.dataTable thead > tr > th.sorting_desc:after, table.dataTable thead > tr > th.sorting_asc_disabled:before, table.dataTable thead > tr > th.sorting_asc_disabled:after, table.dataTable thead > tr > th.sorting_desc_disabled:before, table.dataTable thead > tr > th.sorting_desc_disabled:after,
+table.dataTable thead > tr > th.sorting:before,
+table.dataTable thead > tr > th.sorting:after,
 table.dataTable thead > tr > td.sorting:before,
-table.dataTable thead > tr > td.sorting:after,
-table.dataTable thead > tr > td.sorting_asc:before,
-table.dataTable thead > tr > td.sorting_asc:after,
-table.dataTable thead > tr > td.sorting_desc:before,
-table.dataTable thead > tr > td.sorting_desc:after,
-table.dataTable thead > tr > td.sorting_asc_disabled:before,
-table.dataTable thead > tr > td.sorting_asc_disabled:after,
-table.dataTable thead > tr > td.sorting_desc_disabled:before,
-table.dataTable thead > tr > td.sorting_desc_disabled:after {
+table.dataTable thead > tr > td.sorting:after {
   position: absolute;
   display: block;
-  opacity: 0.9;
   right: 10px;
   line-height: 9px;
   font-size: 0.8em;
-}
-table.dataTable thead > tr > th.sorting:before, table.dataTable thead > tr > th.sorting_asc:before, table.dataTable thead > tr > th.sorting_desc:before, table.dataTable thead > tr > th.sorting_asc_disabled:before, table.dataTable thead > tr > th.sorting_desc_disabled:before,
-table.dataTable thead > tr > td.sorting:before,
-table.dataTable thead > tr > td.sorting_asc:before,
-table.dataTable thead > tr > td.sorting_desc:before,
-table.dataTable thead > tr > td.sorting_asc_disabled:before,
-table.dataTable thead > tr > td.sorting_desc_disabled:before {
-  bottom: 50%;
-  content: "▲";
-  content: "▲"/"";
-}
-th.sorting::before {
-    color: #5DA9E9;
-}
-th.sorting::after {
-    color: #EEE1B3;
+  opacity: 0; /* Hide by default */
+  transition: opacity 0.2s; /* Add a smooth transition */
 }
 
-th {
-    font-weight: normal;
-    font-size: 1.2em;    
+table.dataTable thead > tr > th.sorting:before,
+table.dataTable thead > tr > td.sorting:before {
+  bottom: 50%;
+  content: "🔼";
+  padding-bottom: 5px;
+  padding-left: 5px;
 }
-table.dataTable thead > tr > th.sorting:after, table.dataTable thead > tr > th.sorting_asc:after, table.dataTable thead > tr > th.sorting_desc:after, table.dataTable thead > tr > th.sorting_asc_disabled:after, table.dataTable thead > tr > th.sorting_desc_disabled:after,
-table.dataTable thead > tr > td.sorting:after,
-table.dataTable thead > tr > td.sorting_asc:after,
-table.dataTable thead > tr > td.sorting_desc:after,
-table.dataTable thead > tr > td.sorting_asc_disabled:after,
-table.dataTable thead > tr > td.sorting_desc_disabled:after {
+
+table.dataTable thead > tr > th.sorting:after,
+table.dataTable thead > tr > td.sorting:after {
   top: 50%;
-  content: "▼";
-  content: "▼"/"";
+  content: "🔽";
+  padding-top: 5px;
+  padding-left: 5px;
 }
-table.dataTable thead > tr > th.sorting_asc:before, table.dataTable thead > tr > th.sorting_desc:after,
+
+/* Show sorting icons on hover */
+table.dataTable thead > tr > th.sorting:hover:before,
+table.dataTable thead > tr > th.sorting:hover:after,
+table.dataTable thead > tr > td.sorting:hover:before,
+table.dataTable thead > tr > td.sorting:hover:after,
+table.dataTable thead > tr > th.sorting_asc:before,
+table.dataTable thead > tr > th.sorting_desc:after,
 table.dataTable thead > tr > td.sorting_asc:before,
-table.dataTable thead > tr > td.sorting_desc:after {
-  opacity: 0.6;
+table.dataTable thead > tr > td.sorting_desc:after,
+table.dataTable thead > tr > th.sorting_asc_disabled:before,
+table.dataTable thead > tr > th.sorting_desc_disabled:after,
+table.dataTable thead > tr > td.sorting_asc_disabled:before,
+table.dataTable thead > tr > td.sorting_desc_disabled:before {
+  opacity: 1;
 }
-table.dataTable thead > tr > th.sorting_desc_disabled:after, table.dataTable thead > tr > th.sorting_asc_disabled:before,
-table.dataTable thead > tr > td.sorting_desc_disabled:after,
-table.dataTable thead > tr > td.sorting_asc_disabled:before {
-  display: none;
+
+/* Adjust font size and weight for table headers */
+th {
+  font-weight: normal;
+  font-size: 1.2em;
 }
+
+/* Adjust hover behavior for sorting buttons */
+table.dataTable thead > tr > th.sorting:hover,
+table.dataTable thead > tr > td.sorting:hover {
+  cursor: pointer;
+}
+
 table.dataTable thead > tr > th:active,
 table.dataTable thead > tr > td:active {
   outline: none;
 }
- 
+
+
 div.dataTables_scrollBody > table.dataTable > thead > tr > th:before, div.dataTables_scrollBody > table.dataTable > thead > tr > th:after,
 div.dataTables_scrollBody > table.dataTable > thead > tr > td:before,
 div.dataTables_scrollBody > table.dataTable > thead > tr > td:after {
@@ -270,21 +270,43 @@ table.dataTable {
   border-collapse: separate;
   border-spacing: 0;
 }
-  /*
-   * Header and footer styles
-   */
+/* core colors */
 thead {
     background-color:black;
     color:white;
    }
+   /*table bg*/
+table.dataTable tbody tr {
+    background-color: white;
+  }
+
+.minVal {
+    font-weight: bold;
+}
+  /* not sure what these were for
+th.sorting::before {
+    color: white;
+  }
+th.sorting::after {
+    color: black;
+  }*/
+
+  /*hover colors*/
+table tbody tr:nth-child(even):hover td{
+    background-color: #F0544F !important;
+    color: white;
+}
+
+table tbody tr:nth-child(odd):hover td {
+    background-color: #F0544F !important;
+    color: white;
+}
   /*
+   * Header and footer styles
+   */
+   /*
    * Body styles
    */
-}
-table.dataTable thead th,
-table.dataTable tfoot th {
-  font-weight: bold;
-}
 table.dataTable > thead > tr > th,
 table.dataTable > thead > tr > td {
   padding: 10px;
@@ -299,9 +321,7 @@ table.dataTable > tfoot > tr > td {
   padding: 10px 10px 6px 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.3);
 }
-table.dataTable tbody tr {
-  background-color: white;
-}
+
 table.dataTable tbody tr.selected > * {
   box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.9);
   box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.9);
@@ -343,8 +363,8 @@ table.dataTable.cell-border > tbody > tr:first-child > td {
   border-top: none;
 }
 table.dataTable.stripe > tbody > tr.odd > *, table.dataTable.display > tbody > tr.odd > * {
-  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.023);
-  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-stripe), 0.023);
+  /*box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.3);*/
+  box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-stripe), 1);
 }
 table.dataTable.stripe > tbody > tr.odd.selected > *, table.dataTable.display > tbody > tr.odd.selected > * {
   box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.923);
@@ -375,7 +395,7 @@ table.dataTable.display > tbody tr.selected > .sorting_3 {
   box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.919);
 }
 table.dataTable.display > tbody > tr.odd > .sorting_1, table.dataTable.order-column.stripe > tbody > tr.odd > .sorting_1 {
-  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.054);
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 0 0 9999px rgba(var(--dt-column-ordering), 0.054);
 }
 table.dataTable.display > tbody > tr.odd > .sorting_2, table.dataTable.order-column.stripe > tbody > tr.odd > .sorting_2 {
@@ -643,8 +663,8 @@ table.dataTable td {
   }
 }
 html.dark {
-  --dt-row-hover: 255, 255, 255;
-  --dt-row-stripe: 255, 255, 255;
+  --dt-row-hover: 240, 84, 79;
+  --dt-row-stripe: 238, 238, 238;
   --dt-column-ordering: 255, 255, 255;
 }
 html.dark table.dataTable > thead > tr > th,
