@@ -89,7 +89,10 @@
             <script>
                 $(document).ready( function () {
                     $('#teamChart').DataTable( {
-                        data: data,
+                        ajax: {
+                            url: 'assets/ManagerHistory.json', // Replace with the actual path to your JSON file
+                            dataSrc: '' // Since the JSON file directly contains an array of data, set this to an empty string
+                        },
                         columns: [
                             { data: 'manager' },
                             { data: 'joined' },
