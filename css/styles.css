@@ -11354,3 +11354,21 @@ justify-content: center;
   line-height: 1;
   padding-bottom: 3px;
 }
+.img-container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.img-txt-overlay{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  font-family: 'PepperSauce', sans-serif;
+  font-size: 2.5rem;
+}
