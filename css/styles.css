@@ -4209,7 +4209,6 @@ textarea.form-control-lg {
   background-color: var(--bs-card-bg);
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
-  border-radius: var(--bs-card-border-radius);
 }
 .card > hr {
   margin-right: 0;
@@ -8041,6 +8040,12 @@ textarea.form-control-lg {
 
 .text-center {
   text-align: center !important;
+  border: none;
+  height: 10%;
+  border-top: 15px solid #0A0908;
+  border-bottom: 15px solid #0A0908;
+  --bs-bg-opacity: 1;
+  background-color: #F0544F;
 }
 
 .text-decoration-none {
@@ -8177,16 +8182,6 @@ textarea.form-control-lg {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
-
-.bg-secondary {
-  --bs-bg-opacity: 1;
-  background-color: #0A0908;
-}
-.bg-secondary:hover {
-  --bs-bg-opacity: 1;
-  background-color: #F0544F;
-}
-
 
 .bg-success {
   --bs-bg-opacity: 1;
@@ -11108,7 +11103,7 @@ body, blockquote, p {
   }
 }
 
-@media: (min-width: 476px) {
+@media (min-width: 476px) {
   .logo-text a {
     min-width: 280px;
   }
