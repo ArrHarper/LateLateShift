@@ -3739,7 +3739,7 @@ textarea.form-control-lg {
 
 .navbar {
   --bs-navbar-padding-x: 0;
-  --bs-navbar-padding-y: 0.5rem;
+  --bs-navbar-padding-y: 0.1rem;
   --bs-navbar-color: rgba(0, 0, 0, 0.55);
   --bs-navbar-hover-color: rgba(0, 0, 0, 0.7);
   --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
@@ -8200,7 +8200,6 @@ textarea.form-control-lg {
 
 .bg-dark {
   --bs-bg-opacity: 1;
-  /*background-color: #001D3D;*/
   background-color: #5E239D;
 }
 
@@ -10981,7 +10980,8 @@ body, blockquote, p {
 
 .dropdown-container {
   position: relative;
-  background-color: #5E239D;
+  background-color: transparent;
+  opacity: 1;
 }
 
 .dropdown-container:hover {
