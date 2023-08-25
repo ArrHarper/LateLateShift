@@ -11354,6 +11354,24 @@ justify-content: center;
   line-height: 1;
   padding-bottom: 3px;
 }
+.cta-svg-container-alt {
+  width: 2rem; /* Adjust the width of the SVG container */
+  height: auto; /* This ensures the container is square */
+  min-width: 44px;
+}
+.cta-svg-alt {
+  width: 100%;
+  height: 100%;
+}
+.cta-svg-alt {
+  width: 100%;
+  height: 100%;
+}
+.cta-svg-alt:hover {
+  fill: #FBFEF9;
+}
+
+
 .img-container{
   position: relative;
   width: 100%;
