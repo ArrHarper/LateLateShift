@@ -11062,8 +11062,6 @@ body, blockquote, p {
   justify-content: center;
   align-content: space-around;
   flex-direction: row;
-  row-gap: 1em;
-  padding: 5px;
 }
 
 .logo-image {
@@ -11371,6 +11369,17 @@ justify-content: center;
   fill: #FBFEF9;
 }
 
+.cta-p {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 1.3em;
+  font-family: "JetBrains Mono",monospace;
+}
+
+.cta-p-container {
+  text-align: center;
+}
 
 .img-container{
   position: relative;
