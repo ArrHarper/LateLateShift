@@ -77,11 +77,11 @@
   }
 
 .belt-card {
-  border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
   margin-bottom: 20px;
   background-color: #FBFEF9;
+  color: #5E239D;
   border-radius: 6px;
 }
 
