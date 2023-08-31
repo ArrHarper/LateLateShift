@@ -10971,14 +10971,15 @@ body, blockquote, p {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid #ddd;
   text-align: center;
-  border: 1px solid #ddd;
   background-color: #FBFEF9;
+  border-radius: 8px;
+  border-color: #FBFEF9;
+  border: 0;
+  background-clip: padding-box;
 }
 
 .champ-row { 
-  border: 1px solid #ddd;
   width: 50%;
   padding: 6px;
 }
