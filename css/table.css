@@ -25,6 +25,7 @@ h1, h2, h3, h4, h5, h6 {
 .tabletm {
   width: 100%;
   border: 1px solid #EEEEEE;
+  background-color: white;
 }
 
 .table-header, .table-row {
@@ -86,3 +87,19 @@ h1, h2, h3, h4, h5, h6 {
   content: "(asc)";
 }
 /*# sourceMappingURL=table.css.map */
+.drawer-container {
+  position: relative;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+}
+.drawer-open {
+  transition: height 0.3s ease-in-out;
+}
+#sb-score-container-1 {
+  /*top: 100%; /* Position below the card-footer */
+  left: 0;
+  transform: translateY(5px); /* Add a small gap from the card-footer */
+}
+#sb-score-container-1.overlay {
+  z-index: 1000; /* Place the drawer above other elements */
+}
