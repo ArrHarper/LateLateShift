@@ -1,6 +1,6 @@
 {
   "name": "latelateshift",
-  "version": "1.1.0",
+  "version": "1.0.1",
   "description": "Fantasy Football Keeper League",
   "main": ".eleventy.js",
   "scripts": {
