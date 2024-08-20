@@ -1,0 +1,83 @@
+{% extends 'base.njk' %}
+
+{% block title %}
+LLS Keeper Rules {{ super() }}
+{% endblock %}
+
+{% block head %}
+
+{% endblock %} 
+
+{% block heading %}
+<div class="row gx-4 gx-lg-5 align-items-center my-5" id="heading-row">
+    <div class="col-lg-7">
+        <div class="img-container">
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="https://embed-ssl.wistia.com/deliveries/9f1f8ca636415816f9deadab4d1c3dfa.png" alt="overhead view of Gillette Stadium" />
+            <div class="img-txt-overlay">
+                <p>Keeper Rules</p>
+            </div>    
+        </div>      
+    </div>
+    <div class="col-lg-5">
+        <h1 class="font-weight-light">Keeper Rules and Costs</h1>
+        <em>Last Updated: 8/20/23</em>
+        <a class="button-29" href="#gen-sec">Rules & Costs</a>
+        <a class="button-29" href="/keeper-history/">Keeper History</a>
+    </div>   
+</div>
+{% endblock %}
+
+{% block content %}
+   
+    <h3 id="gen-sec">General Rules & Keeper Eligibility</h3>
+        <ul>
+            <li>Up to <b>2 keepers per team</b>. Keeping players is <b>optional</b>.</li>
+            <li><b>Players can be kept for 2 consecutive seasons</b> after their draft year, then returned to the draft pool.</li>
+            <li><b>Players drafted in the 1st round are are ineligible and cannot be kept</b>. This keeps a healthy pool of elite players in the draft mix each year.</li>
+        </ul>
+    
+    <h3>Cost to Keep Drafted Players</h3>
+        <ul>
+            <li><b>Keeper cost is equal to the player’s most recent draft position</b>, e.g. a player selected in round 4 in 2021 costs a 4th round pick to keep in 2022.</li>
+            <li><b>Keeping players for a second consecutive season increases the cost by one round</b>, so a 4th round selection costs a 3rd round pick to keep a second time.</li>   
+        </ul>
+        <div class="blockquote-container">
+            <h4 class="blockquote-header"><em>Example</em></h4>
+            <blockquote class="styled-blockquote">
+                Mark Andrews was drafted 6th round 2020.</br> 
+                Andrews costs a 6th rd pick to keep in 2021,</br>
+                Andrews costs a 5th rd pick to keep in 2022. </br>
+                In 2023, Andrews is ineligible and returns to the draft pool.
+            </blockquote>
+        </div>
+        
+    <h3>Cost to Keep Undrafted Free Agents (UDFAs)</h3>
+        <ul>
+            <li>Undrafted Free Agents (UDFA) are players <i>not drafted by any team</i> in the most recent draft.</li> 
+            <li>Keeping a UDFA costs an <b>8th round pick</b> for the first year. </li>
+            <li>Keeping a UDFA costs a <b>7th round pick</b> for the second year. </li>
+        </ul>
+        <div class="blockquote-container">
+            <h4 class="blockquote-header"><em>Example</em></h4>
+            <blockquote class="styled-blockquote">
+                Justin Jefferson was signed as an UDFA in 2020.</br> 
+                Jefferson costs a 8th rd pick to keep in 2021,</br>
+                Jefferson costs a 7th rd pick to keep in 2022.</br>
+                In 2023, Jefferson is ineligible and returns to the draft pool.
+            </blockquote>
+        </div>
+
+    <h3>FAQ</h3>
+
+    <h5>What if I want to keep two UDFAs, or two players drafted in the same round?</h5>
+
+    <p>In this situation, the cost for the second keeper increases by one round. So keeping 2 UDFAs costs an 8th and 7th round pick. Keeping two players drafted in the 10th round costs a 10th and a 9th round pick.</p></br>
+
+    <h5>If I only keep a player for one season, can I pick him again in the draft?</h5>
+
+    <p>Yes, if you return a player to the draft pool and have the opportunity to draft them back onto your roster, you can do this and the keeper costs will reset.</p></br>
+    </ul>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %} 
