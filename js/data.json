@@ -1,0 +1,27 @@
+[
+    {
+        "record": "Most Wins",
+        "recordHolder": "Koo Runnings",
+        "wins": 12
+    },
+    {
+        "record": "Most Wins in a Season, All Time",
+        "recordHolder": "Wraith's Voidwalkers, Season 2020",
+        "wins": 12
+    },
+    {
+        "record": "Longest Streak",
+        "recordHolder": "Koo Runnings",
+        "wins": 7
+    },
+    {
+        "record": "Longest Streak, All Time",
+        "recordHolder": "Koo Runnings, Season 2021",
+        "wins": 7
+    },
+    {
+        "record": "Current Streak",
+        "recordHolder": "Koo Runnings",
+        "wins": 7
+    }
+]

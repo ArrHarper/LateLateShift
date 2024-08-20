@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+  }
+  .wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .tabs {
+    position: relative;
+    background: #FBFEF9;
+    height: 14.75rem;
+  }
+  .tabs::before,
+  .tabs::after {
+    content: "";
+    display: table;
+  }
+  .tabs::after {
+    clear: both;
+  }
+  .tab {
+    float: left;
+  }
+  .tab-switch {
+    display: none;
+  }
+  .tab-label {
+    position: relative;
+    display: block;
+    line-height: 2.75em;
+    height: 3em;
+    padding: 0 1.618em;
+    background: #F0544F;
+    border-right: 0.125rem solid #FBFEF9;
+    color: #fff;
+    cursor: pointer;
+    top: 0;
+    transition: all 0.25s;
+    box-shadow: inset 0px 5px #ff9393;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+  }
+  .tab-label:hover {
+    top: -0.25rem;
+    transition: top 0.25s;
+  }
+  .tab-content {
+    height: 60rem;
+    position: absolute;
+    z-index: 1;
+    top: 2.75em;
+    left: 0;
+    padding: 1.618rem;
+    background: #5DA9E9;
+    color: #36454f;
+    border-bottom: 0.25rem solid #bdc3c7;
+    opacity: 0;
+    transition: all 0.35s;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .tab-switch:checked + .tab-label {
+    color: #fff;
+    border-bottom: 0;
+    border-right: 0.125rem solid #fff;
+    transition: all 0.35s;
+    z-index: 1;
+    top: -0.0625rem;
+    font-weight: bold;
+    box-shadow: inset 0px 5px #a9d2f4;
+    background-image: radial-gradient(100% 100% at 100% 0, #F0544F 0, #5DA9E9 100%);
+  }
+  .tab-switch:checked + label + .tab-content {
+    z-index: 2;
+    opacity: 1;
+    transition: all 0.35s;
+  }
+
+.belt-card {
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #FBFEF9;
+  color: #5E239D;
+  border-radius: 6px;
+}
+
+.belt-card h4 {
+  font-size: 1.2rem;
+}
+
+.belt-svg {
+  width: 100px;
+  height: 80px;
+}
+.belt-svg2 {
+  width: 80px;
+  height: 80px;
+}
+
+.tabLabel-h4 {
+  padding-top: 8px !important;
+  font-family: "JetBrains Mono",monospace;
+}
+
