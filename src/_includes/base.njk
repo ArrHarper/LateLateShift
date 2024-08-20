@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="The LLS Keeper League, Est 2020">
+    <meta name="author" content="ArrHarper">
+    <title>
+        {% block title %}| The Late Late Shift{% endblock %}
+    </title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/table.css" rel="stylesheet">
+    <link href="/css/tabs.css" rel="stylesheet">
+    <link href="/css/tb-01.css" rel="stylesheet">
+    <style>
+            /* Define the font using @font-face */
+        @font-face {
+            font-family: 'PepperSauce'; /* Font name to use in CSS */
+            src: url('/assets/PepperSauce.ttf') format('truetype'); /* Path to your font file */
+        }
+        
+        /* Apply the font to specific elements */
+        .logo-text {
+            font-family: 'PepperSauce', sans-serif; /* Use the defined font */
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRWVV3VF"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Responsive navbar-->
+        {% include "_nav.njk" %}
+        
+        <!-- CTA bar / countdown -->
+        {% include "_cta-bar.njk" %}   
+       
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5" id="main-column">
+                <div id="heading-row" class="row gx-4 gx-lg-5 align-items-center my-5">
+                    
+            {% block heading %}
+            Heading should be displaying here, not this text! 
+            {% endblock %}
+                </div>
+
+            {% block content %}
+            content should be displaying here, not this text!
+            {% endblock %}
+        </div>
+        <!--End Page Content-->
+
+        <div class="footy-div">
+            Copyright © ArrHarper 2024
+        </div>
+        {% block scripts %}
+        {% endblock %}
+
+</body>
+</html>

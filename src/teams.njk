@@ -1,0 +1,485 @@
+{% extends 'base.njk' %}
+
+{% block title %}
+LLS Teams and Managers 🏈 {{ super() }}
+{% endblock %}
+
+{% block head %}
+<!--dataTables.js-->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-1.13.6/b-2.4.1/b-colvis-2.4.1/b-html5-2.4.1/fc-4.3.0/fh-3.4.0/sl-1.7.0/datatables.min.js"></script>
+{% endblock %}    
+
+{% block heading %}
+<div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-lg-5">
+        <h1 class="font-weight-light">LLS Teams</h1>
+        <p>Team list and all-time stats per manager. Click on rows to select, CTRL+click and SHIFT+click to select multiple rows.</p><br>
+    </div>
+    <div class="col-lg-7">
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="https://embed-ssl.wistia.com/deliveries/04b18769145f242f5e8dd0c80982d736.png" alt="Patriots players dump a water cooler over Bill Belichick to celebrate" />
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Initialize dataTables.js -->    
+            <script>
+                $(document).ready( function () {
+                    //parse json from tempData div
+                    var jsonData = JSON.parse(document.getElementById("tempData").textContent);
+                    //set defaults for our table
+                    $.extend( $.fn.dataTable.defaults, {
+                        paging: false, //disable paging
+                        lengthChange:  false, // disable 'results per page'
+                        fixedHeader:true, //keep header at top of table
+                    } );
+                    //initialize dataTables
+                    var table = $('#teamChart').DataTable( {
+                        select: true,
+                        data: jsonData,
+                        //ajax: {
+                            //url: 'assets/ManagerHistory.json',
+                            //dataSrc: ''
+                        //},
+                        columns: [
+                            { data: 'manager' },
+                            { data: 'joined' },
+                            { data: 'seasonsCt' },
+                            { data: 'winTotal' },
+                            { data: 'lossTotal' },
+                            { data: 'win' },
+                            { data: 'ptsForTotal' },
+                            { data: 'ptsAgnstTotal' },
+                            { data: 'ptsForAvg' },
+                            { data: 'ptsAgnstAvg' },
+                            { data: 'movesTotal' },
+                            { data: 'movesAvg' },
+                    ]} );
+                            
+                    // max/min value highlighting
+                    table.columns().every(function() {
+                        var column = this;
+                        var min = Number.POSITIVE_INFINITY;
+                        var max = Number.NEGATIVE_INFINITY;
+                        var minIndex = -1;
+                        var maxIndex = -1;
+
+                        // Get minimum and maximum values in the column
+                        column.data().each(function(value, index) {
+                        value = parseFloat(value); // Assuming the values are numeric
+                        if (!isNaN(value)) {
+                            if (value < min) {
+                            min = value;
+                            minIndex = index;
+                            }
+                            if (value > max) {
+                            max = value;
+                            maxIndex = index;
+                            }
+                        }
+                        });
+
+                        // Add minVal and maxVal classes to cells with minimum and maximum values
+                        column.nodes().to$().each(function(node, index) {
+                            if (index === minIndex) {
+                                $(node).addClass('minVal');
+                            } else if (index === maxIndex) {
+                                $(node).addClass('maxVal');
+                            }
+                        });
+                    });
+                } );
+            </script>
+            <!-- end dataTables init -->
+            <div class="row gx-4 gx-lg-5">
+                <div class="tb-01-wrapper">
+                    <table id="teamChart" class="hover stripe" style="margin-top:10px;">
+                        <thead>
+                            <tr>
+                                <th>Manager</th>
+                                <th>Since</th>
+                                <th>Yrs</th>
+                                <th>W</th>
+                                <th>L</th>
+                                <th>win%</th>
+                                <th>PF Total</th>
+                                <th>PA Total</th>
+                                <th>PF Avg</th>
+                                <th>PA Avg</th>
+                                <th>Moves</th>
+                                <th>Moves/Season</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Value 1</td>
+                                <td>Value 2</td>
+                                <td>Value 3</td>
+                                <td>Value 4</td>
+                                <td>Value 5</td>
+                                <td>Value 6</td>
+                                <td>Value 7</td>
+                                <td>Value 8</td>
+                                <td>Value 9</td>
+                                <td>Value 10</td>
+                                <td>Value 11</td>
+                                <td>Value 12</td>
+                            </tr>
+                            <tr>
+                                <td>Value 1</td>
+                                <td>Value 2</td>
+                                <td>Value 3</td>
+                                <td>Value 4</td>
+                                <td>Value 5</td>
+                                <td>Value 6</td>
+                                <td>Value 7</td>
+                                <td>Value 8</td>
+                                <td>Value 9</td>
+                                <td>Value 10</td>
+                                <td>Value 11</td>
+                                <td>Value 12</td>
+                            </tr>
+                            <tr>
+                                <td>Value 1</td>
+                                <td>Value 2</td>
+                                <td>Value 3</td>
+                                <td>Value 4</td>
+                                <td>Value 5</td>
+                                <td>Value 6</td>
+                                <td>Value 7</td>
+                                <td>Value 8</td>
+                                <td>Value 9</td>
+                                <td>Value 10</td>
+                                <td>Value 11</td>
+                                <td>Value 12</td>
+                            </tr>
+                            <tr>
+                                <td>Value 1</td>
+                                <td>Value 2</td>
+                                <td>Value 3</td>
+                                <td>Value 4</td>
+                                <td>Value 5</td>
+                                <td>Value 6</td>
+                                <td>Value 7</td>
+                                <td>Value 8</td>
+                                <td>Value 9</td>
+                                <td>Value 10</td>
+                                <td>Value 11</td>
+                                <td>Value 12</td>
+                            </tr>
+                            <tr>
+                                <td>Value 1</td>
+                                <td>Value 2</td>
+                                <td>Value 3</td>
+                                <td>Value 4</td>
+                                <td>Value 5</td>
+                                <td>Value 6</td>
+                                <td>Value 7</td>
+                                <td>Value 8</td>
+                                <td>Value 9</td>
+                                <td>Value 10</td>
+                                <td>Value 11</td>
+                                <td>Value 12</td>
+                            </tr>
+                            <tr>
+                                <td>Value 1</td>
+                                <td>Value 2</td>
+                                <td>Value 3</td>
+                                <td>Value 4</td>
+                                <td>Value 5</td>
+                                <td>Value 6</td>
+                                <td>Value 7</td>
+                                <td>Value 8</td>
+                                <td>Value 9</td>
+                                <td>Value 10</td>
+                                <td>Value 11</td>
+                                <td>Value 12</td>
+                            </tr>
+                            <tr>
+                                <td>Value 1</td>
+                                <td>Value 2</td>
+                                <td>Value 3</td>
+                                <td>Value 4</td>
+                                <td>Value 5</td>
+                                <td>Value 6</td>
+                                <td>Value 7</td>
+                                <td>Value 8</td>
+                                <td>Value 9</td>
+                                <td>Value 10</td>
+                                <td>Value 11</td>
+                                <td>Value 12</td>
+                            </tr>
+                            <tr>
+                                <td>Value 1</td>
+                                <td>Value 2</td>
+                                <td>Value 3</td>
+                                <td>Value 4</td>
+                                <td>Value 5</td>
+                                <td>Value 6</td>
+                                <td>Value 7</td>
+                                <td>Value 8</td>
+                                <td>Value 9</td>
+                                <td>Value 10</td>
+                                <td>Value 11</td>
+                                <td>Value 12</td>
+                            </tr>
+                            <tr>
+                                <td>Value 1</td>
+                                <td>Value 2</td>
+                                <td>Value 3</td>
+                                <td>Value 4</td>
+                                <td>Value 5</td>
+                                <td>Value 6</td>
+                                <td>Value 7</td>
+                                <td>Value 8</td>
+                                <td>Value 9</td>
+                                <td>Value 10</td>
+                                <td>Value 11</td>
+                                <td>Value 12</td>
+                            </tr>
+                            <tr>
+                                <td>Value 1</td>
+                                <td>Value 2</td>
+                                <td>Value 3</td>
+                                <td>Value 4</td>
+                                <td>Value 5</td>
+                                <td>Value 6</td>
+                                <td>Value 7</td>
+                                <td>Value 8</td>
+                                <td>Value 9</td>
+                                <td>Value 10</td>
+                                <td>Value 11</td>
+                                <td>Value 12</td>
+                            </tr>
+                            <tr>
+                                <td>Value 1</td>
+                                <td>Value 2</td>
+                                <td>Value 3</td>
+                                <td>Value 4</td>
+                                <td>Value 5</td>
+                                <td>Value 6</td>
+                                <td>Value 7</td>
+                                <td>Value 8</td>
+                                <td>Value 9</td>
+                                <td>Value 10</td>
+                                <td>Value 11</td>
+                                <td>Value 12</td>
+                            </tr>
+                            <tr>
+                                <td>Value 1</td>
+                                <td>Value 2</td>
+                                <td>Value 3</td>
+                                <td>Value 4</td>
+                                <td>Value 5</td>
+                                <td>Value 6</td>
+                                <td>Value 7</td>
+                                <td>Value 8</td>
+                                <td>Value 9</td>
+                                <td>Value 10</td>
+                                <td>Value 11</td>
+                                <td>Value 12</td>
+                            </tr>
+                        </tbody>
+                    </table>   
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+{% block scripts %}
+<script type="application/json" id="tempData">
+            [
+                {
+                    "manager": "Ben 🏆x1",
+                    "joined": 2022,
+                    "seasonsCt": 1,
+                    "winTotal": 6,
+                    "lossTotal": 8,
+                    "winAvg": 6,
+                    "lossAvg": 8,
+                    "win": 0.43,
+                    "ptsForTotal": 1562.64,
+                    "ptsAgnstTotal": 1652.18,
+                    "ptsForAvg": 1562.64,
+                    "ptsAgnstAvg": 1652.18,
+                    "movesTotal": 35,
+                    "movesAvg": 35,
+                    "matchups20": 0,
+                    "matchups21": 0,
+                    "matchups22": 14
+                },
+                {
+                    "manager": "Cass",
+                    "joined": 2020,
+                    "seasonsCt": 3,
+                    "winTotal": 28,
+                    "lossTotal": 13,
+                    "winAvg": 9.33,
+                    "lossAvg": 4.33,
+                    "win": 0.68,
+                    "ptsForTotal": 4974.72,
+                    "ptsAgnstTotal": 4596.06,
+                    "ptsForAvg": 1658.24,
+                    "ptsAgnstAvg": 1532.02,
+                    "movesTotal": 102,
+                    "movesAvg": 34,
+                    "matchups20": 13,
+                    "matchups21": 14,
+                    "matchups22": 14
+                },
+                {
+                    "manager": "Colin 🏆x2",
+                    "joined": 2020,
+                    "seasonsCt": 3,
+                    "winTotal": 24,
+                    "lossTotal": 17,
+                    "winAvg": 8,
+                    "lossAvg": 5.67,
+                    "win": 0.59,
+                    "ptsForTotal": 4718.04,
+                    "ptsAgnstTotal": 4476.26,
+                    "ptsForAvg": 1572.68,
+                    "ptsAgnstAvg": 1492.09,
+                    "movesTotal": 68,
+                    "movesAvg": 22.67,
+                    "matchups20": 13,
+                    "matchups21": 14,
+                    "matchups22": 14
+                },
+                {
+                    "manager": "David",
+                    "joined": 2020,
+                    "seasonsCt": 3,
+                    "winTotal": 23,
+                    "lossTotal": 18,
+                    "winAvg": 7.67,
+                    "lossAvg": 6,
+                    "win": 0.56,
+                    "ptsForTotal": 4870.36,
+                    "ptsAgnstTotal": 4551.72,
+                    "ptsForAvg": 1623.45,
+                    "ptsAgnstAvg": 1517.24,
+                    "movesTotal": 69,
+                    "movesAvg": 23,
+                    "matchups20": 13,
+                    "matchups21": 14,
+                    "matchups22": 14
+                },
+                {
+                    "manager": "Harper",
+                    "joined": 2020,
+                    "seasonsCt": 3,
+                    "winTotal": 18,
+                    "lossTotal": 23,
+                    "winAvg": 6,
+                    "lossAvg": 7.67,
+                    "win": 0.44,
+                    "ptsForTotal": 4446.42,
+                    "ptsAgnstTotal": 4752.44,
+                    "ptsForAvg": 1482.14,
+                    "ptsAgnstAvg": 1584.15,
+                    "movesTotal": 110,
+                    "movesAvg": 36.67,
+                    "matchups20": 13,
+                    "matchups21": 14,
+                    "matchups22": 14
+                },
+                {
+                    "manager": "John",
+                    "joined": 2020,
+                    "seasonsCt": 3,
+                    "winTotal": 16,
+                    "lossTotal": 25,
+                    "winAvg": 5.33,
+                    "lossAvg": 8.33,
+                    "win": 0.39,
+                    "ptsForTotal": 4561.1,
+                    "ptsAgnstTotal": 4949.14,
+                    "ptsForAvg": 1520.37,
+                    "ptsAgnstAvg": 1649.71,
+                    "movesTotal": 41,
+                    "movesAvg": 13.67,
+                    "matchups20": 13,
+                    "matchups21": 14,
+                    "matchups22": 14
+                },
+                {
+                    "manager": "Price",
+                    "joined": 2020,
+                    "seasonsCt": 3,
+                    "winTotal": 18,
+                    "lossTotal": 23,
+                    "winAvg": 6,
+                    "lossAvg": 7.67,
+                    "win": 0.44,
+                    "ptsForTotal": 4535.68,
+                    "ptsAgnstTotal": 4801.38,
+                    "ptsForAvg": 1511.89,
+                    "ptsAgnstAvg": 1600.46,
+                    "movesTotal": 112,
+                    "movesAvg": 37.33,
+                    "matchups20": 13,
+                    "matchups21": 14,
+                    "matchups22": 14
+                },
+                {
+                    "manager": "Ray",
+                    "joined": 2021,
+                    "seasonsCt": 2,
+                    "winTotal": 11,
+                    "lossTotal": 17,
+                    "winAvg": 5.5,
+                    "lossAvg": 8.5,
+                    "win": 0.39,
+                    "ptsForTotal": 3346.76,
+                    "ptsAgnstTotal": 3344.32,
+                    "ptsForAvg": 1673.38,
+                    "ptsAgnstAvg": 1672.16,
+                    "movesTotal": 23,
+                    "movesAvg": 11.5,
+                    "matchups20": 0,
+                    "matchups21": 14,
+                    "matchups22": 14
+                },
+                {
+                    "manager": "TK",
+                    "joined": 2020,
+                    "seasonsCt": 3,
+                    "winTotal": 22,
+                    "lossTotal": 19,
+                    "winAvg": 7.33,
+                    "lossAvg": 6.33,
+                    "win": 0.54,
+                    "ptsForTotal": 4551.18,
+                    "ptsAgnstTotal": 4602.42,
+                    "ptsForAvg": 1517.06,
+                    "ptsAgnstAvg": 1534.14,
+                    "movesTotal": 67,
+                    "movesAvg": 22.33,
+                    "matchups20": 13,
+                    "matchups21": 14,
+                    "matchups22": 14
+                },
+                {
+                    "manager": "Uzoma 🏆x1",
+                    "joined": 2020,
+                    "seasonsCt": 3,
+                    "winTotal": 27,
+                    "lossTotal": 14,
+                    "winAvg": 9,
+                    "lossAvg": 4.67,
+                    "win": 0.66,
+                    "ptsForTotal": 4860.18,
+                    "ptsAgnstTotal": 4384.92,
+                    "ptsForAvg": 1620.06,
+                    "ptsAgnstAvg": 1461.64,
+                    "movesTotal": 59,
+                    "movesAvg": 19.67,
+                    "matchups20": 13,
+                    "matchups21": 14,
+                    "matchups22": 14
+                }
+            ]
+        </script>
+{% endblock %}
