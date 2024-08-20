@@ -14,7 +14,7 @@ module.exports = function(eleventyConfig) {
       templateFormats: ["html", "njk", "md"],
       htmlTemplateEngine: "njk",
       markdownTemplateEngine: "njk",
-      dataTemplateEngine: "njk"
-      pathPrefix: "/LateLateShift/"
+      dataTemplateEngine: "njk",
+      pathPrefix: "/LateLateShift/",
     };
   };
