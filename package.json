@@ -2,7 +2,7 @@
   "name": "latelateshift",
   "version": "1.0.0",
   "description": "Fantasy Football Keeper League",
-  "main": "index.js",
+  "main": "/src/index.njk",
   "scripts": {
     "prebuild": "rm -rf _site",
     "build": "eleventy",
