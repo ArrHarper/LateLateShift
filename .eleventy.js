@@ -6,6 +6,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("js");
   
     return {
+      pathPrefix: "/LateLateShift/",
       dir: {
         input: "src",
         output: "_site",
@@ -15,6 +16,5 @@ module.exports = function(eleventyConfig) {
       htmlTemplateEngine: "njk",
       markdownTemplateEngine: "njk",
       dataTemplateEngine: "njk",
-      pathPrefix: "/LateLateShift/",
     };
   };
