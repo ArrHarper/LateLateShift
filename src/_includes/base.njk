@@ -9,19 +9,23 @@
         {% block title %}| The Late Late Shift{% endblock %}
     </title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | url }}" />
     
     <link rel="stylesheet" href="{{ '/css/styles.css' | url }}">
     <link rel="stylesheet" href="{{ '/css/table.css' | url }}">
     <link rel="stylesheet" href="{{ '/css/tabs.css' | url }}">
     <link rel="stylesheet" href="{{ '/css/tb-01.css' | url }}">
+
     <style>
-            @font-face {
+        @font-face {
             font-family: 'PepperSauce';
             src: url('{{ "/assets/PepperSauce.ttf" | url }}') format('truetype');
             font-weight: normal;
             font-style: normal;
-        }
+            }
+        .logo-text {
+                font-family: 'PepperSauce', sans-serif; /* Use the defined font */
+            }
     </style>
     <script src="{{ '/js/table.js' | url }}"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
