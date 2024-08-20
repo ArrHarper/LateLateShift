@@ -19,13 +19,18 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  font-size: .9rem;
+  font-size: 1rem;
 }
 
 .tabletm {
   width: 100%;
   border: 1px solid #EEEEEE;
   background-color: white;
+}
+
+.table-content :hover {
+  background-color: #F0544F !important;
+  color: white;
 }
 
 .table-header, .table-row {
@@ -36,7 +41,10 @@ h1, h2, h3, h4, h5, h6 {
 .table-header {
   background: #000;
   color: white;
+  font-size: 1rem;
 }
+
+
 
 .table-row {
   background-color: rgb(221, 221, 221);
@@ -67,6 +75,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   padding-left: 20px;
   padding-right: 20px;
+  font-size: large;
 }
 
 .filter__link::after {
@@ -86,6 +95,17 @@ h1, h2, h3, h4, h5, h6 {
 .filter__link.asc::after {
   content: "(asc)";
 }
+
+.filter__link.desc, .filter__link.asc {
+  color: #cbf04f;
+  font-weight: bolder;
+}
+
+.filter__link:hover {
+  color: #cbf04f;
+  font-weight: bolder;
+}
+
 /*# sourceMappingURL=table.css.map */
 .drawer-container {
   position: relative;
