@@ -4,7 +4,7 @@
   "description": "Fantasy Football Keeper League",
   "main": ".eleventy.js",
   "scripts": {
-    "build": "eleventy",
+    "build": "eleventy --pathprefix=LateLateShift",
     "serve": "eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
