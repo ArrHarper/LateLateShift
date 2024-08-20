@@ -1,3 +1,4 @@
+$(document).ready(function() {
 var properties = [
 	'manager',
 	'team',
@@ -66,4 +67,5 @@ $.each( properties, function( i, val ) {
 		return false;
 	});
 
+	});
 });
