@@ -1,9 +1,108 @@
 {% extends 'base.njk' %}
+{% from "_components/card.njk" import card_row %}
+{% from "_components/card.njk" import card %}
+{% from "_components/callout.njk" import callout %}
+{% from "_components/article.njk" import article %}
 
 {% block heading %}
     <h1>Test Page</h1>
 {% endblock %}
 
 {% block content %}
-    <p>This is a test page to verify template processing.</p>
+    <p>testing the nunjucks component</p><br>
+    {{ card_row([
+    {
+        type: 'text',
+        title: 'This is a Text Card',
+        content: 'With simple text input.',
+        footer: {
+            label: 'This is a button-29 label',
+            href: '#'
+        }
+    },
+    {
+        type: 'image',
+        title: 'This is an Image Card',
+        content: "an image container next to a text container. Great for badges.",
+        image: 'https://embed-ssl.wistia.com/deliveries/4b2f63c1308a8d69d328885c018af1b8.bin',
+        footer: {
+            label: 'This is a button-29 label',
+            href: '#'
+        }
+    },
+    {
+        type: 'text',
+        title: 'This is a Text Card',
+        content: '<p class="card-text">
+                    <ul>
+                        <li>Using HTML</li>
+                        <li>To make</li>
+                        <li>a bullet point list</li>
+                        <!-- Add more list items as needed -->
+                    </ul>
+                </p>',
+        footer: {
+            label: 'This is a button-29 label',
+            href: '#'
+        }
+        }
+]) }}
+
+{{ callout(
+  type='info',
+  title='This is an info callout',
+  list=[
+    'The list property makes a list',
+    'With bullets',
+    'A bulleted list'
+  ]
+) }}
+
+{{ callout(
+  type='warning',
+  title='This is a Warning callout',
+  list=[
+    'The list property makes a list',
+    'With bullets',
+    'A bulleted list'
+  ]
+) }}
+
+{{ callout(
+  type='danger',
+  title='This is a Danger callout',
+  list=[
+    'The list property makes a list',
+    'With bullets',
+    'A bulleted list'
+  ]
+) }}
+
+{{ callout(
+  type='note',
+  title='This is a Note callout',
+  list=[
+    'The list property makes a list',
+    'With bullets',
+    'A bulleted list'
+  ]
+) }}
+
+  {% set articleContent %}
+    <h2>General Rules</h2>
+    <ul>
+      <li>0.5 PPR (Yahoo)</li>
+      <li>10 Teams</li>
+      <li>Snake draft, randomized</li>
+      <li>$20 buy-in</li>
+      <li>$150 to SB winner, $50 to SB loser</li>
+    </ul>
+
+    <h2>Roster</h2>
+    <p>Since the TE position drops off hard after the top 1-2, we've replaced it with a WR/TE flex. This makes teams less reliant on TE roulette and brings more value to mid-tier WRs.</p>
+    
+    <!-- Rest of your content here -->
+  {% endset %}
+
+  {{ article('LLS Rules & Scoring', '8/20/24', articleContent) }}
 {% endblock %}

@@ -1,0 +1,44 @@
+{% macro card(cardData) %}
+<div class="col-md-4 mb-5">
+    <div class="card h-100 {{ cardData.className }}">
+        <div class="card-body" style="padding:.5em;">
+            <h2 class="card-title" style="background-color: #000;background-image:none;padding:2px;">{{ cardData.title }}</h2>
+            
+            {% if cardData.type == 'text' %}
+                <div class="card-text">{{ cardData.content | safe }}</div>
+            {% elif cardData.type == 'image' %}
+                <div class="image-card">
+                    <div class="card-image">
+                        <img src="{{ cardData.image }}" alt="{{ cardData.title }}" />
+                    </div>
+                    <div class="card-text" style="padding-left:5px;">
+                        {% if cardData.content is string %}
+                            {{ cardData.content | safe }}
+                        {% else %}
+                            {% for line in cardData.content %}
+                                <b>{{ line }}</b><br>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            {% else %}
+                <div class="card-text">{{ cardData.content | safe }}</div>
+            {% endif %}
+        </div>
+        
+        {% if cardData.footer %}
+        <div class="card-footer">
+            <a class="button-29" href="{{ cardData.footer.href }}">{{ cardData.footer.label }}</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endmacro %}
+
+{% macro card_row(cards) %}
+<div class="row gx-4 gx-lg-5">
+    {% for cardData in cards %}
+        {{ card(cardData) }}
+    {% endfor %}
+</div>
+{% endmacro %}

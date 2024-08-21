@@ -1,0 +1,36 @@
+{% macro callout(type='info', title='', content='', list=[]) %}
+  {% set bgColor = {
+    'info': '#d7efdc80',
+    'warning': '#fff3cd',
+    'danger': '#f8d7da',
+    'note': '#e2e3e5'
+  } %}
+  {% set borderColor = {
+    'info': '#1bb15733',
+    'warning': '#ffeeba',
+    'danger': '#f5c6cb',
+    'note': '#d6d8db'
+  } %}
+
+  <div class="callout" style="background-color: {{ bgColor[type] }}; border-color: {{ borderColor[type] }}">
+    {% if title %}
+      <div class="callout-title">
+        <p>{{ title }}</p>
+      </div>
+    {% endif %}
+    
+    {% if content %}
+      <div class="callout-content">
+        <p>{{ content }}</p>
+      </div>
+    {% endif %}
+    
+    {% if list and list.length > 0 %}
+      <ul class="callout-list">
+        {% for item in list %}
+          <li>{{ item | safe }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endmacro %}

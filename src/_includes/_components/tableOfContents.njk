@@ -1,0 +1,75 @@
+{% macro tableOfContents() %}
+<nav class="lls-toc">
+  <h2 class="lls-toc__title">Table of Contents</h2>
+  <ul id="toc-list" class="lls-toc__list"></ul>
+</nav>
+
+<style>
+  .lls-toc {
+    width: 250px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    padding: 15px;
+    position: sticky;
+    top: 20px;
+  }
+
+  .lls-toc__title {
+    color: #5DA9E9;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .lls-toc__list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .lls-toc__list li {
+    margin-bottom: 5px;
+  }
+
+  .lls-toc__list a {
+    color: #5E239D;
+    text-decoration: none;
+  }
+
+  .lls-toc__list a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1200px) {
+    .lls-toc {
+      width: 100%;
+      position: static;
+      margin-bottom: 20px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const content = document.querySelector('.lls-article__content');
+    const tocList = document.getElementById('toc-list');
+    const headers = content.querySelectorAll('h2, h3');
+    
+    headers.forEach((header, index) => {
+      const id = `section-${index}`;
+      header.id = id;
+      
+      const listItem = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = `#${id}`;
+      link.textContent = header.textContent;
+      
+      if (header.tagName === 'H3') {
+        listItem.style.paddingLeft = '20px';
+      }
+      
+      listItem.appendChild(link);
+      tocList.appendChild(listItem);
+    });
+  });
+</script>
+{% endmacro %}

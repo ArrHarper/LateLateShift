@@ -1,0 +1,114 @@
+{% from "_components/tableOfContents.njk" import tableOfContents %}
+
+{% macro article(title, lastUpdated, content) %}
+<div class="content-wrapper">
+    <div class="article-container">
+      <article class="lls-article">
+        <header class="lls-article__header">
+          <h1 class="lls-article__title">{{ title }}</h1>
+          {% if lastUpdated %}
+            <p class="lls-article__last-updated">Last Updated: {{ lastUpdated }}</p>
+          {% endif %}
+        </header>
+        
+        <div class="lls-article__content">
+          {{ content | safe }}
+        </div>
+        
+        <footer class="lls-article__footer">
+          <!-- You can add footer content here if needed -->
+        </footer>
+      </article>
+    </div>
+    <div class="toc-container">
+      {{ tableOfContents() }}
+    </div>
+</div>
+
+<style>
+  .content-wrapper {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+  }
+
+  .article-container {
+    flex: 1;
+    max-width: 800px;
+  }
+
+  .toc-container {
+    width: 250px;
+    flex-shrink: 0;
+  }
+
+  .lls-article {
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+
+  .lls-article__header {
+    margin-bottom: 20px;
+  }
+
+  .lls-article__title {
+    color: #5E239D;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .lls-article__last-updated {
+    color: #666;
+    font-style: italic;
+  }
+
+  .lls-article__content {
+    line-height: 1.6;
+  }
+
+  .lls-article__content h2,
+  .lls-article__content h3 {
+    color: #5DA9E9;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  .lls-article__content ul,
+  .lls-article__content ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .lls-article__content p {
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 1200px) {
+    .content-wrapper {
+      flex-direction: column;
+    }
+
+    .article-container {
+      max-width: 100%;
+    }
+
+    .toc-container {
+      width: 100%;
+      margin-bottom: 20px;
+      order: -1;
+    }
+
+    .lls-article {
+      padding: 15px;
+    }
+
+    .lls-article__title {
+      font-size: 2rem;
+    }
+  }
+</style>
+{% endmacro %}
