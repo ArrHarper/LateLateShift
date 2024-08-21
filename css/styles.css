@@ -11256,6 +11256,8 @@ body, blockquote, p {
 .footy-div{
 display: flex;
 justify-content: center;
+padding-top: 1em;
+padding-bottom: 1em;
 }
 
 #main-column {
