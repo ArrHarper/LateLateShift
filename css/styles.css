@@ -1190,6 +1190,12 @@ progress {
     flex: 0 0 auto;
     width: 33.33333333%;
   }
+
+  .col-md-4.champion {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+  
   .col-md-5 {
     flex: 0 0 auto;
     width: 41.66666667%;
@@ -4312,15 +4318,17 @@ textarea.form-control-lg {
 
 .card-body {
   flex: 1 1 auto;
-  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  padding: .3em;
   color: var(--bs-card-color);
 }
 
 .card-title {
   margin-bottom: var(--bs-card-title-spacer-y);
   color: #fff;
-  background-image: radial-gradient(100% 100% at 100% 0, #5E239D 0, #5DA9E9 100%);
-  font-family: 'Gabarito';
+  background-color: #000;
+  font-family: 'GabaritoFat';
+  padding-left: 5px;
+  border-radius: 4px;
 }
 
 .card-subtitle {
@@ -10985,7 +10993,7 @@ body, blockquote, p {
     flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
 }
 
@@ -11261,9 +11269,10 @@ padding-bottom: 1em;
 }
 
 #main-column {
-  background-color: #FBFEF9;
+  background-color: #ffffff;
   padding-top: 40px;
   padding-bottom: 40px;
+  border-radius: 0 0 8px 8px;
 }
 
 #heading-row {
