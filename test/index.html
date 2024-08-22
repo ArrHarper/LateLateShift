@@ -10,6 +10,7 @@
     </title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="/LateLateShift/assets/favicon.ico" />
+    <link rel="stylesheet" href="/LateLateShift/css/fonts.css">
     <link rel="stylesheet" href="/LateLateShift/css/styles.css">
     <link rel="stylesheet" href="/LateLateShift/css/table.css">
     <link rel="stylesheet" href="/LateLateShift/css/tabs.css">
@@ -93,7 +94,9 @@
                 </div>
 
             
-    <p>testing the nunjucks component</p><br>
+<p>testing my custom nunjucks components</p><br>
+<hr>
+<h2>Cards</h2>
     
 <div class="row gx-4 gx-lg-5">
     
@@ -158,7 +161,6 @@
                         <li>Using HTML</li>
                         <li>To make</li>
                         <li>a bullet point list</li>
-                        <!-- Add more list items as needed -->
                     </ul>
                 </p></div>
             
@@ -176,11 +178,13 @@
 </div>
 
 
+<hr>
+<h2>Callouts</h2>
 
   
   
 
-  <div class="callout" style="background-color: #d7efdc80; border-color: #1bb15733">
+  <div class="callout" style="background-color: #a4d2f985; border-color: #6c89db47">
     
       <div class="callout-title">
         <p>This is an info callout</p>
@@ -284,8 +288,10 @@
   </div>
 
 
+<hr>
+<h2>Articles</h2>
+<p>with dynamic table of contents</p>
   
-
   
 <div class="content-wrapper">
     <div class="article-container">
@@ -311,7 +317,6 @@
     <h2>Roster</h2>
     <p>Since the TE position drops off hard after the top 1-2, we've replaced it with a WR/TE flex. This makes teams less reliant on TE roulette and brings more value to mid-tier WRs.</p>
     
-    <!-- Rest of your content here -->
   
         </div>
         
@@ -405,6 +410,28 @@
 </div>
 
 <style>
+    #main-column { 
+        background: transparent;
+    }
+
+    .info-table__cell {
+        font-size:larger;
+        padding 3px;
+    }
+
+    .info-table__header {
+        text-wrap: pretty;
+        max-width: 110px;
+        text-align: center !important;
+        font-weight: 600;
+    }
+
+    .info-table-container {
+        border-radius: 8px 8px 0 0;
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
   .content-wrapper {
     display: flex;
     justify-content: center;
@@ -490,6 +517,813 @@
     }
   }
 </style>
+
+
+<hr>
+<h2>infoTable non-sortable, compact size</h2>
+
+
+
+<div class="info-table-container info-table-container--compact" id="table-6909">
+  <table class="info-table 
+     
+    
+    info-table--compact">
+    <thead>
+      <tr class="info-table__header-row">
+        
+          <th class="info-table__header" >
+            <span class="info-table__header-content">
+              Play
+              
+            </span>
+          </th>
+        
+          <th class="info-table__header" >
+            <span class="info-table__header-content">
+              Points
+              
+            </span>
+          </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="info-table__row">
+          
+            
+              <td class="info-table__cell">Pass TD</td>
+            
+          
+            
+              <td class="info-table__cell">4 pts</td>
+            
+          
+        </tr>
+      
+        <tr class="info-table__row">
+          
+            
+              <td class="info-table__cell">Rush TD</td>
+            
+          
+            
+              <td class="info-table__cell">6 pts</td>
+            
+          
+        </tr>
+      
+        <tr class="info-table__row">
+          
+            
+              <td class="info-table__cell">Rec TD</td>
+            
+          
+            
+              <td class="info-table__cell">6 pts</td>
+            
+          
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+
+<style>
+.info-table-container {
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+.info-table-container--compact {
+  display: inline-block !important;
+}
+
+.info-table {
+  border-collapse: collapse !important;
+  font-family: var(--bs-body-font-family) !important;
+  font-size: var(--bs-body-font-size) !important;
+  width: 100% !important;
+  background-color: white !important;
+  border: 1px solid #EEEEEE !important;
+  table-layout: fixed !important; /* This ensures equal column widths */
+}
+
+.info-table--compact {
+  width: auto !important;
+  table-layout: auto !important; /* Allow compact tables to size to content */
+}
+
+.info-table__header-row {
+  display: table-row !important;
+}
+
+.info-table__header,
+.info-table__cell {
+  padding: 10px !important;
+  text-align: left !important;
+  border: 1px solid #ddd !important;
+  display: table-cell !important;
+  width: auto !important;
+  flex: none !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.info-table__header {
+  background-color: #333 !important;
+  color: white !important;
+  
+  position: relative !important;
+  padding: 10px !important;
+}
+
+.info-table__header-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  text-transform: uppercase !important;
+  font-size: large !important;
+}
+
+.info-table--sortable .info-table__header:hover {
+  color: #cbf04f !important;
+  font-weight: bolder !important;
+}
+
+.info-table__row {
+  display: table-row !important;
+  background-color: transparent !important;
+}
+
+.info-table__row:nth-child(even) {
+  background-color: #f2f2f2 !important;
+}
+
+.info-table__row:hover {
+  background-color: #ddd !important;
+}
+
+.info-table--tall .info-table__header {
+  width: 30% !important;
+}
+
+.info-table--sortable .info-table__header {
+  cursor: pointer !important;
+}
+
+.info-table__sort-icon {
+  font-size: 0.8em !important;
+  margin-left: 5px !important;
+  white-space: nowrap !important;
+}
+
+.info-table .sort-asc .info-table__sort-icon,
+.info-table .sort-desc .info-table__sort-icon {
+  display: inline-block !important;
+}
+
+.info-table--compact .info-table__header,
+.info-table--compact .info-table__cell {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+</style>
+
+<br>
+<h2>infoTable non-sortable, full size</h2>
+
+
+
+<div class="info-table-container " id="table-2125">
+  <table class="info-table 
+     
+    
+    ">
+    <thead>
+      <tr class="info-table__header-row">
+        
+          <th class="info-table__header" >
+            <span class="info-table__header-content">
+              Play
+              
+            </span>
+          </th>
+        
+          <th class="info-table__header" >
+            <span class="info-table__header-content">
+              Points
+              
+            </span>
+          </th>
+        
+          <th class="info-table__header" >
+            <span class="info-table__header-content">
+              Name
+              
+            </span>
+          </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="info-table__row">
+          
+            
+              <td class="info-table__cell">Pass TD</td>
+            
+          
+            
+              <td class="info-table__cell">4 pts</td>
+            
+          
+            
+              <td class="info-table__cell">Stevie</td>
+            
+          
+        </tr>
+      
+        <tr class="info-table__row">
+          
+            
+              <td class="info-table__cell">Rush TD</td>
+            
+          
+            
+              <td class="info-table__cell">6 pts</td>
+            
+          
+            
+              <td class="info-table__cell">Joe</td>
+            
+          
+        </tr>
+      
+        <tr class="info-table__row">
+          
+            
+              <td class="info-table__cell">Rec TD</td>
+            
+          
+            
+              <td class="info-table__cell">6 pts</td>
+            
+          
+            
+              <td class="info-table__cell">Bob</td>
+            
+          
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+
+<style>
+.info-table-container {
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+.info-table-container--compact {
+  display: inline-block !important;
+}
+
+.info-table {
+  border-collapse: collapse !important;
+  font-family: var(--bs-body-font-family) !important;
+  font-size: var(--bs-body-font-size) !important;
+  width: 100% !important;
+  background-color: white !important;
+  border: 1px solid #EEEEEE !important;
+  table-layout: fixed !important; /* This ensures equal column widths */
+}
+
+.info-table--compact {
+  width: auto !important;
+  table-layout: auto !important; /* Allow compact tables to size to content */
+}
+
+.info-table__header-row {
+  display: table-row !important;
+}
+
+.info-table__header,
+.info-table__cell {
+  padding: 10px !important;
+  text-align: left !important;
+  border: 1px solid #ddd !important;
+  display: table-cell !important;
+  width: auto !important;
+  flex: none !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.info-table__header {
+  background-color: #333 !important;
+  color: white !important;
+  
+  position: relative !important;
+  padding: 10px !important;
+}
+
+.info-table__header-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  text-transform: uppercase !important;
+  font-size: large !important;
+}
+
+.info-table--sortable .info-table__header:hover {
+  color: #cbf04f !important;
+  font-weight: bolder !important;
+}
+
+.info-table__row {
+  display: table-row !important;
+  background-color: transparent !important;
+}
+
+.info-table__row:nth-child(even) {
+  background-color: #f2f2f2 !important;
+}
+
+.info-table__row:hover {
+  background-color: #ddd !important;
+}
+
+.info-table--tall .info-table__header {
+  width: 30% !important;
+}
+
+.info-table--sortable .info-table__header {
+  cursor: pointer !important;
+}
+
+.info-table__sort-icon {
+  font-size: 0.8em !important;
+  margin-left: 5px !important;
+  white-space: nowrap !important;
+}
+
+.info-table .sort-asc .info-table__sort-icon,
+.info-table .sort-desc .info-table__sort-icon {
+  display: inline-block !important;
+}
+
+.info-table--compact .info-table__header,
+.info-table--compact .info-table__cell {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+</style>
+
+<br>
+<h2>infoTable sortable, full size</h2>
+
+
+
+<div class="info-table-container " id="table-9159">
+  <table class="info-table 
+     
+    info-table--sortable
+    ">
+    <thead>
+      <tr class="info-table__header-row">
+        
+          <th class="info-table__header" data-sort="0">
+            <span class="info-table__header-content">
+              Play
+              
+                <span class="info-table__sort-icon"></span>
+              
+            </span>
+          </th>
+        
+          <th class="info-table__header" data-sort="1">
+            <span class="info-table__header-content">
+              Points
+              
+                <span class="info-table__sort-icon"></span>
+              
+            </span>
+          </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="info-table__row">
+          
+            
+              <td class="info-table__cell">Pass TD</td>
+            
+          
+            
+              <td class="info-table__cell">4 pts</td>
+            
+          
+        </tr>
+      
+        <tr class="info-table__row">
+          
+            
+              <td class="info-table__cell">Rush TD</td>
+            
+          
+            
+              <td class="info-table__cell">6 pts</td>
+            
+          
+        </tr>
+      
+        <tr class="info-table__row">
+          
+            
+              <td class="info-table__cell">Rec TD</td>
+            
+          
+            
+              <td class="info-table__cell">6 pts</td>
+            
+          
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tableContainer = document.getElementById('table-9159');
+  const table = tableContainer.querySelector('.info-table--sortable');
+  const headers = table.querySelectorAll('th[data-sort]');
+  
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const column = header.dataset.sort;
+      const rows = Array.from(table.querySelectorAll('tbody tr'));
+      const isAscending = header.classList.contains('sort-asc');
+      
+      rows.sort((a, b) => {
+        const aValue = a.children[column].textContent;
+        const bValue = b.children[column].textContent;
+        return isAscending ? bValue.localeCompare(aValue) : aValue.localeCompare(bValue);
+      });
+      
+      rows.forEach(row => table.querySelector('tbody').appendChild(row));
+      
+      headers.forEach(h => {
+        h.classList.remove('sort-asc', 'sort-desc');
+        h.querySelector('.info-table__sort-icon').textContent = '';
+      });
+      header.classList.toggle('sort-asc', !isAscending);
+      header.classList.toggle('sort-desc', isAscending);
+      header.querySelector('.info-table__sort-icon').textContent = isAscending ? '▼' : '▲';
+    });
+  });
+});
+</script>
+
+
+<style>
+.info-table-container {
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+.info-table-container--compact {
+  display: inline-block !important;
+}
+
+.info-table {
+  border-collapse: collapse !important;
+  font-family: var(--bs-body-font-family) !important;
+  font-size: var(--bs-body-font-size) !important;
+  width: 100% !important;
+  background-color: white !important;
+  border: 1px solid #EEEEEE !important;
+  table-layout: fixed !important; /* This ensures equal column widths */
+}
+
+.info-table--compact {
+  width: auto !important;
+  table-layout: auto !important; /* Allow compact tables to size to content */
+}
+
+.info-table__header-row {
+  display: table-row !important;
+}
+
+.info-table__header,
+.info-table__cell {
+  padding: 10px !important;
+  text-align: left !important;
+  border: 1px solid #ddd !important;
+  display: table-cell !important;
+  width: auto !important;
+  flex: none !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.info-table__header {
+  background-color: #333 !important;
+  color: white !important;
+  
+  position: relative !important;
+  padding: 10px !important;
+}
+
+.info-table__header-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  text-transform: uppercase !important;
+  font-size: large !important;
+}
+
+.info-table--sortable .info-table__header:hover {
+  color: #cbf04f !important;
+  font-weight: bolder !important;
+}
+
+.info-table__row {
+  display: table-row !important;
+  background-color: transparent !important;
+}
+
+.info-table__row:nth-child(even) {
+  background-color: #f2f2f2 !important;
+}
+
+.info-table__row:hover {
+  background-color: #ddd !important;
+}
+
+.info-table--tall .info-table__header {
+  width: 30% !important;
+}
+
+.info-table--sortable .info-table__header {
+  cursor: pointer !important;
+}
+
+.info-table__sort-icon {
+  font-size: 0.8em !important;
+  margin-left: 5px !important;
+  white-space: nowrap !important;
+}
+
+.info-table .sort-asc .info-table__sort-icon,
+.info-table .sort-desc .info-table__sort-icon {
+  display: inline-block !important;
+}
+
+.info-table--compact .info-table__header,
+.info-table--compact .info-table__cell {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+</style>
+
+<br>
+
+<h2>infoTable non-sortable, compact size</h2>
+
+
+
+<div class="info-table-container info-table-container--compact" id="table-6307">
+  <table class="info-table 
+     
+    info-table--sortable
+    info-table--compact">
+    <thead>
+      <tr class="info-table__header-row">
+        
+          <th class="info-table__header" data-sort="0">
+            <span class="info-table__header-content">
+              Play
+              
+                <span class="info-table__sort-icon"></span>
+              
+            </span>
+          </th>
+        
+          <th class="info-table__header" data-sort="1">
+            <span class="info-table__header-content">
+              Points
+              
+                <span class="info-table__sort-icon"></span>
+              
+            </span>
+          </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="info-table__row">
+          
+            
+              <td class="info-table__cell">Pass TD</td>
+            
+          
+            
+              <td class="info-table__cell">4 pts</td>
+            
+          
+        </tr>
+      
+        <tr class="info-table__row">
+          
+            
+              <td class="info-table__cell">Rush TD</td>
+            
+          
+            
+              <td class="info-table__cell">6 pts</td>
+            
+          
+        </tr>
+      
+        <tr class="info-table__row">
+          
+            
+              <td class="info-table__cell">Rec TD</td>
+            
+          
+            
+              <td class="info-table__cell">6 pts</td>
+            
+          
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tableContainer = document.getElementById('table-6307');
+  const table = tableContainer.querySelector('.info-table--sortable');
+  const headers = table.querySelectorAll('th[data-sort]');
+  
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const column = header.dataset.sort;
+      const rows = Array.from(table.querySelectorAll('tbody tr'));
+      const isAscending = header.classList.contains('sort-asc');
+      
+      rows.sort((a, b) => {
+        const aValue = a.children[column].textContent;
+        const bValue = b.children[column].textContent;
+        return isAscending ? bValue.localeCompare(aValue) : aValue.localeCompare(bValue);
+      });
+      
+      rows.forEach(row => table.querySelector('tbody').appendChild(row));
+      
+      headers.forEach(h => {
+        h.classList.remove('sort-asc', 'sort-desc');
+        h.querySelector('.info-table__sort-icon').textContent = '';
+      });
+      header.classList.toggle('sort-asc', !isAscending);
+      header.classList.toggle('sort-desc', isAscending);
+      header.querySelector('.info-table__sort-icon').textContent = isAscending ? '▼' : '▲';
+    });
+  });
+});
+</script>
+
+
+<style>
+.info-table-container {
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+.info-table-container--compact {
+  display: inline-block !important;
+}
+
+.info-table {
+  border-collapse: collapse !important;
+  font-family: var(--bs-body-font-family) !important;
+  font-size: var(--bs-body-font-size) !important;
+  width: 100% !important;
+  background-color: white !important;
+  border: 1px solid #EEEEEE !important;
+  table-layout: fixed !important; /* This ensures equal column widths */
+}
+
+.info-table--compact {
+  width: auto !important;
+  table-layout: auto !important; /* Allow compact tables to size to content */
+}
+
+.info-table__header-row {
+  display: table-row !important;
+}
+
+.info-table__header,
+.info-table__cell {
+  padding: 10px !important;
+  text-align: left !important;
+  border: 1px solid #ddd !important;
+  display: table-cell !important;
+  width: auto !important;
+  flex: none !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.info-table__header {
+  background-color: #333 !important;
+  color: white !important;
+  
+  position: relative !important;
+  padding: 10px !important;
+}
+
+.info-table__header-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  text-transform: uppercase !important;
+  font-size: large !important;
+}
+
+.info-table--sortable .info-table__header:hover {
+  color: #cbf04f !important;
+  font-weight: bolder !important;
+}
+
+.info-table__row {
+  display: table-row !important;
+  background-color: transparent !important;
+}
+
+.info-table__row:nth-child(even) {
+  background-color: #f2f2f2 !important;
+}
+
+.info-table__row:hover {
+  background-color: #ddd !important;
+}
+
+.info-table--tall .info-table__header {
+  width: 30% !important;
+}
+
+.info-table--sortable .info-table__header {
+  cursor: pointer !important;
+}
+
+.info-table__sort-icon {
+  font-size: 0.8em !important;
+  margin-left: 5px !important;
+  white-space: nowrap !important;
+}
+
+.info-table .sort-asc .info-table__sort-icon,
+.info-table .sort-desc .info-table__sort-icon {
+  display: inline-block !important;
+}
+
+.info-table--compact .info-table__header,
+.info-table--compact .info-table__cell {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+</style>
+
+<br>
 
 
         </div>

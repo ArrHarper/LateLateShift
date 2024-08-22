@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'PepperSauce';
+    src: url('../assets/PepperSauce.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'GraphikCompactMed';
+    src: url("../assets/GraphikCompact-Medium-Trial.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Graphik Bold';
+    src: url("../assets/Graphik-Bold-Trial.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Graphik Regular';
+    src: url("../assets/Graphik-Regular-Trial.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Graphik Medium';
+    src: url("../assets/Graphik-Medium-Trial.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Gabarito';
+    src: url("../assets/Gabarito-VariableFont_wght.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'GabaritoFat';
+    src: url("../assets/Gabarito-VariableFont_wght.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Vollkorn';
+    src: url('../assets/Vollkorn-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
