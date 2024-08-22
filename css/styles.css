@@ -91,71 +91,6 @@
   }
 }
 
-@font-face {
-  font-family: 'PepperSauce';
-  src: url('../assets/PepperSauce.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'GraphikCompactMed';
-  src: url("../assets/GraphikCompact-Medium-Trial.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Graphik Bold';
-  src: url("../assets/Graphik-Bold-Trial.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Graphik Regular';
-  src: url("../assets/Graphik-Regular-Trial.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Graphik Medium';
-  src: url("../assets/Graphik-Medium-Trial.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Gabarito';
-  src: url("../assets/Gabarito-VariableFont_wght.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'GabaritoFat';
-  src: url("../assets/Gabarito-VariableFont_wght.ttf") format("truetype");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Vollkorn';
-  src: url('../assets/Vollkorn-VariableFont_wght.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-
 html {
   min-width: 340px;
 }
@@ -10962,7 +10897,8 @@ body, blockquote, p {
 }
 
 .blockquote-header {
- margin-bottom: 1em;
+ margin-bottom: .5em;
+ color: #5e239d;
 }
 
 /* Style for the blockquote container */
@@ -10975,9 +10911,11 @@ body, blockquote, p {
 /* Style for the blockquote itself */
 .styled-blockquote {
   border-left: 3px solid #333; /* Border on the left side of the blockquote */
-  padding-left: 10px; /* Add some space between the border and the content */
+  padding: 0 20px 0 20px;   /* Add some space between the border and the content */
+  margin: 0 20px 0 20px; /* indent the quote */
   font-size: 1.2rem;
   line-height: 1.5;
+  background-color: #e2e3e5;
 }
 
 /* Style for the citation (cite) */
@@ -11542,8 +11480,8 @@ padding-bottom: 1em;
 
 .callout {
   border-radius: 8px;
-  border: 1px solid;
-  padding: 16px 20px 20px;
+  border: 2px solid;
+  padding: 16px;
   margin: 16px 0;
 }
 

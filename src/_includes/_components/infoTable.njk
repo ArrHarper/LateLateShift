@@ -1,0 +1,176 @@
+{% macro infoTable(data, orientation='wide', sortable=false, size='full', id='') %}
+{% set uniqueId = id if id else 'table-' + range(1000, 9999) | random %}
+<div class="info-table-container {% if size == 'compact' %}info-table-container--compact{% endif %}" id="{{ uniqueId }}">
+  <table class="info-table 
+    {% if orientation == 'tall' %}info-table--tall{% endif %} 
+    {% if sortable %}info-table--sortable{% endif %}
+    {% if size == 'compact' %}info-table--compact{% endif %}">
+    <thead>
+      <tr class="info-table__header-row">
+        {% for header in data.headers %}
+          <th class="info-table__header" {% if sortable %}data-sort="{{ loop.index0 }}"{% endif %}>
+            <span class="info-table__header-content">
+              {{ header }}
+              {% if sortable %}
+                <span class="info-table__sort-icon"></span>
+              {% endif %}
+            </span>
+          </th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data.rows %}
+        <tr class="info-table__row">
+          {% for cell in row %}
+            {% if orientation == 'tall' and loop.first %}
+              <th class="info-table__header">{{ cell }}</th>
+            {% else %}
+              <td class="info-table__cell">{{ cell }}</td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% if sortable %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tableContainer = document.getElementById('{{ uniqueId }}');
+  const table = tableContainer.querySelector('.info-table--sortable');
+  const headers = table.querySelectorAll('th[data-sort]');
+  
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const column = header.dataset.sort;
+      const rows = Array.from(table.querySelectorAll('tbody tr'));
+      const isAscending = header.classList.contains('sort-asc');
+      
+      rows.sort((a, b) => {
+        const aValue = a.children[column].textContent;
+        const bValue = b.children[column].textContent;
+        return isAscending ? bValue.localeCompare(aValue) : aValue.localeCompare(bValue);
+      });
+      
+      rows.forEach(row => table.querySelector('tbody').appendChild(row));
+      
+      headers.forEach(h => {
+        h.classList.remove('sort-asc', 'sort-desc');
+        h.querySelector('.info-table__sort-icon').textContent = '';
+      });
+      header.classList.toggle('sort-asc', !isAscending);
+      header.classList.toggle('sort-desc', isAscending);
+      header.querySelector('.info-table__sort-icon').textContent = isAscending ? '▼' : '▲';
+    });
+  });
+});
+</script>
+{% endif %}
+
+<style>
+.info-table-container {
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+.info-table-container--compact {
+  display: inline-block !important;
+}
+
+.info-table {
+  border-collapse: collapse !important;
+  font-family: var(--bs-body-font-family) !important;
+  font-size: var(--bs-body-font-size) !important;
+  width: 100% !important;
+  background-color: white !important;
+  border: 1px solid #EEEEEE !important;
+  table-layout: fixed !important; /* This ensures equal column widths */
+}
+
+.info-table--compact {
+  width: auto !important;
+  table-layout: auto !important; /* Allow compact tables to size to content */
+}
+
+.info-table__header-row {
+  display: table-row !important;
+}
+
+.info-table__header,
+.info-table__cell {
+  padding: 10px !important;
+  text-align: left !important;
+  border: 1px solid #ddd !important;
+  display: table-cell !important;
+  width: auto !important;
+  flex: none !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.info-table__header {
+  background-color: #333 !important;
+  color: white !important;
+  
+  position: relative !important;
+  padding: 10px !important;
+}
+
+.info-table__header-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  text-transform: uppercase !important;
+  font-size: large !important;
+}
+
+.info-table--sortable .info-table__header:hover {
+  color: #cbf04f !important;
+  font-weight: bolder !important;
+}
+
+.info-table__row {
+  display: table-row !important;
+  background-color: transparent !important;
+}
+
+.info-table__row:nth-child(even) {
+  background-color: #f2f2f2 !important;
+}
+
+.info-table__row:hover {
+  background-color: #ddd !important;
+}
+
+.info-table--tall .info-table__header {
+  width: 30% !important;
+}
+
+.info-table--sortable .info-table__header {
+  cursor: pointer !important;
+}
+
+.info-table__sort-icon {
+  font-size: 0.8em !important;
+  margin-left: 5px !important;
+  white-space: nowrap !important;
+}
+
+.info-table .sort-asc .info-table__sort-icon,
+.info-table .sort-desc .info-table__sort-icon {
+  display: inline-block !important;
+}
+
+.info-table--compact .info-table__header,
+.info-table--compact .info-table__cell {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+</style>
+{% endmacro %}

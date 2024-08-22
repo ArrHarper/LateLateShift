@@ -1,4 +1,5 @@
 {% extends 'base.njk' %}
+{% from "_components/card.njk" import card %}
 
 {% block title %}
 LLS 🏈 {{ super() }}
@@ -68,6 +69,14 @@ LLS 🏈 {{ super() }}
         <div class="card-footer"><a class="button-29" href="{{ '/recordBook/' | url }}">Hall of Records</a></div>
     </div>
 </div>
+<!--<div class="col-md-4 mb-5">
+    <div class="card h-100">
+        <div class="card-body" style="max-height:600px;overflow:scroll;">
+            <h2 class="card-title">NFL Injury Updates</h2>
+            <a class="twitter-timeline" data-dnt="true" data-theme="dark" href="https://twitter.com/NFLInjuryNws?ref_src=twsrc%5Etfw">Tweets by NFLInjuryNws</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    </div>
+</div>-->
 </div>
 </div>
 {% endblock %}

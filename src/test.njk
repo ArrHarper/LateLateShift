@@ -3,13 +3,16 @@
 {% from "_components/card.njk" import card %}
 {% from "_components/callout.njk" import callout %}
 {% from "_components/article.njk" import article %}
+{% from "_components/infoTable.njk" import infoTable %}
 
 {% block heading %}
     <h1>Test Page</h1>
 {% endblock %}
 
 {% block content %}
-    <p>testing the nunjucks component</p><br>
+<p>testing my custom nunjucks components</p><br>
+<hr>
+<h2>Cards</h2>
     {{ card_row([
     {
         type: 'text',
@@ -38,7 +41,6 @@
                         <li>Using HTML</li>
                         <li>To make</li>
                         <li>a bullet point list</li>
-                        <!-- Add more list items as needed -->
                     </ul>
                 </p>',
         footer: {
@@ -48,6 +50,8 @@
         }
 ]) }}
 
+<hr>
+<h2>Callouts</h2>
 {{ callout(
   type='info',
   title='This is an info callout',
@@ -88,6 +92,9 @@
   ]
 ) }}
 
+<hr>
+<h2>Articles</h2>
+<p>with dynamic table of contents</p>
   {% set articleContent %}
     <h2>General Rules</h2>
     <ul>
@@ -101,8 +108,54 @@
     <h2>Roster</h2>
     <p>Since the TE position drops off hard after the top 1-2, we've replaced it with a WR/TE flex. This makes teams less reliant on TE roulette and brings more value to mid-tier WRs.</p>
     
-    <!-- Rest of your content here -->
   {% endset %}
-
   {{ article('LLS Rules & Scoring', '8/20/24', articleContent) }}
+
+<hr>
+<h2>infoTable non-sortable, compact size</h2>
+{% set scoringData = {
+  headers: ["Play", "Points"],
+  rows: [
+    ["Pass TD", "4 pts"],
+    ["Rush TD", "6 pts"],
+    ["Rec TD", "6 pts"]
+  ]
+} %}
+{{ infoTable(scoringData, orientation='wide', sortable=false, size='compact') }}
+<br>
+<h2>infoTable non-sortable, full size</h2>
+{% set scoringData = {
+  headers: ["Play", "Points", "Name"],
+  rows: [
+    ["Pass TD", "4 pts", "Stevie"],
+    ["Rush TD", "6 pts", "Joe"],
+    ["Rec TD", "6 pts", "Bob"]
+  ]
+} %}
+{{ infoTable(scoringData, orientation='wide', sortable=false, size='full') }}
+<br>
+<h2>infoTable sortable, full size</h2>
+{% set scoringData = {
+  headers: ["Play", "Points"],
+  rows: [
+    ["Pass TD", "4 pts"],
+    ["Rush TD", "6 pts"],
+    ["Rec TD", "6 pts"]
+  ]
+} %}
+{{ infoTable(scoringData, orientation='wide', sortable=true) }}
+<br>
+
+<h2>infoTable non-sortable, compact size</h2>
+{% set scoringData = {
+  headers: ["Play", "Points"],
+  rows: [
+    ["Pass TD", "4 pts"],
+    ["Rush TD", "6 pts"],
+    ["Rec TD", "6 pts"]
+  ]
+} %}
+{{ infoTable(scoringData, orientation='wide', sortable=true, size='compact') }}
+<br>
+
 {% endblock %}

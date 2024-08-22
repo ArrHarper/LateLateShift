@@ -1,5 +1,7 @@
 {% extends 'base.njk' %}
 {% from "_components/article.njk" import article %}
+{% from "_components/infoTable.njk" import infoTable %}
+{% from "_components/callout.njk" import callout %}
 
 {% block title %}
 LLS Rules 🏈 {{ super() }}
@@ -9,131 +11,74 @@ LLS Rules 🏈 {{ super() }}
 {% endblock %}
 
 {% block head %}
-<style>
-    #main-column { 
-        background: transparent;
-    }
-</style>
+
 {% endblock %} 
 
 {% block content %}
         {% set articleContent %}
-        <h3>The League</h3>
-        <ul>
-            <li>0.5 PPR (Yahoo)</li>
-            <li>10 Teams</li>
-            <li>Snake draft, randomized</li>
-            <li>$20 buy-in</li>
-            <li>$150 to SB winner, $50 to SB loser</li>
-        </ul>
+        <h3>General</h3>
+            <ul>
+                <li>0.5 PPR (Yahoo)</li>
+                <li>10 Teams</li>
+                <li>Snake draft, randomized</li>
+                <li>$20 buy-in</li>
+                <li>$150 to SB winner, $50 to SB loser</li>
+            </ul>
         <hr>
         <h3>Roster Settings</h3>
-        <p>Since the TE position drops off hard after the top 1-2, we've replaced it with a WR/TE flex. This makes teams less reliant on TE roulette and brings more value to mid-tier WRs. </p><br>
-            <div class="scoring-table-container">
-                <table class="scoring-table" border="1">
-                    <tr>
-                        <th class="scoring-th">Pos</th>
-                        <th class="scoring-th">Slots</th>
-                    </tr>
-                    <tr>
-                        <td class="play-td">QB</td>
-                        <td class="pts-td">1</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">RB</td>
-                        <td class="pts-td">2</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">WR</td>
-                        <td class="pts-td">2</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">WR/TE Flex</td>
-                        <td class="pts-td">1</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">RB/WR/TE Flex</td>
-                        <td class="pts-td">1</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">K</td>
-                        <td class="pts-td">1</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">DST</td>
-                        <td class="pts-td">1</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Bench</td>
-                        <td class="pts-td">6</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">IR</td>
-                        <td class="pts-td">2</td>
-                    </tr>
-                </table>
-            </div><br>
+        <p>Standard roster that replaces TE with a WR/TE flex. This makes teams less reliant on TE roulette since the TE position drops off so hard, and brings more value to mid-tier WRs. </p><br>
+
+            {% set rosterData = {
+            headers: ["QB", "RB", "WR", "WR/TE", "RB/WR/TE"],
+            rows: [
+                ["1", "2", "2", "1", "1"]
+            ]
+            } %}
+            {{ infoTable(rosterData, orientation='wide', sortable=false, size='wide') }}
+        <br>
+            {% set rosterData = {
+            headers: ["K", "DST", "BN", "IR"],
+            rows: [
+                ["1", "1", "6", "2"]
+            ]
+            } %}
+            {{ infoTable(rosterData, orientation='wide', sortable=false, size='wide') }}
+        <br>
         <hr>
         <h3>Offensive Scoring</h3>
-            <p>Mostly default Yahoo settings with some minor adjustments, mainly balancing the penalty for interceptions and fumbles. </p></br>
-            <div class="scoring-table-container">
-                <table class="scoring-table" border="1">
-                    <tr>
-                        <th class="scoring-th">Touchdowns</th>
-                        <th class="scoring-th"></th>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Pass TD</td>
-                        <td class="pts-td">4 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Rush TD</td>
-                        <td class="pts-td">6 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Rec TD</td>
-                        <td class="pts-td">6 pts</td>
-                    </tr>
-                </table>
-            <table class="scoring-table" border="1">
-                <tr>
-                    <th class="scoring-th">Yards</th>
-                    <th class="scoring-th"></th>
-                </tr>
-                <tr>
-                    <td class="play-td">Pass Yard</td>
-                    <td class="pts-td">0.04 pts</td>
-                </tr>
-                <tr>
-                    <td class="play-td">Rush Yard</td>
-                    <td class="pts-td">0.1 pts</td>
-                </tr>
-                <tr>
-                    <td class="play-td">Rec Yard</td>
-                    <td class="pts-td">0.1 pts</td>
-                </tr>
-            </table>
-
-            <table class="scoring-table" border="1">
-                <tr>
-                    <th class="scoring-th">Turnovers</th>
-                    <th class="scoring-th"></th>
-                </tr>
-                <tr>
-                    <td class="play-td">Fumble</td>
-                    <td class="pts-td">-2.0 pts</td>
-                </tr>
-                <tr>
-                    <td class="play-td">INT</td>
-                    <td class="pts-td">-2.0 pts*</td>
-                </tr>
-            </table>
-        </div>
-        <p><Em>*Increased from -1.0</Em></p><br>
+            <p>0.5 PPR, INTs and fumbles have the same penalty, otherwise default. </p></br>
+            {% set scoringData = {
+            headers: ["Pass TD", "Rush TD", "Rec TD"],
+            rows: [
+                ["4 pts", "6 pts", "6 pts"]
+            ]
+            } %}
+            {{ infoTable(scoringData, orientation='wide', sortable=false, size='wide') }}
+            <br>
+            {% set scoringData = {
+            headers: ["Pass Yard", "Rush Yard", "Rec Yard"],
+            rows: [
+                ["0.04 pts", "0.1 pts", "0.1 pts"]
+            ]
+            } %}
+            {{ infoTable(scoringData, orientation='wide', sortable=false, size='wide') }}
+            <br>
+            {% set scoringData = {
+            headers: ["Fumble", "INT"],
+            rows: [
+                ["-2.0 pts", "-2.0 pts"]
+            ]
+            } %}
+            {{ infoTable(scoringData, orientation='wide', sortable=false, size='wide') }}
+        <br>
         <hr>
         <h3>Defensive Scoring</h3>
-            <p>We use modified scoring for defense, designed to properly reward or penalize based on in-game impact, and limit the chance for a defense to score big in fantasy while getting blown out in real life. <br/><br/>
-            This system penalizes less for the first few scores, to reflect that NFL defenses give up an average of ~22 points per game (as of '22), and then penalties get steeper with more points and yards allowed.<br/><br/>
+            <p>We use use modified defensive scoring to try and better represent the in-game impact of a defense. The main goal is to reduce the chance that a defense can score big in fantasy while getting destroyed in real life. <br/><br/>
+            The first few scores against a defense have a smaller penalty, later scores have a greater penalty, and the overall max penalty for points allowed is increased. There is also an added penalty for 400 and 500 yards allowed.
+                {{ callout(
+                    type='info',
+                    content='The max penalty for a DST is -7pts (35 pts and 500+ yards allowed).'
+                ) }} <br>
             <div class="scoring-table-container">
                 <table class="scoring-table" border="1">
                     <tr>
@@ -222,39 +167,42 @@ LLS Rules 🏈 {{ super() }}
     <hr>
     <h3>Keeper Rules</h3>
         <ul>
-            <li>Up to <b>2 keepers per team</b>. Keeping players is <b>optional</b>.</li>
-            <li><b>Players can be kept for 2 consecutive seasons</b> after their draft year, then returned to the draft pool.</li>
-            <li><b>Players drafted in the 1st round are are ineligible and cannot be kept</b>. This keeps a healthy pool of elite players in the draft mix each year.</li>
+            <li>Up to 2 keepers per team</li>
+            <li>Keeping players is optional</li>
+            <li>Players drafted in Round 1 cannot be selected as keepers. This keeps a healthy pool of elite players in the draft mix each year.</li>
+            <li>The same player can only be selected as a keeper for two consecutive seasons, at which point they return to the draft pool.</li>
         </ul>
     <hr>
-    <h3>Keeping Drafted Players</h3>
+    <h3>Keeper Costs</h3>
+    <p>The cost to keep a player depends on if and where they were last drafted.</p>
+        <h4>Cost to Keep Drafted Players </h4>
         <ul>
-            <li><b>Keeper cost is equal to the player’s most recent draft position</b>, e.g. a player selected in round 4 in 2021 costs a 4th round pick to keep in 2022.</li>
+            <li>Keeper cost is equal to the player’s most recent draft position</b>, e.g. a player selected in round 4 in 2021 costs a 4th round pick to keep in 2022.</li>
             <li><b>Keeping players for a second consecutive season increases the cost by one round</b>, so a 4th round selection costs a 3rd round pick to keep a second time.</li>   
         </ul>
         <div class="blockquote-container">
-            <h4 class="blockquote-header"><em>Example</em></h4>
+            <h5 class="blockquote-header"><em>Example</em></h5>
             <blockquote class="styled-blockquote">
-                Mark Andrews was drafted 6th round 2020.</br> 
-                Andrews costs a 6th rd pick to keep in 2021,</br>
-                Andrews costs a 5th rd pick to keep in 2022. </br>
-                In 2023, Andrews is ineligible and returns to the draft pool.
+                Season 1: Mark Andrews was drafted 6th round 2020</br> 
+                Season 2: Andrews cost a 6th rd pick to keep in 2021</br>
+                Season 3: Andrews cost a 5th rd pick to keep in 2022 </br>
+                In 2023, Andrews is returned to the draft pool
             </blockquote>
         </div>
     <hr> 
-    <h3>Keeping Undrafted Free Agents (UDFAs)</h3>
+    <h4>Cost to Keep Undrafted Free Agents</h4>
         <ul>
-            <li>Undrafted Free Agents (UDFA) are players <i>not drafted by any team</i> in the most recent draft.</li> 
-            <li>Keeping a UDFA costs an <b>8th round pick</b> for the first year. </li>
-            <li>Keeping a UDFA costs a <b>7th round pick</b> for the second year. </li>
+            <li>Any player in the most recent draft is a UDFA</li> 
+            <li>Keeping a UDFA costs an <b>8th round pick</b> for the first year</li>
+            <li>Keeping a UDFA costs a <b>7th round pick</b> for the second year</li>
         </ul>
         <div class="blockquote-container">
-            <h4 class="blockquote-header"><em>Example</em></h4>
+            <h5 class="blockquote-header"><em>Example</em></h5>
             <blockquote class="styled-blockquote">
-                Justin Jefferson was signed as an UDFA in 2020.</br> 
-                Jefferson costs a 8th rd pick to keep in 2021,</br>
-                Jefferson costs a 7th rd pick to keep in 2022.</br>
-                In 2023, Jefferson is ineligible and returns to the draft pool.
+                Season 1: Justin Jefferson was acquired as a UDFA in 2020</br> 
+                Season 2: Jefferson cost a 8th rd pick to keep in 2021</br>
+                Season 3: Jefferson cost a 7th rd pick to keep in 2022</br>
+                In 2023, Jefferson is returned to the draft pool
             </blockquote>
         </div>
     <hr>

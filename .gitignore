@@ -4,6 +4,9 @@ node_modules/
 # Eleventy build output
 _site/
 
+# testing json files
+/json
+
 # macOS system files
 .DS_Store
 
