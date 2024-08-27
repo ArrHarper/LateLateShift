@@ -1,6 +1,6 @@
-{% macro infoTable(data, orientation='wide', sortable=false, size='full', id='') %}
+{% macro infoTable(data, orientation='wide', sortable=false, size='full', id='', dataSource='') %}
 {% set uniqueId = id if id else 'table-' + range(1000, 9999) | random %}
-<div class="info-table-container {% if size == 'compact' %}info-table-container--compact{% endif %}" id="{{ uniqueId }}">
+<div class="info-table-container {% if size == 'compact' %}info-table-container--compact{% endif %}" id="{{ uniqueId }}" {% if dataSource %}data-source="{{ dataSource }}"{% endif %}>
   <table class="info-table 
     {% if orientation == 'tall' %}info-table--tall{% endif %} 
     {% if sortable %}info-table--sortable{% endif %}
@@ -76,10 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
   display: block !important;
 }
 
-.info-table-container--compact {
-  display: inline-block !important;
-}
-
 .info-table {
   border-collapse: collapse !important;
   font-family: var(--bs-body-font-family) !important;
@@ -91,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .info-table--compact {
-  width: auto !important;
   table-layout: auto !important; /* Allow compact tables to size to content */
 }
 
@@ -128,6 +123,12 @@ document.addEventListener('DOMContentLoaded', function() {
   text-transform: uppercase !important;
   font-size: large !important;
 }
+
+.info-table__header.sort-desc, .info-table__header.sort-asc {
+  color: #cbf04f !important;
+  font-weight: bolder !important;
+}
+
 
 .info-table--sortable .info-table__header:hover {
   color: #cbf04f !important;

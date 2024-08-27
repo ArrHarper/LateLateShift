@@ -1,0 +1,53 @@
+{% extends 'base.njk' %}
+{% from "_components/infoTable.njk" import infoTable %}
+
+{% block title %}
+LLS Standings 🏈 {{ super() }}
+{% endblock %}
+
+{% block head %}
+<style>
+    h3 {
+    color: #5E239D;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+</style>
+{% endblock %} 
+
+{% block heading %}
+<div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-lg-5">
+        <!-- Page Heading and subheading -->
+        <h1 class="font-weight-light">LLS Standings</h1>
+    </div>
+    <div class="col-lg-7">
+        <!-- Header image -->
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="https://embed-ssl.wistia.com/deliveries/04b18769145f242f5e8dd0c80982d736.png" alt="Patriots players dump a water cooler over Bill Belichick to celebrate" />
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="standings23-container" style="margin: 0 10% 0 10%;">
+<h3>2023</h3>
+{% set tableData = {
+  "headers": ["Rank", "Manager", "Team", "W-L-T", "PF", "PA", "Streak", "Waiver", "Moves"],
+  "rows": [
+    ["1", "Ben", "Brown Bros TD Emporium 🏆", "11-3-0", "1663.50", "1378.92", "W-3", "9", "34"],
+    ["2", "Dave", "Olave and the Chipmunks", "11-3-0", "1682.94", "1433.46", "L-1", "10", "33"],
+    ["3", "TK", "Saleh's Survivors", "7-7-0", "1432.34", "1513.54", "L-2", "5", "19"],
+    ["4", "Colin", "Chase-in Doubs", "7-7-0", "1610.22", "1630.14", "L-2", "7", "17"],
+    ["5", "Cass", "Breece's Pieces", "7-7-0", "1556.80", "1548.52", "W-2", "6", "13"],
+    ["6", "Harper", "Hurts Barkley and Hill is Hot", "9-5-0", "1735.22", "1588.90", "W-1", "8", "15"],
+    ["7", "John", "Piccolos Cage", "5-9-0", "1457.94", "1651.24", "L-3", "2", "10"],
+    ["8", "Price", "Belly Ache Bitch Bijan", "6-8-0", "1548.66", "1605.64", "W-2", "4", "24"],
+    ["9", "Uzoma", "Wraith's Voidwalkers", "2-12-0", "1239.58", "1660.16", "L-11", "1", "20"],
+    ["10", "Ray", "My Chubbs Gone", "5-9-0", "1597.20", "1513.88", "W-2", "3", "12"]
+  ]
+} %}
+
+{{ infoTable(tableData, orientation='wide', sortable=true, size='compact', id='league-standings') }}
+</div>
+
+{% endblock %} 

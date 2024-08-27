@@ -11143,7 +11143,7 @@ body, blockquote, p {
   display: flex;
   color: black;
   text-align: center;
-  font-family: 'PepperSauce', sans-serif;
+  font-family: 'FantaRegular', sans-serif;
 }
 
 @media (max-width: 475px) {

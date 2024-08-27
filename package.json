@@ -6,13 +6,15 @@
   "scripts": {
     "build": "eleventy --pathprefix=LateLateShift",
     "serve": "eleventy --serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "npm run serve"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.1.1",
+    "jest": "^29.5.0"
   }
 }
