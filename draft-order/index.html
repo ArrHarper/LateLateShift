@@ -80,10 +80,12 @@ LLS Draft Order 🏈 | The Late Late Shift
 </div>
 <div class="cta-text">
     <p class="cta-p" style="text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);">Time til Football</p>
-    <div class="iframe-container">
-        <iframe src="https://free.timeanddate.com/countdown/i905fcg4/n179/cf12/cm0/cu4/ct0/cs1/cac000/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs100/iso2024-09-05T20:20:00" allowtransparency="true" frameborder="0" width="108" height="29"></iframe>
-    </div>
- </div>
+    <div class="countdown" id="nfl-countdown" data-target="2025-09-05T00:20:00Z">—</div>
+    <script>(function(){const el=document.getElementById('nfl-countdown');if(!el)return;const targetMs=Date.parse(el.dataset.target);function pad(n){return String(n).padStart(2,'0');}function tick(){const now=Date.now();let diff=targetMs-now;if(diff<=0){el.textContent='Kickoff time!';clearInterval(t);return;}const s=1000,m=60*s,h=60*m,d=24*h;const days=Math.floor(diff/d);diff%=d;const hours=Math.floor(diff/h);diff%=h;const mins=Math.floor(diff/m);diff%=m;const secs=Math.floor(diff/s);el.textContent=`${days}d ${pad(hours)}h ${pad(mins)}m ${pad(secs)}s`;}tick();const t=setInterval(tick,1000);}());</script>
+<style>
+  .countdown{font-weight:600;letter-spacing:.02em;min-width:10ch;display:inline-block}
+</style>
+</div>
      </div>
         </div>   
        
@@ -125,7 +127,7 @@ LLS Draft Order 🏈 | The Late Late Shift
         <!--End Page Content-->
 
         <div class="footy-div">
-            Copyright © ArrHarper 2024
+            Copyright © ArrHarper 2025
         </div>
         
 
