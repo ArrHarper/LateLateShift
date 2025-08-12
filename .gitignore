@@ -37,3 +37,6 @@ yarn-error.log*
 
 #Pre-Eleventy HTML files
 oldHTML/
+
+# random data files
+scoringData/
