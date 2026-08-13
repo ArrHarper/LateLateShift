@@ -3,6 +3,7 @@ $(document).ready(function() {
 		'manager',
 		'team',
 		'keeper',
+		'pos',
 		'cost',
 		'years',
 	];
@@ -38,11 +39,16 @@ $(document).ready(function() {
 				var y = $(b).find('.table-data').eq(index).text();
 					
 				if(isNumber == true) {
-					
+
 					// Remove any non-numeric characters (except decimal point) for proper sorting
 					x = parseFloat(x.replace(/[^\d.-]/g, ''));
 					y = parseFloat(y.replace(/[^\d.-]/g, ''));
-							
+
+					// Non-numeric cells (e.g. "n/a") always sort to the bottom
+					if(isNaN(x) && isNaN(y)) return 0;
+					if(isNaN(x)) return 1;
+					if(isNaN(y)) return -1;
+
 					if(isSelected) {
 						return x - y;
 					} else {
