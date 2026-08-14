@@ -1,5 +1,5 @@
 {% extends 'base.njk' %}
-{% from "_components/infoTable.njk" import infoTable %}
+{% from "_components/llsTable.njk" import llsTable %}
 
 {% block title %}
 LLS Teams and Managers 🏈 {{ super() }}
@@ -19,7 +19,7 @@ LLS Teams and Managers 🏈 {{ super() }}
 <div class="row gx-4 gx-lg-5 align-items-center my-5">
     <div class="col-lg-5">
         <h1 class="font-weight-light">LLS Teams & Stats</h1>
-        <p>Team list and all-time stats per manager. Click on rows to select, CTRL+click and SHIFT+click to select multiple rows.</p><br>
+        <p>Team list and all-time stats per manager. Click column headers to sort.</p><br>
     </div>
     <div class="col-lg-7">
         <img class="img-fluid rounded mb-4 mb-lg-0" src="https://embed-ssl.wistia.com/deliveries/04b18769145f242f5e8dd0c80982d736.png" alt="Patriots players dump a water cooler over Bill Belichick to celebrate" />
@@ -30,7 +30,19 @@ LLS Teams and Managers 🏈 {{ super() }}
 {% block content %}
 <div class="teamChart-container" style="margin: 0 12% 0 12%;">
 {% set tableData = {
-  "headers": ["Manager", "Yrs", "W", "L", "Win %", "PF", "PA", "PF Avg", "PA Avg", "Moves", "Moves Avg"],
+  "columns": [
+    {label: "Manager", type: "text", strong: true},
+    {label: "Yrs", type: "num"},
+    {label: "W", type: "num"},
+    {label: "L", type: "num"},
+    {label: "Win %", type: "num"},
+    {label: "PF", type: "num", hideMobile: true},
+    {label: "PA", type: "num", hideMobile: true},
+    {label: "PF Avg", type: "num", hideMobile: true},
+    {label: "PA Avg", type: "num", hideMobile: true},
+    {label: "Moves", type: "num", hideMobile: true},
+    {label: "Moves Avg", type: "num", hideMobile: true}
+  ],
   "rows": [
     ["Ben 🏆", 3, 20, 22, 0.48, 4937.58, 4856.48, 1645.86, 1618.83, 107, 35.67],
     ["Cass", 6, 46, 37, 0.55, 9743.8, 9525.26, 1623.97, 1587.54, 149, 24.83],
@@ -45,7 +57,7 @@ LLS Teams and Managers 🏈 {{ super() }}
   ]
 } %}
 
-{{ infoTable(tableData, orientation='wide', sortable=true, size='compact', id='teamChart') }}
+{{ llsTable(tableData, sortable=true, id='teamChart') }}
 </div>
 {% endblock %}
 

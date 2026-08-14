@@ -15,7 +15,7 @@ Public repo; deployed to GitHub Pages.
   - `base.njk` — layout, nav include, footer/copyright, loads `js/table.js`
   - `_cta-bar.njk` — the "Time til Football" countdown; kickoff timestamp lives in its `data-target` attr (UTC)
   - `_components/` — macros incl. `infoTable` (used by teams page)
-- Sortable tables (keeper history, etc.) use `js/table.js`: jQuery, binds to header anchor `id`s (`manager`, `team`, `keeper`, `pos`, `cost`, `years`), sorts `.table-row`s inside the nearest `.tabletm`. Numeric columns need class `filter__link--number`; cells may contain `n/a` (sorts to bottom) or values like `2*` (non-digits stripped).
+- All tables use the `llsTable` macro (`src/_includes/_components/llsTable.njk`; styles `css/lls-table.css`, behavior `js/lls-table.js`, vanilla JS). Column opts: `type: 'num'` (right-align + numeric sort, `n/a` sorts to bottom, `2*` strips non-digits), `strong` (bold), `hideMobile` (column collapses below 640px; rows become tap-to-expand). Pass `sortable=true` for click-to-sort headers. `.lls-table-row` wraps several small tables side by side (rules page defensive scoring).
 - `backups/`, `oldHTML/`, `false/`, and the sibling `LateLateShift_pages` directory are dead legacy content — don't reference them.
 
 ## League facts the code doesn't state

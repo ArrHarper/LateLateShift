@@ -1,5 +1,5 @@
 {% extends 'base.njk' %}
-{% from "_components/infoTable.njk" import infoTable %}
+{% from "_components/llsTable.njk" import llsTable %}
 
 {% block title %}
 LLS Standings 🏈 {{ super() }}
@@ -32,7 +32,17 @@ LLS Standings 🏈 {{ super() }}
 <div class="standings23-container" style="margin: 0 10% 0 10%;">
 <h3>2023</h3>
 {% set tableData = {
-  "headers": ["Rank", "Manager", "Team", "W-L-T", "PF", "PA", "Streak", "Waiver", "Moves"],
+  "columns": [
+    {label: "Rank", type: "num"},
+    {label: "Manager", type: "text", strong: true},
+    {label: "Team", type: "text", hideMobile: true},
+    {label: "W-L-T", type: "text"},
+    {label: "PF", type: "num"},
+    {label: "PA", type: "num", hideMobile: true},
+    {label: "Streak", type: "text", hideMobile: true},
+    {label: "Waiver", type: "num", hideMobile: true},
+    {label: "Moves", type: "num", hideMobile: true}
+  ],
   "rows": [
     ["1", "Ben", "Brown Bros TD Emporium 🏆", "11-3-0", "1663.50", "1378.92", "W-3", "9", "34"],
     ["2", "Dave", "Olave and the Chipmunks", "11-3-0", "1682.94", "1433.46", "L-1", "10", "33"],
@@ -47,7 +57,7 @@ LLS Standings 🏈 {{ super() }}
   ]
 } %}
 
-{{ infoTable(tableData, orientation='wide', sortable=true, size='compact', id='league-standings') }}
+{{ llsTable(tableData, sortable=true, id='league-standings') }}
 </div>
 
 {% endblock %} 

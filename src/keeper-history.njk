@@ -1,11 +1,12 @@
 {% extends 'base.njk' %}
+{% from "_components/llsTable.njk" import llsTable %}
 
 {% block title %}
 LLS Keeper History {{ super() }}
 {% endblock %}
 
 {% block head %}
-{% endblock %} 
+{% endblock %}
 
 {% block heading %}
 <div class="row gx-4 gx-lg-5 align-items-center my-5">
@@ -14,741 +15,138 @@ LLS Keeper History {{ super() }}
         <em>Last Updated: 8/13/26</em>
     </div>
     <div class="col-lg-7">
-        <img class="img-fluid rounded mb-4 mb-lg-0" src="https://embed-ssl.wistia.com/deliveries/9f1f8ca636415816f9deadab4d1c3dfa.bin" alt="An NFL referee hugs a Packers player on the ground" />  
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="https://embed-ssl.wistia.com/deliveries/9f1f8ca636415816f9deadab4d1c3dfa.bin" alt="An NFL referee hugs a Packers player on the ground" />
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<!--2023 Keepers-->   
+{% set keeperColumns = [
+    { label: "Manager", type: "text", strong: true },
+    { label: "Team", type: "text", hideMobile: true },
+    { label: "Keeper", type: "text" },
+    { label: "POS", type: "text" },
+    { label: "Cost", type: "num" },
+    { label: "Years Kept", type: "num" }
+] %}
 
 <h2>2025 Keepers</h2>
 
-<div class="table-container">
-            <div class="tabletm">
-                <div class="table-header">
-                    <div class="header__item"><a id="manager" class="filter__link" href="#">Manager</a>
-                    </div>
-                    <div class="header__item"><a id="team" class="filter__link" href="#">Team</a>
-                    </div>
-                    <div class="header__item"><a id="keeper" class="filter__link" href="#">Keeper</a>
-                    </div>
-                    <div class="header__item"><a id="pos" class="filter__link" href="#">POS</a>
-                    </div>
-                    <div class="header__item"><a id="cost" class="filter__link filter__link--number" href="#">Cost</a>
-                    </div>
-                    <div class="header__item"><a id="years" class="filter__link filter__link--number" href="#">Years Kept</a>
-                    </div>
-                </div>
-                <div class="table-content">
-                    <div class="table-row">
-                        <div class="table-data">Ben</div>
-                        <div class="table-data">Herbert Fully Loaded</div>
-                        <div class="table-data">Malik Nabers</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">4</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Ben</div>
-                        <div class="table-data">Herbert Fully Loaded</div>
-                        <div class="table-data">Kyren Williams&dagger;</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">6</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Cass</div>
-                        <div class="table-data">Breece's Pieces</div>
-                        <div class="table-data">Lamar Jackson</div>
-                        <div class="table-data">QB</div>
-                        <div class="table-data">5</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Cass</div>
-                        <div class="table-data">Breece's Pieces</div>
-                        <div class="table-data">Breece Hall</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">2</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Colin</div>
-                        <div class="table-data">Eat the W</div>
-                        <div class="table-data">Tee Higgins</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">5</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Colin</div>
-                        <div class="table-data">Eat the W</div>
-                        <div class="table-data">George Kittle</div>
-                        <div class="table-data">TE</div>
-                        <div class="table-data">8</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Dave</div>
-                        <div class="table-data">Pewter City Gym</div>
-                        <div class="table-data">Brock Bowers</div>
-                        <div class="table-data">TE</div>
-                        <div class="table-data">13</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Dave</div>
-                        <div class="table-data">Pewter City Gym</div>
-                        <div class="table-data">No Keeper</div>
-                        <div class="table-data">n/a</div>
-                        <div class="table-data">n/a</div>
-                        <div class="table-data">n/a</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Harper</div>
-                        <div class="table-data">Live By McCaff Die By Muh Calf</div>
-                        <div class="table-data">Drake London</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">5</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Harper</div>
-                        <div class="table-data">Live By McCaff Die By Muh Calf</div>
-                        <div class="table-data">Jaxon Smith-Njigba</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">9</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">John</div>
-                        <div class="table-data">Piccolos Cage</div>
-                        <div class="table-data">Bucky Irving</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">8</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">John</div>
-                        <div class="table-data">Piccolos Cage</div>
-                        <div class="table-data">T.J. Hockenson</div>
-                        <div class="table-data">TE</div>
-                        <div class="table-data">16</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Price</div>
-                        <div class="table-data">Nacua Matata</div>
-                        <div class="table-data">Trey McBride</div>
-                        <div class="table-data">TE</div>
-                        <div class="table-data">5</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Price</div>
-                        <div class="table-data">Nacua Matata</div>
-                        <div class="table-data">Puka Nacua&dagger;</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">6</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Ray</div>
-                        <div class="table-data">Big Diggs and My Chubb</div>
-                        <div class="table-data">Chase Brown</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">9</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Ray</div>
-                        <div class="table-data">Big Diggs and My Chubb</div>
-                        <div class="table-data">Ladd McConkey</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">12</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">TK</div>
-                        <div class="table-data">Gibbs Me Da Gold</div>
-                        <div class="table-data">Jahmyr Gibbs</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">2</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">TK</div>
-                        <div class="table-data">Gibbs Me Da Gold</div>
-                        <div class="table-data">Khalil Shakir</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">12</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Uzoma</div>
-                        <div class="table-data">Wraith's Voidwalkers</div>
-                        <div class="table-data">Brian Thomas Jr.</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">10</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Uzoma</div>
-                        <div class="table-data">Wraith's Voidwalkers</div>
-                        <div class="table-data">Jayden Daniels</div>
-                        <div class="table-data">QB</div>
-                        <div class="table-data">13</div>
-                        <div class="table-data">1</div>
-                    </div>
-                </div>
-            </div>
-</div>
+{% set keepers2025 = {
+    columns: keeperColumns,
+    rows: [
+        ["Ben", "Herbert Fully Loaded", "Malik Nabers", "WR", "4", "1"],
+        ["Ben", "Herbert Fully Loaded", "Kyren Williams&dagger;", "RB", "6", "2*"],
+        ["Cass", "Breece's Pieces", "Lamar Jackson", "QB", "5", "1"],
+        ["Cass", "Breece's Pieces", "Breece Hall", "RB", "2", "2*"],
+        ["Colin", "Eat the W", "Tee Higgins", "WR", "5", "1"],
+        ["Colin", "Eat the W", "George Kittle", "TE", "8", "2*"],
+        ["Dave", "Pewter City Gym", "Brock Bowers", "TE", "13", "1"],
+        ["Dave", "Pewter City Gym", "No Keeper", "n/a", "n/a", "n/a"],
+        ["Harper", "Live By McCaff Die By Muh Calf", "Drake London", "WR", "5", "2*"],
+        ["Harper", "Live By McCaff Die By Muh Calf", "Jaxon Smith-Njigba", "WR", "9", "1"],
+        ["John", "Piccolos Cage", "Bucky Irving", "RB", "8", "1"],
+        ["John", "Piccolos Cage", "T.J. Hockenson", "TE", "16", "1"],
+        ["Price", "Nacua Matata", "Trey McBride", "TE", "5", "1"],
+        ["Price", "Nacua Matata", "Puka Nacua&dagger;", "WR", "6", "2*"],
+        ["Ray", "Big Diggs and My Chubb", "Chase Brown", "RB", "9", "1"],
+        ["Ray", "Big Diggs and My Chubb", "Ladd McConkey", "WR", "12", "1"],
+        ["TK", "Gibbs Me Da Gold", "Jahmyr Gibbs", "RB", "2", "1"],
+        ["TK", "Gibbs Me Da Gold", "Khalil Shakir", "WR", "12", "1"],
+        ["Uzoma", "Wraith's Voidwalkers", "Brian Thomas Jr.", "WR", "10", "1"],
+        ["Uzoma", "Wraith's Voidwalkers", "Jayden Daniels", "QB", "13", "1"]
+    ]
+} %}
+{{ llsTable(keepers2025, sortable=true, id='keepers-2025') }}
 <p><em>&dagger; Kept one round below the correct cost (should have been round 7) due to a commissioner error. One of Price's and Ben's 2026 keeper picks will be discounted accordingly.</em></p>
 
 <h2>2024 Keepers</h2>
 
-<div class="table-container">
-            <div class="tabletm">
-                <div class="table-header">
-                    <div class="header__item"><a id="manager" class="filter__link" href="#">Manager</a>
-                    </div>
-                    <div class="header__item"><a id="team" class="filter__link" href="#">Team</a>
-                    </div>
-                    <div class="header__item"><a id="keeper" class="filter__link" href="#">Keeper</a>
-                    </div>
-                    <div class="header__item"><a id="pos" class="filter__link" href="#">POS</a>
-                    </div>
-                    <div class="header__item"><a id="cost" class="filter__link filter__link--number" href="#">Cost</a>
-                    </div>
-                    <div class="header__item"><a id="years" class="filter__link filter__link--number" href="#">Years Kept</a>
-                    </div>
-                </div>
-                <div class="table-content">	
-                    <div class="table-row">		
-                        <div class="table-data">Ben</div>
-                        <div class="table-data">FriendlyNabershood Strouderman</div>
-                        <div class="table-data">Amon-Ra St. Brown</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">5</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Ben</div>
-                        <div class="table-data">FriendlyNabershood Strouderman</div>
-                        <div class="table-data">Kyren Williams</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">8</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Cass</div>
-                        <div class="table-data">Breece's Pieces</div>
-                        <div class="table-data">Breece Hall</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">3</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Cass</div>
-                        <div class="table-data">Breece's Pieces</div>
-                        <div class="table-data">Michael Pittman Jr.</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">6</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Colin</div>
-                        <div class="table-data">Eat the W</div>
-                        <div class="table-data">Rachaad White</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">7</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Colin</div>
-                        <div class="table-data">Eat the W</div>
-                        <div class="table-data">George Kittle</div>
-                        <div class="table-data">TE</div>
-                        <div class="table-data">9</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Dave</div>
-                        <div class="table-data">A Thing Called Love</div>
-                        <div class="table-data">Kyler Murray</div>
-                        <div class="table-data">QB</div>
-                        <div class="table-data">8</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Dave</div>
-                        <div class="table-data">A Thing Called Love</div>
-                        <div class="table-data">Chris Olave</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">10</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Harper</div>
-                        <div class="table-data">your get right game</div>
-                        <div class="table-data">Tyreek Hill</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">1</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Harper</div>
-                        <div class="table-data">your get right game</div>
-                        <div class="table-data">Drake London</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">6</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">John</div>
-                        <div class="table-data">Piccolos Cage</div>
-                        <div class="table-data">Mike Evans</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">7</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">John</div>
-                        <div class="table-data">Piccolos Cage</div>
-                        <div class="table-data">Brandon Aiyuk</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">8</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Price</div>
-                        <div class="table-data">Nacua Matata</div>
-                        <div class="table-data">Puka Nacua</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">8</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Price</div>
-                        <div class="table-data">Nacua Matata</div>
-                        <div class="table-data">Anthony Richardson Sr.</div>
-                        <div class="table-data">QB</div>
-                        <div class="table-data">14</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Ray</div>
-                        <div class="table-data">My Chubbs Gone</div>
-                        <div class="table-data">No Keeper</div>
-                        <div class="table-data">n/a</div>
-                        <div class="table-data">n/a</div>
-                        <div class="table-data">n/a</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Ray</div>
-                        <div class="table-data">My Chubbs Gone</div>
-                        <div class="table-data">No Keeper</div>
-                        <div class="table-data">n/a</div>
-                        <div class="table-data">n/a</div>
-                        <div class="table-data">n/a</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">TK</div>
-                        <div class="table-data">Saleh's Survivors</div>
-                        <div class="table-data">Josh Allen</div>
-                        <div class="table-data">QB</div>
-                        <div class="table-data">3</div>
-                        <div class="table-data">1</div>
-                    </div>
-                     <div class="table-row">		
-                        <div class="table-data">TK</div>
-                        <div class="table-data">Saleh's Survivors</div>
-                        <div class="table-data">Garrett Wilson</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">12</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Uzoma</div>
-                        <div class="table-data">Wraith's Voidwalkers</div>
-                        <div class="table-data">No Keeper</div>
-                        <div class="table-data">n/a</div>
-                        <div class="table-data">n/a</div>
-                        <div class="table-data">n/a</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Uzoma</div>
-                        <div class="table-data">Wraith's Voidwalkers</div>
-                        <div class="table-data">No Keeper</div>
-                        <div class="table-data">n/a</div>
-                        <div class="table-data">n/a</div>
-                        <div class="table-data">n/a</div>
-                    </div>
-            </div>	
-    </div>
-</div>
+{% set keepers2024 = {
+    columns: keeperColumns,
+    rows: [
+        ["Ben", "FriendlyNabershood Strouderman", "Amon-Ra St. Brown", "WR", "5", "2*"],
+        ["Ben", "FriendlyNabershood Strouderman", "Kyren Williams", "RB", "8", "1"],
+        ["Cass", "Breece's Pieces", "Breece Hall", "RB", "3", "1"],
+        ["Cass", "Breece's Pieces", "Michael Pittman Jr.", "WR", "6", "1"],
+        ["Colin", "Eat the W", "Rachaad White", "RB", "7", "1"],
+        ["Colin", "Eat the W", "George Kittle", "TE", "9", "1"],
+        ["Dave", "A Thing Called Love", "Kyler Murray", "QB", "8", "1"],
+        ["Dave", "A Thing Called Love", "Chris Olave", "WR", "10", "2*"],
+        ["Harper", "your get right game", "Tyreek Hill", "WR", "1", "2*"],
+        ["Harper", "your get right game", "Drake London", "WR", "6", "1"],
+        ["John", "Piccolos Cage", "Mike Evans", "WR", "7", "1"],
+        ["John", "Piccolos Cage", "Brandon Aiyuk", "WR", "8", "2*"],
+        ["Price", "Nacua Matata", "Puka Nacua", "WR", "8", "1"],
+        ["Price", "Nacua Matata", "Anthony Richardson Sr.", "QB", "14", "1"],
+        ["Ray", "My Chubbs Gone", "No Keeper", "n/a", "n/a", "n/a"],
+        ["Ray", "My Chubbs Gone", "No Keeper", "n/a", "n/a", "n/a"],
+        ["TK", "Saleh's Survivors", "Josh Allen", "QB", "3", "1"],
+        ["TK", "Saleh's Survivors", "Garrett Wilson", "WR", "12", "2*"],
+        ["Uzoma", "Wraith's Voidwalkers", "No Keeper", "n/a", "n/a", "n/a"],
+        ["Uzoma", "Wraith's Voidwalkers", "No Keeper", "n/a", "n/a", "n/a"]
+    ]
+} %}
+{{ llsTable(keepers2024, sortable=true, id='keepers-2024') }}
 <hr>
 <h2>2023 Keepers</h2>
 
-<div class="table-container">
-            <div class="tabletm">
-                <div class="table-header">
-                    <div class="header__item"><a id="manager" class="filter__link" href="#">Manager</a>
-                    </div>
-                    <div class="header__item"><a id="team" class="filter__link" href="#">Team</a>
-                    </div>
-                    <div class="header__item"><a id="keeper" class="filter__link" href="#">Keeper</a>
-                    </div>
-                    <div class="header__item"><a id="pos" class="filter__link" href="#">POS</a>
-                    </div>
-                    <div class="header__item"><a id="cost" class="filter__link filter__link--number" href="#">Cost</a>
-                    </div>
-                    <div class="header__item"><a id="years" class="filter__link filter__link--number" href="#">Years Kept</a>
-                    </div>
-                </div>
-                <div class="table-content">	
-                    <div class="table-row">		
-                        <div class="table-data">Ben</div>
-                        <div class="table-data">Brown Bros TD Emporium</div>
-                        <div class="table-data">Amon-Ra St. Brown</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">6</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Ben</div>
-                        <div class="table-data">Brown Bros TD Emporium</div>
-                        <div class="table-data">AJ Brown</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">2</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Cass</div>
-                        <div class="table-data">Breece's Pieces</div>
-                        <div class="table-data">Tyler Lockett</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">10</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Cass</div>
-                        <div class="table-data">Breece's Pieces</div>
-                        <div class="table-data">Tony Pollard</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">7</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Colin</div>
-                        <div class="table-data">Chase-in Doubs</div>
-                        <div class="table-data">Patrick Mahomes</div>
-                        <div class="table-data">QB</div>
-                        <div class="table-data">5</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="table-data">Colin</div>
-                        <div class="table-data">Chase-in Doubs</div>
-                        <div class="table-data">Ja'Marr Chase</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">8</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Dave</div>
-                        <div class="table-data">Olave and the Chipmunks</div>
-                        <div class="table-data">Josh Jacobs</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">5</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Dave</div>
-                        <div class="table-data">Olave and the Chipmunks</div>
-                        <div class="table-data">Chris Olave</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">11</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Harper</div>
-                        <div class="table-data">Hurts Barkley and Hill is Hot</div>
-                        <div class="table-data">Tyreek Hill</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">2</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Harper</div>
-                        <div class="table-data">Hurts Barkley and Hill is Hot</div>
-                        <div class="table-data">Rhamondre Stevenson</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">7</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">John</div>
-                        <div class="table-data">Piccolos Cage</div>
-                        <div class="table-data">Brandon Aiyuk</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">9</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">John</div>
-                        <div class="table-data">Piccolos Cage</div>
-                        <div class="table-data">Christian Kirk</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">8</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Price</div>
-                        <div class="table-data">Belly Ache Bitch Bijan</div>
-                        <div class="table-data">James Cook</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">10</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Price</div>
-                        <div class="table-data">Belly Ache Bitch Bijan</div>
-                        <div class="table-data">Justin Fields</div>
-                        <div class="table-data">QB</div>
-                        <div class="table-data">8</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Ray</div>
-                        <div class="table-data">My Chubbs Gone</div>
-                        <div class="table-data">Austin Ekeler</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">3</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Ray</div>
-                        <div class="table-data">My Chubbs Gone</div>
-                        <div class="table-data">Nick Chubb</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">2</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">TK</div>
-                        <div class="table-data">Saleh's Survivors</div>
-                        <div class="table-data">Garrett Wilson</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">13</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">TK</div>
-                        <div class="table-data">Saleh's Survivors</div>
-                        <div class="table-data">James Conner</div>
-                        <div class="table-data">RB</div>
-                        <div class="table-data">8</div>
-                        <div class="table-data">2*</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Uzoma</div>
-                        <div class="table-data">Wraith's Voidwalkers</div>
-                        <div class="table-data">T.J. Hockenson</div>
-                        <div class="table-data">TE</div>
-                        <div class="table-data">11</div>
-                        <div class="table-data">1</div>
-                    </div>
-                    <div class="table-row">		
-                        <div class="table-data">Uzoma</div>
-                        <div class="table-data">Wraith's Voidwalkers</div>
-                        <div class="table-data">Cooper Kupp</div>
-                        <div class="table-data">WR</div>
-                        <div class="table-data">3</div>
-                        <div class="table-data">2*</div>
-                    </div>
-            </div>	
-    </div>
-</div>
+{% set keepers2023 = {
+    columns: keeperColumns,
+    rows: [
+        ["Ben", "Brown Bros TD Emporium", "Amon-Ra St. Brown", "WR", "6", "1"],
+        ["Ben", "Brown Bros TD Emporium", "AJ Brown", "WR", "2", "1"],
+        ["Cass", "Breece's Pieces", "Tyler Lockett", "WR", "10", "1"],
+        ["Cass", "Breece's Pieces", "Tony Pollard", "RB", "7", "1"],
+        ["Colin", "Chase-in Doubs", "Patrick Mahomes", "QB", "5", "1"],
+        ["Colin", "Chase-in Doubs", "Ja'Marr Chase", "WR", "8", "2*"],
+        ["Dave", "Olave and the Chipmunks", "Josh Jacobs", "RB", "5", "1"],
+        ["Dave", "Olave and the Chipmunks", "Chris Olave", "WR", "11", "1"],
+        ["Harper", "Hurts Barkley and Hill is Hot", "Tyreek Hill", "WR", "2", "1"],
+        ["Harper", "Hurts Barkley and Hill is Hot", "Rhamondre Stevenson", "RB", "7", "1"],
+        ["John", "Piccolos Cage", "Brandon Aiyuk", "WR", "9", "1"],
+        ["John", "Piccolos Cage", "Christian Kirk", "WR", "8", "1"],
+        ["Price", "Belly Ache Bitch Bijan", "James Cook", "RB", "10", "1"],
+        ["Price", "Belly Ache Bitch Bijan", "Justin Fields", "QB", "8", "1"],
+        ["Ray", "My Chubbs Gone", "Austin Ekeler", "RB", "3", "2*"],
+        ["Ray", "My Chubbs Gone", "Nick Chubb", "RB", "2", "1"],
+        ["TK", "Saleh's Survivors", "Garrett Wilson", "WR", "13", "1"],
+        ["TK", "Saleh's Survivors", "James Conner", "RB", "8", "2*"],
+        ["Uzoma", "Wraith's Voidwalkers", "T.J. Hockenson", "TE", "11", "1"],
+        ["Uzoma", "Wraith's Voidwalkers", "Cooper Kupp", "WR", "3", "2*"]
+    ]
+} %}
+{{ llsTable(keepers2023, sortable=true, id='keepers-2023') }}
 <hr>
 <h2>2022 Keepers</h2>
 
-<div class="table-container">
-    <div class="tabletm">
-        <div class="table-header">
-            <div class="header__item"><a id="manager" class="filter__link" href="#">Manager</a>
-            </div>
-            <div class="header__item"><a id="team" class="filter__link" href="#">Team</a>
-            </div>
-            <div class="header__item"><a id="keeper" class="filter__link" href="#">Keeper</a>
-            </div>
-            <div class="header__item"><a id="pos" class="filter__link" href="#">POS</a>
-            </div>
-            <div class="header__item"><a id="cost" class="filter__link filter__link--number" href="#">Cost</a>
-            </div>
-            <div class="header__item"><a id="years" class="filter__link filter__link--number" href="#">Years Kept</a>
-            </div>
-        </div>
-        <div class="table-content">	
-            <div class="table-row">		
-                <div class="table-data">Ben</div>
-                <div class="table-data">Tua-cide Watch</div>
-                <div class="table-data">Leonard Fournette</div>
-                <div class="table-data">RB</div>
-                <div class="table-data">10</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">
-                <div class="table-data">Cass</div>
-                <div class="table-data">Miss click buffalos</div>
-                <div class="table-data">Stefon Diggs</div>
-                <div class="table-data">WR</div>
-                <div class="table-data">6</div>
-                <div class="table-data">2*</div>
-            </div>
-            <div class="table-row">
-                <div class="table-data">Cass</div>
-                <div class="table-data">Miss click buffalos</div>
-                <div class="table-data">Deebo Samuel</div>
-                <div class="table-data">WR</div>
-                <div class="table-data">8</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">
-                <div class="table-data">Colin</div>
-                <div class="table-data">Koo Runnings</div>
-                <div class="table-data">CeeDee Lamb</div>
-                <div class="table-data">WR</div>
-                <div class="table-data">3</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">
-                <div class="table-data">Colin</div>
-                <div class="table-data">Koo Runnings</div>
-                <div class="table-data">Ja'Marr Chase</div>
-                <div class="table-data">WR</div>
-                <div class="table-data">8</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">Dave</div>
-                <div class="table-data">Josh Jacob Jingleheimer Schmit</div>
-                <div class="table-data">Justin Jefferson</div>
-                <div class="table-data">WR</div>
-                <div class="table-data">7</div>
-                <div class="table-data">2*</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">Dave</div>
-                <div class="table-data">Josh Jacob Jingleheimer Schmit</div>
-                <div class="table-data">Michael Pittman Jr</div>
-                <div class="table-data">WR</div>
-                <div class="table-data">12</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">Harper</div>
-                <div class="table-data">Fully Immunized</div>
-                <div class="table-data">Tee Higgins</div>
-                <div class="table-data">WR</div>
-                <div class="table-data">6</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">Harper</div>
-                <div class="table-data">Fully Immunized</div>
-                <div class="table-data">AJ Dillon</div>
-                <div class="table-data">RB</div>
-                <div class="table-data">10</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">John</div>
-                <div class="table-data">Piccolos Cage</div>
-                <div class="table-data">Mike Evans</div>
-                <div class="table-data">WR</div>
-                <div class="table-data">3</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">John</div>
-                <div class="table-data">Piccolos Cage</div>
-                <div class="table-data">Mike Williams</div>
-                <div class="table-data">WR</div>
-                <div class="table-data">11</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">Price</div>
-                <div class="table-data">The Kamarazards</div>
-                <div class="table-data">Javonte Williams</div>
-                <div class="table-data">RB</div>
-                <div class="table-data">6</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">Price</div>
-                <div class="table-data">The Kamarazards</div>
-                <div class="table-data">Darnell Mooney</div>
-                <div class="table-data">WR</div>
-                <div class="table-data">10</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">Ray</div>
-                <div class="table-data">My Chubb Hurts</div>
-                <div class="table-data">Austin Ekeler</div>
-                <div class="table-data">RB</div>
-                <div class="table-data">3</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">Ray</div>
-                <div class="table-data">My Chubb Hurts</div>
-                <div class="table-data">DJ Moore</div>
-                <div class="table-data">WR</div>
-                <div class="table-data">5</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">TK</div>
-                <div class="table-data">The Illuminajee</div>
-                <div class="table-data">Najee Harris</div>
-                <div class="table-data">RB</div>
-                <div class="table-data">2</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">TK</div>
-                <div class="table-data">The Illuminajee</div>
-                <div class="table-data">James Conner</div>
-                <div class="table-data">RB</div>
-                <div class="table-data">9</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">Uzoma</div>
-                <div class="table-data">Wraith's Voidwalkers</div>
-                <div class="table-data">Cooper Kupp</div>
-                <div class="table-data">WR</div>
-                <div class="table-data">4</div>
-                <div class="table-data">1</div>
-            </div>
-            <div class="table-row">		
-                <div class="table-data">Uzoma</div>
-                <div class="table-data">Wraith's Voidwalkers</div>
-                <div class="table-data">Josh Allen</div>
-                <div class="table-data">QB</div>
-                <div class="table-data">8</div>
-                <div class="table-data">2*</div>
-            </div>
-        </div>	
-    </div>
-</div>     
-       
+{% set keepers2022 = {
+    columns: keeperColumns,
+    rows: [
+        ["Ben", "Tua-cide Watch", "Leonard Fournette", "RB", "10", "1"],
+        ["Cass", "Miss click buffalos", "Stefon Diggs", "WR", "6", "2*"],
+        ["Cass", "Miss click buffalos", "Deebo Samuel", "WR", "8", "1"],
+        ["Colin", "Koo Runnings", "CeeDee Lamb", "WR", "3", "1"],
+        ["Colin", "Koo Runnings", "Ja'Marr Chase", "WR", "8", "1"],
+        ["Dave", "Josh Jacob Jingleheimer Schmit", "Justin Jefferson", "WR", "7", "2*"],
+        ["Dave", "Josh Jacob Jingleheimer Schmit", "Michael Pittman Jr", "WR", "12", "1"],
+        ["Harper", "Fully Immunized", "Tee Higgins", "WR", "6", "1"],
+        ["Harper", "Fully Immunized", "AJ Dillon", "RB", "10", "1"],
+        ["John", "Piccolos Cage", "Mike Evans", "WR", "3", "1"],
+        ["John", "Piccolos Cage", "Mike Williams", "WR", "11", "1"],
+        ["Price", "The Kamarazards", "Javonte Williams", "RB", "6", "1"],
+        ["Price", "The Kamarazards", "Darnell Mooney", "WR", "10", "1"],
+        ["Ray", "My Chubb Hurts", "Austin Ekeler", "RB", "3", "1"],
+        ["Ray", "My Chubb Hurts", "DJ Moore", "WR", "5", "1"],
+        ["TK", "The Illuminajee", "Najee Harris", "RB", "2", "1"],
+        ["TK", "The Illuminajee", "James Conner", "RB", "9", "1"],
+        ["Uzoma", "Wraith's Voidwalkers", "Cooper Kupp", "WR", "4", "1"],
+        ["Uzoma", "Wraith's Voidwalkers", "Josh Allen", "QB", "8", "2*"]
+    ]
+} %}
+{{ llsTable(keepers2022, sortable=true, id='keepers-2022') }}
+
 {% endblock %}
 
 {% block scripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-{% endblock %} 
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.njk' %}
 {% from "_components/article.njk" import article %}
-{% from "_components/infoTable.njk" import infoTable %}
+{% from "_components/llsTable.njk" import llsTable %}
 {% from "_components/callout.njk" import callout %}
 
 {% block title %}
@@ -29,47 +29,44 @@ LLS Rules 🏈 {{ super() }}
         <p>Standard roster with a dedicated TE slot and a W/R/T flex. </p><br>
 
             {% set rosterData = {
-            headers: ["QB", "RB", "WR", "TE", "W/R/T"],
+            columns: [{label: "QB"}, {label: "RB"}, {label: "WR"}, {label: "TE"}, {label: "W/R/T"}],
             rows: [
                 ["1", "2", "3", "1", "1"]
             ]
             } %}
-            {{ infoTable(rosterData, orientation='wide', sortable=false, size='wide') }}
-        <br>
+            {{ llsTable(rosterData) }}
             {% set rosterData = {
-            headers: ["K", "DST", "BN", "IR"],
+            columns: [{label: "K"}, {label: "DST"}, {label: "BN"}, {label: "IR"}],
             rows: [
                 ["1", "1", "6", "2"]
             ]
             } %}
-            {{ infoTable(rosterData, orientation='wide', sortable=false, size='wide') }}
+            {{ llsTable(rosterData) }}
         <br>
         <hr>
         <h3>Offensive Scoring</h3>
             <p>0.5 PPR, INTs and fumbles have the same penalty, otherwise default. </p></br>
             {% set scoringData = {
-            headers: ["Pass TD", "Rush TD", "Rec TD"],
+            columns: [{label: "Pass TD"}, {label: "Rush TD"}, {label: "Rec TD"}],
             rows: [
                 ["4 pts", "6 pts", "6 pts"]
             ]
             } %}
-            {{ infoTable(scoringData, orientation='wide', sortable=false, size='wide') }}
-            <br>
+            {{ llsTable(scoringData) }}
             {% set scoringData = {
-            headers: ["Pass Yard", "Rush Yard", "Rec Yard"],
+            columns: [{label: "Pass Yard"}, {label: "Rush Yard"}, {label: "Rec Yard"}],
             rows: [
                 ["0.04 pts", "0.1 pts", "0.1 pts"]
             ]
             } %}
-            {{ infoTable(scoringData, orientation='wide', sortable=false, size='wide') }}
-            <br>
+            {{ llsTable(scoringData) }}
             {% set scoringData = {
-            headers: ["Fumble", "INT"],
+            columns: [{label: "Fumble"}, {label: "INT"}],
             rows: [
                 ["-2.0 pts", "-2.0 pts"]
             ]
             } %}
-            {{ infoTable(scoringData, orientation='wide', sortable=false, size='wide') }}
+            {{ llsTable(scoringData) }}
         <br>
         <hr>
         <h3>Defensive Scoring</h3>
@@ -79,86 +76,41 @@ LLS Rules 🏈 {{ super() }}
                     type='info',
                     content='The max penalty for a DST is -7pts (35 pts and 500+ yards allowed).'
                 ) }} <br>
-            <div class="scoring-table-container">
-                <table class="scoring-table" border="1">
-                    <tr>
-                        <th class="scoring-th" colspan="2">DST Pts Allowed</th>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 0</td>
-                        <td class="pts-td">10 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 1-6</td>
-                        <td class="pts-td">9 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 7-13</td>
-                        <td class="pts-td">7 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 14-20</td>
-                        <td class="pts-td">4 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 21-27</td>
-                        <td class="pts-td">1 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 28-34</td>
-                        <td class="pts-td">-2 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 35+</td>
-                        <td class="pts-td">-5 pts</td>
-                    </tr>
-                </table>
-                <table class="scoring-table" border="1">
-                    <tr>
-                        <th class="scoring-th" colspan="2">DST Yds Allowed</th>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Yds Allowed 400-499</td>
-                        <td class="pts-td">-1 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Yds Allowed 500+</td>
-                        <td class="pts-td">-2 pts</td>
-                    </tr>
-                </table>
-                <table class="scoring-table" border="1">
-                    <tr>
-                        <th class="scoring-th" colspan="2">Other Plays</th>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Sack</td>
-                        <td class="pts-td">1 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">4th Down Stop</td>
-                        <td class="pts-td">1 pts*</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Fumble Rec</td>
-                        <td class="pts-td">2 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Interception</td>
-                        <td class="pts-td">2 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Touchdown</td>
-                        <td class="pts-td">6 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Safety</td>
-                        <td class="pts-td">2 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Kick/Punt Return TD</td>
-                        <td class="pts-td">6 pts</td>
-                    </tr>
-                </table>
+            <div class="lls-table-row">
+                {% set dstPtsData = {
+                columns: [{label: "DST Pts Allowed"}, {label: "Pts", type: "num"}],
+                rows: [
+                    ["Allowed 0", "10 pts"],
+                    ["Allowed 1-6", "9 pts"],
+                    ["Allowed 7-13", "7 pts"],
+                    ["Allowed 14-20", "4 pts"],
+                    ["Allowed 21-27", "1 pts"],
+                    ["Allowed 28-34", "-2 pts"],
+                    ["Allowed 35+", "-5 pts"]
+                ]
+                } %}
+                {{ llsTable(dstPtsData) }}
+                {% set dstYdsData = {
+                columns: [{label: "DST Yds Allowed"}, {label: "Pts", type: "num"}],
+                rows: [
+                    ["Yds Allowed 400-499", "-1 pts"],
+                    ["Yds Allowed 500+", "-2 pts"]
+                ]
+                } %}
+                {{ llsTable(dstYdsData) }}
+                {% set otherPlaysData = {
+                columns: [{label: "Other Plays"}, {label: "Pts", type: "num"}],
+                rows: [
+                    ["Sack", "1 pts"],
+                    ["4th Down Stop", "1 pts*"],
+                    ["Fumble Rec", "2 pts"],
+                    ["Interception", "2 pts"],
+                    ["Touchdown", "6 pts"],
+                    ["Safety", "2 pts"],
+                    ["Kick/Punt Return TD", "6 pts"]
+                ]
+                } %}
+                {{ llsTable(otherPlaysData) }}
         </div>
     <p><Em>*Increased from 0</Em></p>
     <hr>

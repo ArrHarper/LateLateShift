@@ -3,7 +3,7 @@
 {% from "_components/card.njk" import card %}
 {% from "_components/callout.njk" import callout %}
 {% from "_components/article.njk" import article %}
-{% from "_components/infoTable.njk" import infoTable %}
+{% from "_components/llsTable.njk" import llsTable %}
 
 {% block heading %}
     <h1>Test Page</h1>
@@ -112,50 +112,38 @@
   {{ article('LLS Rules & Scoring', '8/20/24', articleContent) }}
 
 <hr>
-<h2>infoTable non-sortable, compact size</h2>
+<h2>llsTable static</h2>
 {% set scoringData = {
-  headers: ["Play", "Points"],
+  columns: [{label: "Play"}, {label: "Points", type: "num"}],
   rows: [
     ["Pass TD", "4 pts"],
     ["Rush TD", "6 pts"],
     ["Rec TD", "6 pts"]
   ]
 } %}
-{{ infoTable(scoringData, orientation='wide', sortable=false, size='compact') }}
-<br>
-<h2>infoTable non-sortable, full size</h2>
+{{ llsTable(scoringData) }}
+
+<h2>llsTable sortable</h2>
 {% set scoringData = {
-  headers: ["Play", "Points", "Name"],
+  columns: [{label: "Play", strong: true}, {label: "Points", type: "num"}],
+  rows: [
+    ["Pass TD", "4 pts"],
+    ["Rush TD", "6 pts"],
+    ["Rec TD", "6 pts"]
+  ]
+} %}
+{{ llsTable(scoringData, sortable=true) }}
+
+<h2>llsTable sortable with a mobile-hidden column</h2>
+{% set scoringData = {
+  columns: [{label: "Play", strong: true}, {label: "Points", type: "num"}, {label: "Name", hideMobile: true}],
   rows: [
     ["Pass TD", "4 pts", "Stevie"],
     ["Rush TD", "6 pts", "Joe"],
     ["Rec TD", "6 pts", "Bob"]
   ]
 } %}
-{{ infoTable(scoringData, orientation='wide', sortable=false, size='full') }}
-<br>
-<h2>infoTable sortable, full size</h2>
-{% set scoringData = {
-  headers: ["Play", "Points"],
-  rows: [
-    ["Pass TD", "4 pts"],
-    ["Rush TD", "6 pts"],
-    ["Rec TD", "6 pts"]
-  ]
-} %}
-{{ infoTable(scoringData, orientation='wide', sortable=true) }}
-<br>
-
-<h2>infoTable non-sortable, compact size</h2>
-{% set scoringData = {
-  headers: ["Play", "Points"],
-  rows: [
-    ["Pass TD", "4 pts"],
-    ["Rush TD", "6 pts"],
-    ["Rec TD", "6 pts"]
-  ]
-} %}
-{{ infoTable(scoringData, orientation='wide', sortable=true, size='compact') }}
+{{ llsTable(scoringData, sortable=true) }}
 <br>
 
 {% endblock %}

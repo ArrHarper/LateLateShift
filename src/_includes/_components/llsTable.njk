@@ -1,0 +1,47 @@
+{#
+  Unified LLS table. Styles: css/lls-table.css, behavior: js/lls-table.js.
+
+  data = {
+    columns: [{ label: 'Manager', type: 'text'|'num', strong: bool, hideMobile: bool }],
+    rows: [[cell, ...], ...]   (cells may contain HTML entities)
+  }
+  sortable — click-to-sort headers
+  Columns with hideMobile collapse below 640px; rows become tappable to
+  reveal the hidden values.
+#}
+{% macro llsTable(data, sortable=false, id='') %}
+{% set hiddenCols = data.columns | selectattr("hideMobile") | list %}
+<div class="lls-table-wrap">
+  <table class="lls-table{% if sortable %} lls-table--sortable{% endif %}{% if hiddenCols.length %} lls-table--collapsible{% endif %}"{% if id %} id="{{ id }}"{% endif %}>
+    <thead>
+      <tr>
+        {% for col in data.columns %}
+        <th scope="col" class="{% if col.type == 'num' %}lls-num{% endif %}{% if col.hideMobile %} lls-mobile-hide{% endif %}"{% if sortable %} data-sort-type="{{ col.type | default('text') }}"{% endif %}>
+          {{- col.label -}}
+          {%- if sortable %}<span class="lls-arrow" aria-hidden="true"></span>{% endif -%}
+        </th>
+        {% endfor %}
+        {% if hiddenCols.length %}<th class="lls-chev-col" aria-hidden="true"></th>{% endif %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data.rows %}
+      <tr class="lls-row{% if loop.index0 % 2 == 1 %} lls-row--alt{% endif %}">
+        {% for cell in row %}
+        {% set col = data.columns[loop.index0] %}
+        <td class="{% if col.type == 'num' %}lls-num{% endif %}{% if col.strong %} lls-strong{% endif %}{% if col.hideMobile %} lls-mobile-hide{% endif %}">{{ cell | safe }}</td>
+        {% endfor %}
+        {% if hiddenCols.length %}<td class="lls-chev-col"><span class="lls-chev">▾</span></td>{% endif %}
+      </tr>
+      {% if hiddenCols.length %}
+      <tr class="lls-detail">
+        <td colspan="{{ data.columns.length + 1 }}">
+          {%- for cell in row %}{% set col = data.columns[loop.index0] %}{% if col.hideMobile %}<span class="lls-detail-label">{{ col.label }}</span> {{ cell | safe }} {% endif %}{% endfor -%}
+        </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endmacro %}

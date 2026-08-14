@@ -1,4 +1,5 @@
 {% extends 'base.njk' %}
+{% from "_components/llsTable.njk" import llsTable %}
 
 {% block title %}
 LLS Record Book 🏈 {{ super() }}
@@ -140,93 +141,29 @@ LLS Record Book 🏈 {{ super() }}
                     </div>
                     <div class="modal-body">
                         <!-- Content of the drawer goes here -->
-                        <div class="table-container sb-table" id="sb-score-container-1" style="max-width:100%;">
-                            <div class="tabletm">
-                                <div class="table-header">
-                                    <div class="header__item"><a id="manager" class="filter__link" href="#">Player</a>
-                                    </div>
-                                    <div class="header__item"><a id="team" class="filter__link" href="#">PTS</a>
-                                    </div>
-                                    <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#" >Pos</a>
-                                    </div>
-                                    <div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">PTS</a>
-                                    </div>
-                                    <div class="header__item"><a id="pf" class="filter__link filter__link--number" href="#">Player</a>
-                                    </div>
-                                </div>    
-                                <div class="table-content">
-                                    <div class="table-row">		
-                                        <div class="table-data">P. Mahomes</div>
-                                        <div class="table-data">25.02</div>
-                                        <div class="table-data">QB</div>
-                                        <div class="table-data">-</div>
-                                        <div class="table-data">J. Allen</div>
-                                    </div>
-                                    <div class="table-row">		
-                                        <div class="table-data">C. Lamb</div>
-                                        <div class="table-data">15.50</div>
-                                        <div class="table-data">WR</div>
-                                        <div class="table-data">13.90</div>
-                                        <div class="table-data">J. Meyers</div>
-                                    </div>
-                                    <div class="table-row">		
-                                        <div class="table-data">J. Waddle</div>
-                                        <div class="table-data">6.70</div>
-                                        <div class="table-data">WR</div>
-                                        <div class="table-data">4.50</div>
-                                        <div class="table-data">D. Johnson</div>
-                                    </div>
-                                    <div class="table-row">		
-                                        <div class="table-data">C. McCaffrey</div>
-                                        <div class="table-data">28.30</div>
-                                        <div class="table-data">RB</div>
-                                        <div class="table-data">13.80</div>
-                                        <div class="table-data">C. Akers</div>
-                                    </div>
-                                    <div class="table-row">		
-                                        <div class="table-data">T. Etienne Jr.</div>
-                                        <div class="table-data">21.50</div>
-                                        <div class="table-data">RB</div>
-                                        <div class="table-data">16.00</div>
-                                        <div class="table-data">T. Allgeier</div>
-                                    </div> 
-                                    <div class="table-row">		
-                                        <div class="table-data">J. Chase</div>
-                                        <div class="table-data">-</div>
-                                        <div class="table-data">W/T</div>
-                                        <div class="table-data">6.60</div>
-                                        <div class="table-data">D. Chark Jr.</div>
-                                    </div> 
-                                    <div class="table-row">		
-                                        <div class="table-data">D. Smith</div>
-                                        <div class="table-data">16.00</div>
-                                        <div class="table-data">W/R/T</div>
-                                        <div class="table-data">3.40</div>
-                                        <div class="table-data">E. Engram</div>
-                                    </div> 
-                                    <div class="table-row">		
-                                        <div class="table-data">H. Butker</div>
-                                        <div class="table-data">3.00</div>
-                                        <div class="table-data">K</div>
-                                        <div class="table-data">9.00</div>
-                                        <div class="table-data">R. Patterson</div>
-                                    </div> 
-                                    <div class="table-row">		
-                                        <div class="table-data">LAC</div>
-                                        <div class="table-data">12.00</div>
-                                        <div class="table-data">Def</div>
-                                        <div class="table-data">23.00</div>
-                                        <div class="table-data">JAX</div>
-                                    </div> 
-                                    <div class="table-row">		
-                                        <div class="table-data">-</div>
-                                        <div class="table-data" ><b>128.02</b></div>
-                                        <div class="table-data">TOTAL</div>
-                                        <div class="table-data"><b>104.08</b></div>
-                                        <div class="table-data">-</div>
-                                    </div> 
-                                </div>
-                            </div>
+                        <div class="sb-table" id="sb-score-container-1" style="max-width:100%;">
+                            {% set sbBoxScore = {
+                                columns: [
+                                    {label: "Player"},
+                                    {label: "PTS", type: "num"},
+                                    {label: "Pos"},
+                                    {label: "PTS", type: "num"},
+                                    {label: "Player"}
+                                ],
+                                rows: [
+                                    ["P. Mahomes", "25.02", "QB", "-", "J. Allen"],
+                                    ["C. Lamb", "15.50", "WR", "13.90", "J. Meyers"],
+                                    ["J. Waddle", "6.70", "WR", "4.50", "D. Johnson"],
+                                    ["C. McCaffrey", "28.30", "RB", "13.80", "C. Akers"],
+                                    ["T. Etienne Jr.", "21.50", "RB", "16.00", "T. Allgeier"],
+                                    ["J. Chase", "-", "W/T", "6.60", "D. Chark Jr."],
+                                    ["D. Smith", "16.00", "W/R/T", "3.40", "E. Engram"],
+                                    ["H. Butker", "3.00", "K", "9.00", "R. Patterson"],
+                                    ["LAC", "12.00", "Def", "23.00", "JAX"],
+                                    ["-", "<b>128.02</b>", "TOTAL", "<b>104.08</b>", "-"]
+                                ]
+                            } %}
+                            {{ llsTable(sbBoxScore) }}
                         </div>
                         <!-- Use the same HTML content as before -->
                     </div>
