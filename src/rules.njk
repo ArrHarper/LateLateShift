@@ -26,12 +26,12 @@ LLS Rules 🏈 {{ super() }}
             </ul>
         <hr>
         <h3>Roster Settings</h3>
-        <p>Standard roster that replaces TE with a WR/TE flex. This makes teams less reliant on TE roulette since the TE position drops off so hard, and brings more value to mid-tier WRs. </p><br>
+        <p>Standard roster with a dedicated TE slot and a W/R/T flex. </p><br>
 
             {% set rosterData = {
-            headers: ["QB", "RB", "WR", "WR/TE", "RB/WR/TE"],
+            headers: ["QB", "RB", "WR", "TE", "W/R/T"],
             rows: [
-                ["1", "2", "2", "1", "1"]
+                ["1", "2", "3", "1", "1"]
             ]
             } %}
             {{ infoTable(rosterData, orientation='wide', sortable=false, size='wide') }}
@@ -214,7 +214,7 @@ LLS Rules 🏈 {{ super() }}
     <p>Yes, if you return a player to the draft pool and have the opportunity to draft them back onto your roster, you can do this and the keeper costs will reset.</p></br>
     </ul>
 {% endset %}
-        {{ article('LLS Rules & Scoring', '8/11/25', articleContent) }}
+        {{ article('LLS Rules & Scoring', '8/14/26', articleContent) }}
 {% endblock %}
 
 {% block scripts %}
