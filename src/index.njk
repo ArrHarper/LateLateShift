@@ -58,7 +58,7 @@
     {% set nextYear = latestKeepers.year + 1 %}
     {{ secHead("Keeper Outlook " + ([nextYear] | shortYears), note="who can be kept again, and what it costs", link=('/keeper-history/' | url), linkText="Full history →") }}
     {% set outlook = latestKeepers.rows | keeperOutlook %}
-    <div class="split-main-rail">
+    <div class="split-main-rail outlook-grid">
         {% set outlookRows = [] %}
         {% for k in outlook %}
             {% set _ = outlookRows.push([
@@ -70,6 +70,7 @@
                 ('<span class="cell-ok">Eligible</span>' if k.eligible else '<span class="cell-out">Back to pool</span>')
             ]) %}
         {% endfor %}
+        <div class="outlook-holder">
         {{ llsTable({
             columns: [
                 { label: "Manager", type: "text", strong: true },
@@ -81,6 +82,7 @@
             ],
             rows: outlookRows
         }, sortable=true, id='keeper-outlook') }}
+        </div>
         <div class="mod rank-mod">
             <div class="mod-head"><h3>Back in the Pool · {{ nextYear }}</h3></div>
             <ol>

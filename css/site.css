@@ -389,6 +389,15 @@ main { display: block; }
 .cell-ok { color: var(--blue-ink); font-weight: 700; }
 .cell-out { color: var(--red-ink); font-weight: 700; }
 
+/* keeper-outlook: table matches the rail module's height and scrolls for the rest */
+.split-main-rail.outlook-grid { align-items: stretch; }
+.outlook-holder { position: relative; }
+.outlook-holder .lls-table-wrap { position: absolute; inset: 0; overflow: auto; }
+.outlook-holder .lls-table th { position: sticky; top: 0; z-index: 1; }
+@media (max-width: 760px) {
+  .outlook-holder .lls-table-wrap { position: static; max-height: 340px; }
+}
+
 /* news list */
 .news-list a {
   display: flex;
