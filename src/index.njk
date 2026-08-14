@@ -60,7 +60,10 @@
     {% set outlook = latestKeepers.rows | keeperOutlook %}
     <div class="split-main-rail outlook-grid">
         {% set outlookRows = [] %}
-        {% for k in outlook %}
+        {# default order: cheapest '26 keeps first, back-to-pool rows last #}
+        {% set eligRows = outlook | selectattr("eligible") | sort(false, false, "nextCost") | list %}
+        {% set poolRows = outlook | rejectattr("eligible") | list %}
+        {% for k in eligRows.concat(poolRows) %}
             {% set _ = outlookRows.push([
                 k.manager,
                 k.player,
