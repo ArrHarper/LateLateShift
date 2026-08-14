@@ -1,0 +1,148 @@
+/* Unified LLS table component — see src/_includes/_components/llsTable.njk */
+
+.lls-table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Lays out several small tables side by side; wraps to stacked on narrow screens */
+.lls-table-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  align-items: flex-start;
+}
+
+.lls-table-row .lls-table-wrap {
+  flex: 1 1 240px;
+}
+
+.lls-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+.lls-table th {
+  background: #111;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  padding: 10px 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.lls-table td {
+  padding: 9px 14px;
+  border-top: 1px solid #ececec;
+  text-align: left;
+}
+
+.lls-table .lls-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.lls-table .lls-strong {
+  font-weight: 600;
+}
+
+.lls-table tr.lls-row--alt {
+  background: #f6f6f6;
+}
+
+.lls-table tbody tr.lls-row:hover {
+  background: #fdeae9;
+}
+
+/* Sortable headers */
+.lls-table--sortable th[data-sort-type] {
+  cursor: pointer;
+  user-select: none;
+}
+
+.lls-table--sortable th[data-sort-type]:hover,
+.lls-table--sortable th.lls-sorted {
+  color: #cbf04f;
+}
+
+.lls-arrow {
+  display: inline-block;
+  font-size: 0.7em;
+  margin-left: 5px;
+  min-width: 1em;
+}
+
+/* Collapsible mobile columns — hidden on desktop */
+.lls-chev-col {
+  display: none;
+}
+
+.lls-table tr.lls-detail {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .lls-table th,
+  .lls-table td {
+    padding: 8px 8px;
+    font-size: 0.85rem;
+  }
+
+  .lls-table th {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+
+  .lls-table--collapsible .lls-mobile-hide {
+    display: none;
+  }
+
+  .lls-table--collapsible .lls-chev-col {
+    display: table-cell;
+    width: 28px;
+    text-align: center;
+    color: #999;
+  }
+
+  .lls-table--collapsible tr.lls-row {
+    cursor: pointer;
+  }
+
+  .lls-table--collapsible tr.lls-detail.lls-open {
+    display: table-row;
+  }
+
+  .lls-table tr.lls-detail td {
+    background: #fbf8ef;
+    border-top: none;
+    padding-top: 2px;
+    font-size: 0.8rem;
+    color: #555;
+  }
+
+  .lls-detail-label {
+    color: #999;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    margin-right: 6px;
+  }
+
+  .lls-chev {
+    display: inline-block;
+    transition: transform 0.15s ease;
+  }
+
+  tr.lls-row.lls-open .lls-chev {
+    transform: rotate(180deg);
+  }
+}

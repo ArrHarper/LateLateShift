@@ -15,11 +15,12 @@ LLS Rules 🏈 | The Late Late Shift
     <link rel="stylesheet" href="/LateLateShift/css/fonts.css">
     <link rel="stylesheet" href="/LateLateShift/css/styles.css">
     <link rel="stylesheet" href="/LateLateShift/css/table.css">
+    <link rel="stylesheet" href="/LateLateShift/css/lls-table.css">
     <link rel="stylesheet" href="/LateLateShift/css/tabs.css">
     <link rel="stylesheet" href="/LateLateShift/css/tb-01.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/LateLateShift/js/table.js"></script>
+    <script src="/LateLateShift/js/lls-table.js" defer></script>
     
 
 
@@ -128,364 +129,93 @@ LLS Rules 🏈 | The Late Late Shift
             
             
 
-<div class="info-table-container " id="table-7644" >
-  <table class="info-table 
-     
-    
-    ">
+<div class="lls-table-wrap">
+  <table class="lls-table">
     <thead>
-      <tr class="info-table__header-row">
+      <tr>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              QB
-              
-            </span>
-          </th>
+        <th scope="col" class="">QB</th>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              RB
-              
-            </span>
-          </th>
+        <th scope="col" class="">RB</th>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              WR
-              
-            </span>
-          </th>
+        <th scope="col" class="">WR</th>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              TE
-              
-            </span>
-          </th>
+        <th scope="col" class="">TE</th>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              W/R/T
-              
-            </span>
-          </th>
+        <th scope="col" class="">W/R/T</th>
+        
         
       </tr>
     </thead>
     <tbody>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">1</td>
-            
-          
-            
-              <td class="info-table__cell">2</td>
-            
-          
-            
-              <td class="info-table__cell">3</td>
-            
-          
-            
-              <td class="info-table__cell">1</td>
-            
-          
-            
-              <td class="info-table__cell">1</td>
-            
-          
-        </tr>
+      <tr class="lls-row">
+        
+        
+        <td class="">1</td>
+        
+        
+        <td class="">2</td>
+        
+        
+        <td class="">3</td>
+        
+        
+        <td class="">1</td>
+        
+        
+        <td class="">1</td>
+        
+        
+      </tr>
+      
       
     </tbody>
   </table>
 </div>
 
-
-
-<style>
-.info-table-container {
-  overflow-x: auto !important;
-  max-width: 100% !important;
-  display: block !important;
-}
-
-.info-table {
-  border-collapse: collapse !important;
-  font-family: var(--bs-body-font-family) !important;
-  font-size: var(--bs-body-font-size) !important;
-  width: 100% !important;
-  background-color: white !important;
-  border: 1px solid #EEEEEE !important;
-  table-layout: fixed !important; /* This ensures equal column widths */
-}
-
-.info-table--compact {
-  table-layout: auto !important; /* Allow compact tables to size to content */
-}
-
-.info-table__header-row {
-  display: table-row !important;
-}
-
-.info-table__header,
-.info-table__cell {
-  padding: 10px !important;
-  text-align: left !important;
-  border: 1px solid #ddd !important;
-  display: table-cell !important;
-  width: auto !important;
-  flex: none !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-}
-
-.info-table__header {
-  background-color: #333 !important;
-  color: white !important;
-  
-  position: relative !important;
-  padding: 10px !important;
-}
-
-.info-table__header-content {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  text-transform: uppercase !important;
-  font-size: large !important;
-}
-
-.info-table__header.sort-desc, .info-table__header.sort-asc {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-
-.info-table--sortable .info-table__header:hover {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-.info-table__row {
-  display: table-row !important;
-  background-color: transparent !important;
-}
-
-.info-table__row:nth-child(even) {
-  background-color: #f2f2f2 !important;
-}
-
-.info-table__row:hover {
-  background-color: #ddd !important;
-}
-
-.info-table--tall .info-table__header {
-  width: 30% !important;
-}
-
-.info-table--sortable .info-table__header {
-  cursor: pointer !important;
-}
-
-.info-table__sort-icon {
-  font-size: 0.8em !important;
-  margin-left: 5px !important;
-  white-space: nowrap !important;
-}
-
-.info-table .sort-asc .info-table__sort-icon,
-.info-table .sort-desc .info-table__sort-icon {
-  display: inline-block !important;
-}
-
-.info-table--compact .info-table__header,
-.info-table--compact .info-table__cell {
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-</style>
-
-        <br>
             
             
 
-<div class="info-table-container " id="table-1356" >
-  <table class="info-table 
-     
-    
-    ">
+<div class="lls-table-wrap">
+  <table class="lls-table">
     <thead>
-      <tr class="info-table__header-row">
+      <tr>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              K
-              
-            </span>
-          </th>
+        <th scope="col" class="">K</th>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              DST
-              
-            </span>
-          </th>
+        <th scope="col" class="">DST</th>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              BN
-              
-            </span>
-          </th>
+        <th scope="col" class="">BN</th>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              IR
-              
-            </span>
-          </th>
+        <th scope="col" class="">IR</th>
+        
         
       </tr>
     </thead>
     <tbody>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">1</td>
-            
-          
-            
-              <td class="info-table__cell">1</td>
-            
-          
-            
-              <td class="info-table__cell">6</td>
-            
-          
-            
-              <td class="info-table__cell">2</td>
-            
-          
-        </tr>
+      <tr class="lls-row">
+        
+        
+        <td class="">1</td>
+        
+        
+        <td class="">1</td>
+        
+        
+        <td class="">6</td>
+        
+        
+        <td class="">2</td>
+        
+        
+      </tr>
+      
       
     </tbody>
   </table>
 </div>
-
-
-
-<style>
-.info-table-container {
-  overflow-x: auto !important;
-  max-width: 100% !important;
-  display: block !important;
-}
-
-.info-table {
-  border-collapse: collapse !important;
-  font-family: var(--bs-body-font-family) !important;
-  font-size: var(--bs-body-font-size) !important;
-  width: 100% !important;
-  background-color: white !important;
-  border: 1px solid #EEEEEE !important;
-  table-layout: fixed !important; /* This ensures equal column widths */
-}
-
-.info-table--compact {
-  table-layout: auto !important; /* Allow compact tables to size to content */
-}
-
-.info-table__header-row {
-  display: table-row !important;
-}
-
-.info-table__header,
-.info-table__cell {
-  padding: 10px !important;
-  text-align: left !important;
-  border: 1px solid #ddd !important;
-  display: table-cell !important;
-  width: auto !important;
-  flex: none !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-}
-
-.info-table__header {
-  background-color: #333 !important;
-  color: white !important;
-  
-  position: relative !important;
-  padding: 10px !important;
-}
-
-.info-table__header-content {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  text-transform: uppercase !important;
-  font-size: large !important;
-}
-
-.info-table__header.sort-desc, .info-table__header.sort-asc {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-
-.info-table--sortable .info-table__header:hover {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-.info-table__row {
-  display: table-row !important;
-  background-color: transparent !important;
-}
-
-.info-table__row:nth-child(even) {
-  background-color: #f2f2f2 !important;
-}
-
-.info-table__row:hover {
-  background-color: #ddd !important;
-}
-
-.info-table--tall .info-table__header {
-  width: 30% !important;
-}
-
-.info-table--sortable .info-table__header {
-  cursor: pointer !important;
-}
-
-.info-table__sort-icon {
-  font-size: 0.8em !important;
-  margin-left: 5px !important;
-  white-space: nowrap !important;
-}
-
-.info-table .sort-asc .info-table__sort-icon,
-.info-table .sort-desc .info-table__sort-icon {
-  display: inline-block !important;
-}
-
-.info-table--compact .info-table__header,
-.info-table--compact .info-table__cell {
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-</style>
 
         <br>
         <hr>
@@ -494,485 +224,111 @@ LLS Rules 🏈 | The Late Late Shift
             
             
 
-<div class="info-table-container " id="table-8411" >
-  <table class="info-table 
-     
-    
-    ">
+<div class="lls-table-wrap">
+  <table class="lls-table">
     <thead>
-      <tr class="info-table__header-row">
+      <tr>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              Pass TD
-              
-            </span>
-          </th>
+        <th scope="col" class="">Pass TD</th>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              Rush TD
-              
-            </span>
-          </th>
+        <th scope="col" class="">Rush TD</th>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              Rec TD
-              
-            </span>
-          </th>
+        <th scope="col" class="">Rec TD</th>
+        
         
       </tr>
     </thead>
     <tbody>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">4 pts</td>
-            
-          
-            
-              <td class="info-table__cell">6 pts</td>
-            
-          
-            
-              <td class="info-table__cell">6 pts</td>
-            
-          
-        </tr>
+      <tr class="lls-row">
+        
+        
+        <td class="">4 pts</td>
+        
+        
+        <td class="">6 pts</td>
+        
+        
+        <td class="">6 pts</td>
+        
+        
+      </tr>
+      
       
     </tbody>
   </table>
 </div>
 
-
-
-<style>
-.info-table-container {
-  overflow-x: auto !important;
-  max-width: 100% !important;
-  display: block !important;
-}
-
-.info-table {
-  border-collapse: collapse !important;
-  font-family: var(--bs-body-font-family) !important;
-  font-size: var(--bs-body-font-size) !important;
-  width: 100% !important;
-  background-color: white !important;
-  border: 1px solid #EEEEEE !important;
-  table-layout: fixed !important; /* This ensures equal column widths */
-}
-
-.info-table--compact {
-  table-layout: auto !important; /* Allow compact tables to size to content */
-}
-
-.info-table__header-row {
-  display: table-row !important;
-}
-
-.info-table__header,
-.info-table__cell {
-  padding: 10px !important;
-  text-align: left !important;
-  border: 1px solid #ddd !important;
-  display: table-cell !important;
-  width: auto !important;
-  flex: none !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-}
-
-.info-table__header {
-  background-color: #333 !important;
-  color: white !important;
-  
-  position: relative !important;
-  padding: 10px !important;
-}
-
-.info-table__header-content {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  text-transform: uppercase !important;
-  font-size: large !important;
-}
-
-.info-table__header.sort-desc, .info-table__header.sort-asc {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-
-.info-table--sortable .info-table__header:hover {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-.info-table__row {
-  display: table-row !important;
-  background-color: transparent !important;
-}
-
-.info-table__row:nth-child(even) {
-  background-color: #f2f2f2 !important;
-}
-
-.info-table__row:hover {
-  background-color: #ddd !important;
-}
-
-.info-table--tall .info-table__header {
-  width: 30% !important;
-}
-
-.info-table--sortable .info-table__header {
-  cursor: pointer !important;
-}
-
-.info-table__sort-icon {
-  font-size: 0.8em !important;
-  margin-left: 5px !important;
-  white-space: nowrap !important;
-}
-
-.info-table .sort-asc .info-table__sort-icon,
-.info-table .sort-desc .info-table__sort-icon {
-  display: inline-block !important;
-}
-
-.info-table--compact .info-table__header,
-.info-table--compact .info-table__cell {
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-</style>
-
-            <br>
             
             
 
-<div class="info-table-container " id="table-9578" >
-  <table class="info-table 
-     
-    
-    ">
+<div class="lls-table-wrap">
+  <table class="lls-table">
     <thead>
-      <tr class="info-table__header-row">
+      <tr>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              Pass Yard
-              
-            </span>
-          </th>
+        <th scope="col" class="">Pass Yard</th>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              Rush Yard
-              
-            </span>
-          </th>
+        <th scope="col" class="">Rush Yard</th>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              Rec Yard
-              
-            </span>
-          </th>
+        <th scope="col" class="">Rec Yard</th>
+        
         
       </tr>
     </thead>
     <tbody>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">0.04 pts</td>
-            
-          
-            
-              <td class="info-table__cell">0.1 pts</td>
-            
-          
-            
-              <td class="info-table__cell">0.1 pts</td>
-            
-          
-        </tr>
+      <tr class="lls-row">
+        
+        
+        <td class="">0.04 pts</td>
+        
+        
+        <td class="">0.1 pts</td>
+        
+        
+        <td class="">0.1 pts</td>
+        
+        
+      </tr>
+      
       
     </tbody>
   </table>
 </div>
 
-
-
-<style>
-.info-table-container {
-  overflow-x: auto !important;
-  max-width: 100% !important;
-  display: block !important;
-}
-
-.info-table {
-  border-collapse: collapse !important;
-  font-family: var(--bs-body-font-family) !important;
-  font-size: var(--bs-body-font-size) !important;
-  width: 100% !important;
-  background-color: white !important;
-  border: 1px solid #EEEEEE !important;
-  table-layout: fixed !important; /* This ensures equal column widths */
-}
-
-.info-table--compact {
-  table-layout: auto !important; /* Allow compact tables to size to content */
-}
-
-.info-table__header-row {
-  display: table-row !important;
-}
-
-.info-table__header,
-.info-table__cell {
-  padding: 10px !important;
-  text-align: left !important;
-  border: 1px solid #ddd !important;
-  display: table-cell !important;
-  width: auto !important;
-  flex: none !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-}
-
-.info-table__header {
-  background-color: #333 !important;
-  color: white !important;
-  
-  position: relative !important;
-  padding: 10px !important;
-}
-
-.info-table__header-content {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  text-transform: uppercase !important;
-  font-size: large !important;
-}
-
-.info-table__header.sort-desc, .info-table__header.sort-asc {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-
-.info-table--sortable .info-table__header:hover {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-.info-table__row {
-  display: table-row !important;
-  background-color: transparent !important;
-}
-
-.info-table__row:nth-child(even) {
-  background-color: #f2f2f2 !important;
-}
-
-.info-table__row:hover {
-  background-color: #ddd !important;
-}
-
-.info-table--tall .info-table__header {
-  width: 30% !important;
-}
-
-.info-table--sortable .info-table__header {
-  cursor: pointer !important;
-}
-
-.info-table__sort-icon {
-  font-size: 0.8em !important;
-  margin-left: 5px !important;
-  white-space: nowrap !important;
-}
-
-.info-table .sort-asc .info-table__sort-icon,
-.info-table .sort-desc .info-table__sort-icon {
-  display: inline-block !important;
-}
-
-.info-table--compact .info-table__header,
-.info-table--compact .info-table__cell {
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-</style>
-
-            <br>
             
             
 
-<div class="info-table-container " id="table-8083" >
-  <table class="info-table 
-     
-    
-    ">
+<div class="lls-table-wrap">
+  <table class="lls-table">
     <thead>
-      <tr class="info-table__header-row">
+      <tr>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              Fumble
-              
-            </span>
-          </th>
+        <th scope="col" class="">Fumble</th>
         
-          <th class="info-table__header" >
-            <span class="info-table__header-content">
-              INT
-              
-            </span>
-          </th>
+        <th scope="col" class="">INT</th>
+        
         
       </tr>
     </thead>
     <tbody>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">-2.0 pts</td>
-            
-          
-            
-              <td class="info-table__cell">-2.0 pts</td>
-            
-          
-        </tr>
+      <tr class="lls-row">
+        
+        
+        <td class="">-2.0 pts</td>
+        
+        
+        <td class="">-2.0 pts</td>
+        
+        
+      </tr>
+      
       
     </tbody>
   </table>
 </div>
-
-
-
-<style>
-.info-table-container {
-  overflow-x: auto !important;
-  max-width: 100% !important;
-  display: block !important;
-}
-
-.info-table {
-  border-collapse: collapse !important;
-  font-family: var(--bs-body-font-family) !important;
-  font-size: var(--bs-body-font-size) !important;
-  width: 100% !important;
-  background-color: white !important;
-  border: 1px solid #EEEEEE !important;
-  table-layout: fixed !important; /* This ensures equal column widths */
-}
-
-.info-table--compact {
-  table-layout: auto !important; /* Allow compact tables to size to content */
-}
-
-.info-table__header-row {
-  display: table-row !important;
-}
-
-.info-table__header,
-.info-table__cell {
-  padding: 10px !important;
-  text-align: left !important;
-  border: 1px solid #ddd !important;
-  display: table-cell !important;
-  width: auto !important;
-  flex: none !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-}
-
-.info-table__header {
-  background-color: #333 !important;
-  color: white !important;
-  
-  position: relative !important;
-  padding: 10px !important;
-}
-
-.info-table__header-content {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  text-transform: uppercase !important;
-  font-size: large !important;
-}
-
-.info-table__header.sort-desc, .info-table__header.sort-asc {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-
-.info-table--sortable .info-table__header:hover {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-.info-table__row {
-  display: table-row !important;
-  background-color: transparent !important;
-}
-
-.info-table__row:nth-child(even) {
-  background-color: #f2f2f2 !important;
-}
-
-.info-table__row:hover {
-  background-color: #ddd !important;
-}
-
-.info-table--tall .info-table__header {
-  width: 30% !important;
-}
-
-.info-table--sortable .info-table__header {
-  cursor: pointer !important;
-}
-
-.info-table__sort-icon {
-  font-size: 0.8em !important;
-  margin-left: 5px !important;
-  white-space: nowrap !important;
-}
-
-.info-table .sort-asc .info-table__sort-icon,
-.info-table .sort-desc .info-table__sort-icon {
-  display: inline-block !important;
-}
-
-.info-table--compact .info-table__header,
-.info-table--compact .info-table__cell {
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-</style>
 
         <br>
         <hr>
@@ -995,86 +351,262 @@ LLS Rules 🏈 | The Late Late Shift
     
   </div>
  <br>
-            <div class="scoring-table-container">
-                <table class="scoring-table" border="1">
-                    <tr>
-                        <th class="scoring-th" colspan="2">DST Pts Allowed</th>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 0</td>
-                        <td class="pts-td">10 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 1-6</td>
-                        <td class="pts-td">9 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 7-13</td>
-                        <td class="pts-td">7 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 14-20</td>
-                        <td class="pts-td">4 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 21-27</td>
-                        <td class="pts-td">1 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 28-34</td>
-                        <td class="pts-td">-2 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Allowed 35+</td>
-                        <td class="pts-td">-5 pts</td>
-                    </tr>
-                </table>
-                <table class="scoring-table" border="1">
-                    <tr>
-                        <th class="scoring-th" colspan="2">DST Yds Allowed</th>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Yds Allowed 400-499</td>
-                        <td class="pts-td">-1 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Yds Allowed 500+</td>
-                        <td class="pts-td">-2 pts</td>
-                    </tr>
-                </table>
-                <table class="scoring-table" border="1">
-                    <tr>
-                        <th class="scoring-th" colspan="2">Other Plays</th>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Sack</td>
-                        <td class="pts-td">1 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">4th Down Stop</td>
-                        <td class="pts-td">1 pts*</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Fumble Rec</td>
-                        <td class="pts-td">2 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Interception</td>
-                        <td class="pts-td">2 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Touchdown</td>
-                        <td class="pts-td">6 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Safety</td>
-                        <td class="pts-td">2 pts</td>
-                    </tr>
-                    <tr>
-                        <td class="play-td">Kick/Punt Return TD</td>
-                        <td class="pts-td">6 pts</td>
-                    </tr>
-                </table>
+            <div class="lls-table-row">
+                
+                
+
+<div class="lls-table-wrap">
+  <table class="lls-table">
+    <thead>
+      <tr>
+        
+        <th scope="col" class="">DST Pts Allowed</th>
+        
+        <th scope="col" class="lls-num">Pts</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr class="lls-row">
+        
+        
+        <td class="">Allowed 0</td>
+        
+        
+        <td class="lls-num">10 pts</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class="">Allowed 1-6</td>
+        
+        
+        <td class="lls-num">9 pts</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class="">Allowed 7-13</td>
+        
+        
+        <td class="lls-num">7 pts</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class="">Allowed 14-20</td>
+        
+        
+        <td class="lls-num">4 pts</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class="">Allowed 21-27</td>
+        
+        
+        <td class="lls-num">1 pts</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class="">Allowed 28-34</td>
+        
+        
+        <td class="lls-num">-2 pts</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class="">Allowed 35+</td>
+        
+        
+        <td class="lls-num">-5 pts</td>
+        
+        
+      </tr>
+      
+      
+    </tbody>
+  </table>
+</div>
+
+                
+                
+
+<div class="lls-table-wrap">
+  <table class="lls-table">
+    <thead>
+      <tr>
+        
+        <th scope="col" class="">DST Yds Allowed</th>
+        
+        <th scope="col" class="lls-num">Pts</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr class="lls-row">
+        
+        
+        <td class="">Yds Allowed 400-499</td>
+        
+        
+        <td class="lls-num">-1 pts</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class="">Yds Allowed 500+</td>
+        
+        
+        <td class="lls-num">-2 pts</td>
+        
+        
+      </tr>
+      
+      
+    </tbody>
+  </table>
+</div>
+
+                
+                
+
+<div class="lls-table-wrap">
+  <table class="lls-table">
+    <thead>
+      <tr>
+        
+        <th scope="col" class="">Other Plays</th>
+        
+        <th scope="col" class="lls-num">Pts</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr class="lls-row">
+        
+        
+        <td class="">Sack</td>
+        
+        
+        <td class="lls-num">1 pts</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class="">4th Down Stop</td>
+        
+        
+        <td class="lls-num">1 pts*</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class="">Fumble Rec</td>
+        
+        
+        <td class="lls-num">2 pts</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class="">Interception</td>
+        
+        
+        <td class="lls-num">2 pts</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class="">Touchdown</td>
+        
+        
+        <td class="lls-num">6 pts</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class="">Safety</td>
+        
+        
+        <td class="lls-num">2 pts</td>
+        
+        
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class="">Kick/Punt Return TD</td>
+        
+        
+        <td class="lls-num">6 pts</td>
+        
+        
+      </tr>
+      
+      
+    </tbody>
+  </table>
+</div>
+
         </div>
     <p><Em>*Increased from 0</Em></p>
     <hr>

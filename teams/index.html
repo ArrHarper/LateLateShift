@@ -15,11 +15,12 @@ LLS Teams and Managers 🏈 | The Late Late Shift
     <link rel="stylesheet" href="/LateLateShift/css/fonts.css">
     <link rel="stylesheet" href="/LateLateShift/css/styles.css">
     <link rel="stylesheet" href="/LateLateShift/css/table.css">
+    <link rel="stylesheet" href="/LateLateShift/css/lls-table.css">
     <link rel="stylesheet" href="/LateLateShift/css/tabs.css">
     <link rel="stylesheet" href="/LateLateShift/css/tb-01.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/LateLateShift/js/table.js"></script>
+    <script src="/LateLateShift/js/lls-table.js" defer></script>
     
 <style>
     h3 {
@@ -104,7 +105,7 @@ LLS Teams and Managers 🏈 | The Late Late Shift
 <div class="row gx-4 gx-lg-5 align-items-center my-5">
     <div class="col-lg-5">
         <h1 class="font-weight-light">LLS Teams & Stats</h1>
-        <p>Team list and all-time stats per manager. Click on rows to select, CTRL+click and SHIFT+click to select multiple rows.</p><br>
+        <p>Team list and all-time stats per manager. Click column headers to sort.</p><br>
     </div>
     <div class="col-lg-7">
         <img class="img-fluid rounded mb-4 mb-lg-0" src="https://embed-ssl.wistia.com/deliveries/04b18769145f242f5e8dd0c80982d736.png" alt="Patriots players dump a water cooler over Bill Belichick to celebrate" />
@@ -119,740 +120,471 @@ LLS Teams and Managers 🏈 | The Late Late Shift
 
 
 
-<div class="info-table-container info-table-container--compact" id="teamChart" >
-  <table class="info-table 
-     
-    info-table--sortable
-    info-table--compact">
+<div class="lls-table-wrap">
+  <table class="lls-table lls-table--sortable lls-table--collapsible" id="teamChart">
     <thead>
-      <tr class="info-table__header-row">
+      <tr>
         
-          <th class="info-table__header" data-sort="0">
-            <span class="info-table__header-content">
-              Manager
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="" data-sort-type="text">Manager<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="1">
-            <span class="info-table__header-content">
-              Yrs
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num" data-sort-type="num">Yrs<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="2">
-            <span class="info-table__header-content">
-              W
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num" data-sort-type="num">W<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="3">
-            <span class="info-table__header-content">
-              L
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num" data-sort-type="num">L<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="4">
-            <span class="info-table__header-content">
-              Win %
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num" data-sort-type="num">Win %<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="5">
-            <span class="info-table__header-content">
-              PF
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num lls-mobile-hide" data-sort-type="num">PF<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="6">
-            <span class="info-table__header-content">
-              PA
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num lls-mobile-hide" data-sort-type="num">PA<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="7">
-            <span class="info-table__header-content">
-              PF Avg
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num lls-mobile-hide" data-sort-type="num">PF Avg<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="8">
-            <span class="info-table__header-content">
-              PA Avg
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num lls-mobile-hide" data-sort-type="num">PA Avg<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="9">
-            <span class="info-table__header-content">
-              Moves
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num lls-mobile-hide" data-sort-type="num">Moves<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="10">
-            <span class="info-table__header-content">
-              Moves Avg
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num lls-mobile-hide" data-sort-type="num">Moves Avg<span class="lls-arrow" aria-hidden="true"></span></th>
         
+        <th class="lls-chev-col" aria-hidden="true"></th>
       </tr>
     </thead>
     <tbody>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">Ben 🏆</td>
-            
-          
-            
-              <td class="info-table__cell">3</td>
-            
-          
-            
-              <td class="info-table__cell">20</td>
-            
-          
-            
-              <td class="info-table__cell">22</td>
-            
-          
-            
-              <td class="info-table__cell">0.48</td>
-            
-          
-            
-              <td class="info-table__cell">4937.58</td>
-            
-          
-            
-              <td class="info-table__cell">4856.48</td>
-            
-          
-            
-              <td class="info-table__cell">1645.86</td>
-            
-          
-            
-              <td class="info-table__cell">1618.83</td>
-            
-          
-            
-              <td class="info-table__cell">107</td>
-            
-          
-            
-              <td class="info-table__cell">35.67</td>
-            
-          
-        </tr>
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">Ben 🏆</td>
+        
+        
+        <td class="lls-num">3</td>
+        
+        
+        <td class="lls-num">20</td>
+        
+        
+        <td class="lls-num">22</td>
+        
+        
+        <td class="lls-num">0.48</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">4937.58</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">4856.48</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1645.86</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1618.83</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">107</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">35.67</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">Cass</td>
-            
-          
-            
-              <td class="info-table__cell">6</td>
-            
-          
-            
-              <td class="info-table__cell">46</td>
-            
-          
-            
-              <td class="info-table__cell">37</td>
-            
-          
-            
-              <td class="info-table__cell">0.55</td>
-            
-          
-            
-              <td class="info-table__cell">9743.8</td>
-            
-          
-            
-              <td class="info-table__cell">9525.26</td>
-            
-          
-            
-              <td class="info-table__cell">1623.97</td>
-            
-          
-            
-              <td class="info-table__cell">1587.54</td>
-            
-          
-            
-              <td class="info-table__cell">149</td>
-            
-          
-            
-              <td class="info-table__cell">24.83</td>
-            
-          
-        </tr>
+      <tr class="lls-detail">
+        <td colspan="12"><span class="lls-detail-label">PF</span> 4937.58 <span class="lls-detail-label">PA</span> 4856.48 <span class="lls-detail-label">PF Avg</span> 1645.86 <span class="lls-detail-label">PA Avg</span> 1618.83 <span class="lls-detail-label">Moves</span> 107 <span class="lls-detail-label">Moves Avg</span> 35.67 </td>
+      </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">Colin 🏆🏆</td>
-            
-          
-            
-              <td class="info-table__cell">6</td>
-            
-          
-            
-              <td class="info-table__cell">45</td>
-            
-          
-            
-              <td class="info-table__cell">38</td>
-            
-          
-            
-              <td class="info-table__cell">0.54</td>
-            
-          
-            
-              <td class="info-table__cell">9611.9</td>
-            
-          
-            
-              <td class="info-table__cell">9313</td>
-            
-          
-            
-              <td class="info-table__cell">1601.98</td>
-            
-          
-            
-              <td class="info-table__cell">1552.17</td>
-            
-          
-            
-              <td class="info-table__cell">122</td>
-            
-          
-            
-              <td class="info-table__cell">20.33</td>
-            
-          
-        </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">David</td>
-            
-          
-            
-              <td class="info-table__cell">6</td>
-            
-          
-            
-              <td class="info-table__cell">49</td>
-            
-          
-            
-              <td class="info-table__cell">34</td>
-            
-          
-            
-              <td class="info-table__cell">0.59</td>
-            
-          
-            
-              <td class="info-table__cell">9882.02</td>
-            
-          
-            
-              <td class="info-table__cell">9354.4</td>
-            
-          
-            
-              <td class="info-table__cell">1647</td>
-            
-          
-            
-              <td class="info-table__cell">1559.07</td>
-            
-          
-            
-              <td class="info-table__cell">149</td>
-            
-          
-            
-              <td class="info-table__cell">24.83</td>
-            
-          
-        </tr>
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">Cass</td>
+        
+        
+        <td class="lls-num">6</td>
+        
+        
+        <td class="lls-num">46</td>
+        
+        
+        <td class="lls-num">37</td>
+        
+        
+        <td class="lls-num">0.55</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9743.8</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9525.26</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1623.97</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1587.54</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">149</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">24.83</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">Harper</td>
-            
-          
-            
-              <td class="info-table__cell">6</td>
-            
-          
-            
-              <td class="info-table__cell">41</td>
-            
-          
-            
-              <td class="info-table__cell">42</td>
-            
-          
-            
-              <td class="info-table__cell">0.49</td>
-            
-          
-            
-              <td class="info-table__cell">9701.4</td>
-            
-          
-            
-              <td class="info-table__cell">9874.36</td>
-            
-          
-            
-              <td class="info-table__cell">1616.9</td>
-            
-          
-            
-              <td class="info-table__cell">1645.73</td>
-            
-          
-            
-              <td class="info-table__cell">168</td>
-            
-          
-            
-              <td class="info-table__cell">28</td>
-            
-          
-        </tr>
+      <tr class="lls-detail">
+        <td colspan="12"><span class="lls-detail-label">PF</span> 9743.8 <span class="lls-detail-label">PA</span> 9525.26 <span class="lls-detail-label">PF Avg</span> 1623.97 <span class="lls-detail-label">PA Avg</span> 1587.54 <span class="lls-detail-label">Moves</span> 149 <span class="lls-detail-label">Moves Avg</span> 24.83 </td>
+      </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">John 🏆</td>
-            
-          
-            
-              <td class="info-table__cell">6</td>
-            
-          
-            
-              <td class="info-table__cell">38</td>
-            
-          
-            
-              <td class="info-table__cell">45</td>
-            
-          
-            
-              <td class="info-table__cell">0.46</td>
-            
-          
-            
-              <td class="info-table__cell">9261.04</td>
-            
-          
-            
-              <td class="info-table__cell">9789.3</td>
-            
-          
-            
-              <td class="info-table__cell">1543.51</td>
-            
-          
-            
-              <td class="info-table__cell">1631.55</td>
-            
-          
-            
-              <td class="info-table__cell">83</td>
-            
-          
-            
-              <td class="info-table__cell">13.83</td>
-            
-          
-        </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">Price</td>
-            
-          
-            
-              <td class="info-table__cell">6</td>
-            
-          
-            
-              <td class="info-table__cell">42</td>
-            
-          
-            
-              <td class="info-table__cell">41</td>
-            
-          
-            
-              <td class="info-table__cell">0.51</td>
-            
-          
-            
-              <td class="info-table__cell">9644.06</td>
-            
-          
-            
-              <td class="info-table__cell">9706.66</td>
-            
-          
-            
-              <td class="info-table__cell">1607.34</td>
-            
-          
-            
-              <td class="info-table__cell">1617.78</td>
-            
-          
-            
-              <td class="info-table__cell">227</td>
-            
-          
-            
-              <td class="info-table__cell">37.83</td>
-            
-          
-        </tr>
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">Colin 🏆🏆</td>
+        
+        
+        <td class="lls-num">6</td>
+        
+        
+        <td class="lls-num">45</td>
+        
+        
+        <td class="lls-num">38</td>
+        
+        
+        <td class="lls-num">0.54</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9611.9</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9313</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1601.98</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1552.17</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">122</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">20.33</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">Ray</td>
-            
-          
-            
-              <td class="info-table__cell">5</td>
-            
-          
-            
-              <td class="info-table__cell">31</td>
-            
-          
-            
-              <td class="info-table__cell">39</td>
-            
-          
-            
-              <td class="info-table__cell">0.44</td>
-            
-          
-            
-              <td class="info-table__cell">8449.7</td>
-            
-          
-            
-              <td class="info-table__cell">8172.58</td>
-            
-          
-            
-              <td class="info-table__cell">1689.94</td>
-            
-          
-            
-              <td class="info-table__cell">1634.52</td>
-            
-          
-            
-              <td class="info-table__cell">60</td>
-            
-          
-            
-              <td class="info-table__cell">12</td>
-            
-          
-        </tr>
+      <tr class="lls-detail">
+        <td colspan="12"><span class="lls-detail-label">PF</span> 9611.9 <span class="lls-detail-label">PA</span> 9313 <span class="lls-detail-label">PF Avg</span> 1601.98 <span class="lls-detail-label">PA Avg</span> 1552.17 <span class="lls-detail-label">Moves</span> 122 <span class="lls-detail-label">Moves Avg</span> 20.33 </td>
+      </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">TK 🏆</td>
-            
-          
-            
-              <td class="info-table__cell">6</td>
-            
-          
-            
-              <td class="info-table__cell">46</td>
-            
-          
-            
-              <td class="info-table__cell">37</td>
-            
-          
-            
-              <td class="info-table__cell">0.55</td>
-            
-          
-            
-              <td class="info-table__cell">9474.92</td>
-            
-          
-            
-              <td class="info-table__cell">9467.46</td>
-            
-          
-            
-              <td class="info-table__cell">1579.15</td>
-            
-          
-            
-              <td class="info-table__cell">1577.91</td>
-            
-          
-            
-              <td class="info-table__cell">121</td>
-            
-          
-            
-              <td class="info-table__cell">20.17</td>
-            
-          
-        </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">Uzoma 🏆</td>
-            
-          
-            
-              <td class="info-table__cell">6</td>
-            
-          
-            
-              <td class="info-table__cell">39</td>
-            
-          
-            
-              <td class="info-table__cell">44</td>
-            
-          
-            
-              <td class="info-table__cell">0.47</td>
-            
-          
-            
-              <td class="info-table__cell">9268.26</td>
-            
-          
-            
-              <td class="info-table__cell">9509.4</td>
-            
-          
-            
-              <td class="info-table__cell">1544.71</td>
-            
-          
-            
-              <td class="info-table__cell">1584.9</td>
-            
-          
-            
-              <td class="info-table__cell">99</td>
-            
-          
-            
-              <td class="info-table__cell">16.5</td>
-            
-          
-        </tr>
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">David</td>
+        
+        
+        <td class="lls-num">6</td>
+        
+        
+        <td class="lls-num">49</td>
+        
+        
+        <td class="lls-num">34</td>
+        
+        
+        <td class="lls-num">0.59</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9882.02</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9354.4</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1647</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1559.07</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">149</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">24.83</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="12"><span class="lls-detail-label">PF</span> 9882.02 <span class="lls-detail-label">PA</span> 9354.4 <span class="lls-detail-label">PF Avg</span> 1647 <span class="lls-detail-label">PA Avg</span> 1559.07 <span class="lls-detail-label">Moves</span> 149 <span class="lls-detail-label">Moves Avg</span> 24.83 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">Harper</td>
+        
+        
+        <td class="lls-num">6</td>
+        
+        
+        <td class="lls-num">41</td>
+        
+        
+        <td class="lls-num">42</td>
+        
+        
+        <td class="lls-num">0.49</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9701.4</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9874.36</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1616.9</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1645.73</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">168</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">28</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="12"><span class="lls-detail-label">PF</span> 9701.4 <span class="lls-detail-label">PA</span> 9874.36 <span class="lls-detail-label">PF Avg</span> 1616.9 <span class="lls-detail-label">PA Avg</span> 1645.73 <span class="lls-detail-label">Moves</span> 168 <span class="lls-detail-label">Moves Avg</span> 28 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">John 🏆</td>
+        
+        
+        <td class="lls-num">6</td>
+        
+        
+        <td class="lls-num">38</td>
+        
+        
+        <td class="lls-num">45</td>
+        
+        
+        <td class="lls-num">0.46</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9261.04</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9789.3</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1543.51</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1631.55</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">83</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">13.83</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="12"><span class="lls-detail-label">PF</span> 9261.04 <span class="lls-detail-label">PA</span> 9789.3 <span class="lls-detail-label">PF Avg</span> 1543.51 <span class="lls-detail-label">PA Avg</span> 1631.55 <span class="lls-detail-label">Moves</span> 83 <span class="lls-detail-label">Moves Avg</span> 13.83 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">Price</td>
+        
+        
+        <td class="lls-num">6</td>
+        
+        
+        <td class="lls-num">42</td>
+        
+        
+        <td class="lls-num">41</td>
+        
+        
+        <td class="lls-num">0.51</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9644.06</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9706.66</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1607.34</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1617.78</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">227</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">37.83</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="12"><span class="lls-detail-label">PF</span> 9644.06 <span class="lls-detail-label">PA</span> 9706.66 <span class="lls-detail-label">PF Avg</span> 1607.34 <span class="lls-detail-label">PA Avg</span> 1617.78 <span class="lls-detail-label">Moves</span> 227 <span class="lls-detail-label">Moves Avg</span> 37.83 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">Ray</td>
+        
+        
+        <td class="lls-num">5</td>
+        
+        
+        <td class="lls-num">31</td>
+        
+        
+        <td class="lls-num">39</td>
+        
+        
+        <td class="lls-num">0.44</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">8449.7</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">8172.58</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1689.94</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1634.52</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">60</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">12</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="12"><span class="lls-detail-label">PF</span> 8449.7 <span class="lls-detail-label">PA</span> 8172.58 <span class="lls-detail-label">PF Avg</span> 1689.94 <span class="lls-detail-label">PA Avg</span> 1634.52 <span class="lls-detail-label">Moves</span> 60 <span class="lls-detail-label">Moves Avg</span> 12 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">TK 🏆</td>
+        
+        
+        <td class="lls-num">6</td>
+        
+        
+        <td class="lls-num">46</td>
+        
+        
+        <td class="lls-num">37</td>
+        
+        
+        <td class="lls-num">0.55</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9474.92</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9467.46</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1579.15</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1577.91</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">121</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">20.17</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="12"><span class="lls-detail-label">PF</span> 9474.92 <span class="lls-detail-label">PA</span> 9467.46 <span class="lls-detail-label">PF Avg</span> 1579.15 <span class="lls-detail-label">PA Avg</span> 1577.91 <span class="lls-detail-label">Moves</span> 121 <span class="lls-detail-label">Moves Avg</span> 20.17 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">Uzoma 🏆</td>
+        
+        
+        <td class="lls-num">6</td>
+        
+        
+        <td class="lls-num">39</td>
+        
+        
+        <td class="lls-num">44</td>
+        
+        
+        <td class="lls-num">0.47</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9268.26</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9509.4</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1544.71</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1584.9</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">99</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">16.5</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="12"><span class="lls-detail-label">PF</span> 9268.26 <span class="lls-detail-label">PA</span> 9509.4 <span class="lls-detail-label">PF Avg</span> 1544.71 <span class="lls-detail-label">PA Avg</span> 1584.9 <span class="lls-detail-label">Moves</span> 99 <span class="lls-detail-label">Moves Avg</span> 16.5 </td>
+      </tr>
+      
       
     </tbody>
   </table>
 </div>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const tableContainer = document.getElementById('teamChart');
-  const table = tableContainer.querySelector('.info-table--sortable');
-  const headers = table.querySelectorAll('th[data-sort]');
-  
-  headers.forEach(header => {
-    header.addEventListener('click', () => {
-      const column = header.dataset.sort;
-      const rows = Array.from(table.querySelectorAll('tbody tr'));
-      const isAscending = header.classList.contains('sort-asc');
-      
-      rows.sort((a, b) => {
-        const aValue = a.children[column].textContent;
-        const bValue = b.children[column].textContent;
-        return isAscending ? bValue.localeCompare(aValue) : aValue.localeCompare(bValue);
-      });
-      
-      rows.forEach(row => table.querySelector('tbody').appendChild(row));
-      
-      headers.forEach(h => {
-        h.classList.remove('sort-asc', 'sort-desc');
-        h.querySelector('.info-table__sort-icon').textContent = '';
-      });
-      header.classList.toggle('sort-asc', !isAscending);
-      header.classList.toggle('sort-desc', isAscending);
-      header.querySelector('.info-table__sort-icon').textContent = isAscending ? '▼' : '▲';
-    });
-  });
-});
-</script>
-
-
-<style>
-.info-table-container {
-  overflow-x: auto !important;
-  max-width: 100% !important;
-  display: block !important;
-}
-
-.info-table {
-  border-collapse: collapse !important;
-  font-family: var(--bs-body-font-family) !important;
-  font-size: var(--bs-body-font-size) !important;
-  width: 100% !important;
-  background-color: white !important;
-  border: 1px solid #EEEEEE !important;
-  table-layout: fixed !important; /* This ensures equal column widths */
-}
-
-.info-table--compact {
-  table-layout: auto !important; /* Allow compact tables to size to content */
-}
-
-.info-table__header-row {
-  display: table-row !important;
-}
-
-.info-table__header,
-.info-table__cell {
-  padding: 10px !important;
-  text-align: left !important;
-  border: 1px solid #ddd !important;
-  display: table-cell !important;
-  width: auto !important;
-  flex: none !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-}
-
-.info-table__header {
-  background-color: #333 !important;
-  color: white !important;
-  
-  position: relative !important;
-  padding: 10px !important;
-}
-
-.info-table__header-content {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  text-transform: uppercase !important;
-  font-size: large !important;
-}
-
-.info-table__header.sort-desc, .info-table__header.sort-asc {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-
-.info-table--sortable .info-table__header:hover {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-.info-table__row {
-  display: table-row !important;
-  background-color: transparent !important;
-}
-
-.info-table__row:nth-child(even) {
-  background-color: #f2f2f2 !important;
-}
-
-.info-table__row:hover {
-  background-color: #ddd !important;
-}
-
-.info-table--tall .info-table__header {
-  width: 30% !important;
-}
-
-.info-table--sortable .info-table__header {
-  cursor: pointer !important;
-}
-
-.info-table__sort-icon {
-  font-size: 0.8em !important;
-  margin-left: 5px !important;
-  white-space: nowrap !important;
-}
-
-.info-table .sort-asc .info-table__sort-icon,
-.info-table .sort-desc .info-table__sort-icon {
-  display: inline-block !important;
-}
-
-.info-table--compact .info-table__header,
-.info-table--compact .info-table__cell {
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-</style>
 
 </div>
 

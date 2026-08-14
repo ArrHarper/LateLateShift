@@ -15,11 +15,12 @@ LLS Standings 🏈 | The Late Late Shift
     <link rel="stylesheet" href="/LateLateShift/css/fonts.css">
     <link rel="stylesheet" href="/LateLateShift/css/styles.css">
     <link rel="stylesheet" href="/LateLateShift/css/table.css">
+    <link rel="stylesheet" href="/LateLateShift/css/lls-table.css">
     <link rel="stylesheet" href="/LateLateShift/css/tabs.css">
     <link rel="stylesheet" href="/LateLateShift/css/tb-01.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/LateLateShift/js/table.js"></script>
+    <script src="/LateLateShift/js/lls-table.js" defer></script>
     
 <style>
     h3 {
@@ -121,642 +122,407 @@ LLS Standings 🏈 | The Late Late Shift
 
 
 
-<div class="info-table-container info-table-container--compact" id="league-standings" >
-  <table class="info-table 
-     
-    info-table--sortable
-    info-table--compact">
+<div class="lls-table-wrap">
+  <table class="lls-table lls-table--sortable lls-table--collapsible" id="league-standings">
     <thead>
-      <tr class="info-table__header-row">
+      <tr>
         
-          <th class="info-table__header" data-sort="0">
-            <span class="info-table__header-content">
-              Rank
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num" data-sort-type="num">Rank<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="1">
-            <span class="info-table__header-content">
-              Manager
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="" data-sort-type="text">Manager<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="2">
-            <span class="info-table__header-content">
-              Team
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class=" lls-mobile-hide" data-sort-type="text">Team<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="3">
-            <span class="info-table__header-content">
-              W-L-T
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="" data-sort-type="text">W-L-T<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="4">
-            <span class="info-table__header-content">
-              PF
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num" data-sort-type="num">PF<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="5">
-            <span class="info-table__header-content">
-              PA
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num lls-mobile-hide" data-sort-type="num">PA<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="6">
-            <span class="info-table__header-content">
-              Streak
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class=" lls-mobile-hide" data-sort-type="text">Streak<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="7">
-            <span class="info-table__header-content">
-              Waiver
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num lls-mobile-hide" data-sort-type="num">Waiver<span class="lls-arrow" aria-hidden="true"></span></th>
         
-          <th class="info-table__header" data-sort="8">
-            <span class="info-table__header-content">
-              Moves
-              
-                <span class="info-table__sort-icon"></span>
-              
-            </span>
-          </th>
+        <th scope="col" class="lls-num lls-mobile-hide" data-sort-type="num">Moves<span class="lls-arrow" aria-hidden="true"></span></th>
         
+        <th class="lls-chev-col" aria-hidden="true"></th>
       </tr>
     </thead>
     <tbody>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">1</td>
-            
-          
-            
-              <td class="info-table__cell">Ben</td>
-            
-          
-            
-              <td class="info-table__cell">Brown Bros TD Emporium 🏆</td>
-            
-          
-            
-              <td class="info-table__cell">11-3-0</td>
-            
-          
-            
-              <td class="info-table__cell">1663.50</td>
-            
-          
-            
-              <td class="info-table__cell">1378.92</td>
-            
-          
-            
-              <td class="info-table__cell">W-3</td>
-            
-          
-            
-              <td class="info-table__cell">9</td>
-            
-          
-            
-              <td class="info-table__cell">34</td>
-            
-          
-        </tr>
+      <tr class="lls-row">
+        
+        
+        <td class="lls-num">1</td>
+        
+        
+        <td class=" lls-strong">Ben</td>
+        
+        
+        <td class=" lls-mobile-hide">Brown Bros TD Emporium 🏆</td>
+        
+        
+        <td class="">11-3-0</td>
+        
+        
+        <td class="lls-num">1663.50</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1378.92</td>
+        
+        
+        <td class=" lls-mobile-hide">W-3</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">34</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">2</td>
-            
-          
-            
-              <td class="info-table__cell">Dave</td>
-            
-          
-            
-              <td class="info-table__cell">Olave and the Chipmunks</td>
-            
-          
-            
-              <td class="info-table__cell">11-3-0</td>
-            
-          
-            
-              <td class="info-table__cell">1682.94</td>
-            
-          
-            
-              <td class="info-table__cell">1433.46</td>
-            
-          
-            
-              <td class="info-table__cell">L-1</td>
-            
-          
-            
-              <td class="info-table__cell">10</td>
-            
-          
-            
-              <td class="info-table__cell">33</td>
-            
-          
-        </tr>
+      <tr class="lls-detail">
+        <td colspan="10"><span class="lls-detail-label">Team</span> Brown Bros TD Emporium 🏆 <span class="lls-detail-label">PA</span> 1378.92 <span class="lls-detail-label">Streak</span> W-3 <span class="lls-detail-label">Waiver</span> 9 <span class="lls-detail-label">Moves</span> 34 </td>
+      </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">3</td>
-            
-          
-            
-              <td class="info-table__cell">TK</td>
-            
-          
-            
-              <td class="info-table__cell">Saleh&#39;s Survivors</td>
-            
-          
-            
-              <td class="info-table__cell">7-7-0</td>
-            
-          
-            
-              <td class="info-table__cell">1432.34</td>
-            
-          
-            
-              <td class="info-table__cell">1513.54</td>
-            
-          
-            
-              <td class="info-table__cell">L-2</td>
-            
-          
-            
-              <td class="info-table__cell">5</td>
-            
-          
-            
-              <td class="info-table__cell">19</td>
-            
-          
-        </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">4</td>
-            
-          
-            
-              <td class="info-table__cell">Colin</td>
-            
-          
-            
-              <td class="info-table__cell">Chase-in Doubs</td>
-            
-          
-            
-              <td class="info-table__cell">7-7-0</td>
-            
-          
-            
-              <td class="info-table__cell">1610.22</td>
-            
-          
-            
-              <td class="info-table__cell">1630.14</td>
-            
-          
-            
-              <td class="info-table__cell">L-2</td>
-            
-          
-            
-              <td class="info-table__cell">7</td>
-            
-          
-            
-              <td class="info-table__cell">17</td>
-            
-          
-        </tr>
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class="lls-num">2</td>
+        
+        
+        <td class=" lls-strong">Dave</td>
+        
+        
+        <td class=" lls-mobile-hide">Olave and the Chipmunks</td>
+        
+        
+        <td class="">11-3-0</td>
+        
+        
+        <td class="lls-num">1682.94</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1433.46</td>
+        
+        
+        <td class=" lls-mobile-hide">L-1</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">10</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">33</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">5</td>
-            
-          
-            
-              <td class="info-table__cell">Cass</td>
-            
-          
-            
-              <td class="info-table__cell">Breece&#39;s Pieces</td>
-            
-          
-            
-              <td class="info-table__cell">7-7-0</td>
-            
-          
-            
-              <td class="info-table__cell">1556.80</td>
-            
-          
-            
-              <td class="info-table__cell">1548.52</td>
-            
-          
-            
-              <td class="info-table__cell">W-2</td>
-            
-          
-            
-              <td class="info-table__cell">6</td>
-            
-          
-            
-              <td class="info-table__cell">13</td>
-            
-          
-        </tr>
+      <tr class="lls-detail">
+        <td colspan="10"><span class="lls-detail-label">Team</span> Olave and the Chipmunks <span class="lls-detail-label">PA</span> 1433.46 <span class="lls-detail-label">Streak</span> L-1 <span class="lls-detail-label">Waiver</span> 10 <span class="lls-detail-label">Moves</span> 33 </td>
+      </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">6</td>
-            
-          
-            
-              <td class="info-table__cell">Harper</td>
-            
-          
-            
-              <td class="info-table__cell">Hurts Barkley and Hill is Hot</td>
-            
-          
-            
-              <td class="info-table__cell">9-5-0</td>
-            
-          
-            
-              <td class="info-table__cell">1735.22</td>
-            
-          
-            
-              <td class="info-table__cell">1588.90</td>
-            
-          
-            
-              <td class="info-table__cell">W-1</td>
-            
-          
-            
-              <td class="info-table__cell">8</td>
-            
-          
-            
-              <td class="info-table__cell">15</td>
-            
-          
-        </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">7</td>
-            
-          
-            
-              <td class="info-table__cell">John</td>
-            
-          
-            
-              <td class="info-table__cell">Piccolos Cage</td>
-            
-          
-            
-              <td class="info-table__cell">5-9-0</td>
-            
-          
-            
-              <td class="info-table__cell">1457.94</td>
-            
-          
-            
-              <td class="info-table__cell">1651.24</td>
-            
-          
-            
-              <td class="info-table__cell">L-3</td>
-            
-          
-            
-              <td class="info-table__cell">2</td>
-            
-          
-            
-              <td class="info-table__cell">10</td>
-            
-          
-        </tr>
+      <tr class="lls-row">
+        
+        
+        <td class="lls-num">3</td>
+        
+        
+        <td class=" lls-strong">TK</td>
+        
+        
+        <td class=" lls-mobile-hide">Saleh's Survivors</td>
+        
+        
+        <td class="">7-7-0</td>
+        
+        
+        <td class="lls-num">1432.34</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1513.54</td>
+        
+        
+        <td class=" lls-mobile-hide">L-2</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">5</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">19</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">8</td>
-            
-          
-            
-              <td class="info-table__cell">Price</td>
-            
-          
-            
-              <td class="info-table__cell">Belly Ache Bitch Bijan</td>
-            
-          
-            
-              <td class="info-table__cell">6-8-0</td>
-            
-          
-            
-              <td class="info-table__cell">1548.66</td>
-            
-          
-            
-              <td class="info-table__cell">1605.64</td>
-            
-          
-            
-              <td class="info-table__cell">W-2</td>
-            
-          
-            
-              <td class="info-table__cell">4</td>
-            
-          
-            
-              <td class="info-table__cell">24</td>
-            
-          
-        </tr>
+      <tr class="lls-detail">
+        <td colspan="10"><span class="lls-detail-label">Team</span> Saleh's Survivors <span class="lls-detail-label">PA</span> 1513.54 <span class="lls-detail-label">Streak</span> L-2 <span class="lls-detail-label">Waiver</span> 5 <span class="lls-detail-label">Moves</span> 19 </td>
+      </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">9</td>
-            
-          
-            
-              <td class="info-table__cell">Uzoma</td>
-            
-          
-            
-              <td class="info-table__cell">Wraith&#39;s Voidwalkers</td>
-            
-          
-            
-              <td class="info-table__cell">2-12-0</td>
-            
-          
-            
-              <td class="info-table__cell">1239.58</td>
-            
-          
-            
-              <td class="info-table__cell">1660.16</td>
-            
-          
-            
-              <td class="info-table__cell">L-11</td>
-            
-          
-            
-              <td class="info-table__cell">1</td>
-            
-          
-            
-              <td class="info-table__cell">20</td>
-            
-          
-        </tr>
       
-        <tr class="info-table__row">
-          
-            
-              <td class="info-table__cell">10</td>
-            
-          
-            
-              <td class="info-table__cell">Ray</td>
-            
-          
-            
-              <td class="info-table__cell">My Chubbs Gone</td>
-            
-          
-            
-              <td class="info-table__cell">5-9-0</td>
-            
-          
-            
-              <td class="info-table__cell">1597.20</td>
-            
-          
-            
-              <td class="info-table__cell">1513.88</td>
-            
-          
-            
-              <td class="info-table__cell">W-2</td>
-            
-          
-            
-              <td class="info-table__cell">3</td>
-            
-          
-            
-              <td class="info-table__cell">12</td>
-            
-          
-        </tr>
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class="lls-num">4</td>
+        
+        
+        <td class=" lls-strong">Colin</td>
+        
+        
+        <td class=" lls-mobile-hide">Chase-in Doubs</td>
+        
+        
+        <td class="">7-7-0</td>
+        
+        
+        <td class="lls-num">1610.22</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1630.14</td>
+        
+        
+        <td class=" lls-mobile-hide">L-2</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">7</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">17</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="10"><span class="lls-detail-label">Team</span> Chase-in Doubs <span class="lls-detail-label">PA</span> 1630.14 <span class="lls-detail-label">Streak</span> L-2 <span class="lls-detail-label">Waiver</span> 7 <span class="lls-detail-label">Moves</span> 17 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class="lls-num">5</td>
+        
+        
+        <td class=" lls-strong">Cass</td>
+        
+        
+        <td class=" lls-mobile-hide">Breece's Pieces</td>
+        
+        
+        <td class="">7-7-0</td>
+        
+        
+        <td class="lls-num">1556.80</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1548.52</td>
+        
+        
+        <td class=" lls-mobile-hide">W-2</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">6</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">13</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="10"><span class="lls-detail-label">Team</span> Breece's Pieces <span class="lls-detail-label">PA</span> 1548.52 <span class="lls-detail-label">Streak</span> W-2 <span class="lls-detail-label">Waiver</span> 6 <span class="lls-detail-label">Moves</span> 13 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class="lls-num">6</td>
+        
+        
+        <td class=" lls-strong">Harper</td>
+        
+        
+        <td class=" lls-mobile-hide">Hurts Barkley and Hill is Hot</td>
+        
+        
+        <td class="">9-5-0</td>
+        
+        
+        <td class="lls-num">1735.22</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1588.90</td>
+        
+        
+        <td class=" lls-mobile-hide">W-1</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">8</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">15</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="10"><span class="lls-detail-label">Team</span> Hurts Barkley and Hill is Hot <span class="lls-detail-label">PA</span> 1588.90 <span class="lls-detail-label">Streak</span> W-1 <span class="lls-detail-label">Waiver</span> 8 <span class="lls-detail-label">Moves</span> 15 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class="lls-num">7</td>
+        
+        
+        <td class=" lls-strong">John</td>
+        
+        
+        <td class=" lls-mobile-hide">Piccolos Cage</td>
+        
+        
+        <td class="">5-9-0</td>
+        
+        
+        <td class="lls-num">1457.94</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1651.24</td>
+        
+        
+        <td class=" lls-mobile-hide">L-3</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">2</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">10</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="10"><span class="lls-detail-label">Team</span> Piccolos Cage <span class="lls-detail-label">PA</span> 1651.24 <span class="lls-detail-label">Streak</span> L-3 <span class="lls-detail-label">Waiver</span> 2 <span class="lls-detail-label">Moves</span> 10 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class="lls-num">8</td>
+        
+        
+        <td class=" lls-strong">Price</td>
+        
+        
+        <td class=" lls-mobile-hide">Belly Ache Bitch Bijan</td>
+        
+        
+        <td class="">6-8-0</td>
+        
+        
+        <td class="lls-num">1548.66</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1605.64</td>
+        
+        
+        <td class=" lls-mobile-hide">W-2</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">4</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">24</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="10"><span class="lls-detail-label">Team</span> Belly Ache Bitch Bijan <span class="lls-detail-label">PA</span> 1605.64 <span class="lls-detail-label">Streak</span> W-2 <span class="lls-detail-label">Waiver</span> 4 <span class="lls-detail-label">Moves</span> 24 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class="lls-num">9</td>
+        
+        
+        <td class=" lls-strong">Uzoma</td>
+        
+        
+        <td class=" lls-mobile-hide">Wraith's Voidwalkers</td>
+        
+        
+        <td class="">2-12-0</td>
+        
+        
+        <td class="lls-num">1239.58</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1660.16</td>
+        
+        
+        <td class=" lls-mobile-hide">L-11</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">20</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="10"><span class="lls-detail-label">Team</span> Wraith's Voidwalkers <span class="lls-detail-label">PA</span> 1660.16 <span class="lls-detail-label">Streak</span> L-11 <span class="lls-detail-label">Waiver</span> 1 <span class="lls-detail-label">Moves</span> 20 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class="lls-num">10</td>
+        
+        
+        <td class=" lls-strong">Ray</td>
+        
+        
+        <td class=" lls-mobile-hide">My Chubbs Gone</td>
+        
+        
+        <td class="">5-9-0</td>
+        
+        
+        <td class="lls-num">1597.20</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">1513.88</td>
+        
+        
+        <td class=" lls-mobile-hide">W-2</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">3</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">12</td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="10"><span class="lls-detail-label">Team</span> My Chubbs Gone <span class="lls-detail-label">PA</span> 1513.88 <span class="lls-detail-label">Streak</span> W-2 <span class="lls-detail-label">Waiver</span> 3 <span class="lls-detail-label">Moves</span> 12 </td>
+      </tr>
+      
       
     </tbody>
   </table>
 </div>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const tableContainer = document.getElementById('league-standings');
-  const table = tableContainer.querySelector('.info-table--sortable');
-  const headers = table.querySelectorAll('th[data-sort]');
-  
-  headers.forEach(header => {
-    header.addEventListener('click', () => {
-      const column = header.dataset.sort;
-      const rows = Array.from(table.querySelectorAll('tbody tr'));
-      const isAscending = header.classList.contains('sort-asc');
-      
-      rows.sort((a, b) => {
-        const aValue = a.children[column].textContent;
-        const bValue = b.children[column].textContent;
-        return isAscending ? bValue.localeCompare(aValue) : aValue.localeCompare(bValue);
-      });
-      
-      rows.forEach(row => table.querySelector('tbody').appendChild(row));
-      
-      headers.forEach(h => {
-        h.classList.remove('sort-asc', 'sort-desc');
-        h.querySelector('.info-table__sort-icon').textContent = '';
-      });
-      header.classList.toggle('sort-asc', !isAscending);
-      header.classList.toggle('sort-desc', isAscending);
-      header.querySelector('.info-table__sort-icon').textContent = isAscending ? '▼' : '▲';
-    });
-  });
-});
-</script>
-
-
-<style>
-.info-table-container {
-  overflow-x: auto !important;
-  max-width: 100% !important;
-  display: block !important;
-}
-
-.info-table {
-  border-collapse: collapse !important;
-  font-family: var(--bs-body-font-family) !important;
-  font-size: var(--bs-body-font-size) !important;
-  width: 100% !important;
-  background-color: white !important;
-  border: 1px solid #EEEEEE !important;
-  table-layout: fixed !important; /* This ensures equal column widths */
-}
-
-.info-table--compact {
-  table-layout: auto !important; /* Allow compact tables to size to content */
-}
-
-.info-table__header-row {
-  display: table-row !important;
-}
-
-.info-table__header,
-.info-table__cell {
-  padding: 10px !important;
-  text-align: left !important;
-  border: 1px solid #ddd !important;
-  display: table-cell !important;
-  width: auto !important;
-  flex: none !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-}
-
-.info-table__header {
-  background-color: #333 !important;
-  color: white !important;
-  
-  position: relative !important;
-  padding: 10px !important;
-}
-
-.info-table__header-content {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  text-transform: uppercase !important;
-  font-size: large !important;
-}
-
-.info-table__header.sort-desc, .info-table__header.sort-asc {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-
-.info-table--sortable .info-table__header:hover {
-  color: #cbf04f !important;
-  font-weight: bolder !important;
-}
-
-.info-table__row {
-  display: table-row !important;
-  background-color: transparent !important;
-}
-
-.info-table__row:nth-child(even) {
-  background-color: #f2f2f2 !important;
-}
-
-.info-table__row:hover {
-  background-color: #ddd !important;
-}
-
-.info-table--tall .info-table__header {
-  width: 30% !important;
-}
-
-.info-table--sortable .info-table__header {
-  cursor: pointer !important;
-}
-
-.info-table__sort-icon {
-  font-size: 0.8em !important;
-  margin-left: 5px !important;
-  white-space: nowrap !important;
-}
-
-.info-table .sort-asc .info-table__sort-icon,
-.info-table .sort-desc .info-table__sort-icon {
-  display: inline-block !important;
-}
-
-.info-table--compact .info-table__header,
-.info-table--compact .info-table__cell {
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-</style>
 
 </div>
 
