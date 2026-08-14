@@ -55,31 +55,44 @@
 </div>
 
 <div>
-    {{ secHead("Keeper Central", link=('/keeper-history/' | url), linkText="Full history →") }}
+    {% set nextYear = latestKeepers.year + 1 %}
+    {{ secHead("Keeper Outlook " + ([nextYear] | shortYears), note="who can be kept again, and what it costs", link=('/keeper-history/' | url), linkText="Full history →") }}
+    {% set outlook = latestKeepers.rows | keeperOutlook %}
     <div class="split-main-rail">
-        {% set homeKeepers = {
+        {% set outlookRows = [] %}
+        {% for k in outlook %}
+            {% set _ = outlookRows.push([
+                k.manager,
+                k.player,
+                k.pos,
+                k.cost,
+                ("Rd " + k.nextCost) if k.eligible else "—",
+                ('<span class="cell-ok">Eligible</span>' if k.eligible else '<span class="cell-out">Back to pool</span>')
+            ]) %}
+        {% endfor %}
+        {{ llsTable({
             columns: [
                 { label: "Manager", type: "text", strong: true },
-                { label: "Team", type: "text", hideMobile: true },
-                { label: "Keeper", type: "text" },
+                { label: ([latestKeepers.year] | shortYears) + " Keeper", type: "text" },
                 { label: "POS", type: "text" },
-                { label: "Cost", type: "num" },
-                { label: "Yrs", type: "num" }
+                { label: ([latestKeepers.year] | shortYears) + " Cost", type: "num", hideMobile: true },
+                { label: ([nextYear] | shortYears) + " Cost", type: "num" },
+                { label: "Status", type: "text" }
             ],
-            rows: latestKeepers.rows | topValueKeeps(6)
-        } %}
-        {{ llsTable(homeKeepers, sortable=true, id='home-keepers') }}
+            rows: outlookRows
+        }, sortable=true, id='keeper-outlook') }}
         <div class="mod rank-mod">
-            <div class="mod-head"><h3>Best Value Keeps · {{ latestKeepers.year }}</h3></div>
-        <ol>
-            {% for row in latestKeepers.rows | topValueKeeps(5) %}
-            <li>
-                <span class="rk">{{ loop.index }}</span>
-                <span class="who"><b>{{ row[2] | safe }}</b><span>{{ row[0] }} · kept year {{ row[5] | replace('*','') }}</span></span>
-                <span class="pill">Rd {{ row[4] }}</span>
-            </li>
-            {% endfor %}
-        </ol>
+            <div class="mod-head"><h3>Back in the Pool · {{ nextYear }}</h3></div>
+            <ol>
+                {% for k in outlook %}
+                {% if not k.eligible %}
+                <li>
+                    <span class="who"><b>{{ k.player }}</b><span>kept 2 yrs by {{ k.manager }}</span></span>
+                    <span class="pill pill-red">{{ k.pos }}</span>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ol>
         </div>
     </div>
 </div>

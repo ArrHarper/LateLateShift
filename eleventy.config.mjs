@@ -11,6 +11,28 @@ export default function (eleventyConfig) {
             .slice(0, n)
     );
 
+    // Forward-looking keeper eligibility for the season after `rows`' season.
+    // Second consecutive keeps (years contains "2") return to the pool; everyone
+    // else can be kept again one round earlier (round-1 cost is allowed — the
+    // round-1 ban applies to draft position, not keeper cost).
+    eleventyConfig.addFilter("keeperOutlook", (rows) =>
+        rows
+            .filter((r) => /^\d+$/.test(String(r[4]).trim()))
+            .map((r) => {
+                const secondYear = String(r[5]).includes("2");
+                const cost = Number(r[4]);
+                return {
+                    manager: r[0],
+                    team: r[1],
+                    player: String(r[2]).replace(/†/g, "").trim(),
+                    pos: r[3],
+                    cost,
+                    eligible: !secondYear,
+                    nextCost: secondYear ? null : Math.max(cost - 1, 1),
+                };
+            })
+    );
+
     // 0.476 -> ".476"
     eleventyConfig.addFilter("pct3", (v) => Number(v).toFixed(3).replace(/^0/, ""));
 

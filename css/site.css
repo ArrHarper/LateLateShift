@@ -383,6 +383,11 @@ main { display: block; }
   border-radius: 999px;
   white-space: nowrap;
 }
+.rank-mod .pill-red { background: var(--tint-red); color: var(--red-ink); }
+
+/* keeper-outlook status cells */
+.cell-ok { color: var(--blue-ink); font-weight: 700; }
+.cell-out { color: var(--red-ink); font-weight: 700; }
 
 /* news list */
 .news-list a {
