@@ -1,173 +1,169 @@
 {% extends 'base.njk' %}
-{% from "_components/article.njk" import article %}
+{% from "_components/ui.njk" import pageHero, secHead, mod %}
 {% from "_components/llsTable.njk" import llsTable %}
 {% from "_components/callout.njk" import callout %}
 
-{% block title %}
-LLS Rules 🏈 {{ super() }}
-{% endblock %}
-
-{% block heading %}
-{% endblock %}
-
-{% block head %}
-
-{% endblock %} 
+{% block title %}LLS Rules 🏈 The Late Late Shift{% endblock %}
 
 {% block content %}
-        {% set articleContent %}
-        <h3>General</h3>
-            <ul>
-                <li>0.5 PPR (Yahoo)</li>
-                <li>10 Teams</li>
-                <li>Snake draft, randomized</li>
-                <li>$20 buy-in</li>
-                <li>$150 to SB winner, $50 to SB loser</li>
-            </ul>
-        <hr>
-        <h3>Roster Settings</h3>
-        <p>Standard roster with a dedicated TE slot and a W/R/T flex. </p><br>
+{{ pageHero(
+    "Rules & Scoring",
+    intro="League constitution: format, rosters, scoring, and the keeper system.",
+    updated="8/14/26",
+    image="https://embed-ssl.wistia.com/deliveries/7f048c1d12339c4d715848e521c17696.png",
+    imageAlt="Overhead view of Gillette Stadium"
+) }}
 
-            {% set rosterData = {
-            columns: [{label: "QB"}, {label: "RB"}, {label: "WR"}, {label: "TE"}, {label: "W/R/T"}],
-            rows: [
-                ["1", "2", "3", "1", "1"]
-            ]
-            } %}
-            {{ llsTable(rosterData) }}
-            {% set rosterData = {
-            columns: [{label: "K"}, {label: "DST"}, {label: "BN"}, {label: "IR"}],
-            rows: [
-                ["1", "1", "6", "2"]
-            ]
-            } %}
-            {{ llsTable(rosterData) }}
-        <br>
-        <hr>
-        <h3>Offensive Scoring</h3>
-            <p>0.5 PPR, INTs and fumbles have the same penalty, otherwise default. </p></br>
-            {% set scoringData = {
-            columns: [{label: "Pass TD"}, {label: "Rush TD"}, {label: "Rec TD"}],
-            rows: [
-                ["4 pts", "6 pts", "6 pts"]
-            ]
-            } %}
-            {{ llsTable(scoringData) }}
-            {% set scoringData = {
-            columns: [{label: "Pass Yard"}, {label: "Rush Yard"}, {label: "Rec Yard"}],
-            rows: [
-                ["0.04 pts", "0.1 pts", "0.1 pts"]
-            ]
-            } %}
-            {{ llsTable(scoringData) }}
-            {% set scoringData = {
-            columns: [{label: "Fumble"}, {label: "INT"}],
-            rows: [
-                ["-2.0 pts", "-2.0 pts"]
-            ]
-            } %}
-            {{ llsTable(scoringData) }}
-        <br>
-        <hr>
-        <h3>Defensive Scoring</h3>
-            <p>We use use modified defensive scoring to try and better represent the in-game impact of a defense. The main goal is to reduce the chance that a defense can score big in fantasy while getting destroyed in real life. <br/><br/>
-            The first few scores against a defense have a smaller penalty, later scores have a greater penalty, and the overall max penalty for points allowed is increased. There is also an added penalty for 400 and 500 yards allowed.
-                {{ callout(
-                    type='info',
-                    content='The max penalty for a DST is -7pts (35 pts and 500+ yards allowed).'
-                ) }} <br>
+<div class="rules-grid">
+    <div class="rules-col">
+
+        <div id="r-general">
+            {{ secHead("General") }}
+            <div class="fact-tiles">
+                <div class="fact"><div class="cap">Format</div><div class="val">0.5 PPR</div></div>
+                <div class="fact"><div class="cap">Teams</div><div class="val">10</div></div>
+                <div class="fact"><div class="cap">Draft</div><div class="val">Snake <small>randomized</small></div></div>
+                <div class="fact"><div class="cap">Buy-in</div><div class="val">${{ league.current.buyIn }}</div></div>
+                <div class="fact"><div class="cap">Payouts</div><div class="val">${{ league.current.payoutChampion }} / ${{ league.current.payoutRunnerUp }} <small>SB win / loss</small></div></div>
+            </div>
+        </div>
+
+        <div id="r-roster">
+            {{ secHead("Roster") }}
+            <p class="prose">Standard roster with a dedicated TE slot and a W/R/T flex.</p>
+            <div class="slot-chips">
+                <span class="slot">QB<i>1</i></span>
+                <span class="slot">RB<i>2</i></span>
+                <span class="slot">WR<i>3</i></span>
+                <span class="slot">TE<i>1</i></span>
+                <span class="slot">W/R/T<i>1</i></span>
+                <span class="slot">K<i>1</i></span>
+                <span class="slot">DST<i>1</i></span>
+                <span class="slot bench">BN<i>6</i></span>
+                <span class="slot bench">IR<i>2</i></span>
+            </div>
+        </div>
+
+        <div id="r-offense">
+            {{ secHead("Offensive Scoring", color="blue") }}
+            <p class="prose">0.5 PPR; INTs and fumbles carry the same penalty, otherwise Yahoo default.</p>
             <div class="lls-table-row">
-                {% set dstPtsData = {
-                columns: [{label: "DST Pts Allowed"}, {label: "Pts", type: "num"}],
-                rows: [
-                    ["Allowed 0", "10 pts"],
-                    ["Allowed 1-6", "9 pts"],
-                    ["Allowed 7-13", "7 pts"],
-                    ["Allowed 14-20", "4 pts"],
-                    ["Allowed 21-27", "1 pts"],
-                    ["Allowed 28-34", "-2 pts"],
-                    ["Allowed 35+", "-5 pts"]
-                ]
-                } %}
-                {{ llsTable(dstPtsData) }}
-                {% set dstYdsData = {
-                columns: [{label: "DST Yds Allowed"}, {label: "Pts", type: "num"}],
-                rows: [
-                    ["Yds Allowed 400-499", "-1 pts"],
-                    ["Yds Allowed 500+", "-2 pts"]
-                ]
-                } %}
-                {{ llsTable(dstYdsData) }}
-                {% set otherPlaysData = {
-                columns: [{label: "Other Plays"}, {label: "Pts", type: "num"}],
-                rows: [
-                    ["Sack", "1 pts"],
-                    ["4th Down Stop", "1 pts*"],
-                    ["Fumble Rec", "2 pts"],
-                    ["Interception", "2 pts"],
-                    ["Touchdown", "6 pts"],
-                    ["Safety", "2 pts"],
-                    ["Kick/Punt Return TD", "6 pts"]
-                ]
-                } %}
-                {{ llsTable(otherPlaysData) }}
+                {{ llsTable({
+                    columns: [{ label: "Touchdowns" }, { label: "Pts", type: "num" }],
+                    rows: [["Pass TD", "4"], ["Rush TD", "6"], ["Rec TD", "6"]]
+                }) }}
+                {{ llsTable({
+                    columns: [{ label: "Yardage" }, { label: "Pts", type: "num" }],
+                    rows: [["Pass yard", "0.04"], ["Rush yard", "0.1"], ["Rec yard", "0.1"]]
+                }) }}
+                {{ llsTable({
+                    columns: [{ label: "Turnovers" }, { label: "Pts", type: "num" }],
+                    rows: [["Fumble", "−2.0"], ["INT", "−2.0"]]
+                }) }}
+            </div>
         </div>
-    <p><Em>*Increased from 0</Em></p>
-    <hr>
-    <h3>Keeper Rules</h3>
-        <ul>
-            <li>Up to 2 keepers per team</li>
-            <li>Keeping players is optional</li>
-            <li>Players drafted in Round 1 cannot be selected as keepers. This keeps a healthy pool of elite players in the draft mix each year.</li>
-            <li>The same player can only be selected as a keeper for two consecutive seasons, at which point they return to the draft pool.</li>
-        </ul>
-    <hr>
-    <h3>Keeper Costs</h3>
-    <p>The cost to keep a player depends on if and where they were last drafted.</p>
-        <h4>Cost to Keep Drafted Players </h4>
-        <ul>
-            <li>Keeper cost is equal to the player’s most recent draft position</b>, e.g. a player selected in round 4 in 2021 costs a 4th round pick to keep in 2022.</li>
-            <li><b>Keeping players for a second consecutive season increases the cost by one round</b>, so a 4th round selection costs a 3rd round pick to keep a second time.</li>   
-        </ul>
-        <div class="blockquote-container">
-            <h5 class="blockquote-header"><em>Example</em></h5>
-            <blockquote class="styled-blockquote">
-                Season 1: Mark Andrews was drafted 6th round 2020</br> 
-                Season 2: Andrews cost a 6th rd pick to keep in 2021</br>
-                Season 3: Andrews cost a 5th rd pick to keep in 2022 </br>
-                In 2023, Andrews is returned to the draft pool
-            </blockquote>
+
+        <div id="r-defense">
+            {{ secHead("Defensive Scoring", color="blue") }}
+            <p class="prose">We use modified defensive scoring to better represent the in-game impact of a
+            defense. The main goal is to reduce the chance that a defense can score big in fantasy while
+            getting destroyed in real life. The first few scores against a defense have a smaller penalty,
+            later scores have a greater penalty, and the overall max penalty for points allowed is
+            increased. There is also an added penalty for 400 and 500 yards allowed.</p>
+            {{ callout(type='info', content='The max penalty for a DST is <b>−7 pts</b> (35 pts and 500+ yards allowed).') }}
+            <div class="lls-table-row">
+                {{ llsTable({
+                    columns: [{ label: "DST Pts Allowed" }, { label: "Pts", type: "num" }],
+                    rows: [
+                        ["Allowed 0", "10"],
+                        ["Allowed 1–6", "9"],
+                        ["Allowed 7–13", "7"],
+                        ["Allowed 14–20", "4"],
+                        ["Allowed 21–27", "1"],
+                        ["Allowed 28–34", "−2"],
+                        ["Allowed 35+", "−5"]
+                    ]
+                }) }}
+                {{ llsTable({
+                    columns: [{ label: "DST Yds Allowed" }, { label: "Pts", type: "num" }],
+                    rows: [["Yds Allowed 400–499", "−1"], ["Yds Allowed 500+", "−2"]]
+                }) }}
+                {{ llsTable({
+                    columns: [{ label: "Other Plays" }, { label: "Pts", type: "num" }],
+                    rows: [
+                        ["Sack", "1"],
+                        ["4th Down Stop", "1*"],
+                        ["Fumble Rec", "2"],
+                        ["Interception", "2"],
+                        ["Touchdown", "6"],
+                        ["Safety", "2"],
+                        ["Kick/Punt Return TD", "6"]
+                    ]
+                }) }}
+            </div>
+            <p class="tbl-note">* Increased from 0</p>
         </div>
-    <hr> 
-    <h4>Cost to Keep Undrafted Free Agents</h4>
-        <ul>
-            <li>Any player in the most recent draft is a UDFA</li> 
-            <li>Keeping a UDFA costs an <b>8th round pick</b> for the first year</li>
-            <li>Keeping a UDFA costs a <b>7th round pick</b> for the second year</li>
-        </ul>
-        <div class="blockquote-container">
-            <h5 class="blockquote-header"><em>Example</em></h5>
-            <blockquote class="styled-blockquote">
-                Season 1: Justin Jefferson was acquired as a UDFA in 2020</br> 
-                Season 2: Jefferson cost a 8th rd pick to keep in 2021</br>
-                Season 3: Jefferson cost a 7th rd pick to keep in 2022</br>
-                In 2023, Jefferson is returned to the draft pool
-            </blockquote>
+
+        <div id="r-keepers">
+            {{ secHead("Keeper Rules", color="red") }}
+            <ul class="rule-list">
+                <li>Up to <b>2 keepers</b> per team — keeping players is optional.</li>
+                <li><b>Players drafted in Round 1 cannot be kept.</b> This keeps a healthy pool of elite players in the draft mix each year.</li>
+                <li>The same player can only be kept for <b>two consecutive seasons</b>, at which point they return to the draft pool.</li>
+            </ul>
         </div>
-    <hr>
-    <h3>Keeper FAQs</h3>
 
-    <h5>What if I want to keep two UDFAs, or two players drafted in the same round?</h5>
+        <div id="r-costs">
+            {{ secHead("Keeper Costs", color="red") }}
+            <p class="prose">The cost to keep a player depends on if and where they were last drafted.</p>
+            <ul class="rule-list">
+                <li>Keeper cost equals the player's <b>most recent draft position</b> — a player selected in round 4 in 2021 costs a 4th-round pick to keep in 2022.</li>
+                <li><b>Keeping a player a second consecutive season costs one round more</b> — that 4th-round selection now costs a 3rd-round pick.</li>
+                <li>Any player not in the most recent draft is a <b>UDFA</b>: an <b>8th-round pick</b> the first year, a <b>7th-round pick</b> the second.</li>
+            </ul>
+            <div class="example">
+                <div class="cap">Example · drafted player</div>
+                <ol>
+                    <li>2020 — Mark Andrews drafted in round 6</li>
+                    <li>2021 — Andrews costs a 6th-round pick to keep</li>
+                    <li>2022 — Andrews costs a 5th-round pick to keep again</li>
+                    <li>2023 — Andrews returns to the draft pool</li>
+                </ol>
+            </div>
+            <div class="example">
+                <div class="cap">Example · UDFA</div>
+                <ol>
+                    <li>2020 — Justin Jefferson acquired as a UDFA</li>
+                    <li>2021 — Jefferson costs an 8th-round pick to keep</li>
+                    <li>2022 — Jefferson costs a 7th-round pick to keep again</li>
+                    <li>2023 — Jefferson returns to the draft pool</li>
+                </ol>
+            </div>
+        </div>
 
-    <p>In this situation, the cost for the second keeper increases by one round. So keeping 2 UDFAs costs an 8th and 7th round pick. Keeping two players drafted in the 10th round costs a 10th and a 9th round pick.</p></br>
+        <div id="r-faq" class="faq">
+            {{ secHead("Keeper FAQ", color="red") }}
+            <h3>What if I want to keep two UDFAs, or two players drafted in the same round?</h3>
+            <p>The cost for the second keeper increases by one round. Keeping two UDFAs costs an 8th and a
+            7th; keeping two players drafted in the 10th round costs a 10th and a 9th.</p>
+            <h3>If I only keep a player for one season, can I pick him again in the draft?</h3>
+            <p>Yes — once a player returns to the draft pool, drafting him back onto your roster resets
+            his keeper costs.</p>
+        </div>
 
-    <h5>If I only keep a player for one season, can I pick him again in the draft?</h5>
+    </div>
 
-    <p>Yes, if you return a player to the draft pool and have the opportunity to draft them back onto your roster, you can do this and the keeper costs will reset.</p></br>
-    </ul>
-{% endset %}
-        {{ article('LLS Rules & Scoring', '8/14/26', articleContent) }}
-{% endblock %}
-
-{% block scripts %}
+    <div class="mod toc-mod">
+        <div class="mod-head"><h3>On this page</h3></div>
+        <ol>
+            <li><a href="#r-general">General</a></li>
+            <li><a href="#r-roster">Roster</a></li>
+            <li><a href="#r-offense">Offensive Scoring</a></li>
+            <li><a href="#r-defense">Defensive Scoring</a></li>
+            <li><a href="#r-keepers">Keeper Rules</a></li>
+            <li><a href="#r-costs">Keeper Costs</a></li>
+            <li><a href="#r-faq">Keeper FAQ</a></li>
+        </ol>
+    </div>
+</div>
 {% endblock %}

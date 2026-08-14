@@ -40,3 +40,5 @@ oldHTML/
 
 # random data files
 scoringData/
+
+.claude/

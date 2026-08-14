@@ -1,0 +1,56 @@
+/* ============================================================
+   LLS design tokens — the single source of truth for the system.
+   Palette jobs:
+     navy   = chrome (ticker, nav, footer, hero wing, header bars)
+     purple = brand / CTA / active nav
+     blue   = links and data accents
+     red    = alerts, live, kickers ONLY
+     ground = page background; cards are white, flat (no borders/shadows)
+   ============================================================ */
+:root {
+  /* palette */
+  --navy: #0b0e1a;
+  --navy-deep: #070912;
+  --navy-line: #262c47;
+  --purple: #8b4de8;
+  --purple-ink: #7239c9;
+  --blue: #5da9e9;
+  --blue-ink: #2e7cc4;
+  --blue-hover: #1d5d94;
+  --blue-press: #123c62;
+  --blue-bright: #8ec4f0;
+  --red: #f0544f;
+  --red-ink: #c93b36;
+  --red-press: #d9433e;
+
+  /* surfaces */
+  --ground: #eef0fa;
+  --surface: #ffffff;
+  --divider: #edeff6;
+
+  /* tints (derived, for fills only) */
+  --tint-purple: #f7f5fd;
+  --tint-purple-2: #efe9fb;
+  --tint-lavender: #f1e9fc;
+  --tint-blue: #dfeefb;
+  --tint-red: #fdeceb;
+  --tint-amber: #fdf3df;
+
+  /* text */
+  --ink: #1a1d2b;
+  --ink-2: #555b73;
+  --ink-3: #8a90a8;
+  --on-navy: #eef0fa;
+  --on-navy-dim: #9aa3c0;
+
+  /* type */
+  --font-sans: "Archivo", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* shape & rhythm */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 8px;
+  --gap: 22px;
+  --gap-sm: 14px;
+  --section-gap: 26px;
+}

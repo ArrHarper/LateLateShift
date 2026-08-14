@@ -1,0 +1,64 @@
+{
+  "name": "The Late Late Shift",
+  "est": 2020,
+  "yahooEvergreenUrl": "https://football.fantasysports.yahoo.com/league/latelateshift",
+  "current": {
+    "year": 2026,
+    "seasonNo": 7,
+    "leagueId": 858824,
+    "priorYear": 2025,
+    "priorLeagueId": 716831,
+    "kickoff": "2026-09-10T00:20:00Z",
+    "kickoffMatchup": "NE @ SEA",
+    "kickoffDisplay": "Wed 9/9 · 8:20 PM ET",
+    "tradeDeadline": "Nov 28",
+    "playoffWeeks": "15–17",
+    "buyIn": 20,
+    "payoutChampion": 150,
+    "payoutRunnerUp": 50
+  },
+  "seasons": [
+    {
+      "year": 2020,
+      "seasonNo": 1,
+      "leagueId": 1008211,
+      "champion": { "manager": "Uzoma", "team": "Wraith's Voidwalkers", "score": "176.10" },
+      "runnerUp": { "team": "Gurley girl", "score": "109.82" }
+    },
+    {
+      "year": 2021,
+      "seasonNo": 2,
+      "leagueId": 929371,
+      "champion": { "manager": "Colin", "team": "Koo Runnings", "score": "123.24" },
+      "runnerUp": { "team": "Can you diggs it", "score": "111.84" }
+    },
+    {
+      "year": 2022,
+      "seasonNo": 3,
+      "leagueId": 855021,
+      "champion": { "manager": "Colin", "team": "Koo Runnings", "score": "128.02" },
+      "runnerUp": { "team": "Wraith's Voidwalkers", "score": "90.20" }
+    },
+    {
+      "year": 2023,
+      "seasonNo": 4,
+      "leagueId": 189611,
+      "champion": { "manager": "Ben", "team": "Brown Bros TD Emporium", "score": "153.74" },
+      "runnerUp": { "team": "Olave and the Chipmunks", "score": "103.28" }
+    },
+    {
+      "year": 2024,
+      "seasonNo": 5,
+      "leagueId": 455458,
+      "champion": { "manager": "John", "team": "Piccolos Cage", "score": "164.78" },
+      "runnerUp": { "team": "My Chubb's Gone", "score": "146.40" }
+    },
+    {
+      "year": 2025,
+      "seasonNo": 6,
+      "leagueId": 716831,
+      "champion": { "manager": "TK", "team": "Gibbs Me Da Gold", "score": "112.54", "avatar": "/assets/images/tk-manager-avatar.png" },
+      "runnerUp": { "team": "Eat the W", "score": "94.96" }
+    }
+  ]
+}

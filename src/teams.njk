@@ -1,66 +1,95 @@
 {% extends 'base.njk' %}
+{% from "_components/ui.njk" import pageHero, secHead %}
 {% from "_components/llsTable.njk" import llsTable %}
 
-{% block title %}
-LLS Teams and Managers 🏈 {{ super() }}
-{% endblock %}
-
-{% block head %}
-<style>
-    h3 {
-    color: #5E239D;
-    margin-top: 30px;
-    margin-bottom: 15px;
-  }
-</style>
-{% endblock %}    
-
-{% block heading %}
-<div class="row gx-4 gx-lg-5 align-items-center my-5">
-    <div class="col-lg-5">
-        <h1 class="font-weight-light">LLS Teams & Stats</h1>
-        <p>Team list and all-time stats per manager. Click column headers to sort.</p><br>
-    </div>
-    <div class="col-lg-7">
-        <img class="img-fluid rounded mb-4 mb-lg-0" src="https://embed-ssl.wistia.com/deliveries/04b18769145f242f5e8dd0c80982d736.png" alt="Patriots players dump a water cooler over Bill Belichick to celebrate" />
-    </div>
-</div>
-{% endblock %}
+{% block title %}LLS Teams &amp; Managers 🏈 The Late Late Shift{% endblock %}
 
 {% block content %}
-<div class="teamChart-container">
-{% set tableData = {
-  "columns": [
-    {label: "Manager", type: "text", strong: true},
-    {label: "🏆", type: "num"},
-    {label: "Yrs", type: "num"},
-    {label: "W", type: "num"},
-    {label: "L", type: "num"},
-    {label: "Win %", type: "num"},
-    {label: "PF", type: "num"},
-    {label: "PA", type: "num"},
-    {label: "PF Avg", type: "num"},
-    {label: "PA Avg", type: "num"},
-    {label: "Moves", type: "num"},
-    {label: "Moves Avg", type: "num"}
-  ],
-  "rows": [
-    ["Ben", 1, 3, 20, 22, 0.48, 4937.58, 4856.48, 1645.86, 1618.83, 107, 35.67],
-    ["Cass", 0, 6, 46, 37, 0.55, 9743.8, 9525.26, 1623.97, 1587.54, 149, 24.83],
-    ["Colin", 2, 6, 45, 38, 0.54, 9611.9, 9313, 1601.98, 1552.17, 122, 20.33],
-    ["David", 0, 6, 49, 34, 0.59, 9882.02, 9354.4, 1647, 1559.07, 149, 24.83],
-    ["Harper", 0, 6, 41, 42, 0.49, 9701.4, 9874.36, 1616.9, 1645.73, 168, 28],
-    ["John", 1, 6, 38, 45, 0.46, 9261.04, 9789.3, 1543.51, 1631.55, 83, 13.83],
-    ["Price", 0, 6, 42, 41, 0.51, 9644.06, 9706.66, 1607.34, 1617.78, 227, 37.83],
-    ["Ray", 0, 5, 31, 39, 0.44, 8449.7, 8172.58, 1689.94, 1634.52, 60, 12],
-    ["TK", 1, 6, 46, 37, 0.55, 9474.92, 9467.46, 1579.15, 1577.91, 121, 20.17],
-    ["Uzoma", 1, 6, 39, 44, 0.47, 9268.26, 9509.4, 1544.71, 1584.9, 99, 16.5]
-  ]
-} %}
+{{ pageHero(
+    "Teams & Managers",
+    intro="All-time stats per manager across " + (league.seasons | length | string) + " seasons. Click column headers to sort.",
+    updated="Aug 13, 2026",
+    image="https://embed-ssl.wistia.com/deliveries/04b18769145f242f5e8dd0c80982d736.png",
+    imageAlt="Patriots players dump a water cooler over Bill Belichick to celebrate"
+) }}
 
-{{ llsTable(tableData, sortable=true, id='teamChart') }}
+<div class="duo">
+    <div>
+        {{ secHead("Title Count", link=('/recordBook/' | url), linkText="Records →") }}
+        {% set titleRows = [] %}
+        {% for t in teams | sort(true, false, 'winPct') | sort(true, false, 'titles.count') %}
+            {% if t.titles.count > 0 %}
+                {% set _ = titleRows.push(["<b>" + t.manager + "</b>", t.titles.count, t.titles.years | shortYears]) %}
+            {% endif %}
+        {% endfor %}
+        {{ llsTable({
+            columns: [
+                { label: "Manager", type: "text" },
+                { label: "🏆", type: "num" },
+                { label: "Years Won", type: "text" }
+            ],
+            rows: titleRows
+        }, id='title-count') }}
+    </div>
+    <div>
+        {{ secHead("Superlatives", color="red") }}
+        {% set byWin = teams | sort(true, false, 'winPct') | first %}
+        {% set byPf = teams | sort(true, false, 'pfAvg') | first %}
+        {% set byPa = teams | sort(true, false, 'paAvg') | first %}
+        {% set byMoves = teams | sort(true, false, 'moves') | first %}
+        {% set byFewMoves = teams | sort(false, false, 'moves') | first %}
+        {{ llsTable({
+            columns: [
+                { label: "Superlative", type: "text" },
+                { label: "Manager", type: "text" },
+                { label: "Value", type: "num" }
+            ],
+            rows: [
+                ["Best win %", "<b>" + byWin.manager + "</b>", byWin.winPct | pct3],
+                ["Highest PF avg", "<b>" + byPf.manager + "</b>", byPf.pfAvg | num2],
+                ["Highest PA avg", "<b>" + byPa.manager + "</b>", byPa.paAvg | num2],
+                ["Most moves", "<b>" + byMoves.manager + "</b>", byMoves.moves],
+                ["Fewest moves", "<b>" + byFewMoves.manager + "</b>", byFewMoves.moves]
+            ]
+        }, id='superlatives') }}
+    </div>
 </div>
-{% endblock %}
 
-{% block scripts %}
+<div>
+    {{ secHead("All-Time Standings", color="blue", note=(league.seasons | first).year + "–" + (league.seasons | last).year + " · click headers to sort") }}
+    {% set standingsRows = [] %}
+    {% for t in teams | sort(true, false, 'winPct') %}
+        {% set _ = standingsRows.push([
+            t.manager,
+            t.titles.count if t.titles.count > 0 else "",
+            t.years,
+            t.wins,
+            t.losses,
+            t.winPct | pct3,
+            t.pf | num2,
+            t.pa | num2,
+            t.pfAvg | num2,
+            t.paAvg | num2,
+            t.moves,
+            t.movesAvg | num2
+        ]) %}
+    {% endfor %}
+    {{ llsTable({
+        columns: [
+            { label: "Manager", type: "text", strong: true },
+            { label: "🏆", type: "num" },
+            { label: "Yrs", type: "num" },
+            { label: "W", type: "num" },
+            { label: "L", type: "num" },
+            { label: "Win %", type: "num" },
+            { label: "PF", type: "num", hideMobile: true },
+            { label: "PA", type: "num", hideMobile: true },
+            { label: "PF Avg", type: "num", hideMobile: true },
+            { label: "PA Avg", type: "num", hideMobile: true },
+            { label: "Moves", type: "num", hideMobile: true },
+            { label: "Moves Avg", type: "num", hideMobile: true }
+        ],
+        rows: standingsRows
+    }, sortable=true, id='teamChart') }}
+</div>
 {% endblock %}

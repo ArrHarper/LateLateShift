@@ -1,36 +1,15 @@
+{# Callout box. type: info | warning | danger | note. Styles: css/site.css #}
 {% macro callout(type='info', title='', content='', list=[]) %}
-  {% set bgColor = {
-    'info': '#a4d2f985',
-    'warning': '#fff3cd',
-    'danger': '#f8d7da',
-    'note': '#e2e3e5'
-  } %}
-  {% set borderColor = {
-    'info': '#6c89db47',
-    'warning': '#ffeeba',
-    'danger': '#f5c6cb',
-    'note': '#d6d8db'
-  } %}
-
-  <div class="callout" style="background-color: {{ bgColor[type] }}; border-color: {{ borderColor[type] }}">
-    {% if title %}
-      <div class="callout-title">
-        <p>{{ title }}</p>
-      </div>
+{% set icons = { info: 'ⓘ', warning: '⚠', danger: '⚠', note: '✎' } %}
+<div class="callout callout-{{ type }}">
+  <span class="ic" aria-hidden="true">{{ icons[type] }}</span>
+  <span>
+    {% if title %}<b>{{ title }}</b> {% endif %}{{ content | safe }}
+    {% if list.length %}
+    <ul>
+      {% for item in list %}<li>{{ item | safe }}</li>{% endfor %}
+    </ul>
     {% endif %}
-    
-    {% if content %}
-      <div class="callout-content">
-        <p>{{ content }}</p>
-      </div>
-    {% endif %}
-    
-    {% if list and list.length > 0 %}
-      <ul class="callout-list">
-        {% for item in list %}
-          <li>{{ item | safe }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </div>
+  </span>
+</div>
 {% endmacro %}

@@ -1,0 +1,54 @@
+{# Shared UI macros for the LLS design system. Styles: css/site.css #}
+
+{# Interior-page hero card: text left, photo right #}
+{% macro pageHero(title, intro='', updated='', image='', imageAlt='') %}
+<div class="page-head">
+  <div class="tx">
+    <h1>{{ title }}</h1>
+    {% if intro %}<p>{{ intro }}</p>{% endif %}
+    {% if updated %}<div class="upd">Last updated {{ updated }}</div>{% endif %}
+  </div>
+  {% if image %}
+  <div class="media"><img src="{{ image }}" alt="{{ imageAlt }}"></div>
+  {% endif %}
+</div>
+{% endmacro %}
+
+{# Section header with colored marker bar. color: purple (default) | blue | red #}
+{% macro secHead(title, color='purple', link='', linkText='', note='') %}
+<div class="sec-head{% if color != 'purple' %} sec-{{ color }}{% endif %}">
+  <span class="bar"></span>
+  <h2>{{ title }}</h2>
+  {% if note %}<span class="upd">{{ note }}</span>{% endif %}
+  {% if link %}<a href="{{ link }}">{{ linkText }}</a>{% endif %}
+</div>
+{% endmacro %}
+
+{# White module with navy header bar. Use with {% call %}: body renders inside.
+   mod("Reigning Champ", link="/recordBook/", linkText="Hall of Records →") #}
+{% macro mod(title, link='', linkText='') %}
+<div class="mod">
+  <div class="mod-head">
+    <h3>{{ title }}</h3>
+    {% if link %}<a href="{{ link }}">{{ linkText }}</a>{% endif %}
+  </div>
+  {{ caller() }}
+</div>
+{% endmacro %}
+
+{# Champion card for the records page. season = an entry from _data/league.json seasons[] #}
+{% macro championCard(season, beltSvg) %}
+<div class="mod">
+  <div class="champ-card-bd">
+    <div class="season">Season {{ season.seasonNo }} · {{ season.year }}</div>
+    <img class="belt" src="{{ beltSvg }}" alt="">
+    <div class="mgr">{{ season.champion.manager }}</div>
+    <div class="matchup"><b>{{ season.champion.team }}</b> <s>{{ season.runnerUp.team }}</s></div>
+    <div class="score"><b>{{ season.champion.score }}</b> – {{ season.runnerUp.score }}</div>
+    <div class="champ-card-links">
+      <a href="https://football.fantasysports.yahoo.com/{{ season.year }}/f1/{{ season.leagueId }}" target="_blank" rel="noopener">View Bracket</a>
+      <a href="https://football.fantasysports.yahoo.com/{{ season.year }}/f1/{{ season.leagueId }}/draftresults" target="_blank" rel="noopener">View Draft</a>
+    </div>
+  </div>
+</div>
+{% endmacro %}

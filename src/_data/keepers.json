@@ -1,0 +1,104 @@
+{
+  "seasons": [
+    {
+      "year": 2025,
+      "note": "† Kept one round below the correct cost (should have been round 7) due to a commissioner error. One of Price's and Ben's 2026 keeper picks will be discounted accordingly.",
+      "rows": [
+        ["Ben", "Herbert Fully Loaded", "Malik Nabers", "WR", "4", "1"],
+        ["Ben", "Herbert Fully Loaded", "Kyren Williams†", "RB", "6", "2*"],
+        ["Cass", "Breece's Pieces", "Lamar Jackson", "QB", "5", "1"],
+        ["Cass", "Breece's Pieces", "Breece Hall", "RB", "2", "2*"],
+        ["Colin", "Eat the W", "Tee Higgins", "WR", "5", "1"],
+        ["Colin", "Eat the W", "George Kittle", "TE", "8", "2*"],
+        ["Dave", "Pewter City Gym", "Brock Bowers", "TE", "13", "1"],
+        ["Dave", "Pewter City Gym", "No Keeper", "n/a", "n/a", "n/a"],
+        ["Harper", "Live By McCaff Die By Muh Calf", "Drake London", "WR", "5", "2*"],
+        ["Harper", "Live By McCaff Die By Muh Calf", "Jaxon Smith-Njigba", "WR", "9", "1"],
+        ["John", "Piccolos Cage", "Bucky Irving", "RB", "8", "1"],
+        ["John", "Piccolos Cage", "T.J. Hockenson", "TE", "16", "1"],
+        ["Price", "Nacua Matata", "Trey McBride", "TE", "5", "1"],
+        ["Price", "Nacua Matata", "Puka Nacua†", "WR", "6", "2*"],
+        ["Ray", "Big Diggs and My Chubb", "Chase Brown", "RB", "9", "1"],
+        ["Ray", "Big Diggs and My Chubb", "Ladd McConkey", "WR", "12", "1"],
+        ["TK", "Gibbs Me Da Gold", "Jahmyr Gibbs", "RB", "2", "1"],
+        ["TK", "Gibbs Me Da Gold", "Khalil Shakir", "WR", "12", "1"],
+        ["Uzoma", "Wraith's Voidwalkers", "Brian Thomas Jr.", "WR", "10", "1"],
+        ["Uzoma", "Wraith's Voidwalkers", "Jayden Daniels", "QB", "13", "1"]
+      ]
+    },
+    {
+      "year": 2024,
+      "rows": [
+        ["Ben", "FriendlyNabershood Strouderman", "Amon-Ra St. Brown", "WR", "5", "2*"],
+        ["Ben", "FriendlyNabershood Strouderman", "Kyren Williams", "RB", "8", "1"],
+        ["Cass", "Breece's Pieces", "Breece Hall", "RB", "3", "1"],
+        ["Cass", "Breece's Pieces", "Michael Pittman Jr.", "WR", "6", "1"],
+        ["Colin", "Eat the W", "Rachaad White", "RB", "7", "1"],
+        ["Colin", "Eat the W", "George Kittle", "TE", "9", "1"],
+        ["Dave", "A Thing Called Love", "Kyler Murray", "QB", "8", "1"],
+        ["Dave", "A Thing Called Love", "Chris Olave", "WR", "10", "2*"],
+        ["Harper", "your get right game", "Tyreek Hill", "WR", "1", "2*"],
+        ["Harper", "your get right game", "Drake London", "WR", "6", "1"],
+        ["John", "Piccolos Cage", "Mike Evans", "WR", "7", "1"],
+        ["John", "Piccolos Cage", "Brandon Aiyuk", "WR", "8", "2*"],
+        ["Price", "Nacua Matata", "Puka Nacua", "WR", "8", "1"],
+        ["Price", "Nacua Matata", "Anthony Richardson Sr.", "QB", "14", "1"],
+        ["Ray", "My Chubbs Gone", "No Keeper", "n/a", "n/a", "n/a"],
+        ["Ray", "My Chubbs Gone", "No Keeper", "n/a", "n/a", "n/a"],
+        ["TK", "Saleh's Survivors", "Josh Allen", "QB", "3", "1"],
+        ["TK", "Saleh's Survivors", "Garrett Wilson", "WR", "12", "2*"],
+        ["Uzoma", "Wraith's Voidwalkers", "No Keeper", "n/a", "n/a", "n/a"],
+        ["Uzoma", "Wraith's Voidwalkers", "No Keeper", "n/a", "n/a", "n/a"]
+      ]
+    },
+    {
+      "year": 2023,
+      "rows": [
+        ["Ben", "Brown Bros TD Emporium", "Amon-Ra St. Brown", "WR", "6", "1"],
+        ["Ben", "Brown Bros TD Emporium", "AJ Brown", "WR", "2", "1"],
+        ["Cass", "Breece's Pieces", "Tyler Lockett", "WR", "10", "1"],
+        ["Cass", "Breece's Pieces", "Tony Pollard", "RB", "7", "1"],
+        ["Colin", "Chase-in Doubs", "Patrick Mahomes", "QB", "5", "1"],
+        ["Colin", "Chase-in Doubs", "Ja'Marr Chase", "WR", "8", "2*"],
+        ["Dave", "Olave and the Chipmunks", "Josh Jacobs", "RB", "5", "1"],
+        ["Dave", "Olave and the Chipmunks", "Chris Olave", "WR", "11", "1"],
+        ["Harper", "Hurts Barkley and Hill is Hot", "Tyreek Hill", "WR", "2", "1"],
+        ["Harper", "Hurts Barkley and Hill is Hot", "Rhamondre Stevenson", "RB", "7", "1"],
+        ["John", "Piccolos Cage", "Brandon Aiyuk", "WR", "9", "1"],
+        ["John", "Piccolos Cage", "Christian Kirk", "WR", "8", "1"],
+        ["Price", "Belly Ache Bitch Bijan", "James Cook", "RB", "10", "1"],
+        ["Price", "Belly Ache Bitch Bijan", "Justin Fields", "QB", "8", "1"],
+        ["Ray", "My Chubbs Gone", "Austin Ekeler", "RB", "3", "2*"],
+        ["Ray", "My Chubbs Gone", "Nick Chubb", "RB", "2", "1"],
+        ["TK", "Saleh's Survivors", "Garrett Wilson", "WR", "13", "1"],
+        ["TK", "Saleh's Survivors", "James Conner", "RB", "8", "2*"],
+        ["Uzoma", "Wraith's Voidwalkers", "T.J. Hockenson", "TE", "11", "1"],
+        ["Uzoma", "Wraith's Voidwalkers", "Cooper Kupp", "WR", "3", "2*"]
+      ]
+    },
+    {
+      "year": 2022,
+      "rows": [
+        ["Ben", "Tua-cide Watch", "Leonard Fournette", "RB", "10", "1"],
+        ["Cass", "Miss click buffalos", "Stefon Diggs", "WR", "6", "2*"],
+        ["Cass", "Miss click buffalos", "Deebo Samuel", "WR", "8", "1"],
+        ["Colin", "Koo Runnings", "CeeDee Lamb", "WR", "3", "1"],
+        ["Colin", "Koo Runnings", "Ja'Marr Chase", "WR", "8", "1"],
+        ["Dave", "Josh Jacob Jingleheimer Schmit", "Justin Jefferson", "WR", "7", "2*"],
+        ["Dave", "Josh Jacob Jingleheimer Schmit", "Michael Pittman Jr", "WR", "12", "1"],
+        ["Harper", "Fully Immunized", "Tee Higgins", "WR", "6", "1"],
+        ["Harper", "Fully Immunized", "AJ Dillon", "RB", "10", "1"],
+        ["John", "Piccolos Cage", "Mike Evans", "WR", "3", "1"],
+        ["John", "Piccolos Cage", "Mike Williams", "WR", "11", "1"],
+        ["Price", "The Kamarazards", "Javonte Williams", "RB", "6", "1"],
+        ["Price", "The Kamarazards", "Darnell Mooney", "WR", "10", "1"],
+        ["Ray", "My Chubb Hurts", "Austin Ekeler", "RB", "3", "1"],
+        ["Ray", "My Chubb Hurts", "DJ Moore", "WR", "5", "1"],
+        ["TK", "The Illuminajee", "Najee Harris", "RB", "2", "1"],
+        ["TK", "The Illuminajee", "James Conner", "RB", "9", "1"],
+        ["Uzoma", "Wraith's Voidwalkers", "Cooper Kupp", "WR", "4", "1"],
+        ["Uzoma", "Wraith's Voidwalkers", "Josh Allen", "QB", "8", "2*"]
+      ]
+    }
+  ]
+}

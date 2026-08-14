@@ -1,85 +1,106 @@
 {% extends 'base.njk' %}
-{% from "_components/card.njk" import card %}
+{% from "_components/ui.njk" import secHead, mod %}
+{% from "_components/llsTable.njk" import llsTable %}
 
-{% block title %}
-LLS 🏈 {{ super() }}
-{% endblock %}
-
-{% block head %}
-{% endblock %} 
-
-{% block heading %}
-<div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://embed-ssl.wistia.com/deliveries/7f048c1d12339c4d715848e521c17696.png" alt="overhead view of Gillette Stadium" />
-</div>
-<div class="col-lg-5">
-    <h1 class="font-weight-light">Welcome Back for<br>The LLS 2026 Season</h1>
-    <p>Year SEVEN of never being late, always right on time.</p><br>
-    <a class="button-29" href="https://football.fantasysports.yahoo.com/league/latelateshift">Go to League on Yahoo!</a>
-</div>
-{% endblock %}
+{% block title %}LLS 🏈 The Late Late Shift{% endblock %}
 
 {% block content %}
-<div class="row gx-4 gx-lg-5">
-<div class="col-md-4 mb-5">
-    <div class="card h-100">
-        <div class="card-body">
-            <h2 class="card-title">2026 Schedule</h2>
-            <p class="card-text">
-                <ul>
-                    <li><b>Kickoff (NE @ SEA):</b> Weds, 9/9 @ 8:20pm</li>
-                    <li><b>Trade Deadline:</b> Nov 28, 2026</li>
-                    <li><b>Playoffs:</b> Week 15, 16 and 17</li>
-                    <!-- Add more list items as needed -->
-                </ul>
-            </p>
-        </div>
-        <div class="card-footer"><a class="button-29" href="https://football.fantasysports.yahoo.com/f1/858824/1/keepers" target="_blank">Select Your 2026 Keepers</a></div>
-    </div>
-</div>
-<div class="col-md-4 mb-5">
-    <div class="card h-100">
-        <div class="card-body">
-            <h2 class="card-title">Roster Info</h2>
-            <p class="card-text">
-            The 2026 draft is right around the corner! See last year's draft results below.<br>
+{% set current = league.current %}
+{% set champSeason = league.seasons | last %}
+{% set latestKeepers = keepers.seasons | first %}
 
-        </p>
-        </div>
-        <div class="card-footer" id="double-btn-footer">
-            <a class="button-29" href="https://football.fantasysports.yahoo.com/2025/f1/716831/draftresults" target="_blank"> Last Year's Draft Results</a>
-            <a class="button-29" href="https://football.fantasysports.yahoo.com/2025/f1/716831/starters" target="_blank">Last Year's Rosters</a>
+<div class="hero-panel">
+    <div class="hero-main">
+        <div class="kicker">Season Preview</div>
+        <h1>Welcome back for the {{ current.year }} season</h1>
+        <p class="dek">Year {{ current.seasonNo }} of never being late, always right on time. The draft
+        is around the corner — review last season's results, scout the keeper board, and lock your two
+        before the deadline.</p>
+        <div class="byline">From the Commissioner's Desk</div>
+        <a class="btn-primary" href="https://football.fantasysports.yahoo.com/f1/{{ current.leagueId }}/1/keepers" target="_blank" rel="noopener">Select Your Keepers</a>
+        <a class="link-strong" href="https://football.fantasysports.yahoo.com/{{ current.priorYear }}/f1/{{ current.priorLeagueId }}/draftresults" target="_blank" rel="noopener">{{ current.priorYear }} Draft Results →</a>
+    </div>
+    <div class="hero-wing">
+        <div class="cap"><span class="dot"></span> Time til Football</div>
+        <div class="clock" id="hero-countdown">—</div>
+        <div class="sub">{{ current.kickoffMatchup }} · {{ current.kickoffDisplay }}</div>
+        <div class="dl">Trade deadline <b>{{ current.tradeDeadline }}</b> · Playoffs <b>Wks {{ current.playoffWeeks }}</b></div>
+    </div>
+</div>
+
+<div class="trio">
+    {% call mod("Reigning Champ", link=('/recordBook/' | url), linkText="Hall of Records →") %}
+    <div class="champ-bd">
+        <div class="ava">{% if champSeason.champion.avatar %}<img src="{{ champSeason.champion.avatar | url }}" alt="">{% else %}{{ champSeason.champion.manager | truncate(2, true, '') }}{% endif %}</div>
+        <p><b>{{ champSeason.champion.team }}</b> 🏆 {{ [champSeason.year] | shortYears }}<br>
+        <span>{{ champSeason.champion.manager }} · def. {{ champSeason.runnerUp.team }} · {{ champSeason.champion.score }}–{{ champSeason.runnerUp.score }}</span></p>
+    </div>
+    {% endcall %}
+
+    {% call mod("Yahoo Quick Links") %}
+    <div class="link-list">
+        <a href="https://football.fantasysports.yahoo.com/{{ current.priorYear }}/f1/{{ current.priorLeagueId }}/draftresults" target="_blank" rel="noopener">{{ current.priorYear }} Draft Results <span>→</span></a>
+        <a href="https://football.fantasysports.yahoo.com/{{ current.priorYear }}/f1/{{ current.priorLeagueId }}/starters" target="_blank" rel="noopener">{{ current.priorYear }} Final Rosters <span>→</span></a>
+        <a href="https://football.fantasysports.yahoo.com/f1/{{ current.leagueId }}/1/keepers" target="_blank" rel="noopener">Select {{ current.year }} Keepers <span>→</span></a>
+    </div>
+    {% endcall %}
+
+    {% call mod("The Pot", link=('/rules/' | url), linkText="Rules →") %}
+    <ul class="kv-list">
+        <li><span class="k">Buy-in</span><span class="v">${{ current.buyIn }}</span></li>
+        <li><span class="k">Champion</span><span class="v">${{ current.payoutChampion }}</span></li>
+        <li><span class="k">Runner-up</span><span class="v">${{ current.payoutRunnerUp }}</span></li>
+    </ul>
+    {% endcall %}
+</div>
+
+<div>
+    {{ secHead("Keeper Central", link=('/keeper-history/' | url), linkText="Full history →") }}
+    <div class="split-main-rail">
+        {% set homeKeepers = {
+            columns: [
+                { label: "Manager", type: "text", strong: true },
+                { label: "Team", type: "text", hideMobile: true },
+                { label: "Keeper", type: "text" },
+                { label: "POS", type: "text" },
+                { label: "Cost", type: "num" },
+                { label: "Yrs", type: "num" }
+            ],
+            rows: latestKeepers.rows | topValueKeeps(6)
+        } %}
+        {{ llsTable(homeKeepers, sortable=true, id='home-keepers') }}
+        <div class="mod rank-mod">
+            <div class="mod-head"><h3>Best Value Keeps · {{ latestKeepers.year }}</h3></div>
+        <ol>
+            {% for row in latestKeepers.rows | topValueKeeps(5) %}
+            <li>
+                <span class="rk">{{ loop.index }}</span>
+                <span class="who"><b>{{ row[2] | safe }}</b><span>{{ row[0] }} · kept year {{ row[5] | replace('*','') }}</span></span>
+                <span class="pill">Rd {{ row[4] }}</span>
+            </li>
+            {% endfor %}
+        </ol>
         </div>
     </div>
 </div>
-<div class="col-md-4 mb-5">
-    <div class="card h-100">
-        <div class="card-body">
-            <h2 class="card-title">Reigning Champ</h2>
-            <div class="champ-card">
-                <div class="champ-image">
-                    <img src="{{ '/assets/images/tk-manager-avatar.png' | url }}" alt="Reigning Champ" />
-                </div>
-                <div class="champ-text" style="padding-left:5px;">
-                    <b>TK</b> aka<br>
-                    <b>Gibbs Me Da Gold</b><br>
-                    <b>🏆'25</b>
-                </div>
-            </div>
-        </div>
-        <div class="card-footer"><a class="button-29" href="{{ '/recordBook/' | url }}">Hall of Records</a></div>
+
+<div>
+    {{ secHead("League News", color="red") }}
+    <div class="mod news-list">
+        {% for item in news %}
+        {% if loop.index <= 3 %}
+        <a{% if item.href %} href="{{ item.href | url }}"{% endif %}>
+            <span class="tag tag-{{ item.tag }}">{{ item.tag }}</span>
+            <b>{{ item.title }}</b>
+            <time datetime="{{ item.date }}">{{ item.date | newsDate }}</time>
+        </a>
+        {% endif %}
+        {% endfor %}
     </div>
 </div>
-<!--<div class="col-md-4 mb-5">
-    <div class="card h-100">
-        <div class="card-body" style="max-height:600px;overflow:scroll;">
-            <h2 class="card-title">NFL Injury Updates</h2>
-            <a class="twitter-timeline" data-dnt="true" data-theme="dark" href="https://twitter.com/NFLInjuryNws?ref_src=twsrc%5Etfw">Tweets by NFLInjuryNws</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
-    </div>
-</div>-->
-</div>
-</div>
+
 {% endblock %}
 
 {% block scripts %}
-{% endblock %} 
+<script>(function(){var el=document.getElementById('hero-countdown');var src=document.getElementById('nfl-countdown');if(!el||!src)return;new MutationObserver(function(){el.textContent=src.textContent;}).observe(src,{childList:true});el.textContent=src.textContent;}());</script>
+{% endblock %}

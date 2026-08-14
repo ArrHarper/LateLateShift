@@ -1,30 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container px-5" style="padding-right:12px !important;padding-left: 12px !important;">
-        <div class="logo-container">
-            <div class="logo-text">
-                <p class="logo-the">The</p>
-                <a href="/">Late Late Shift</a><img style="max-width: 50px;height: auto;" src="{{ '/assets/images/toss-svg.svg' | url }}">
-            </div> 
+<nav class="site-nav" id="site-nav" aria-label="Main">
+    <div class="container">
+        <a class="nav-logo" href="{{ '/' | url }}">
+            <img src="{{ '/assets/images/lls-logo-knockout.svg' | url }}" alt="The Late Late Shift — home">
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">☰</button>
+        <div class="nav-links" id="nav-links">
+            {% set navItems = [
+                {url: '/', text: 'Home'},
+                {url: '/teams/', text: 'Teams'},
+                {url: '/rules/', text: 'Rules'},
+                {url: '/keeper-history/', text: 'Keepers'},
+                {url: '/recordBook/', text: 'Records'}
+            ] %}
+            {% for item in navItems %}
+                <a href="{{ item.url | url }}"{% if item.url == page.url %} class="is-active" aria-current="page"{% endif %}>{{ item.text }}</a>
+            {% endfor %}
         </div>
-        <div class="nav-toggle-container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        </div> 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                {% set navItems = [
-                    {url: '/', text: 'Home'},
-                    {url: '/teams/', text: 'Teams'},
-                    {url: '/rules/', text: 'Rules'},
-                    {url: '/keeper-history/', text: 'Keepers'},
-                    {url: '/recordBook/', text: 'Records'}
-                ] %}
-                
-                {% for item in navItems %}
-                    <li class="nav-item">
-                    <a class="nav-btn {% if item.url == page.url %}nav-btn-active{% endif %}" href="{{ item.url | url }}">{{ item.text }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
+        <a class="nav-cta" href="{{ league.yahooEvergreenUrl }}" target="_blank" rel="noopener">League on Yahoo</a>
     </div>
 </nav>

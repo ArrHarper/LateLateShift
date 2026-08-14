@@ -1,39 +1,51 @@
 # Late Late Shift — fantasy football league site
 
 Static Eleventy site for a 10-team Yahoo fantasy football keeper league (est. 2020).
-Public repo; deployed to GitHub Pages.
+Public repo; deployed to GitHub Pages. Redesigned Aug 2026 ("Network" design system).
 
 ## Build & deploy
 
 - Build: `npx @11ty/eleventy` — outputs `src/` → `_site/` with `pathPrefix: /LateLateShift/`
 - Local dev: `npx @11ty/eleventy --serve`
+- Config: `eleventy.config.mjs` (ESM, Eleventy 3). Defines filters: `topValueKeeps`, `pct3`, `num2`, `newsDate`, `shortYears`.
 - Deploys to GitHub Pages automatically on push to `main` (gh-pages branch is CI-built; never edit it or `_site/` directly)
+- Zero runtime dependencies beyond Eleventy. No jQuery, no Bootstrap.
 
-## Structure
+## Architecture: data-driven
 
-- Page templates: `src/*.njk` (Nunjucks). Shared layout in `src/_includes/`:
-  - `base.njk` — layout, nav include, footer/copyright, loads `js/table.js`
-  - `_cta-bar.njk` — the "Time til Football" countdown; kickoff timestamp lives in its `data-target` attr (UTC)
-  - `_components/` — macros incl. `infoTable` (used by teams page)
-- All tables use the `llsTable` macro (`src/_includes/_components/llsTable.njk`; styles `css/lls-table.css`, behavior `js/lls-table.js`, vanilla JS). Column opts: `type: 'num'` (right-align + numeric sort, `n/a` sorts to bottom, `2*` strips non-digits), `strong` (bold), `hideMobile` (column collapses below 640px; rows become tap-to-expand). Pass `sortable=true` for click-to-sort headers. `.lls-table-row` wraps several small tables side by side (rules page defensive scoring).
-- `backups/`, `oldHTML/`, `false/`, and the sibling `LateLateShift_pages` directory are dead legacy content — don't reference them.
+League content lives in `src/_data/` — pages are loops over these files:
+
+- `league.json` — `current` season block (year, league ID, kickoff timestamp for the countdown, deadlines, pot) + `seasons[]` (every season's champion/runner-up/score/league ID). Yahoo URLs are built in templates as `https://football.fantasysports.yahoo.com/{year}/f1/{leagueId}/...`
+- `teams.json` — all-time stats per manager + title years (drives Teams page incl. computed superlatives)
+- `keepers.json` — keeper tables per season (rows match llsTable column order: manager, team, player, pos, cost, years)
+- `records.json` — positive/negative record tiles (Records page)
+- `news.json` — homepage League News items (newest first; homepage shows 3)
+- `draftVideos.json` — Wistia media IDs for draft-order reveal videos
+
+## Design system
+
+- `css/tokens.css` — all colors/type/radius as custom properties; the palette-job comments there are the spec. `css/site.css` — components. `css/fonts.css` — self-hosted Archivo variable.
+- Conventions: flat surfaces (no borders/shadows — contrast only); navy header bars on all cards/tables; red only for alerts/live/kickers; every link/button has hover + active + focus-visible; primary buttons hover to red→purple radial gradient.
+- Layout: `_includes/base.njk` (ticker w/ countdown, nav, footer). Macros: `_components/ui.njk` (pageHero, secHead, mod, championCard), `_components/llsTable.njk` (sortable/mobile-collapsible tables; behavior in `js/lls-table.js`), `_components/callout.njk`.
+- Logos: `assets/images/lls-logo.svg` (full color, light surfaces) and `lls-logo-knockout.svg` (light linework, used on navy nav).
+- Pages: index, teams, rules, keeper-history, recordBook, draft-order (unlisted — not in nav, shared by link).
 
 ## League facts the code doesn't state
 
-- 10 teams, 6 make playoffs (weeks 15–17). Managers are stable but **team names change every season** — the keeper-history tables are the canonical manager↔team-name mapping per year.
-- Yahoo issues a **new league ID each season** (2024: 455458, 2025: 716831, 2026: 858824), so every Yahoo URL on the site is season-specific. `football.fantasysports.yahoo.com/league/latelateshift` is the evergreen redirect.
+- 10 teams, 6 make playoffs (weeks 15–17). Managers are stable but **team names change every season** — `keepers.json` is the canonical manager↔team-name mapping per year.
+- Yahoo issues a **new league ID each season** (all IDs are in `league.json`). `football.fantasysports.yahoo.com/league/latelateshift` is the evergreen redirect.
 - Keeper rules (full text on rules page): max 2 keepers; round-1 picks ineligible; same player max 2 consecutive seasons; cost = most recent draft round, one round better for a second consecutive keep; UDFAs cost an 8th (7th in year two). House ruling not yet on the rules page: if two keepers land on the same cost round, the second slides one round earlier.
 
 ## Annual season-update checklist
 
-1. `src/index.njk` — hero year + "Year N", schedule card (kickoff matchup/date, trade deadline, playoff weeks), keeper button → new league URL, "last year" draft/roster links → prior league ID, champ card (manager, team, 🏆'YY, avatar image in `assets/images/`)
-2. `src/_includes/_cta-bar.njk` — countdown `data-target` → new kickoff (ET is UTC−4 in September)
-3. `src/recordBook.njk` — new season champion card (winner, score, bracket/draft links), re-check all-time records (single-season PF, streaks, etc.), bump Last Updated
-4. `src/keeper-history.njk` — new season's keeper table (same 6-column format), bump Last Updated
-5. `src/draft-order.njk` — new reveal video section at top (Wistia embed)
-6. `src/teams.njk` — fold season W/L/PF/PA/moves into all-time rows; recompute derived columns from raw totals; champion gets 🏆
-7. `src/_includes/base.njk` — copyright year
-8. `scoringData/` — add season TE scoring md/csv
+1. `src/_data/league.json` — add the finished season to `seasons[]` (champion, runner-up, scores, league ID); update `current` (year, seasonNo, new league ID, kickoff timestamp UTC, matchup, trade deadline, prior-year IDs). Everything downstream (homepage, ticker countdown, records page, quick links) updates itself.
+2. `src/_data/keepers.json` — add the new season's keeper rows (newest first).
+3. `src/_data/teams.json` — fold season W/L/PF/PA/moves into each manager's totals; recompute averages; bump champion's `titles`.
+4. `src/_data/records.json` — re-check all-time records (single-season PF, streaks, etc.).
+5. `src/_data/draftVideos.json` — add the reveal video's Wistia ID.
+6. `src/_data/news.json` — add/refresh items.
+7. Champ avatar → `assets/images/`, referenced from the season's `champion.avatar` in league.json.
+8. Update the "Last updated" strings passed to `pageHero(...)` in changed pages.
 
 ## Data sources
 
