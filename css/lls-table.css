@@ -6,6 +6,17 @@
   margin-bottom: 1rem;
 }
 
+/* Insets a table from the page edges on desktop; full width on mobile */
+.lls-table-inset {
+  margin: 0 12%;
+}
+
+@media (max-width: 640px) {
+  .lls-table-inset {
+    margin: 0;
+  }
+}
+
 /* Lays out several small tables side by side; wraps to stacked on narrow screens */
 .lls-table-row {
   display: flex;
