@@ -33,7 +33,9 @@ League content lives in `src/_data/` — pages are loops over these files:
 
 ## League facts the code doesn't state
 
-- 10 teams, 6 make playoffs (weeks 15–17). Managers are stable but **team names change every season** — `keepers.json` is the canonical manager↔team-name mapping per year.
+- 10 teams, 6 make playoffs (weeks 15–17). **Team names change every season** — `keepers.json` is the canonical manager↔team-name mapping per year, but only back to 2022; for 2020–21 use `seasonStandings.json`.
+- The roster has been stable **since 2022**, not since the start. Three founding members left and were replaced (`alumni.json`): Bitsis and Tyler after 2020, Matt after 2021. Ray joined in 2021, Ben in 2022 — so career totals legitimately span 4, 5 and 6 seasons, and any all-time stat built on raw totals rather than per-season averages will favour the shorter tenures.
+- **2020 was a 13-game regular season**; every year since is 14. Single-season totals are not like-for-like against 2020.
 - Yahoo issues a **new league ID each season** (all IDs are in `league.json`). `football.fantasysports.yahoo.com/league/latelateshift` is the evergreen redirect.
 - Keeper rules (full text on rules page): max 2 keepers; round-1 picks ineligible; same player max 2 consecutive seasons; cost = most recent draft round, one round better for a second consecutive keep; UDFAs cost an 8th (7th in year two). House ruling not yet on the rules page: if two keepers land on the same cost round, the second slides one round earlier.
 
@@ -53,3 +55,4 @@ League content lives in `src/_data/` — pages are loops over these files:
 - Yahoo public (logged-out) pages provide: standings points, per-team records (team pages), draft results by round/team. NOT available logged-out: PA, moves, keeper markers, manager names — those need logged-in screenshots from the commissioner.
 - The Yahoo Fantasy API requires approval via Yahoo's Sports Developer Portal (open self-service access ended 2026); the league's API CLI tool lives outside this repo.
 - Keepers can be inferred from public data: intersect prior-season final rosters with the new draft (same manager, pick round ≈ keeper cost) — but late-round keeps and cost quirks need commissioner confirmation.
+- `seasonStandings.json` was transcribed from logged-in Yahoo standings screenshots (one per season), which is why it carries PA and moves. Yahoo's "Finished Nth" cell in the podium bar reports *the logged-in user's own* finish, not a league-wide fact — useful for identifying Harper's team in a season, misleading if read as anything else.
