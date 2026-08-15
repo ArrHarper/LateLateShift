@@ -153,6 +153,17 @@ main { display: block; flex: 1 0 auto; }
   padding-block: 22px 34px;
 }
 
+/* Grid/flex children default to min-width:auto, which lets a wide table push the
+   page past the viewport instead of scrolling inside .lls-table-wrap. */
+.page-stack > *,
+.split-main-rail > *,
+.duo > *,
+.trio > *,
+.rules-grid > *,
+.rules-col > * {
+  min-width: 0;
+}
+
 /* ---------- hero panel (home) ---------- */
 .hero-panel {
   background: var(--surface);
