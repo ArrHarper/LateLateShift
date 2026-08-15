@@ -2,179 +2,875 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The LLS Keeper League, Est 2020">
     <meta name="author" content="ArrHarper">
-    <title>
-        
-LLS 🏈 | The Late Late Shift
-
-    </title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="/LateLateShift/assets/favicon.ico" />
+    <title>LLS 🏈 The Late Late Shift</title>
+    <link rel="icon" type="image/x-icon" href="/LateLateShift/assets/favicon.ico">
     <link rel="stylesheet" href="/LateLateShift/css/fonts.css">
-    <link rel="stylesheet" href="/LateLateShift/css/styles.css">
-    <link rel="stylesheet" href="/LateLateShift/css/table.css">
-    <link rel="stylesheet" href="/LateLateShift/css/lls-table.css">
-    <link rel="stylesheet" href="/LateLateShift/css/tabs.css">
-    <link rel="stylesheet" href="/LateLateShift/css/tb-01.css">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/LateLateShift/css/tokens.css">
+    <link rel="stylesheet" href="/LateLateShift/css/site.css">
     <script src="/LateLateShift/js/lls-table.js" defer></script>
+    <script src="/LateLateShift/js/nav.js" defer></script>
     
-
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRWVV3VF"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRWVV3VF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container px-5" style="padding-right:12px !important;padding-left: 12px !important;">
-        <div class="logo-container">
-            <div class="logo-text">
-                <p class="logo-the">The</p>
-                <a href="/">Late Late Shift</a><img style="max-width: 50px;height: auto;" src="/LateLateShift/assets/images/toss-svg.svg">
-            </div> 
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="ticker">
+        <div class="container">
+            <div><span class="live">●&nbsp;KICKOFF</span>&nbsp; NE @ SEA · Wed 9/9 · 8:20 PM ET — <b id="nfl-countdown" data-target="2026-09-10T00:20:00Z">—</b></div>
+            <div>Yahoo League ID <b>858824</b></div>
         </div>
-        <div class="nav-toggle-container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        </div> 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                
-                
-                
-                    <li class="nav-item">
-                    <a class="nav-btn nav-btn-active" href="/LateLateShift/">Home</a>
-                    </li>
-                
-                    <li class="nav-item">
-                    <a class="nav-btn " href="/LateLateShift/teams/">Teams</a>
-                    </li>
-                
-                    <li class="nav-item">
-                    <a class="nav-btn " href="/LateLateShift/rules/">Rules</a>
-                    </li>
-                
-                    <li class="nav-item">
-                    <a class="nav-btn " href="/LateLateShift/keeper-history/">Keepers</a>
-                    </li>
-                
-                    <li class="nav-item">
-                    <a class="nav-btn " href="/LateLateShift/recordBook/">Records</a>
-                    </li>
-                
-            </ul>
+    </div>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+    <div class="container">
+        <a class="nav-logo" href="/LateLateShift/">
+            <img src="/LateLateShift/assets/images/lls-logo-knockout.svg" alt="The Late Late Shift — home">
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">☰</button>
+        <div class="nav-links" id="nav-links">
+            
+            
+                <a href="/LateLateShift/" class="is-active" aria-current="page">Home</a>
+            
+                <a href="/LateLateShift/teams/">Teams</a>
+            
+                <a href="/LateLateShift/rules/">Rules</a>
+            
+                <a href="/LateLateShift/keeper-history/">Keepers</a>
+            
+                <a href="/LateLateShift/recordBook/">Records</a>
+            
         </div>
+        <a class="nav-cta" href="https://football.fantasysports.yahoo.com/league/latelateshift" target="_blank" rel="noopener">League on Yahoo</a>
     </div>
 </nav>
-        
-        <!-- CTA bar / countdown -->
-        <div class="card text-white bg-secondary text-center">
-            <div class="card-body" id="cta-bar">
-<div class="cta-svg-container">
 
-    <a href="/LateLateShift/draft-order/" target="_blank">
-    <svg class="cta-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" x="0px" y="0px"><path d="M378.361,193.9c-.9-8.64-9.283-17.028-17.935-17.917-35.718-4.135-69.109-2.236-102.432,8.447-58.259,18.626-99.639,62.311-116.546,119.93a195.963,195.963,0,0,0-7.631,38.725,262.2,262.2,0,0,0,.625,58.9c.9,8.645,9.278,17.026,17.941,17.919,23.808,2.822,47.3,2.827,70.653-.868,52.646-7.9,100.8-36.9,128.173-81.943,5.23-9.167-7.646-17.257-13.606-8.42-20.129,32.538-50.547,55.544-87.715,67.571a392.38,392.38,0,0,0-91.617-91.668c16.259-50.415,53.254-88.507,104.651-104.928a392.407,392.407,0,0,0,91.8,91.792c-.88,2.7-1.807,5.343-2.813,8-3.394,10.048,10.834,15.448,14.959,5.676,1.806-4.8,3.514-9.75,4.9-14.716a214.467,214.467,0,0,0,7.194-37v-.008h0A260.327,260.327,0,0,0,378.361,193.9ZM154.313,404.025a5.73,5.73,0,0,1-3.988-3.962,252.224,252.224,0,0,1-1.638-40.743,423.02,423.02,0,0,1,46.388,46.4A256.657,256.657,0,0,1,154.313,404.025Zm79.113-3.261c-6.222,1.395-12.52,2.517-18.867,3.329a438.751,438.751,0,0,0-64.195-64.215q1.269-9.647,3.366-18.847A376.233,376.233,0,0,1,233.426,400.764Zm125.065-208.9a5.718,5.718,0,0,1,3.988,3.969,253.864,253.864,0,0,1,1.693,40.784,422.933,422.933,0,0,1-46.445-46.445A253.666,253.666,0,0,1,358.491,191.867Zm-79.113,3.264a189.715,189.715,0,0,1,18.872-3.324,438.833,438.833,0,0,0,64.3,64.3c-.807,6.332-1.939,12.653-3.335,18.862A376.273,376.273,0,0,1,279.378,195.131Z"/><path d="M295.556,258.8a8,8,0,0,0-11.315,0l-8.654,8.654-6.844-6.843a8,8,0,0,0-11.314,11.313l6.844,6.844-7.913,7.913-6.843-6.844A8,8,0,0,0,238.2,291.147l6.844,6.844-7.913,7.913-6.843-6.843a8,8,0,1,0-11.314,11.313l6.844,6.844-8.555,8.554a8,8,0,0,0,11.314,11.314l8.554-8.555,6.846,6.846a8,8,0,1,0,11.314-11.313l-6.846-6.846,7.912-7.913,6.846,6.846a8,8,0,1,0,11.315-11.313l-6.847-6.846,7.913-7.913,6.846,6.846a8,8,0,1,0,11.314-11.313l-6.846-6.847,8.655-8.655A8,8,0,0,0,295.556,258.8Z"/><path d="M431.153,37.688H69.532a39.044,39.044,0,0,0-39,39V428.461a39.045,39.045,0,0,0,39,39H431.153a39.045,39.045,0,0,0,39-39V76.688A39.045,39.045,0,0,0,431.153,37.688Zm0,413.774H69.532a23.027,23.027,0,0,1-23-23V76.688a23.026,23.026,0,0,1,23-23H431.153a23.027,23.027,0,0,1,23,23v50.961H79.118a8,8,0,0,0,0,16H454.154V428.461A23.027,23.027,0,0,1,431.153,451.462Z"/><path d="M79.118,100.16a8.2,8.2,0,0,0,8.2-8.2c-.4-10.868-16-10.865-16.4,0A8.2,8.2,0,0,0,79.118,100.16Z"/><path d="M105.061,100.16a8.2,8.2,0,0,0,8.2-8.2c-.4-10.868-16-10.865-16.4,0A8.2,8.2,0,0,0,105.061,100.16Z"/><path d="M131,100.16a8.2,8.2,0,0,0,8.2-8.2c-.4-10.868-16-10.865-16.4,0A8.2,8.2,0,0,0,131,100.16Z"/></svg></a>
-</div>
-<div class="cta-text">
-    <p class="cta-p" style="text-shadow: 0px 1px 1px rgba(255, 255, 255, 1);">Time til Football</p>
-    <div class="countdown" id="nfl-countdown" data-target="2026-09-10T00:20:00Z">—</div>
-    <script>(function(){const el=document.getElementById('nfl-countdown');if(!el)return;const targetMs=Date.parse(el.dataset.target);function pad(n){return String(n).padStart(2,'0');}function tick(){const now=Date.now();let diff=targetMs-now;if(diff<=0){el.textContent='Kickoff time!';clearInterval(t);return;}const s=1000,m=60*s,h=60*m,d=24*h;const days=Math.floor(diff/d);diff%=d;const hours=Math.floor(diff/h);diff%=h;const mins=Math.floor(diff/m);diff%=m;const secs=Math.floor(diff/s);el.textContent=`${days}d ${pad(hours)}h ${pad(mins)}m ${pad(secs)}s`;}tick();const t=setInterval(tick,1000);}());</script>
-<style>
-  .countdown{font-weight:600;letter-spacing:.02em;min-width:10ch;display:inline-block}
-</style>
-</div>
-     </div>
-        </div>   
-       
-        <!-- Page Content-->
-        <div class="container px-4 px-lg-5" id="main-column">
-                <div id="heading-row" class="row gx-4 gx-lg-5 align-items-center my-5">
-                    
+
+    <main id="main">
+        <div class="container page-stack">
             
-<div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://embed-ssl.wistia.com/deliveries/7f048c1d12339c4d715848e521c17696.png" alt="overhead view of Gillette Stadium" />
-</div>
-<div class="col-lg-5">
-    <h1 class="font-weight-light">Welcome Back for<br>The LLS 2026 Season</h1>
-    <p>Year SEVEN of never being late, always right on time.</p><br>
-    <a class="button-29" href="https://football.fantasysports.yahoo.com/league/latelateshift">Go to League on Yahoo!</a>
+
+
+
+
+<div class="hero-panel">
+    <div class="hero-main">
+        <div class="kicker">Season Preview</div>
+        <h1>Welcome back for the 2026 season</h1>
+        <p class="dek">Year 7 of never being late, always right on time. The draft
+        is around the corner — review last season's results, scout the keeper board, and lock your two
+        before the deadline.</p>
+        <div class="byline">From the Commissioner's Desk</div>
+        <a class="btn-primary" href="https://football.fantasysports.yahoo.com/f1/858824/1/keepers" target="_blank" rel="noopener">Select Your Keepers</a>
+        <a class="link-strong" href="https://football.fantasysports.yahoo.com/2025/f1/716831/draftresults" target="_blank" rel="noopener">2025 Draft Results →</a>
+    </div>
+    <div class="hero-wing">
+        <div class="cap"><span class="dot"></span> Time til Football</div>
+        <div class="clock" id="hero-countdown">—</div>
+        <div class="sub">NE @ SEA · Wed 9/9 · 8:20 PM ET</div>
+        <div class="dl">Trade deadline <b>Nov 28</b> · Playoffs <b>Wks 15–17</b></div>
+    </div>
 </div>
 
-                </div>
+<div class="trio">
+    
+<div class="mod">
+  <div class="mod-head">
+    <h3>Reigning Champ</h3>
+    <a href="/LateLateShift/recordBook/">Hall of Records →</a>
+  </div>
+  
+    <div class="champ-bd">
+        <div class="ava"><img src="/LateLateShift/assets/images/tk-manager-avatar.png" alt=""></div>
+        <p><b>Gibbs Me Da Gold</b> 🏆 &#39;25<br>
+        <span>TK · def. Eat the W · 112.54–94.96</span></p>
+    </div>
+    
+</div>
 
+
+    
+<div class="mod">
+  <div class="mod-head">
+    <h3>Yahoo Quick Links</h3>
+    
+  </div>
+  
+    <div class="link-list">
+        <a href="https://football.fantasysports.yahoo.com/2025/f1/716831/draftresults" target="_blank" rel="noopener">2025 Draft Results <span>→</span></a>
+        <a href="https://football.fantasysports.yahoo.com/2025/f1/716831/starters" target="_blank" rel="noopener">2025 Final Rosters <span>→</span></a>
+        <a href="https://football.fantasysports.yahoo.com/f1/858824/1/keepers" target="_blank" rel="noopener">Select 2026 Keepers <span>→</span></a>
+    </div>
+    
+</div>
+
+
+    
+<div class="mod">
+  <div class="mod-head">
+    <h3>The Pot</h3>
+    <a href="/LateLateShift/rules/">Rules →</a>
+  </div>
+  
+    <ul class="kv-list">
+        <li><span class="k">Buy-in</span><span class="v">$20</span></li>
+        <li><span class="k">Champion</span><span class="v">$150</span></li>
+        <li><span class="k">Runner-up</span><span class="v">$50</span></li>
+    </ul>
+    
+</div>
+
+</div>
+
+<div>
+    
+    
+<div class="sec-head">
+  <span class="bar"></span>
+  <h2>Keeper Outlook &#39;26</h2>
+  <span class="upd">who can be kept again, and what it costs</span>
+  <a href="/LateLateShift/keeper-history/">Full history →</a>
+</div>
+
+    
+    <div class="split-main-rail outlook-grid">
+        
+        
+        
+        
+        
             
-<div class="row gx-4 gx-lg-5">
-<div class="col-md-4 mb-5">
-    <div class="card h-100">
-        <div class="card-body">
-            <h2 class="card-title">2026 Schedule</h2>
-            <p class="card-text">
-                <ul>
-                    <li><b>Kickoff (NE @ SEA):</b> Weds, 9/9 @ 8:20pm</li>
-                    <li><b>Trade Deadline:</b> Nov 28, 2026</li>
-                    <li><b>Playoffs:</b> Week 15, 16 and 17</li>
-                    <!-- Add more list items as needed -->
-                </ul>
-            </p>
-        </div>
-        <div class="card-footer"><a class="button-29" href="https://football.fantasysports.yahoo.com/f1/858824/1/keepers" target="_blank">Select Your 2026 Keepers</a></div>
-    </div>
-</div>
-<div class="col-md-4 mb-5">
-    <div class="card h-100">
-        <div class="card-body">
-            <h2 class="card-title">Roster Info</h2>
-            <p class="card-text">
-            The 2026 draft is right around the corner! See last year's draft results below.<br>
-
-        </p>
-        </div>
-        <div class="card-footer" id="double-btn-footer">
-            <a class="button-29" href="https://football.fantasysports.yahoo.com/2025/f1/716831/draftresults" target="_blank"> Last Year's Draft Results</a>
-            <a class="button-29" href="https://football.fantasysports.yahoo.com/2025/f1/716831/starters" target="_blank">Last Year's Rosters</a>
-        </div>
-    </div>
-</div>
-<div class="col-md-4 mb-5">
-    <div class="card h-100">
-        <div class="card-body">
-            <h2 class="card-title">Reigning Champ</h2>
-            <div class="champ-card">
-                <div class="champ-image">
-                    <img src="/LateLateShift/assets/images/tk-manager-avatar.png" alt="Reigning Champ" />
-                </div>
-                <div class="champ-text" style="padding-left:5px;">
-                    <b>TK</b> aka<br>
-                    <b>Gibbs Me Da Gold</b><br>
-                    <b>🏆'25</b>
-                </div>
-            </div>
-        </div>
-        <div class="card-footer"><a class="button-29" href="/LateLateShift/recordBook/">Hall of Records</a></div>
-    </div>
-</div>
-<!--<div class="col-md-4 mb-5">
-    <div class="card h-100">
-        <div class="card-body" style="max-height:600px;overflow:scroll;">
-            <h2 class="card-title">NFL Injury Updates</h2>
-            <a class="twitter-timeline" data-dnt="true" data-theme="dark" href="https://twitter.com/NFLInjuryNws?ref_src=twsrc%5Etfw">Tweets by NFLInjuryNws</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
-    </div>
-</div>-->
-</div>
-</div>
-
-        </div>
-        <!--End Page Content-->
-
-        <div class="footy-div">
-            Copyright © ArrHarper 2026
-        </div>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        <div class="outlook-holder">
         
 
+<div class="lls-table-wrap">
+  <table class="lls-table lls-table--sortable lls-table--collapsible" id="keeper-outlook">
+    <thead>
+      <tr>
+        
+        <th scope="col" class="" data-sort-type="text">Manager<span class="lls-arrow" aria-hidden="true"></span></th>
+        
+        <th scope="col" class="" data-sort-type="text">&#39;25 Keeper<span class="lls-arrow" aria-hidden="true"></span></th>
+        
+        <th scope="col" class="" data-sort-type="text">POS<span class="lls-arrow" aria-hidden="true"></span></th>
+        
+        <th scope="col" class="lls-num lls-mobile-hide" data-sort-type="num">&#39;25 Cost<span class="lls-arrow" aria-hidden="true"></span></th>
+        
+        <th scope="col" class="lls-num" data-sort-type="num">&#39;26 Cost<span class="lls-arrow" aria-hidden="true"></span></th>
+        
+        <th scope="col" class="" data-sort-type="text">Status<span class="lls-arrow" aria-hidden="true"></span></th>
+        
+        <th class="lls-chev-col" aria-hidden="true"></th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">TK</td>
+        
+        
+        <td class="">Jahmyr Gibbs</td>
+        
+        
+        <td class="">RB</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">2</td>
+        
+        
+        <td class="lls-num">Rd 1</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 2 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">Ben</td>
+        
+        
+        <td class="">Malik Nabers</td>
+        
+        
+        <td class="">WR</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">4</td>
+        
+        
+        <td class="lls-num">Rd 3</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 4 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">Cass</td>
+        
+        
+        <td class="">Lamar Jackson</td>
+        
+        
+        <td class="">QB</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">5</td>
+        
+        
+        <td class="lls-num">Rd 4</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 5 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">Colin</td>
+        
+        
+        <td class="">Tee Higgins</td>
+        
+        
+        <td class="">WR</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">5</td>
+        
+        
+        <td class="lls-num">Rd 4</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 5 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">Price</td>
+        
+        
+        <td class="">Trey McBride</td>
+        
+        
+        <td class="">TE</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">5</td>
+        
+        
+        <td class="lls-num">Rd 4</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 5 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">John</td>
+        
+        
+        <td class="">Bucky Irving</td>
+        
+        
+        <td class="">RB</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">8</td>
+        
+        
+        <td class="lls-num">Rd 7</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 8 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">Harper</td>
+        
+        
+        <td class="">Jaxon Smith-Njigba</td>
+        
+        
+        <td class="">WR</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9</td>
+        
+        
+        <td class="lls-num">Rd 8</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 9 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">Ray</td>
+        
+        
+        <td class="">Chase Brown</td>
+        
+        
+        <td class="">RB</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">9</td>
+        
+        
+        <td class="lls-num">Rd 8</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 9 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">Uzoma</td>
+        
+        
+        <td class="">Brian Thomas Jr.</td>
+        
+        
+        <td class="">WR</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">10</td>
+        
+        
+        <td class="lls-num">Rd 9</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 10 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">Ray</td>
+        
+        
+        <td class="">Ladd McConkey</td>
+        
+        
+        <td class="">WR</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">12</td>
+        
+        
+        <td class="lls-num">Rd 11</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 12 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">TK</td>
+        
+        
+        <td class="">Khalil Shakir</td>
+        
+        
+        <td class="">WR</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">12</td>
+        
+        
+        <td class="lls-num">Rd 11</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 12 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">Dave</td>
+        
+        
+        <td class="">Brock Bowers</td>
+        
+        
+        <td class="">TE</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">13</td>
+        
+        
+        <td class="lls-num">Rd 12</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 13 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">Uzoma</td>
+        
+        
+        <td class="">Jayden Daniels</td>
+        
+        
+        <td class="">QB</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">13</td>
+        
+        
+        <td class="lls-num">Rd 12</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 13 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">John</td>
+        
+        
+        <td class="">T.J. Hockenson</td>
+        
+        
+        <td class="">TE</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">16</td>
+        
+        
+        <td class="lls-num">Rd 15</td>
+        
+        
+        <td class=""><span class="cell-ok">Eligible</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 16 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">Ben</td>
+        
+        
+        <td class="">Kyren Williams</td>
+        
+        
+        <td class="">RB</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">6</td>
+        
+        
+        <td class="lls-num">—</td>
+        
+        
+        <td class=""><span class="cell-out">Back to pool</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 6 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">Cass</td>
+        
+        
+        <td class="">Breece Hall</td>
+        
+        
+        <td class="">RB</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">2</td>
+        
+        
+        <td class="lls-num">—</td>
+        
+        
+        <td class=""><span class="cell-out">Back to pool</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 2 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">Colin</td>
+        
+        
+        <td class="">George Kittle</td>
+        
+        
+        <td class="">TE</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">8</td>
+        
+        
+        <td class="lls-num">—</td>
+        
+        
+        <td class=""><span class="cell-out">Back to pool</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 8 </td>
+      </tr>
+      
+      
+      <tr class="lls-row lls-row--alt">
+        
+        
+        <td class=" lls-strong">Harper</td>
+        
+        
+        <td class="">Drake London</td>
+        
+        
+        <td class="">WR</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">5</td>
+        
+        
+        <td class="lls-num">—</td>
+        
+        
+        <td class=""><span class="cell-out">Back to pool</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 5 </td>
+      </tr>
+      
+      
+      <tr class="lls-row">
+        
+        
+        <td class=" lls-strong">Price</td>
+        
+        
+        <td class="">Puka Nacua</td>
+        
+        
+        <td class="">WR</td>
+        
+        
+        <td class="lls-num lls-mobile-hide">6</td>
+        
+        
+        <td class="lls-num">—</td>
+        
+        
+        <td class=""><span class="cell-out">Back to pool</span></td>
+        
+        <td class="lls-chev-col"><span class="lls-chev">▾</span></td>
+      </tr>
+      
+      <tr class="lls-detail">
+        <td colspan="7"><span class="lls-detail-label">&#39;25 Cost</span> 6 </td>
+      </tr>
+      
+      
+    </tbody>
+  </table>
+</div>
+
+        </div>
+        <div class="mod rank-mod">
+            <div class="mod-head"><h3>Back in the Pool · 2026</h3></div>
+            <ol>
+                
+                
+                
+                
+                <li>
+                    <span class="who"><b>Kyren Williams</b><span>kept 2 yrs by Ben</span></span>
+                    <span class="pill pill-red">RB</span>
+                </li>
+                
+                
+                
+                
+                
+                <li>
+                    <span class="who"><b>Breece Hall</b><span>kept 2 yrs by Cass</span></span>
+                    <span class="pill pill-red">RB</span>
+                </li>
+                
+                
+                
+                
+                
+                <li>
+                    <span class="who"><b>George Kittle</b><span>kept 2 yrs by Colin</span></span>
+                    <span class="pill pill-red">TE</span>
+                </li>
+                
+                
+                
+                
+                
+                <li>
+                    <span class="who"><b>Drake London</b><span>kept 2 yrs by Harper</span></span>
+                    <span class="pill pill-red">WR</span>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li>
+                    <span class="who"><b>Puka Nacua</b><span>kept 2 yrs by Price</span></span>
+                    <span class="pill pill-red">WR</span>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div>
+    
+<div class="sec-head sec-red">
+  <span class="bar"></span>
+  <h2>League News</h2>
+  
+  
+</div>
+
+    <div class="mod news-list">
+        
+        
+        <a href="/LateLateShift/draft-order/">
+            <span class="tag tag-draft">draft</span>
+            <b>The 2026 draft order reveal video is out</b>
+            <time datetime="2026-08-13">Aug 13</time>
+        </a>
+        
+        
+        
+        <a>
+            <span class="tag tag-rules">rules</span>
+            <b>Commissioner error rewrites two 2026 keeper costs</b>
+            <time datetime="2026-08-13">Aug 13</time>
+        </a>
+        
+        
+        
+        <a>
+            <span class="tag tag-league">league</span>
+            <b>All managers confirmed for 2026</b>
+            <time datetime="2026-08-11">Aug 11</time>
+        </a>
+        
+        
+    </div>
+</div>
+
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div>© ArrHarper 2026 · The Late Late Shift · Est. 2020</div>
+            <div><a href="https://football.fantasysports.yahoo.com/league/latelateshift">League on Yahoo</a> · <a href="/LateLateShift/rules/">Rules</a></div>
+        </div>
+    </footer>
+
+    <script>(function(){var el=document.getElementById('nfl-countdown');if(!el)return;var targetMs=Date.parse(el.dataset.target);function pad(n){return String(n).padStart(2,'0');}function tick(){var diff=targetMs-Date.now();if(diff<=0){el.textContent='Kickoff time!';clearInterval(t);return;}var d=Math.floor(diff/864e5),h=Math.floor(diff%864e5/36e5),m=Math.floor(diff%36e5/6e4),s=Math.floor(diff%6e4/1e3);el.textContent=d+'d '+pad(h)+'h '+pad(m)+'m '+pad(s)+'s';}tick();var t=setInterval(tick,1000);}());</script>
+    
+<script>(function(){var el=document.getElementById('hero-countdown');var src=document.getElementById('nfl-countdown');if(!el||!src)return;new MutationObserver(function(){el.textContent=src.textContent;}).observe(src,{childList:true});el.textContent=src.textContent;}());</script>
 
 </body>
 </html>
