@@ -4,6 +4,7 @@
   "description": "Fantasy Football Keeper League",
   "main": "eleventy.config.mjs",
   "scripts": {
+    "derive": "node scripts/derive-teams.mjs",
     "build": "eleventy --pathprefix=LateLateShift",
     "serve": "eleventy --serve",
     "start": "npm run serve"

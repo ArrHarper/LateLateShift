@@ -36,8 +36,8 @@
         {% set byWin = teams | sort(true, false, 'winPct') | first %}
         {% set byPf = teams | sort(true, false, 'pfAvg') | first %}
         {% set byPa = teams | sort(true, false, 'paAvg') | first %}
-        {% set byMoves = teams | sort(true, false, 'moves') | first %}
-        {% set byFewMoves = teams | sort(false, false, 'moves') | first %}
+        {% set byMoves = teams | sort(true, false, 'movesAvg') | first %}
+        {% set byFewMoves = teams | sort(false, false, 'movesAvg') | first %}
         {{ llsTable({
             columns: [
                 { label: "Superlative", type: "text" },
@@ -48,8 +48,8 @@
                 ["Best win %", "<b>" + byWin.manager + "</b>", byWin.winPct | pct3],
                 ["Highest PF avg", "<b>" + byPf.manager + "</b>", byPf.pfAvg | num2],
                 ["Highest PA avg", "<b>" + byPa.manager + "</b>", byPa.paAvg | num2],
-                ["Most moves", "<b>" + byMoves.manager + "</b>", byMoves.moves],
-                ["Fewest moves", "<b>" + byFewMoves.manager + "</b>", byFewMoves.moves]
+                ["Highest avg moves", "<b>" + byMoves.manager + "</b>", byMoves.movesAvg | num2],
+                ["Lowest avg moves", "<b>" + byFewMoves.manager + "</b>", byFewMoves.movesAvg | num2]
             ]
         }, id='superlatives') }}
     </div>
@@ -91,5 +91,37 @@
         ],
         rows: standingsRows
     }, sortable=true, id='teamChart') }}
+</div>
+
+<div>
+    {{ secHead("Alumni", color="red", note="former members, since replaced") }}
+    {% set alumniRows = [] %}
+    {% for a in alumni | sort(false, false, 'seasons') %}
+        {% set _ = alumniRows.push([
+            a.manager,
+            a.seasons | shortYears,
+            a.teamNames | join(", "),
+            a.wins,
+            a.losses,
+            a.winPct | pct3,
+            a.pf | num2,
+            a.pa | num2,
+            a.moves
+        ]) %}
+    {% endfor %}
+    {{ llsTable({
+        columns: [
+            { label: "Manager", type: "text", strong: true },
+            { label: "Season", type: "text" },
+            { label: "Team", type: "text" },
+            { label: "W", type: "num" },
+            { label: "L", type: "num" },
+            { label: "Win %", type: "num" },
+            { label: "PF", type: "num", hideMobile: true },
+            { label: "PA", type: "num", hideMobile: true },
+            { label: "Moves", type: "num", hideMobile: true }
+        ],
+        rows: alumniRows
+    }, sortable=true, id='alumniChart') }}
 </div>
 {% endblock %}

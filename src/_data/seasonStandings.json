@@ -1,0 +1,121 @@
+{
+  "_about": "Final end-of-season standings for every LLS season, transcribed from Yahoo's post-season standings pages. `finalRank` is final placement (playoff-inclusive), NOT regular-season seed — e.g. 2025 Nacua Matata went 10-4 but finished 3rd. `wins`/`losses`/`ties`/`pf`/`pa` are regular-season only. `clinchedPlayoffs` is Yahoo's `*` marker (top 6). Rows flagged `alumni: true` are former members who were later replaced; their careers roll up into alumni.json rather than teams.json.",
+  "_managerSource": "2022-2025 manager<->team mapping is from keepers.json. 2020-2021 mappings were solved against teams.json all-time totals: each manager's residual (career total minus assigned seasons) matched exactly one combination of unassigned team-seasons on W-L, PF, PA and moves simultaneously. The three team-seasons left over after that solve are the alumni, identified by the commissioner: Bitsis, Tyler and Matt.",
+  "_derived": "teams.json and alumni.json are generated from this file — it is the source of truth for per-manager career totals. Re-derive after adding a season rather than hand-editing those two.",
+  "seasons": [
+    {
+      "year": 2025,
+      "seasonNo": 6,
+      "leagueId": 716831,
+      "regularSeasonGames": 14,
+      "playoffTeams": 6,
+      "standings": [
+        { "finalRank": 1,  "manager": "TK",     "team": "Gibbs Me Da Gold",               "wins": 8,  "losses": 6,  "ties": 0, "pf": 1734.52, "pa": 1683.52, "streak": "L-1", "waiverPriority": 9,  "moves": 20, "clinchedPlayoffs": true },
+        { "finalRank": 2,  "manager": "Colin",  "team": "Eat the W",                      "wins": 8,  "losses": 6,  "ties": 0, "pf": 1630.62, "pa": 1608.24, "streak": "W-3", "waiverPriority": 7,  "moves": 20, "clinchedPlayoffs": true },
+        { "finalRank": 3,  "manager": "Price",  "team": "Nacua Matata",                   "wins": 10, "losses": 4,  "ties": 0, "pf": 1919.74, "pa": 1624.80, "streak": "W-2", "waiverPriority": 10, "moves": 35, "clinchedPlayoffs": true },
+        { "finalRank": 4,  "manager": "Dave",   "team": "Pewter City Gym",                "wins": 8,  "losses": 6,  "ties": 0, "pf": 1672.34, "pa": 1664.24, "streak": "L-1", "waiverPriority": 8,  "moves": 25, "clinchedPlayoffs": true },
+        { "finalRank": 5,  "manager": "Harper", "team": "Live By McCaff Die By Muh Calf", "wins": 7,  "losses": 7,  "ties": 0, "pf": 1793.92, "pa": 1709.00, "streak": "W-1", "waiverPriority": 5,  "moves": 21, "clinchedPlayoffs": true },
+        { "finalRank": 6,  "manager": "John",   "team": "Piccolos Cage",                  "wins": 8,  "losses": 6,  "ties": 0, "pf": 1545.22, "pa": 1565.48, "streak": "L-2", "waiverPriority": 6,  "moves": 7,  "clinchedPlayoffs": true },
+        { "finalRank": 7,  "manager": "Ben",    "team": "Herbert Fully Loaded",           "wins": 5,  "losses": 9,  "ties": 0, "pf": 1626.00, "pa": 1716.90, "streak": "W-2", "waiverPriority": 3,  "moves": 37, "clinchedPlayoffs": false },
+        { "finalRank": 8,  "manager": "Ray",    "team": "Big Diggs and My Chubb",         "wins": 6,  "losses": 8,  "ties": 0, "pf": 1706.58, "pa": 1698.74, "streak": "L-4", "waiverPriority": 4,  "moves": 14, "clinchedPlayoffs": false },
+        { "finalRank": 9,  "manager": "Cass",   "team": "Breece's Pieces",                "wins": 5,  "losses": 9,  "ties": 0, "pf": 1567.06, "pa": 1619.84, "streak": "W-1", "waiverPriority": 2,  "moves": 22, "clinchedPlayoffs": false },
+        { "finalRank": 10, "manager": "Uzoma",  "team": "Wraith's Voidwalkers",           "wins": 5,  "losses": 9,  "ties": 0, "pf": 1524.50, "pa": 1829.74, "streak": "L-2", "waiverPriority": 1,  "moves": 14, "clinchedPlayoffs": false }
+      ]
+    },
+    {
+      "year": 2024,
+      "seasonNo": 5,
+      "leagueId": 455458,
+      "regularSeasonGames": 14,
+      "playoffTeams": 6,
+      "standings": [
+        { "finalRank": 1,  "manager": "John",   "team": "Piccolos Cage",                  "wins": 9, "losses": 5,  "ties": 0, "pf": 1696.78, "pa": 1623.44, "streak": "L-1", "waiverPriority": 8,  "moves": 25, "clinchedPlayoffs": true },
+        { "finalRank": 2,  "manager": "Ray",    "team": "My Chubbs Gone",                 "wins": 9, "losses": 5,  "ties": 0, "pf": 1799.16, "pa": 1615.64, "streak": "W-2", "waiverPriority": 10, "moves": 11, "clinchedPlayoffs": true },
+        { "finalRank": 3,  "manager": "Price",  "team": "Nacua Matata",                   "wins": 8, "losses": 6,  "ties": 0, "pf": 1639.98, "pa": 1674.84, "streak": "W-3", "waiverPriority": 7,  "moves": 56, "clinchedPlayoffs": true },
+        { "finalRank": 4,  "manager": "TK",     "team": "Saleh's Survivors",              "wins": 9, "losses": 5,  "ties": 0, "pf": 1756.88, "pa": 1667.98, "streak": "W-4", "waiverPriority": 9,  "moves": 15, "clinchedPlayoffs": true },
+        { "finalRank": 5,  "manager": "Harper", "team": "your get right game",            "wins": 7, "losses": 7,  "ties": 0, "pf": 1725.84, "pa": 1824.02, "streak": "W-1", "waiverPriority": 6,  "moves": 22, "clinchedPlayoffs": true },
+        { "finalRank": 6,  "manager": "Dave",   "team": "A Thing Called Love",            "wins": 7, "losses": 7,  "ties": 0, "pf": 1656.38, "pa": 1704.98, "streak": "L-1", "waiverPriority": 5,  "moves": 22, "clinchedPlayoffs": true },
+        { "finalRank": 7,  "manager": "Colin",  "team": "Eat the W",                      "wins": 6, "losses": 8,  "ties": 0, "pf": 1653.02, "pa": 1598.36, "streak": "L-3", "waiverPriority": 4,  "moves": 17, "clinchedPlayoffs": false },
+        { "finalRank": 8,  "manager": "Cass",   "team": "Breece's Pieces",                "wins": 6, "losses": 8,  "ties": 0, "pf": 1645.22, "pa": 1760.84, "streak": "W-1", "waiverPriority": 3,  "moves": 12, "clinchedPlayoffs": false },
+        { "finalRank": 9,  "manager": "Uzoma",  "team": "Wraith's Voidwalkers",           "wins": 5, "losses": 9,  "ties": 0, "pf": 1644.00, "pa": 1634.58, "streak": "L-5", "waiverPriority": 2,  "moves": 6,  "clinchedPlayoffs": false },
+        { "finalRank": 10, "manager": "Ben",    "team": "FriendlyNabershood Strouderman", "wins": 4, "losses": 10, "ties": 0, "pf": 1648.08, "pa": 1760.66, "streak": "L-2", "waiverPriority": 1,  "moves": 36, "clinchedPlayoffs": false }
+      ]
+    },
+    {
+      "year": 2023,
+      "seasonNo": 4,
+      "leagueId": 189611,
+      "regularSeasonGames": 14,
+      "playoffTeams": 6,
+      "standings": [
+        { "finalRank": 1,  "manager": "Ben",    "team": "Brown Bros TD Emporium",         "wins": 11, "losses": 3,  "ties": 0, "pf": 1663.50, "pa": 1378.92, "streak": "W-3",  "waiverPriority": 9,  "moves": 34, "clinchedPlayoffs": true },
+        { "finalRank": 2,  "manager": "Dave",   "team": "Olave and the Chipmunks",        "wins": 11, "losses": 3,  "ties": 0, "pf": 1682.94, "pa": 1433.46, "streak": "L-1",  "waiverPriority": 10, "moves": 33, "clinchedPlayoffs": true },
+        { "finalRank": 3,  "manager": "TK",     "team": "Saleh's Survivors",              "wins": 7,  "losses": 7,  "ties": 0, "pf": 1432.34, "pa": 1513.54, "streak": "L-2",  "waiverPriority": 5,  "moves": 19, "clinchedPlayoffs": true },
+        { "finalRank": 4,  "manager": "Colin",  "team": "Chase-in Doubs",                 "wins": 7,  "losses": 7,  "ties": 0, "pf": 1610.22, "pa": 1630.14, "streak": "L-2",  "waiverPriority": 7,  "moves": 17, "clinchedPlayoffs": true },
+        { "finalRank": 5,  "manager": "Cass",   "team": "Breece's Pieces",                "wins": 7,  "losses": 7,  "ties": 0, "pf": 1556.80, "pa": 1548.52, "streak": "W-2",  "waiverPriority": 6,  "moves": 13, "clinchedPlayoffs": true },
+        { "finalRank": 6,  "manager": "Harper", "team": "Hurts Barkley and Hill is Hot",  "wins": 9,  "losses": 5,  "ties": 0, "pf": 1735.22, "pa": 1588.90, "streak": "W-1",  "waiverPriority": 8,  "moves": 15, "clinchedPlayoffs": true },
+        { "finalRank": 7,  "manager": "John",   "team": "Piccolos Cage",                  "wins": 5,  "losses": 9,  "ties": 0, "pf": 1457.94, "pa": 1651.24, "streak": "L-3",  "waiverPriority": 2,  "moves": 10, "clinchedPlayoffs": false },
+        { "finalRank": 8,  "manager": "Price",  "team": "Belly Ache Bitch Bijan",         "wins": 6,  "losses": 8,  "ties": 0, "pf": 1548.66, "pa": 1605.64, "streak": "W-2",  "waiverPriority": 4,  "moves": 24, "clinchedPlayoffs": false },
+        { "finalRank": 9,  "manager": "Uzoma",  "team": "Wraith's Voidwalkers",           "wins": 2,  "losses": 12, "ties": 0, "pf": 1239.58, "pa": 1660.16, "streak": "L-11", "waiverPriority": 1,  "moves": 20, "clinchedPlayoffs": false },
+        { "finalRank": 10, "manager": "Ray",    "team": "My Chubbs Gone",                 "wins": 5,  "losses": 9,  "ties": 0, "pf": 1597.20, "pa": 1513.88, "streak": "W-2",  "waiverPriority": 3,  "moves": 12, "clinchedPlayoffs": false }
+      ]
+    },
+    {
+      "year": 2022,
+      "seasonNo": 3,
+      "leagueId": 855021,
+      "regularSeasonGames": 14,
+      "playoffTeams": 6,
+      "standings": [
+        { "finalRank": 1,  "manager": "Colin",  "team": "Koo Runnings",                   "wins": 7,  "losses": 7,  "ties": 0, "pf": 1665.84, "pa": 1527.84, "streak": "L-1", "waiverPriority": 6,  "moves": 15, "clinchedPlayoffs": true },
+        { "finalRank": 2,  "manager": "Uzoma",  "team": "Wraith's Voidwalkers",           "wins": 8,  "losses": 6,  "ties": 0, "pf": 1522.52, "pa": 1447.70, "streak": "W-1", "waiverPriority": 8,  "moves": 24, "clinchedPlayoffs": true },
+        { "finalRank": 3,  "manager": "Dave",   "team": "Josh Jacob Jingleheimer Schmit", "wins": 10, "losses": 4,  "ties": 0, "pf": 1743.36, "pa": 1505.10, "streak": "W-3", "waiverPriority": 10, "moves": 10, "clinchedPlayoffs": true },
+        { "finalRank": 4,  "manager": "Cass",   "team": "Miss click buffalos",            "wins": 9,  "losses": 5,  "ties": 0, "pf": 1688.32, "pa": 1615.88, "streak": "W-5", "waiverPriority": 9,  "moves": 20, "clinchedPlayoffs": true },
+        { "finalRank": 5,  "manager": "TK",     "team": "The Illuminajee",                "wins": 7,  "losses": 7,  "ties": 0, "pf": 1492.50, "pa": 1602.88, "streak": "W-1", "waiverPriority": 5,  "moves": 27, "clinchedPlayoffs": true },
+        { "finalRank": 6,  "manager": "Ray",    "team": "My Chubb Hurts",                 "wins": 7,  "losses": 7,  "ties": 0, "pf": 1722.30, "pa": 1585.58, "streak": "W-1", "waiverPriority": 7,  "moves": 17, "clinchedPlayoffs": true },
+        { "finalRank": 7,  "manager": "Harper", "team": "Fully Immunized",                "wins": 6,  "losses": 8,  "ties": 0, "pf": 1489.56, "pa": 1649.86, "streak": "L-2", "waiverPriority": 2,  "moves": 33, "clinchedPlayoffs": false },
+        { "finalRank": 8,  "manager": "Price",  "team": "The Kamarazards",                "wins": 7,  "losses": 7,  "ties": 0, "pf": 1428.04, "pa": 1503.22, "streak": "L-1", "waiverPriority": 4,  "moves": 26, "clinchedPlayoffs": false },
+        { "finalRank": 9,  "manager": "John",   "team": "Piccolos Cage",                  "wins": 3,  "losses": 11, "ties": 0, "pf": 1407.66, "pa": 1632.50, "streak": "L-7", "waiverPriority": 1,  "moves": 11, "clinchedPlayoffs": false },
+        { "finalRank": 10, "manager": "Ben",    "team": "Tua-cide Watch",                 "wins": 6,  "losses": 8,  "ties": 0, "pf": 1562.64, "pa": 1652.18, "streak": "L-1", "waiverPriority": 3,  "moves": 35, "clinchedPlayoffs": false }
+      ]
+    },
+    {
+      "year": 2021,
+      "seasonNo": 2,
+      "leagueId": 929371,
+      "regularSeasonGames": 14,
+      "playoffTeams": 6,
+      "standings": [
+        { "finalRank": 1,  "manager": "Colin",  "team": "Koo Runnings",           "wins": 10, "losses": 4,  "ties": 0, "pf": 1579.44, "pa": 1448.70, "streak": "W-5", "waiverPriority": 9,  "moves": 27, "clinchedPlayoffs": true },
+        { "finalRank": 2,  "manager": "Cass",   "team": "Can you diggs it",     "wins": 10, "losses": 4,  "ties": 0, "pf": 1605.68, "pa": 1498.54, "streak": "L-2", "waiverPriority": 10, "moves": 56, "clinchedPlayoffs": true },
+        { "finalRank": 3,  "manager": "Dave",   "team": "Bishop Sycamore",     "wins": 8,  "losses": 6,  "ties": 0, "pf": 1788.42, "pa": 1609.24, "streak": "L-1", "waiverPriority": 6,  "moves": 31, "clinchedPlayoffs": true },
+        { "finalRank": 4,  "manager": "Uzoma",  "team": "Wraith's Voidwalkers",   "wins": 9,  "losses": 5,  "ties": 0, "pf": 1708.82, "pa": 1563.22, "streak": "W-3", "waiverPriority": 8,  "moves": 20, "clinchedPlayoffs": true },
+        { "finalRank": 5,  "manager": "Harper", "team": "Famous Jameis",          "wins": 7,  "losses": 7,  "ties": 0, "pf": 1564.72, "pa": 1530.86, "streak": "W-3", "waiverPriority": 5,  "moves": 39, "clinchedPlayoffs": true },
+        { "finalRank": 6,  "manager": "TK",     "team": "Godwin Me the Bowl",     "wins": 9,  "losses": 5,  "ties": 0, "pf": 1627.28, "pa": 1520.66, "streak": "W-1", "waiverPriority": 7,  "moves": 21, "clinchedPlayoffs": true },
+        { "finalRank": 7,  "manager": "Ray",    "team": "You Ma-Ma-Mac Me Happy", "wins": 4,  "losses": 10, "ties": 0, "pf": 1624.46, "pa": 1758.74, "streak": "L-3", "waiverPriority": 3,  "moves": 6,  "clinchedPlayoffs": false },
+        { "finalRank": 8,  "manager": "Matt",   "team": "COACH K",                "wins": 3,  "losses": 11, "ties": 0, "pf": 1480.98, "pa": 1706.78, "streak": "L-2", "waiverPriority": 1,  "moves": 3,  "clinchedPlayoffs": false, "alumni": true },
+        { "finalRank": 9,  "manager": "John",   "team": "Piccolos Cage",          "wins": 6,  "losses": 8,  "ties": 0, "pf": 1566.50, "pa": 1675.06, "streak": "W-1", "waiverPriority": 4,  "moves": 11, "clinchedPlayoffs": false },
+        { "finalRank": 10, "manager": "Price",  "team": "Brady Aiyukidding Me", "wins": 4,  "losses": 10, "ties": 0, "pf": 1507.06, "pa": 1741.56, "streak": "L-1", "waiverPriority": 2,  "moves": 45, "clinchedPlayoffs": false }
+      ]
+    },
+    {
+      "year": 2020,
+      "seasonNo": 1,
+      "leagueId": 1008211,
+      "regularSeasonGames": 13,
+      "playoffTeams": 6,
+      "standings": [
+        { "finalRank": 1,  "manager": "Uzoma",  "team": "Wraith's Voidwalkers", "wins": 10, "losses": 3,  "ties": 0, "pf": 1628.84, "pa": 1374.00, "streak": "W-2", "waiverPriority": 10, "moves": 15, "clinchedPlayoffs": true },
+        { "finalRank": 2,  "manager": "Cass",   "team": "Gurley girl","wins": 9,  "losses": 4,  "ties": 0, "pf": 1680.72, "pa": 1481.64, "streak": "L-1", "waiverPriority": 9,  "moves": 26, "clinchedPlayoffs": true },
+        { "finalRank": 3,  "manager": "Colin",  "team": "FrshPrnce of Helaire","wins": 7,  "losses": 6,  "ties": 0, "pf": 1472.76, "pa": 1499.72, "streak": "L-1", "waiverPriority": 6,  "moves": 26, "clinchedPlayoffs": true },
+        { "finalRank": 4,  "manager": "Bitsis", "team": "Newton's Theory",      "wins": 6,  "losses": 7,  "ties": 0, "pf": 1436.92, "pa": 1435.48, "streak": "W-3", "waiverPriority": 5,  "moves": 14, "clinchedPlayoffs": true,  "alumni": true },
+        { "finalRank": 5,  "manager": "John",   "team": "Piccolos Cage",        "wins": 7,  "losses": 6,  "ties": 0, "pf": 1586.94, "pa": 1641.58, "streak": "W-1", "waiverPriority": 7,  "moves": 19, "clinchedPlayoffs": true },
+        { "finalRank": 6,  "manager": "Price",  "team": "Chicago Beers","wins": 7,  "losses": 6,  "ties": 0, "pf": 1600.58, "pa": 1556.60, "streak": "L-2", "waiverPriority": 8,  "moves": 41, "clinchedPlayoffs": true },
+        { "finalRank": 7,  "manager": "Tyler",  "team": "Helaire 2 The Throne", "wins": 3,  "losses": 10, "ties": 0, "pf": 1350.20, "pa": 1442.08, "streak": "L-4", "waiverPriority": 1,  "moves": 20, "clinchedPlayoffs": false, "alumni": true },
+        { "finalRank": 8,  "manager": "Harper", "team": "Superbowl or Bucs",    "wins": 5,  "losses": 8,  "ties": 0, "pf": 1392.14, "pa": 1571.72, "streak": "W-1", "waiverPriority": 3,  "moves": 38, "clinchedPlayoffs": false },
+        { "finalRank": 9,  "manager": "TK",     "team": "Godwin Me the Bowl",   "wins": 6,  "losses": 7,  "ties": 0, "pf": 1431.40, "pa": 1478.88, "streak": "L-3", "waiverPriority": 4,  "moves": 19, "clinchedPlayoffs": false },
+        { "finalRank": 10, "manager": "Dave",   "team": "David's Team","wins": 5,  "losses": 8,  "ties": 0, "pf": 1338.58, "pa": 1437.38, "streak": "W-2", "waiverPriority": 2,  "moves": 28, "clinchedPlayoffs": false }
+      ]
+    }
+  ]
+}

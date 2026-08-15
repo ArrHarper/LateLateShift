@@ -16,9 +16,10 @@ Public repo; deployed to GitHub Pages. Redesigned Aug 2026 ("Network" design sys
 League content lives in `src/_data/` — pages are loops over these files:
 
 - `league.json` — `current` season block (year, league ID, kickoff timestamp for the countdown, deadlines, pot) + `seasons[]` (every season's champion/runner-up/score/league ID). Yahoo URLs are built in templates as `https://football.fantasysports.yahoo.com/{year}/f1/{leagueId}/...`
-- `teams.json` — all-time stats per manager + title years (drives Teams page incl. computed superlatives)
-- `keepers.json` — keeper tables per season (rows match llsTable column order: manager, team, player, pos, cost, years)
-- `records.json` — positive/negative record tiles (Records page)
+- `seasonStandings.json` — **source of truth for career stats.** Final standings for every season (finalRank, manager, team, W-L-T, PF, PA, streak, waiver priority, moves, clinchedPlayoffs). `finalRank` is playoff-inclusive placement, *not* regular-season seed. Rows flagged `alumni: true` are former members.
+- `teams.json` / `alumni.json` — **generated** by `npm run derive` from seasonStandings.json; all-time stats per manager + title years (drives Teams page incl. computed superlatives) and the Alumni table
+- `keepers.json` — keeper tables per season (rows match llsTable column order: manager, team, player, pos, cost, years). Canonical manager↔team-name mapping, but only back to 2022 — for 2020–21 use seasonStandings.json
+- `records.json` — positive/negative record tiles (Records page). Hand-maintained: 7 tiles are checkable against seasonStandings.json, but the 5 stat-based ones (TDs, kicking points, drafted-player points, margin of defeat) need Yahoo
 - `news.json` — homepage League News items (newest first; homepage shows 3)
 - `draftVideos.json` — Wistia media IDs for draft-order reveal videos
 
@@ -40,7 +41,7 @@ League content lives in `src/_data/` — pages are loops over these files:
 
 1. `src/_data/league.json` — add the finished season to `seasons[]` (champion, runner-up, scores, league ID); update `current` (year, seasonNo, new league ID, kickoff timestamp UTC, matchup, trade deadline, prior-year IDs). Everything downstream (homepage, ticker countdown, records page, quick links) updates itself.
 2. `src/_data/keepers.json` — add the new season's keeper rows (newest first).
-3. `src/_data/teams.json` — fold season W/L/PF/PA/moves into each manager's totals; recompute averages; bump champion's `titles`.
+3. `src/_data/seasonStandings.json` — add the season's final standings, then run `npm run derive`. **Do not hand-edit `teams.json` or `alumni.json`** — both are generated from it (career totals, averages, title counts). `npm run derive -- --check` fails if they're stale.
 4. `src/_data/records.json` — re-check all-time records (single-season PF, streaks, etc.).
 5. `src/_data/draftVideos.json` — add the reveal video's Wistia ID.
 6. `src/_data/news.json` — add/refresh items.

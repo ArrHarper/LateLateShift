@@ -1,0 +1,5 @@
+[
+  { "manager": "Bitsis", "seasons": [2020], "teamNames": ["Newton's Theory"],      "years": 1, "wins": 6, "losses": 7,  "winPct": 0.462, "pf": 1436.92, "pa": 1435.48, "pfAvg": 1436.92, "paAvg": 1435.48, "moves": 14, "movesAvg": 14.00 },
+  { "manager": "Matt",   "seasons": [2021], "teamNames": ["COACH K"],              "years": 1, "wins": 3, "losses": 11, "winPct": 0.214, "pf": 1480.98, "pa": 1706.78, "pfAvg": 1480.98, "paAvg": 1706.78, "moves": 3,  "movesAvg": 3.00 },
+  { "manager": "Tyler",  "seasons": [2020], "teamNames": ["Helaire 2 The Throne"], "years": 1, "wins": 3, "losses": 10, "winPct": 0.231, "pf": 1350.20, "pa": 1442.08, "pfAvg": 1350.20, "paAvg": 1442.08, "moves": 20, "movesAvg": 20.00 }
+]

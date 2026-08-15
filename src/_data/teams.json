@@ -1,8 +1,8 @@
 [
-  { "manager": "Ben",    "titles": { "count": 1, "years": [2023] },       "years": 3, "wins": 20, "losses": 22, "winPct": 0.476, "pf": 4937.58, "pa": 4856.48, "pfAvg": 1645.86, "paAvg": 1618.83, "moves": 107, "movesAvg": 35.67 },
+  { "manager": "Ben",    "titles": { "count": 1, "years": [2023] },       "years": 4, "wins": 26, "losses": 30, "winPct": 0.464, "pf": 6500.22, "pa": 6508.66, "pfAvg": 1625.06, "paAvg": 1627.17, "moves": 142, "movesAvg": 35.50 },
   { "manager": "Cass",   "titles": { "count": 0, "years": [] },           "years": 6, "wins": 46, "losses": 37, "winPct": 0.554, "pf": 9743.80, "pa": 9525.26, "pfAvg": 1623.97, "paAvg": 1587.54, "moves": 149, "movesAvg": 24.83 },
   { "manager": "Colin",  "titles": { "count": 2, "years": [2021, 2022] }, "years": 6, "wins": 45, "losses": 38, "winPct": 0.542, "pf": 9611.90, "pa": 9313.00, "pfAvg": 1601.98, "paAvg": 1552.17, "moves": 122, "movesAvg": 20.33 },
-  { "manager": "David",  "titles": { "count": 0, "years": [] },           "years": 6, "wins": 49, "losses": 34, "winPct": 0.590, "pf": 9882.02, "pa": 9354.40, "pfAvg": 1647.00, "paAvg": 1559.07, "moves": 149, "movesAvg": 24.83 },
+  { "manager": "Dave",   "titles": { "count": 0, "years": [] },           "years": 6, "wins": 49, "losses": 34, "winPct": 0.590, "pf": 9882.02, "pa": 9354.40, "pfAvg": 1647.00, "paAvg": 1559.07, "moves": 149, "movesAvg": 24.83 },
   { "manager": "Harper", "titles": { "count": 0, "years": [] },           "years": 6, "wins": 41, "losses": 42, "winPct": 0.494, "pf": 9701.40, "pa": 9874.36, "pfAvg": 1616.90, "paAvg": 1645.73, "moves": 168, "movesAvg": 28.00 },
   { "manager": "John",   "titles": { "count": 1, "years": [2024] },       "years": 6, "wins": 38, "losses": 45, "winPct": 0.458, "pf": 9261.04, "pa": 9789.30, "pfAvg": 1543.51, "paAvg": 1631.55, "moves": 83,  "movesAvg": 13.83 },
   { "manager": "Price",  "titles": { "count": 0, "years": [] },           "years": 6, "wins": 42, "losses": 41, "winPct": 0.506, "pf": 9644.06, "pa": 9706.66, "pfAvg": 1607.34, "paAvg": 1617.78, "moves": 227, "movesAvg": 37.83 },
