@@ -22,7 +22,7 @@
     </div>
     <div class="hero-wing">
         <div class="cap"><span class="dot"></span> Time til Football</div>
-        <div class="clock" id="hero-countdown">—</div>
+        <div class="clock" id="hero-countdown" data-target="{{ current.kickoff }}">—</div>
         <div class="sub">{{ current.kickoffMatchup }} · {{ current.kickoffDisplay }}</div>
         <div class="dl">Trade deadline <b>{{ current.tradeDeadline }}</b> · Playoffs <b>Wks {{ current.playoffWeeks }}</b></div>
     </div>
@@ -120,5 +120,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script>(function(){var el=document.getElementById('hero-countdown');var src=document.getElementById('nfl-countdown');if(!el||!src)return;new MutationObserver(function(){el.textContent=src.textContent;}).observe(src,{childList:true});el.textContent=src.textContent;}());</script>
+<script>(function(){var el=document.getElementById('hero-countdown');if(!el)return;var targetMs=Date.parse(el.dataset.target);function pad(n){return String(n).padStart(2,'0');}function tick(){var diff=targetMs-Date.now();if(diff<=0){el.textContent='Kickoff time!';clearInterval(t);return;}var d=Math.floor(diff/864e5),h=Math.floor(diff%864e5/36e5),m=Math.floor(diff%36e5/6e4),s=Math.floor(diff%6e4/1e3);el.textContent=d+'d '+pad(h)+'h '+pad(m)+'m '+pad(s)+'s';}tick();var t=setInterval(tick,1000);}());</script>
 {% endblock %}

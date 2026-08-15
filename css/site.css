@@ -49,21 +49,6 @@ a:focus-visible, button:focus-visible {
 }
 .skip-link:focus { left: 0; }
 
-/* ---------- ticker ---------- */
-.ticker { background: var(--navy-deep); }
-.ticker .container {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  padding-block: 6px;
-  color: var(--on-navy-dim);
-  font-size: 0.72rem;
-  letter-spacing: 0.05em;
-}
-.ticker b { color: var(--blue); font-variant-numeric: tabular-nums; font-weight: 600; }
-.ticker .live { color: var(--red); font-weight: 700; }
-
 /* ---------- nav ---------- */
 .site-nav { background: var(--navy); }
 .site-nav .container {

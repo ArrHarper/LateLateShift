@@ -22,13 +22,6 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="ticker">
-        <div class="container">
-            <div><span class="live">●&nbsp;KICKOFF</span>&nbsp; {{ league.current.kickoffMatchup }} · {{ league.current.kickoffDisplay }} — <b id="nfl-countdown" data-target="{{ league.current.kickoff }}">—</b></div>
-            <div>Yahoo League ID <b>{{ league.current.leagueId }}</b></div>
-        </div>
-    </div>
-
     {% include "_nav.njk" %}
 
     <main id="main">
@@ -44,7 +37,6 @@
         </div>
     </footer>
 
-    <script>(function(){var el=document.getElementById('nfl-countdown');if(!el)return;var targetMs=Date.parse(el.dataset.target);function pad(n){return String(n).padStart(2,'0');}function tick(){var diff=targetMs-Date.now();if(diff<=0){el.textContent='Kickoff time!';clearInterval(t);return;}var d=Math.floor(diff/864e5),h=Math.floor(diff%864e5/36e5),m=Math.floor(diff%36e5/6e4),s=Math.floor(diff%6e4/1e3);el.textContent=d+'d '+pad(h)+'h '+pad(m)+'m '+pad(s)+'s';}tick();var t=setInterval(tick,1000);}());</script>
     {% block scripts %}{% endblock %}
 </body>
 </html>
