@@ -1,21 +1,21 @@
 [
   {
     "date": "2026-08-13",
+    "tag": "draft",
+    "title": "The 2026 draft order reveal video is out",
+    "blurb": "A naval battle royale decides the order. Watch it on the draft page.",
+    "href": "/draft-order/"
+  },
+  {
+    "date": "2026-08-13",
     "tag": "rules",
     "title": "Commissioner error rewrites two 2026 keeper costs",
     "blurb": "Kyren Williams and Puka Nacua were kept a round below their true cost; one of Ben's and Price's 2026 keeper picks will be discounted accordingly."
   },
   {
-    "date": "2026-08-09",
-    "tag": "draft",
-    "title": "Draft order reveal video drops before Labor Day",
-    "blurb": "The annual reveal returns. Bribes to the editing bay have historically not worked.",
-    "href": "/draft-order/"
-  },
-  {
-    "date": "2026-08-02",
-    "tag": "schedule",
-    "title": "Trade deadline confirmed for November 28",
-    "blurb": "Playoffs run weeks 15 through 17. Six of ten make the field."
+    "date": "2026-08-11",
+    "tag": "league",
+    "title": "All managers confirmed for 2026",
+    "blurb": "All ten are back for Year Seven."
   }
 ]

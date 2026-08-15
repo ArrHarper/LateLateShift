@@ -428,6 +428,7 @@ main { display: block; flex: 1 0 auto; }
 .tag-rules { background: var(--tint-red); color: var(--red-ink); }
 .tag-draft { background: var(--tint-lavender); color: var(--purple-ink); }
 .tag-schedule { background: var(--tint-blue); color: var(--blue-ink); }
+.tag-league { background: var(--tint-blue); color: var(--blue-ink); }
 .news-list b { font-size: 0.84rem; font-weight: 600; margin-right: auto; }
 .news-list time { font-size: 0.72rem; color: var(--ink-3); }
 
