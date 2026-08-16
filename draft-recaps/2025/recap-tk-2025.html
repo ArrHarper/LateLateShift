@@ -1,0 +1,867 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Draft Recap · Gibbs Me Da Gold — Late Late Shift</title>
+<style>
+/* ============================================================
+   Standalone draft-recap mockup — consumes the LLS "Network"
+   design system. Tokens copied from css/tokens.css; components
+   mirror css/site.css so this can be promoted to an Eleventy
+   template with minimal changes.
+   ============================================================ */
+@font-face {
+  font-family: "Archivo";
+  src: url("../../assets/fonts/Archivo-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --navy: #0b0e1a; --navy-deep: #070912; --navy-line: #262c47;
+  --purple: #8b4de8; --purple-ink: #7239c9;
+  --blue: #5da9e9; --blue-ink: #2e7cc4; --blue-hover: #1d5d94; --blue-press: #123c62; --blue-bright: #8ec4f0;
+  --red: #f0544f; --red-ink: #c93b36; --red-press: #d9433e;
+  --ground: #eef0fa; --surface: #ffffff; --divider: #edeff6;
+  --tint-purple: #f7f5fd; --tint-purple-2: #efe9fb; --tint-lavender: #f1e9fc;
+  --tint-blue: #dfeefb; --tint-red: #fdeceb; --tint-amber: #fdf3df;
+  --ink: #1a1d2b; --ink-2: #000000; --ink-3: #8a90a8;
+  --on-navy: #eef0fa; --on-navy-dim: #9aa3c0;
+  --font-sans: "Archivo", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --r-sm: 4px; --r-md: 6px; --r-lg: 8px;
+  --gap: 22px; --gap-sm: 14px; --section-gap: 26px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font-family: var(--font-sans); font-weight: 400; line-height: 1.55;
+}
+h1,h2,h3,h4 { margin: 0; line-height: 1.15; text-wrap: balance; }
+p { margin: 0; }
+.container { max-width: 1080px; margin-inline: auto; padding-inline: 20px; }
+.page-stack { display: grid; gap: var(--section-gap); padding-block: 22px 34px; }
+.page-stack > * { min-width: 0; }
+
+/* ---------- nav (simplified stand-in for base.njk) ---------- */
+.site-nav { background: var(--navy); }
+.site-nav .container { display: flex; align-items: center; gap: 20px; }
+.nav-logo { color: #fff; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.02em; text-decoration: none; padding-block: 18px; }
+.nav-logo span { color: var(--blue); }
+.nav-crumb { color: var(--on-navy-dim); font-size: 0.78rem; font-weight: 600; }
+.nav-crumb b { color: #fff; }
+.nav-crumb a { color: var(--on-navy-dim); text-decoration: none; }
+.nav-crumb a:hover { color: #fff; text-decoration: underline; }
+.nav-crumb a:active { color: var(--blue-bright); }
+.nav-crumb a:focus-visible, .nav-logo:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+/* ---------- page header: navy banner + white summary body ---------- */
+.page-head { background: var(--surface); border-radius: var(--r-lg); overflow: hidden; }
+.team-banner {
+  background: var(--navy);
+  display: flex; align-items: center; gap: 20px;
+  padding: 20px 26px;
+}
+.team-banner .ava {
+  width: 74px; height: 74px; border-radius: 50%; flex: none;
+  overflow: hidden; background: var(--navy-deep);
+  outline: 2px solid var(--navy-line);
+}
+.team-banner .ava img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.team-banner .tx { margin-right: auto; min-width: 0; }
+.team-banner h1 {
+  color: #fff; font-size: clamp(1.4rem, 3.4vw, 2rem);
+  font-weight: 800; letter-spacing: -0.015em; line-height: 1.1;
+}
+.team-banner .sub {
+  color: var(--blue); font-size: 0.74rem; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase; margin-top: 5px;
+}
+.team-banner .grade-box {
+  border-left: 1px solid var(--navy-line);
+  padding-left: 26px; margin-left: 6px; flex: none;
+  display: grid; justify-items: center; gap: 1px; text-align: center;
+}
+.team-banner .grade-box .letter { color: var(--blue); font-size: 2.2rem; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+.team-banner .grade-box .cap { color: var(--on-navy); font-size: 0.68rem; font-weight: 800; }
+.page-head .summary {
+  display: grid; grid-template-columns: 1.7fr 1fr; gap: 26px;
+  align-items: start; padding: 20px 26px 22px;
+}
+.summary-tx { min-width: 0; }
+.summary-tx h2 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 8px; }
+.summary-tx p { color: var(--ink-2); font-size: 0.92rem; max-width: 88ch; }
+.summary-tx p + p { margin-top: 10px; }
+.summary-tx p b { color: var(--ink); }
+
+/* ---------- starting lineup rail (right of summary) ---------- */
+.lineup { border-radius: var(--r-md); overflow: hidden; background: var(--ground); }
+.lineup-head {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+  background: var(--navy); padding: 8px 14px;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-navy);
+}
+.lineup-head .lu-cap { font-size: 0.6rem; letter-spacing: 0.08em; color: var(--on-navy-dim); }
+.lu-rows { padding: 5px 14px 9px; }
+.lu-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 0; border-top: 1px solid #dfe2f0;
+  font-size: 0.82rem; font-weight: 600;
+}
+.lu-row:first-child { border-top: 0; }
+.lu-row .pos-badge { margin-right: 0; flex: none; }
+.lu-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-right: auto; }
+.lu-val { flex: none; font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+
+/* ---------- category grade tiles (bottom of summary) ---------- */
+.summary-grades { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-sm); padding: 0 26px 24px; }
+.summary-grades .grade-tile { background: var(--ground); }
+.grade-tile { background: var(--surface); border-radius: var(--r-md); padding: 14px 16px; display: flex; align-items: center; gap: 14px; }
+.grade-tile .letter {
+  width: 52px; height: 52px; border-radius: var(--r-md); flex: none;
+  display: grid; place-items: center; font-size: 1.5rem; font-weight: 800; color: #fff;
+}
+.grade-good .letter { background: var(--purple); }
+.grade-mid .letter { background: var(--blue-ink); }
+.grade-bad .letter { background: var(--red-ink); }
+.grade-tile .cap { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); font-weight: 800; }
+.grade-tile .rank { font-size: 0.9rem; font-weight: 700; }
+.grade-tile .note { font-size: 0.74rem; color: var(--ink-2); }
+
+/* ---------- section headers ---------- */
+.sec-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.sec-head .bar { width: 5px; height: 20px; border-radius: 2px; background: var(--purple); flex: none; }
+.sec-head.sec-blue .bar { background: var(--blue); }
+.sec-head.sec-red .bar { background: var(--red); }
+.sec-head h2 { font-size: 1rem; font-weight: 800; letter-spacing: -0.01em; margin-right: auto; }
+.sec-head .grade-chip { font-size: 0.78rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; }
+.chip-good { background: var(--tint-lavender); color: var(--purple-ink); }
+.chip-mid { background: var(--tint-blue); color: var(--blue-ink); }
+.chip-bad { background: var(--tint-red); color: var(--red-ink); }
+
+/* ---------- modules ---------- */
+.mod { background: var(--surface); border-radius: var(--r-md); overflow: hidden; }
+.mod-head { display: flex; align-items: center; gap: 10px; padding: 6px 16px; background: var(--navy); min-height: 40px; }
+/* legend text inside navy headers must stay light regardless of ink tokens */
+.mod-head .chart-legend { margin-bottom: 0; }
+.mod-head .chart-legend span, .mod-head .heat-legend .hl-cap { color: #fff; }
+.mod-head h3 { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-navy); margin-right: auto; }
+.mod-bd { padding: 14px 16px; }
+.mod-bd p { font-size: 0.86rem; color: var(--ink-2); }
+.mod-bd p + p { margin-top: 10px; }
+.mod-bd b { color: var(--ink); }
+
+.split-main-rail { display: grid; grid-template-columns: 1.9fr 1fr; gap: var(--gap); align-items: start; }
+.duo-even { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-sm); align-items: stretch; }
+
+.prose { font-size: 0.9rem; color: var(--ink-2); max-width: 66ch; margin-bottom: 14px; }
+.prose b { color: var(--ink); }
+
+/* ---------- tables ---------- */
+.lls-table-wrap { overflow-x: auto; max-width: 100%; background: var(--surface); border-radius: var(--r-md); }
+.lls-table { width: 100%; border-collapse: collapse; background: var(--surface); font-size: 0.82rem; color: var(--ink); }
+.lls-table th {
+  background: var(--navy); color: var(--on-navy); text-transform: uppercase;
+  font-size: 0.66rem; letter-spacing: 0.1em; font-weight: 700;
+  padding: 8px 12px; text-align: left; white-space: nowrap;
+}
+.lls-table td { padding: 8px 12px; border-top: 1px solid var(--divider); text-align: left; }
+.lls-table .lls-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lls-table .lls-strong { font-weight: 700; white-space: nowrap; }
+.lls-table tbody tr:hover { background: var(--tint-purple); }
+.lls-table tr.is-keeper { background: var(--tint-lavender); }
+.lls-table tr.is-keeper:hover { background: var(--tint-purple-2); }
+/* value cells are colored by VERDICT, matching the pill: steal=blue, reach=red, keeper=purple, fair=neutral */
+.lls-table .val-steal { color: var(--blue-ink); font-weight: 700; }
+.lls-table .val-reach { color: var(--red-ink); font-weight: 700; }
+.lls-table .val-keeper { color: var(--purple-ink); font-weight: 700; }
+.pattern-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 860px) { .pattern-grid { grid-template-columns: 1fr; } }
+
+/* ---------- ADP analysis chart ---------- */
+.chart-toggle { display: flex; gap: 0; border-radius: var(--r-sm); overflow: hidden; }
+.chart-toggle button {
+  background: var(--navy-line); color: var(--on-navy-dim);
+  border: 0; font: inherit; font-size: 0.68rem; font-weight: 800;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 5px 12px; cursor: pointer;
+}
+.chart-toggle button:hover { color: var(--on-navy); }
+.chart-toggle button.is-active { background: var(--purple); color: #fff; }
+.chart-toggle button:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.chart-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.chart-legend span { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 600; color: var(--ink-2); }
+.chart-legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.chart-holder { position: relative; }
+.chart-tip {
+  position: absolute; pointer-events: none; z-index: 5;
+  background: var(--navy); color: var(--on-navy);
+  border-radius: var(--r-sm); padding: 8px 10px;
+  font-size: 0.72rem; line-height: 1.45; white-space: nowrap;
+  transform: translate(-50%, calc(-100% - 10px));
+}
+.chart-tip b { color: #fff; }
+.chart-tip .tipval { font-weight: 800; }
+.tbl-note { font-size: 0.78rem; color: var(--ink-3); font-style: italic; margin-top: 8px; }
+
+/* verdict pills */
+.pill { display: inline-block; font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.pill-steal { background: var(--tint-blue); color: var(--blue-ink); }
+.pill-fair { background: var(--tint-purple-2); color: var(--ink-2); }
+.pill-reach { background: var(--tint-red); color: var(--red-ink); }
+.pill-keeper { background: var(--tint-lavender); color: var(--purple-ink); }
+
+/* ---------- callouts (from rules page) ---------- */
+.callout { display: flex; gap: 10px; align-items: flex-start; border-radius: var(--r-md); padding: 10px 14px; font-size: 0.82rem; max-width: 70ch; }
+.callout .ic { font-weight: 800; }
+.callout-info { background: var(--tint-blue); color: var(--blue-press); }
+.callout-info .ic { color: var(--blue-ink); }
+
+/* player portraits (Yahoo cutout PNGs) on keeper + pick cards */
+.with-portrait { display: flex; gap: 14px; align-items: flex-start; }
+.with-portrait .tx { min-width: 0; }
+.portrait {
+  width: 64px; height: 64px; border-radius: 50%; flex: none;
+  overflow: hidden; background: var(--tint-lavender);
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.portrait-blue { background: var(--tint-blue); }
+.portrait-red { background: var(--tint-red); }
+
+/* best/worst pick cards */
+.pick-card .mod-head.head-blue { background: var(--blue-ink); }
+.pick-card .mod-head.head-red { background: var(--red-ink); }
+.pick-card .who { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.pick-card .who b { font-size: 1rem; }
+.pick-card .who span { font-size: 0.76rem; color: var(--ink-3); font-weight: 700; }
+
+/* keeper cards */
+.keeper-card .value-line { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+.keeper-card .value-line b { font-size: 1rem; }
+.keeper-card .cost { font-size: 0.76rem; color: var(--ink-3); font-weight: 700; }
+/* unused keeper slot: present but visibly inert. Sits a full step darker than
+   the page ground so it reads as a filled slot, not a hole in the layout. */
+.keeper-empty { background: #cfd3e2; }
+.keeper-empty .mod-head { background: #a8aec6; }
+.keeper-empty .mod-head h3 { color: #33384d; }
+.keeper-empty .mod-bd { display: grid; place-items: center; min-height: 96px; }
+.keeper-empty .mod-bd p { color: #4a5068; font-weight: 700; text-align: center; }
+
+/* ---------- roster build: positional value heatmap ---------- */
+/* sequential purple ramp, light→dark = low→high value; red tint = below waiver level */
+.heat-legend { display: flex; align-items: center; gap: 3px; }
+.heat-legend i { width: 14px; height: 10px; border-radius: 2px; display: inline-block; }
+.heat-legend .hl-cap { font-size: 0.62rem; font-weight: 700; color: var(--on-navy-dim); margin-inline: 5px; }
+.roster-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1.25fr 1fr 0.9fr 0.9fr;
+  gap: 10px; align-items: start;
+}
+.pos-col { display: grid; gap: 6px; min-width: 0; }
+.pos-col-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 0 2px 2px;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-3);
+}
+.pos-col-head .pos-total { font-size: 0.78rem; letter-spacing: 0; color: var(--ink); font-variant-numeric: tabular-nums; }
+.heat-cell {
+  display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  border-radius: var(--r-sm); padding: 7px 9px;
+  font-size: 0.74rem; font-weight: 600; min-width: 0;
+}
+.heat-cell span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.heat-cell b { font-variant-numeric: tabular-nums; flex: none; }
+.heat-1 { background: #efe9fb; color: var(--ink); }
+.heat-2 { background: #d5c3f3; color: var(--ink); }
+.heat-3 { background: #b494ea; color: #241245; }
+.heat-4 { background: #8b4de8; color: #fff; }
+.heat-5 { background: #5b2f9e; color: #fff; }
+.heat-neg { background: var(--tint-red); color: var(--red-ink); }
+.heat-na { background: var(--ground); color: var(--ink-3); }
+@media (max-width: 860px) {
+  .roster-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 560px) {
+  .roster-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- offense reliance: biggest-bets rows ---------- */
+.bet-rows { display: grid; }
+.bet-row {
+  display: grid; grid-template-columns: 22px 44px 150px 120px 120px 1fr;
+  gap: 14px; align-items: center;
+  padding: 10px 0; border-top: 1px solid var(--divider);
+  min-width: 0;
+}
+.bet-row:first-child { border-top: 0; padding-top: 2px; }
+.bet-logo { width: 44px; height: 44px; object-fit: contain; display: block; }
+.bet-rank {
+  width: 22px; height: 22px; border-radius: var(--r-sm);
+  background: var(--navy); color: #fff;
+  display: grid; place-items: center;
+  font-size: 0.7rem; font-weight: 800;
+}
+.bet-row:first-child .bet-rank { background: var(--purple); }
+.bet-who { display: grid; gap: 1px; min-width: 0; }
+.bet-who b { font-size: 0.92rem; font-weight: 800; letter-spacing: 0.02em; }
+.bet-who span { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); }
+.pos-badge {
+  font-style: normal; font-size: 0.56rem; font-weight: 800;
+  letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
+  background: var(--tint-purple-2); color: var(--purple-ink);
+  vertical-align: 1px; margin-right: 4px;
+}
+.bet-stat { display: grid; gap: 1px; justify-items: start; }
+.bet-stat .cap { font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); font-weight: 800; }
+.bet-stat b { font-size: 0.94rem; font-variant-numeric: tabular-nums; }
+.rank-chip { font-size: 0.62rem; font-weight: 800; padding: 1px 7px; border-radius: 999px; margin-top: 2px; }
+.rank-good { background: var(--tint-blue); color: var(--blue-ink); }
+.rank-mid { background: var(--tint-purple-2); color: var(--ink-2); }
+.rank-bad { background: var(--tint-red); color: var(--red-ink); }
+.bet-take { font-size: 0.74rem; color: var(--ink-2); line-height: 1.45; }
+@media (max-width: 860px) {
+  .bet-row { grid-template-columns: 22px 44px 1fr 120px 120px; }
+  .bet-row .bet-take { grid-column: 3 / -1; }
+}
+@media (max-width: 560px) {
+  .bet-row { grid-template-columns: 22px 44px 1fr; }
+  .bet-row .bet-stat { grid-column: auto; }
+}
+
+/* ---------- footer ---------- */
+.site-footer { background: var(--navy); margin-top: 12px; }
+.site-footer .container { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 14px; color: var(--on-navy-dim); font-size: 0.74rem; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .summary-grades { grid-template-columns: 1fr; }
+  .duo-even { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .split-main-rail { grid-template-columns: 1fr; }
+  .team-banner { flex-wrap: wrap; padding: 16px 20px; gap: 14px; }
+  .team-banner .ava { width: 56px; height: 56px; }
+  .team-banner .grade-box { border-left: 0; padding-left: 0; margin-left: 0; flex-basis: 100%; justify-items: start; text-align: left; border-top: 1px solid var(--navy-line); padding-top: 10px; }
+  .page-head .summary { padding: 16px 20px 18px; grid-template-columns: 1fr; gap: 18px; }
+  .summary-grades { padding: 0 20px 20px; }
+}
+.team-banner .ava.ava-init { display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1.4rem; background: linear-gradient(135deg, var(--purple), var(--blue)); }
+.bet-logo-abbr { width: 44px; height: 44px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a class="nav-logo" href="index-2025.html">LATE LATE <span>SHIFT</span></a>
+    <span class="nav-crumb"><a href="index-2025.html">2025 Draft Recaps</a> · <b>Gibbs Me Da Gold</b></span>
+  </div>
+</nav>
+
+<main>
+  <div class="container page-stack">
+
+    <!-- ===== page head: team banner + summary ===== -->
+    <header class="page-head">
+      <div class="team-banner">
+        <div class="ava"><img src="../../assets/images/manager-avatars/tk.png" alt="Team avatar"></div>
+        <div class="tx">
+          <h1>Gibbs Me Da Gold</h1>
+          <p class="sub">TK · Pick #3</p>
+        </div>
+        <div class="grade-box">
+          <span class="letter">A</span>
+          <span class="cap">Roster Grade</span>
+        </div>
+      </div>
+      <div class="summary">
+        <div class="summary-tx">
+          <h2>Dominant RB room with the largest projected point share of any position, paired with the worst WR room in the league.</h2>
+          <p>With Gibbs already locked at a 2nd-round cost and Saquon Barkley waiting at pick three, this draft never needed to chase. Proven veterans the market had aged out kept falling past their league price into TK's lap. The result is the best starting lineup in the league, and it isn't a close call — no other manager walks into September with two players this good. The bill: a wide receiver room bought at a premium and a bench that skews old.</p>
+          <p>This grade was earned twice: once in July when Gibbs got locked at a 2nd, and once on draft night when TK refused to reach while the room panicked around him. <b>Gibbs and Barkley are the most valuable pair of starters in the league — together worth more than any other manager's top two — and half the bench was acquired below market.</b> Nobody else has a pair like it — most managers don't have one. The bill: premium prices on a thin WR room and a lot of birthdays. But weeks are won by the guy who goes off, and this team has two of them. If the veteran discounts hold up, this is the team to beat.</p>
+        </div>
+        <div class="lineup">
+          <div class="lineup-head"><span>Starting Lineup</span><span class="lu-cap">Proj. value</span></div>
+          <div class="lu-rows">
+            <div class="lu-row"><i class="pos-badge">QB</i><span class="lu-name">Patrick Mahomes</span><b class="lu-val heat-2">2.0</b></div>
+            <div class="lu-row"><i class="pos-badge">RB</i><span class="lu-name">Jahmyr Gibbs</span><b class="lu-val heat-5">10.3</b></div>
+            <div class="lu-row"><i class="pos-badge">RB</i><span class="lu-name">Saquon Barkley</span><b class="lu-val heat-5">10.0</b></div>
+            <div class="lu-row"><i class="pos-badge">RB</i><span class="lu-name">Aaron Jones</span><b class="lu-val heat-2">1.5</b></div>
+            <div class="lu-row"><i class="pos-badge">WR</i><span class="lu-name">Terry McLaurin</span><b class="lu-val heat-3">3.4</b></div>
+            <div class="lu-row"><i class="pos-badge">WR</i><span class="lu-name">Jaylen Waddle</span><b class="lu-val heat-2">1.3</b></div>
+            <div class="lu-row"><i class="pos-badge">WR</i><span class="lu-name">Chris Olave</span><b class="lu-val heat-2">1.0</b></div>
+            <div class="lu-row"><i class="pos-badge">TE</i><span class="lu-name">Travis Kelce</span><b class="lu-val heat-3">2.7</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grades">
+      <div class="grade-tile grade-mid">
+        <span class="letter">B</span>
+        <div>
+          <p class="cap">🔒 Keepers</p>
+          <p class="rank">9th in the league</p>
+          <p class="note">Gibbs at a 2nd — nice, not larceny</p>
+        </div>
+      </div>
+      <div class="grade-tile grade-mid">
+        <span class="letter">B-</span>
+        <div>
+          <p class="cap">📊 Draft Picks</p>
+          <p class="rank">6th in the league</p>
+          <p class="note">Three steals, two reaches</p>
+        </div>
+      </div>
+      <div class="grade-tile grade-good">
+        <span class="letter">A</span>
+        <div>
+          <p class="cap">🏗️ Roster Build</p>
+          <p class="rank">1st in the league</p>
+          <p class="note">Best lineup in the league, thin WR room</p>
+        </div>
+      </div>
+      </div>
+    </header>
+
+    <!-- ===== keepers ===== -->
+    <section>
+      <div class="sec-head">
+        <span class="bar"></span>
+        <h2>Keepers: The Rulebook's Ceiling</h2>
+        <span class="grade-chip chip-mid">B</span>
+      </div>
+      <div class="duo-even">
+        <div class="mod keeper-card">
+          <div class="mod-head"><h3>Keeper · Round 2</h3></div>
+          <div class="mod-bd with-portrait">
+            <div class="portrait"><img src="https://s.yimg.com/iu/api/res/1.2/RSd.D_9SIy7dyPYR7kY4kw--~C/YXBwaWQ9eXNwb3J0cztmaT1maWxsO2g9MTUwO3E9ODA7dz0xNTA-/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/40059.1.png" alt="Jahmyr Gibbs"></div>
+            <div class="tx">
+            <div class="value-line"><b>Jahmyr Gibbs</b> <span class="cost">RB · DET</span> <span class="pill pill-steal">≈ 1.5 rounds of value</span></div>
+            <p>A top-4 pick for a 2nd-rounder. The discount looks modest on paper — round-1 picks can't be kept, so a 2nd is the ceiling the rules allow — but in absolute terms this is the best player anyone in the league kept. There's no version of July where this was the wrong call.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mod keeper-card">
+          <div class="mod-head"><h3>Keeper · Round 13</h3></div>
+          <div class="mod-bd with-portrait">
+            <div class="portrait"><img src="https://s.yimg.com/iu/api/res/1.2/n6fF5P2FPHWRepXW6eRnEw--~C/YXBwaWQ9eXNwb3J0cztmaT1maWxsO2g9MTUwO3E9ODA7dz0xNTA-/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08122026/34104.1.png" alt="Khalil Shakir"></div>
+            <div class="tx">
+            <div class="value-line"><b>Khalil Shakir</b> <span class="cost">WR · BUF</span> <span class="pill pill-steal">≈ 1 round of value</span></div>
+            <p>A fine depth keep at a fair price — Shakir goes about a round earlier in open drafts. The kind of keeper that doesn't win July but doesn't cost anything either: Josh Allen's most-trusted target at the price of a dart throw.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="tbl-note">The combined equity ranks 9th of 10 — but that's the rulebook talking, not the manager. Gibbs at a 2nd is the single best asset kept anywhere in the league; round-1 picks just can't be kept, so the discount was capped at birth.</p>
+    </section>
+
+    <!-- ===== draft picks ===== -->
+    <section>
+      <div class="sec-head sec-blue">
+        <span class="bar"></span>
+        <h2>Draft Picks: Shopping the Clearance Rack</h2>
+        <span class="grade-chip chip-mid">B-</span>
+      </div>
+
+      <div class="duo-even" style="margin-bottom: var(--gap-sm);">
+        <div class="mod pick-card">
+          <div class="mod-head head-blue"><h3>✓ Best Pick</h3></div>
+          <div class="mod-bd with-portrait">
+            <div class="portrait portrait-blue"><img src="https://s.yimg.com/iu/api/res/1.2/mvlMpuWhh8joskCw1hiVkg--~C/YXBwaWQ9eXNwb3J0cztmaT1maWxsO2g9MTUwO3E9ODA7dz0xNTA-/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08152025/30295.png" alt="Aaron Jones Sr."></div>
+            <div class="tx">
+            <div class="who"><b>Aaron Jones Sr.</b> <span>RB · Round 9</span></div>
+            <p>Fell 26 picks past his league price — the biggest single discount in this draft. A top-30 back last season, now the 1B in a top-12 implied offense, acquired at bench cost. This is what patience buys.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mod pick-card">
+          <div class="mod-head head-red"><h3>✗ Worst Pick</h3></div>
+          <div class="mod-bd with-portrait">
+            <div class="portrait portrait-red"><img src="https://s.yimg.com/iu/api/res/1.2/Yvokd.yXoQdWciGZAj120Q--~C/YXBwaWQ9eXNwb3J0cztmaT1maWxsO2g9MTUwO3E9ODA7dz0xNTA-/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/33394.1.png" alt="Jaylen Waddle"></div>
+            <div class="tx">
+            <div class="who"><b>Jaylen Waddle</b> <span>WR · Round 4</span></div>
+            <p>Taken 21 picks before his league price — the board's biggest overpay, for a receiver the market spent all summer fading. The one moment this draft chased instead of waited.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== ADP analysis chart ===== -->
+      <div class="mod" style="margin-bottom: var(--gap-sm);">
+        <div class="mod-head">
+          <h3>ADP Analysis</h3>
+          <div class="chart-toggle" role="group" aria-label="ADP basis">
+            <button type="button" class="is-active" data-mode="league">League ADP</button>
+            <button type="button" data-mode="market">Market ADP</button>
+          </div>
+        </div>
+        <div class="mod-bd">
+          <div class="chart-legend" aria-hidden="true">
+            <span><i style="background:#2e7cc4"></i>Steal</span>
+            <span><i style="background:#8a90a8"></i>Fair</span>
+            <span><i style="background:#c93b36"></i>Reach</span>
+            <span><i style="background:#7239c9"></i>Keeper</span>
+          </div>
+          <div class="chart-holder">
+            <svg id="adp-chart" viewBox="0 0 940 300" width="100%" role="img" aria-label="Bar chart of pick value versus ADP by round"></svg>
+            <div class="chart-tip" id="chart-tip" hidden></div>
+          </div>
+          <p class="tbl-note" style="margin-top:6px;">Bars above zero: the player fell past his ADP (for keepers, the discount vs. market). Bars below zero: taken earlier than his ADP. Rounds 15 and 17 (DEF, K) aren't graded. Toggle between League ADP (keeper-adjusted) and raw Market ADP.</p>
+        </div>
+      </div>
+
+      <div class="lls-table-wrap">
+        <table class="lls-table">
+          <thead>
+            <tr><th>Rd</th><th>Player</th><th>Pos</th><th class="lls-num">League ADP*</th><th class="lls-num">Pick</th><th class="lls-num">Value</th><th>Verdict</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="lls-num">1</td><td class="lls-strong">Saquon Barkley</td><td>RB</td><td class="lls-num">3</td><td class="lls-num">3</td><td class="lls-num">0</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr class="is-keeper"><td class="lls-num">2</td><td class="lls-strong">Jahmyr Gibbs</td><td>RB</td><td class="lls-num">4</td><td class="lls-num">18</td><td class="lls-num val-keeper">+14</td><td><span class="pill pill-keeper">Keeper</span></td></tr>
+            <tr><td class="lls-num">3</td><td class="lls-strong">Terry McLaurin</td><td>WR</td><td class="lls-num">27</td><td class="lls-num">23</td><td class="lls-num">−4</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr><td class="lls-num">4</td><td class="lls-strong">Jaylen Waddle</td><td>WR</td><td class="lls-num">59</td><td class="lls-num">38</td><td class="lls-num val-reach">−21</td><td><span class="pill pill-reach">Reach</span></td></tr>
+            <tr><td class="lls-num">5</td><td class="lls-strong">Patrick Mahomes II</td><td>QB</td><td class="lls-num">35</td><td class="lls-num">43</td><td class="lls-num val-steal">+8</td><td><span class="pill pill-steal">Steal</span></td></tr>
+            <tr><td class="lls-num">6</td><td class="lls-strong">Chris Olave</td><td>WR</td><td class="lls-num">67</td><td class="lls-num">58</td><td class="lls-num val-reach">−9</td><td><span class="pill pill-reach">Reach</span></td></tr>
+            <tr><td class="lls-num">7</td><td class="lls-strong">Travis Kelce</td><td>TE</td><td class="lls-num">52</td><td class="lls-num">63</td><td class="lls-num val-steal">+11</td><td><span class="pill pill-steal">Steal</span></td></tr>
+            <tr><td class="lls-num">8</td><td class="lls-strong">Jaylen Warren</td><td>RB</td><td class="lls-num">72</td><td class="lls-num">78</td><td class="lls-num">+6</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr><td class="lls-num">9</td><td class="lls-strong">Aaron Jones Sr.</td><td>RB</td><td class="lls-num">57</td><td class="lls-num">83</td><td class="lls-num val-steal">+26</td><td><span class="pill pill-steal">Steal</span></td></tr>
+            <tr><td class="lls-num">10</td><td class="lls-strong">Jordan Addison</td><td>WR</td><td class="lls-num">91</td><td class="lls-num">98</td><td class="lls-num">+7</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr><td class="lls-num">11</td><td class="lls-strong">Drake Maye</td><td>QB</td><td class="lls-num">113</td><td class="lls-num">103</td><td class="lls-num">−10</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr><td class="lls-num">12</td><td class="lls-strong">Jake Ferguson</td><td>TE</td><td class="lls-num">118</td><td class="lls-num">118</td><td class="lls-num">0</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr class="is-keeper"><td class="lls-num">13</td><td class="lls-strong">Khalil Shakir</td><td>WR</td><td class="lls-num">110</td><td class="lls-num">123</td><td class="lls-num val-keeper">+13</td><td><span class="pill pill-keeper">Keeper</span></td></tr>
+            <tr><td class="lls-num">14</td><td class="lls-strong">Minnesota Vikings</td><td>DEF</td><td class="lls-num">—</td><td class="lls-num">138</td><td class="lls-num">—</td><td><span class="pill pill-fair">—</span></td></tr>
+            <tr><td class="lls-num">15</td><td class="lls-strong">Cameron Dicker</td><td>K</td><td class="lls-num">—</td><td class="lls-num">143</td><td class="lls-num">—</td><td><span class="pill pill-fair">—</span></td></tr>
+            <tr><td class="lls-num">16</td><td class="lls-strong">Luther Burden III</td><td>WR</td><td class="lls-num">150</td><td class="lls-num">158</td><td class="lls-num">+8</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr><td class="lls-num">17</td><td class="lls-strong">Joshua Palmer</td><td>WR</td><td class="lls-num">171</td><td class="lls-num">163</td><td class="lls-num">−8</td><td><span class="pill pill-fair">Fair</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">*League ADP = where the player should go in <b>this</b> draft: market ADP adjusted for the 19 keepers, who never hit the board while their slots push every pick later. For keepers it's straight market ADP — what he'd cost in an open draft. Value = Pick − League ADP: positive means he fell to you (for keepers, the discount you're keeping him at), negative means you took him early. Verdicts allow a cushion of 5 picks or 10% of League ADP, whichever is larger — inside that window a pick is a preference, not a reach. Kickers and defenses aren't graded — everyone reaches on those.</p>
+    </section>
+
+    <!-- ===== roster build ===== -->
+    <section>
+      <div class="sec-head">
+        <span class="bar"></span>
+        <h2>Roster Build: An RB Fortress, Drawbridge Down</h2>
+        <span class="grade-chip chip-good">A</span>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head">
+          <h3>Positional Value</h3>
+          <div class="heat-legend" aria-hidden="true">
+            <span class="hl-cap">Waiver level</span>
+            <i style="background:#fdeceb"></i><i style="background:#efe9fb"></i><i style="background:#d5c3f3"></i><i style="background:#b494ea"></i><i style="background:#8b4de8"></i><i style="background:#5b2f9e"></i>
+            <span class="hl-cap">League-winner</span>
+          </div>
+        </div>
+        <div class="mod-bd">
+          <div class="roster-grid">
+            <div class="pos-col">
+              <div class="pos-col-head"><span>QB</span><span class="pos-total">1.8</span></div>
+              <div class="heat-cell heat-2"><span>Patrick Mahomes ★</span><b>2.0</b></div>
+              <div class="heat-cell heat-neg"><span>Drake Maye</span><b>−0.2</b></div>
+            </div>
+            <div class="pos-col">
+              <div class="pos-col-head"><span>RB</span><span class="pos-total">23.1</span></div>
+              <div class="heat-cell heat-5"><span>Jahmyr Gibbs ★</span><b>10.3</b></div>
+              <div class="heat-cell heat-5"><span>Saquon Barkley ★</span><b>10.0</b></div>
+              <div class="heat-cell heat-2"><span>Aaron Jones ★</span><b>1.5</b></div>
+              <div class="heat-cell heat-2"><span>Jaylen Warren</span><b>1.3</b></div>
+            </div>
+            <div class="pos-col">
+              <div class="pos-col-head"><span>WR</span><span class="pos-total">5.5</span></div>
+              <div class="heat-cell heat-3"><span>Terry McLaurin ★</span><b>3.4</b></div>
+              <div class="heat-cell heat-2"><span>Jaylen Waddle ★</span><b>1.3</b></div>
+              <div class="heat-cell heat-2"><span>Chris Olave ★</span><b>1.0</b></div>
+              <div class="heat-cell heat-1"><span>Jordan Addison</span><b>0.7</b></div>
+              <div class="heat-cell heat-1"><span>Khalil Shakir</span><b>0.4</b></div>
+              <div class="heat-cell heat-neg"><span>Luther Burden I</span><b>−1.3</b></div>
+              <div class="heat-cell heat-na"><span>Joshua Palmer</span><b>—</b></div>
+            </div>
+            <div class="pos-col">
+              <div class="pos-col-head"><span>TE</span><span class="pos-total">2.7</span></div>
+              <div class="heat-cell heat-3"><span>Travis Kelce ★</span><b>2.7</b></div>
+              <div class="heat-cell heat-1"><span>Jake Ferguson</span><b>0.0</b></div>
+            </div>
+            <div class="pos-col">
+              <div class="pos-col-head"><span>DEF</span><span class="pos-total">—</span></div>
+              <div class="heat-cell heat-na"><span>Vikings ★</span><b>—</b></div>
+            </div>
+            <div class="pos-col">
+              <div class="pos-col-head"><span>K</span><span class="pos-total">—</span></div>
+              <div class="heat-cell heat-na"><span>Cameron Dicker ★</span><b>—</b></div>
+            </div>
+          </div>
+          <p class="tbl-note" style="margin-top:10px;">Numbers are each player's projected value over a waiver-level starter (higher is better; 0 ≈ waiver level). ★ = projected starter. Red cells sit below waiver level. DEF and K aren't rated.</p>
+        </div>
+      </div>
+
+      <div class="mod" style="margin-top: var(--gap-sm);">
+        <div class="mod-head">
+          <h3>Team Reliance</h3>
+          <div class="chart-legend chart-legend--dark" aria-hidden="true">
+            <span><i style="background:#2e7cc4"></i>Top 10</span>
+            <span><i style="background:#8a90a8"></i>Middle</span>
+            <span><i style="background:#c93b36"></i>Bottom 10</span>
+          </div>
+        </div>
+        <div class="mod-bd">
+          <div class="bet-rows">
+            <div class="bet-row">
+              <span class="bet-rank">1</span>
+              <img class="bet-logo" src="../../assets/images/team-logos/philadelphia.webp" alt="PHI">
+              <div class="bet-who"><b>PHI</b><span>Saquon Barkley <i class="pos-badge">RB</i></span></div>
+              <div class="bet-stat"><span class="cap">Implied PF</span><b>404.5</b><span class="rank-chip rank-good">8th</span></div>
+              <div class="bet-stat"><span class="cap">Implied PA</span><b>337.5</b><span class="rank-chip rank-good">2nd</span></div>
+              <p class="bet-take">Barkley carries ~29% of this roster's projected value, staked on the 8th-highest implied offense backed by the league's 2nd-stingiest defense. That combination means leads, and leads mean Barkley grinding clocks for 25 touches a week. The one tax: Hurts and the tush push poach the goal-line touchdowns all that volume would normally earn.</p>
+            </div>
+            <div class="bet-row">
+              <span class="bet-rank">2</span>
+              <img class="bet-logo" src="../../assets/images/team-logos/detroit.webp" alt="DET">
+              <div class="bet-who"><b>DET</b><span>Jahmyr Gibbs <i class="pos-badge">RB</i></span></div>
+              <div class="bet-stat"><span class="cap">Implied PF</span><b>407.2</b><span class="rank-chip rank-good">6th</span></div>
+              <div class="bet-stat"><span class="cap">Implied PA</span><b>368.8</b><span class="rank-chip rank-mid">15th</span></div>
+              <p class="bet-take">Gibbs is the single biggest slice of this roster (~30% of its value) inside a top-6 implied offense. The backfield split caps his carry count, but his value never depended on volume — it's explosive plays and receiving work, which survive any game script. The best player-environment pairing on the team, and it isn't close.</p>
+            </div>
+            <div class="bet-row">
+              <span class="bet-rank">3</span>
+              <img class="bet-logo" src="../../assets/images/team-logos/washington.webp" alt="WAS">
+              <div class="bet-who"><b>WAS</b><span>Terry McLaurin <i class="pos-badge">WR</i></span></div>
+              <div class="bet-stat"><span class="cap">Implied PF</span><b>407.2</b><span class="rank-chip rank-good">7th</span></div>
+              <div class="bet-stat"><span class="cap">Implied PA</span><b>364.8</b><span class="rank-chip rank-good">10th</span></div>
+              <p class="bet-take">McLaurin (~10% of roster value) is the WR1 by default, and the environment finally cooperates: a top-7 implied offense in Jayden Daniels' second year. His profile is touchdown-dependent — he needs the red-zone looks this offense should now generate. If Washington scores like Vegas thinks, the thin WR room's biggest bet pays.</p>
+            </div>
+            <div class="bet-row">
+              <span class="bet-rank">4</span>
+              <img class="bet-logo" src="../../assets/images/team-logos/miami.webp" alt="MIA">
+              <div class="bet-who"><b>MIA</b><span>Jaylen Waddle <i class="pos-badge">WR</i></span></div>
+              <div class="bet-stat"><span class="cap">Implied PF</span><b>365.2</b><span class="rank-chip rank-mid">17th</span></div>
+              <div class="bet-stat"><span class="cap">Implied PA</span><b>381.8</b><span class="rank-chip rank-mid">20th</span></div>
+              <p class="bet-take">Waddle (a Round 4 pick, ~4% of roster value, and a starting receiver) is the environment problem: a 17th-ranked implied offense Vegas expects to trail often. The upside case is exactly that — negative scripts forcing pass volume his way. The downside case is Tyreek Hill still eating first. The board's biggest reach, in the roster's shakiest situation.</p>
+            </div>
+            <div class="bet-row">
+              <span class="bet-rank">5</span>
+              <img class="bet-logo" src="../../assets/images/team-logos/kansascity.webp" alt="KC">
+              <div class="bet-who"><b>KC</b><span>Patrick Mahomes <i class="pos-badge">QB</i> Travis Kelce <i class="pos-badge">TE</i></span></div>
+              <div class="bet-stat"><span class="cap">Implied PF</span><b>409.0</b><span class="rank-chip rank-good">5th</span></div>
+              <div class="bet-stat"><span class="cap">Implied PA</span><b>339.0</b><span class="rank-chip rank-good">3rd</span></div>
+              <p class="bet-take">A double bet (~14% of roster value across Mahomes and Kelce) on football's most comfortable team. The 5th-best implied offense with the 3rd-best defense means wins — but comfortable ones, with fourth quarters spent handing off. Mahomes' floor is elite; a 36-year-old Kelce in a clock-killing offense is a floor play too. Same-game exposure also means one bad Chiefs week hits two lineup slots at once.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== bye week breakdown ===== -->
+    <section>
+      <div class="sec-head sec-blue">
+        <span class="bar"></span>
+        <h2>Bye Week Breakdown</h2>
+      </div>
+      <div class="mod">
+        <div class="mod-head">
+          <h3>Byes by Week</h3>
+          <div class="chart-legend" aria-hidden="true" style="margin-bottom:0;">
+            <span style="color:#fff"><i style="background:#7239c9"></i>Starters</span>
+            <span style="color:#fff"><i style="background:#d5c3f3"></i>Bench</span>
+          </div>
+        </div>
+        <div class="mod-bd">
+          <div class="chart-holder">
+            <svg id="bye-chart" viewBox="0 0 940 240" width="100%" role="img" aria-label="Bar chart of players on bye by week"></svg>
+            <div class="chart-tip" id="bye-tip" hidden></div>
+          </div>
+          <p class="tbl-note" style="margin-top:6px;">Week 12 is the collision: both starting receivers and the kicker sit together. Week 10 is sneaky-bad too — Mahomes, Kelce, and the backup TE all out at once — and Week 6 benches a starting RB and the defense.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>Late Late Shift · est. 2020</span>
+    <span>2025 Draft Recaps</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // pick data — verdict drives color in BOTH modes (color follows the entity, not the lens)
+  var PICKS = [{"rd": 1, "player": "Saquon Barkley", "verdict": "fair", "pick": 3, "league": 3, "market": 3}, {"rd": 2, "player": "Jahmyr Gibbs", "verdict": "keeper", "pick": 18, "league": 4, "market": 4}, {"rd": 3, "player": "Terry McLaurin", "verdict": "fair", "pick": 23, "league": 27, "market": 40}, {"rd": 4, "player": "Jaylen Waddle", "verdict": "reach", "pick": 38, "league": 59, "market": 69}, {"rd": 5, "player": "Patrick Mahomes II", "verdict": "steal", "pick": 43, "league": 35, "market": 52}, {"rd": 6, "player": "Chris Olave", "verdict": "reach", "pick": 58, "league": 67, "market": 76}, {"rd": 7, "player": "Travis Kelce", "verdict": "steal", "pick": 63, "league": 52, "market": 62}, {"rd": 8, "player": "Jaylen Warren", "verdict": "fair", "pick": 78, "league": 72, "market": 82}, {"rd": 9, "player": "Aaron Jones Sr.", "verdict": "steal", "pick": 83, "league": 57, "market": 67}, {"rd": 10, "player": "Jordan Addison", "verdict": "fair", "pick": 98, "league": 91, "market": 96}, {"rd": 11, "player": "Drake Maye", "verdict": "fair", "pick": 103, "league": 113, "market": 120}, {"rd": 12, "player": "Jake Ferguson", "verdict": "fair", "pick": 118, "league": 118, "market": 125}, {"rd": 13, "player": "Khalil Shakir", "verdict": "keeper", "pick": 123, "league": 110, "market": 110}, {"rd": 14, "player": "Minnesota Vikings", "verdict": null, "pick": 138, "league": null, "market": null}, {"rd": 15, "player": "Cameron Dicker", "verdict": null, "pick": 143, "league": null, "market": null}, {"rd": 16, "player": "Luther Burden III", "verdict": "fair", "pick": 158, "league": 150, "market": 158}, {"rd": 17, "player": "Joshua Palmer", "verdict": "fair", "pick": 163, "league": 171, "market": 176}];
+  var COLORS = { steal: "#2e7cc4", fair: "#8a90a8", reach: "#c93b36", keeper: "#7239c9" };
+  var VLABEL = { steal: "Steal", fair: "Fair", reach: "Reach", keeper: "Keeper" };
+  var SVGNS = "http://www.w3.org/2000/svg";
+
+  // fixed geometry & scale so League/Market toggle is an honest comparison
+  var W = 940, H = 300, PAD = { l: 40, r: 10, t: 26, b: 30 };
+  var YMIN = -35, YMAX = 55;
+  function yPos(v) { return PAD.t + (YMAX - v) / (YMAX - YMIN) * (H - PAD.t - PAD.b); }
+  function xPos(i) { return PAD.l + (i + 0.5) * (W - PAD.l - PAD.r) / PICKS.length; }
+
+  var svg = document.getElementById("adp-chart");
+  var tip = document.getElementById("chart-tip");
+  var holder = svg.parentNode;
+  var mode = "league";
+
+  function el(name, attrs, text) {
+    var n = document.createElementNS(SVGNS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  // rounded data-end, flat baseline
+  function barPath(cx, v, w) {
+    var r = 4, x0 = cx - w / 2, y0 = yPos(0), y1 = yPos(v);
+    var h = Math.abs(y0 - y1);
+    if (h < r) r = h;
+    if (v >= 0) {
+      return "M" + x0 + " " + y0 + " V" + (y1 + r) + " Q" + x0 + " " + y1 + " " + (x0 + r) + " " + y1 +
+             " H" + (x0 + w - r) + " Q" + (x0 + w) + " " + y1 + " " + (x0 + w) + " " + (y1 + r) + " V" + y0 + " Z";
+    }
+    return "M" + x0 + " " + y0 + " V" + (y1 - r) + " Q" + x0 + " " + y1 + " " + (x0 + r) + " " + y1 +
+           " H" + (x0 + w - r) + " Q" + (x0 + w) + " " + y1 + " " + (x0 + w) + " " + (y1 - r) + " V" + y0 + " Z";
+  }
+
+  function fmt(v) { return (v > 0 ? "+" : "−") + Math.abs(v); }
+
+  function render() {
+    svg.textContent = "";
+    // recessive gridlines + y labels
+    [-20, 0, 20, 40].forEach(function (g) {
+      svg.appendChild(el("line", { x1: PAD.l, x2: W - PAD.r, y1: yPos(g), y2: yPos(g),
+        stroke: g === 0 ? "#8a90a8" : "#edeff6", "stroke-width": g === 0 ? 1.5 : 1 }));
+      svg.appendChild(el("text", { x: PAD.l - 8, y: yPos(g) + 4, "text-anchor": "end",
+        "font-size": 11, fill: "#8a90a8" }, fmt(g).replace("−0", "0").replace("+0", "0")));
+    });
+
+    var labelExtremes = { max: null, min: null };
+    PICKS.forEach(function (p) {
+      if (p.verdict == null) return;
+      var v = p.pick - p[mode];
+      if (!labelExtremes.max || v > labelExtremes.max.v) labelExtremes.max = { p: p, v: v };
+      if (!labelExtremes.min || v < labelExtremes.min.v) labelExtremes.min = { p: p, v: v };
+    });
+
+    PICKS.forEach(function (p, i) {
+      var cx = xPos(i);
+      // x tick label (round number)
+      svg.appendChild(el("text", { x: cx, y: H - 10, "text-anchor": "middle",
+        "font-size": 11, fill: "#8a90a8" }, p.rd));
+      if (p.verdict == null) {
+        svg.appendChild(el("text", { x: cx, y: yPos(0) - 6, "text-anchor": "middle",
+          "font-size": 10, fill: "#8a90a8" }, "—"));
+        return;
+      }
+      var v = p.pick - p[mode];
+      var bar = el("path", { d: barPath(cx, v, 16), fill: COLORS[p.verdict] });
+      svg.appendChild(bar);
+
+      // selective direct labels: keepers + the mode's extremes
+      if (p.verdict === "keeper" || p === labelExtremes.max.p || p === labelExtremes.min.p) {
+        svg.appendChild(el("text", { x: cx, y: v >= 0 ? yPos(v) - 6 : yPos(v) + 14,
+          "text-anchor": "middle", "font-size": 11, "font-weight": 700, fill: "#555b73" }, fmt(v)));
+      }
+
+      // oversized invisible hit target for hover
+      var hit = el("rect", { x: cx - 24, y: PAD.t, width: 48, height: H - PAD.t - PAD.b, fill: "transparent" });
+      hit.addEventListener("mousemove", function (evt) {
+        var hr = holder.getBoundingClientRect();
+        tip.hidden = false;
+        tip.innerHTML = "<b>" + p.player + "</b> · Rd " + p.rd + " (" + VLABEL[p.verdict] + ")<br>" +
+          "Pick " + p.pick + " · League ADP " + p.league + " · Market ADP " + p.market + "<br>" +
+          "<span class='tipval'>" + fmt(v) + "</span> vs " + (mode === "league" ? "League" : "Market") + " ADP";
+        tip.style.left = (evt.clientX - hr.left) + "px";
+        tip.style.top = (evt.clientY - hr.top) + "px";
+      });
+      hit.addEventListener("mouseleave", function () { tip.hidden = true; });
+      svg.appendChild(hit);
+    });
+
+    // axis caption
+    svg.appendChild(el("text", { x: (PAD.l + W - PAD.r) / 2, y: H - 10, "text-anchor": "middle",
+      "font-size": 0 }, ""));
+  }
+
+  document.querySelectorAll(".chart-toggle button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      mode = btn.getAttribute("data-mode");
+      document.querySelectorAll(".chart-toggle button").forEach(function (b) {
+        b.classList.toggle("is-active", b === btn);
+      });
+      render();
+    });
+  });
+
+  render();
+})();
+
+/* ===== bye week chart ===== */
+(function () {
+  var BYES = [{"week": 5, "starters": [], "bench": ["Jaylen Warren", "Luther Burden III"]}, {"week": 6, "starters": ["Aaron Jones Sr."], "bench": ["Jordan Addison"]}, {"week": 7, "starters": [], "bench": ["Khalil Shakir", "Joshua Palmer"]}, {"week": 8, "starters": ["Jahmyr Gibbs"], "bench": []}, {"week": 9, "starters": ["Saquon Barkley"], "bench": []}, {"week": 10, "starters": ["Patrick Mahomes II", "Travis Kelce"], "bench": ["Jake Ferguson"]}, {"week": 11, "starters": ["Chris Olave"], "bench": []}, {"week": 12, "starters": ["Terry McLaurin", "Jaylen Waddle", "Cameron Dicker"], "bench": []}, {"week": 13, "starters": [], "bench": []}, {"week": 14, "starters": [], "bench": ["Drake Maye"]}];
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var W = 940, H = 240, PAD = { l: 34, r: 10, t: 18, b: 30 };
+  var YMAX = 5, BARW = 34;
+  function y(v) { return PAD.t + (YMAX - v) / YMAX * (H - PAD.t - PAD.b); }
+  function x(i) { return PAD.l + (i + 0.5) * (W - PAD.l - PAD.r) / BYES.length; }
+
+  var svg = document.getElementById("bye-chart");
+  var tip = document.getElementById("bye-tip");
+  var holder = svg.parentNode;
+  function el(name, attrs, text) {
+    var n = document.createElementNS(SVGNS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  // rounded top, flat bottom
+  function topBar(cx, y0, y1, w) {
+    var r = Math.min(4, y0 - y1), x0 = cx - w / 2;
+    return "M" + x0 + " " + y0 + " V" + (y1 + r) + " Q" + x0 + " " + y1 + " " + (x0 + r) + " " + y1 +
+           " H" + (x0 + w - r) + " Q" + (x0 + w) + " " + y1 + " " + (x0 + w) + " " + (y1 + r) + " V" + y0 + " Z";
+  }
+
+  for (var g = 0; g <= YMAX; g++) {
+    svg.appendChild(el("line", { x1: PAD.l, x2: W - PAD.r, y1: y(g), y2: y(g),
+      stroke: g === 0 ? "#8a90a8" : "#edeff6", "stroke-width": g === 0 ? 1.5 : 1 }));
+    svg.appendChild(el("text", { x: PAD.l - 8, y: y(g) + 4, "text-anchor": "end",
+      "font-size": 11, fill: "#8a90a8" }, g));
+  }
+
+  BYES.forEach(function (b, i) {
+    var cx = x(i), total = b.starters.length + b.bench.length;
+    svg.appendChild(el("text", { x: cx, y: H - 10, "text-anchor": "middle",
+      "font-size": 11, fill: "#8a90a8" }, "W" + b.week));
+    if (!total) return;
+    var s = b.starters.length;
+    if (s) svg.appendChild(el("path", { d: topBar(cx, y(0), y(s), BARW), fill: "#7239c9" }));
+    if (b.bench.length) {
+      // 2px surface gap between stacked segments
+      svg.appendChild(el("path", { d: topBar(cx, y(s) - 2, y(total), BARW), fill: "#d5c3f3" }));
+    }
+    svg.appendChild(el("text", { x: cx, y: y(total) - 7, "text-anchor": "middle",
+      "font-size": 11, "font-weight": 700, fill: "#555b73" }, total));
+
+    var hit = el("rect", { x: cx - 32, y: PAD.t, width: 64, height: H - PAD.t - PAD.b, fill: "transparent" });
+    hit.addEventListener("mousemove", function (evt) {
+      var hr = holder.getBoundingClientRect();
+      tip.hidden = false;
+      tip.innerHTML = "<b>Week " + b.week + "</b> · " + total + " on bye<br>" +
+        (b.starters.length ? "Starters: " + b.starters.join(", ") + "<br>" : "") +
+        (b.bench.length ? "Bench: " + b.bench.join(", ") : "");
+      tip.style.left = (evt.clientX - hr.left) + "px";
+      tip.style.top = (evt.clientY - hr.top) + "px";
+    });
+    hit.addEventListener("mouseleave", function () { tip.hidden = true; });
+    svg.appendChild(hit);
+  });
+})();
+</script>
+</body>
+</html>
+
