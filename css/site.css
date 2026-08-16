@@ -317,6 +317,13 @@ main { display: block; flex: 1 0 auto; }
 .champ-bd p { font-size: 0.82rem; line-height: 1.45; }
 .champ-bd p span { color: var(--ink-3); }
 
+/* intro copy sitting above a link list inside a module */
+.mod-intro {
+  padding: 14px 16px 12px;
+  color: var(--ink-2);
+  font-size: 0.86rem;
+}
+
 /* link list module */
 .link-list { display: flex; flex-direction: column; }
 .link-list a {
