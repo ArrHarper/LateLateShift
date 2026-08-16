@@ -1,0 +1,42 @@
+{% extends 'base.njk' %}
+{% from "_components/ui.njk" import pageHero, mod %}
+
+{% block title %}Draft 🏈 The Late Late Shift{% endblock %}
+
+{% block content %}
+{% set current = league.current %}
+{# Seasons with a published recap set — newest last. Add the year when one ships. #}
+{% set recapSeasons = [2025] %}
+{% set latestRecap = recapSeasons | last %}
+{% set recapIndexUrl = ('/draft-recaps/' + latestRecap + '/index-' + latestRecap + '.html') | url %}
+
+{{ pageHero(
+    "The Draft",
+    intro="Everything about draft night in one place: the order reveals that decide who picks
+    where, and the graded recaps of what everyone did with the pick they got.",
+    updated="Aug 2026"
+) }}
+
+<div class="duo">
+    {% call mod("Draft Order Reveals", link=('/draft-order/' | url), linkText="All reveals →") %}
+    <p class="mod-intro">Each season's draft order, revealed the only way we know how:
+    unnecessarily produced videos.</p>
+    <div class="link-list">
+        {% for video in draftVideos %}
+        <a href="{{ '/draft-order/' | url }}#draft-{{ video.year }}">{{ video.year }} Draft Order <span>→</span></a>
+        {% endfor %}
+    </div>
+    {% endcall %}
+
+    {% call mod("Draft Recaps", link=recapIndexUrl, linkText="Open recaps →") %}
+    <p class="mod-intro">Every pick graded against a keeper-adjusted league ADP — biggest values,
+    biggest reaches, roster grades and league-wide superlatives, one page per team.</p>
+    <div class="link-list">
+        {% for yr in recapSeasons %}
+        <a href="{{ ('/draft-recaps/' + yr + '/index-' + yr + '.html') | url }}">{{ yr }} Draft Recaps <span>→</span></a>
+        {% endfor %}
+        <a href="https://football.fantasysports.yahoo.com/{{ current.priorYear }}/f1/{{ current.priorLeagueId }}/draftresults" target="_blank" rel="noopener">{{ current.priorYear }} Draft Board on Yahoo <span>→</span></a>
+    </div>
+    {% endcall %}
+</div>
+{% endblock %}

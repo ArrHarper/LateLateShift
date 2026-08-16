@@ -19,7 +19,7 @@
 ) }}
 
 {% for video in draftVideos %}
-<div class="draft-section">
+<div class="draft-section" id="draft-{{ video.year }}">
     <div class="mod-head"><h3>{{ video.year }} Draft Order</h3></div>
     <div class="bd">
         <p>{{ video.blurb }}</p>
