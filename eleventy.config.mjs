@@ -1,5 +1,9 @@
 export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("assets");
+    // Unlisted draft-recap pages: prebuilt standalone HTML from
+    // .claude/skills/lls-draft-recap — copied verbatim, not templated.
+    eleventyConfig.addPassthroughCopy("src/draft-recaps");
+    eleventyConfig.ignores.add("src/draft-recaps/**");
     eleventyConfig.addPassthroughCopy("css");
     eleventyConfig.addPassthroughCopy("js");
 

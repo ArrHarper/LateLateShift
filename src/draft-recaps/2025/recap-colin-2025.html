@@ -1,0 +1,855 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Draft Recap · Eat the W — Late Late Shift</title>
+<style>
+/* ============================================================
+   Standalone draft-recap mockup — consumes the LLS "Network"
+   design system. Tokens copied from css/tokens.css; components
+   mirror css/site.css so this can be promoted to an Eleventy
+   template with minimal changes.
+   ============================================================ */
+@font-face {
+  font-family: "Archivo";
+  src: url("../../assets/fonts/Archivo-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --navy: #0b0e1a; --navy-deep: #070912; --navy-line: #262c47;
+  --purple: #8b4de8; --purple-ink: #7239c9;
+  --blue: #5da9e9; --blue-ink: #2e7cc4; --blue-hover: #1d5d94; --blue-press: #123c62; --blue-bright: #8ec4f0;
+  --red: #f0544f; --red-ink: #c93b36; --red-press: #d9433e;
+  --ground: #eef0fa; --surface: #ffffff; --divider: #edeff6;
+  --tint-purple: #f7f5fd; --tint-purple-2: #efe9fb; --tint-lavender: #f1e9fc;
+  --tint-blue: #dfeefb; --tint-red: #fdeceb; --tint-amber: #fdf3df;
+  --ink: #1a1d2b; --ink-2: #000000; --ink-3: #8a90a8;
+  --on-navy: #eef0fa; --on-navy-dim: #9aa3c0;
+  --font-sans: "Archivo", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --r-sm: 4px; --r-md: 6px; --r-lg: 8px;
+  --gap: 22px; --gap-sm: 14px; --section-gap: 26px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font-family: var(--font-sans); font-weight: 400; line-height: 1.55;
+}
+h1,h2,h3,h4 { margin: 0; line-height: 1.15; text-wrap: balance; }
+p { margin: 0; }
+.container { max-width: 1080px; margin-inline: auto; padding-inline: 20px; }
+.page-stack { display: grid; gap: var(--section-gap); padding-block: 22px 34px; }
+.page-stack > * { min-width: 0; }
+
+/* ---------- nav (simplified stand-in for base.njk) ---------- */
+.site-nav { background: var(--navy); }
+.site-nav .container { display: flex; align-items: center; gap: 20px; }
+.nav-logo { color: #fff; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.02em; text-decoration: none; padding-block: 18px; }
+.nav-logo span { color: var(--blue); }
+.nav-crumb { color: var(--on-navy-dim); font-size: 0.78rem; font-weight: 600; }
+.nav-crumb b { color: #fff; }
+.nav-crumb a { color: var(--on-navy-dim); text-decoration: none; }
+.nav-crumb a:hover { color: #fff; text-decoration: underline; }
+.nav-crumb a:active { color: var(--blue-bright); }
+.nav-crumb a:focus-visible, .nav-logo:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+/* ---------- page header: navy banner + white summary body ---------- */
+.page-head { background: var(--surface); border-radius: var(--r-lg); overflow: hidden; }
+.team-banner {
+  background: var(--navy);
+  display: flex; align-items: center; gap: 20px;
+  padding: 20px 26px;
+}
+.team-banner .ava {
+  width: 74px; height: 74px; border-radius: 50%; flex: none;
+  overflow: hidden; background: var(--navy-deep);
+  outline: 2px solid var(--navy-line);
+}
+.team-banner .ava img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.team-banner .tx { margin-right: auto; min-width: 0; }
+.team-banner h1 {
+  color: #fff; font-size: clamp(1.4rem, 3.4vw, 2rem);
+  font-weight: 800; letter-spacing: -0.015em; line-height: 1.1;
+}
+.team-banner .sub {
+  color: var(--blue); font-size: 0.74rem; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase; margin-top: 5px;
+}
+.team-banner .grade-box {
+  border-left: 1px solid var(--navy-line);
+  padding-left: 26px; margin-left: 6px; flex: none;
+  display: grid; justify-items: center; gap: 1px; text-align: center;
+}
+.team-banner .grade-box .letter { color: var(--blue); font-size: 2.2rem; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+.team-banner .grade-box .cap { color: var(--on-navy); font-size: 0.68rem; font-weight: 800; }
+.page-head .summary {
+  display: grid; grid-template-columns: 1.7fr 1fr; gap: 26px;
+  align-items: start; padding: 20px 26px 22px;
+}
+.summary-tx { min-width: 0; }
+.summary-tx h2 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 8px; }
+.summary-tx p { color: var(--ink-2); font-size: 0.92rem; max-width: 88ch; }
+.summary-tx p + p { margin-top: 10px; }
+.summary-tx p b { color: var(--ink); }
+
+/* ---------- starting lineup rail (right of summary) ---------- */
+.lineup { border-radius: var(--r-md); overflow: hidden; background: var(--ground); }
+.lineup-head {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+  background: var(--navy); padding: 8px 14px;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-navy);
+}
+.lineup-head .lu-cap { font-size: 0.6rem; letter-spacing: 0.08em; color: var(--on-navy-dim); }
+.lu-rows { padding: 5px 14px 9px; }
+.lu-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 0; border-top: 1px solid #dfe2f0;
+  font-size: 0.82rem; font-weight: 600;
+}
+.lu-row:first-child { border-top: 0; }
+.lu-row .pos-badge { margin-right: 0; flex: none; }
+.lu-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-right: auto; }
+.lu-val { flex: none; font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+
+/* ---------- category grade tiles (bottom of summary) ---------- */
+.summary-grades { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-sm); padding: 0 26px 24px; }
+.summary-grades .grade-tile { background: var(--ground); }
+.grade-tile { background: var(--surface); border-radius: var(--r-md); padding: 14px 16px; display: flex; align-items: center; gap: 14px; }
+.grade-tile .letter {
+  width: 52px; height: 52px; border-radius: var(--r-md); flex: none;
+  display: grid; place-items: center; font-size: 1.5rem; font-weight: 800; color: #fff;
+}
+.grade-good .letter { background: var(--purple); }
+.grade-mid .letter { background: var(--blue-ink); }
+.grade-bad .letter { background: var(--red-ink); }
+.grade-tile .cap { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); font-weight: 800; }
+.grade-tile .rank { font-size: 0.9rem; font-weight: 700; }
+.grade-tile .note { font-size: 0.74rem; color: var(--ink-2); }
+
+/* ---------- section headers ---------- */
+.sec-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.sec-head .bar { width: 5px; height: 20px; border-radius: 2px; background: var(--purple); flex: none; }
+.sec-head.sec-blue .bar { background: var(--blue); }
+.sec-head.sec-red .bar { background: var(--red); }
+.sec-head h2 { font-size: 1rem; font-weight: 800; letter-spacing: -0.01em; margin-right: auto; }
+.sec-head .grade-chip { font-size: 0.78rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; }
+.chip-good { background: var(--tint-lavender); color: var(--purple-ink); }
+.chip-mid { background: var(--tint-blue); color: var(--blue-ink); }
+.chip-bad { background: var(--tint-red); color: var(--red-ink); }
+
+/* ---------- modules ---------- */
+.mod { background: var(--surface); border-radius: var(--r-md); overflow: hidden; }
+.mod-head { display: flex; align-items: center; gap: 10px; padding: 6px 16px; background: var(--navy); min-height: 40px; }
+/* legend text inside navy headers must stay light regardless of ink tokens */
+.mod-head .chart-legend { margin-bottom: 0; }
+.mod-head .chart-legend span, .mod-head .heat-legend .hl-cap { color: #fff; }
+.mod-head h3 { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-navy); margin-right: auto; }
+.mod-bd { padding: 14px 16px; }
+.mod-bd p { font-size: 0.86rem; color: var(--ink-2); }
+.mod-bd p + p { margin-top: 10px; }
+.mod-bd b { color: var(--ink); }
+
+.split-main-rail { display: grid; grid-template-columns: 1.9fr 1fr; gap: var(--gap); align-items: start; }
+.duo-even { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-sm); align-items: stretch; }
+
+.prose { font-size: 0.9rem; color: var(--ink-2); max-width: 66ch; margin-bottom: 14px; }
+.prose b { color: var(--ink); }
+
+/* ---------- tables ---------- */
+.lls-table-wrap { overflow-x: auto; max-width: 100%; background: var(--surface); border-radius: var(--r-md); }
+.lls-table { width: 100%; border-collapse: collapse; background: var(--surface); font-size: 0.82rem; color: var(--ink); }
+.lls-table th {
+  background: var(--navy); color: var(--on-navy); text-transform: uppercase;
+  font-size: 0.66rem; letter-spacing: 0.1em; font-weight: 700;
+  padding: 8px 12px; text-align: left; white-space: nowrap;
+}
+.lls-table td { padding: 8px 12px; border-top: 1px solid var(--divider); text-align: left; }
+.lls-table .lls-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lls-table .lls-strong { font-weight: 700; white-space: nowrap; }
+.lls-table tbody tr:hover { background: var(--tint-purple); }
+.lls-table tr.is-keeper { background: var(--tint-lavender); }
+.lls-table tr.is-keeper:hover { background: var(--tint-purple-2); }
+/* value cells are colored by VERDICT, matching the pill: steal=blue, reach=red, keeper=purple, fair=neutral */
+.lls-table .val-steal { color: var(--blue-ink); font-weight: 700; }
+.lls-table .val-reach { color: var(--red-ink); font-weight: 700; }
+.lls-table .val-keeper { color: var(--purple-ink); font-weight: 700; }
+.pattern-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 860px) { .pattern-grid { grid-template-columns: 1fr; } }
+
+/* ---------- ADP analysis chart ---------- */
+.chart-toggle { display: flex; gap: 0; border-radius: var(--r-sm); overflow: hidden; }
+.chart-toggle button {
+  background: var(--navy-line); color: var(--on-navy-dim);
+  border: 0; font: inherit; font-size: 0.68rem; font-weight: 800;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 5px 12px; cursor: pointer;
+}
+.chart-toggle button:hover { color: var(--on-navy); }
+.chart-toggle button.is-active { background: var(--purple); color: #fff; }
+.chart-toggle button:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.chart-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.chart-legend span { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 600; color: var(--ink-2); }
+.chart-legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.chart-holder { position: relative; }
+.chart-tip {
+  position: absolute; pointer-events: none; z-index: 5;
+  background: var(--navy); color: var(--on-navy);
+  border-radius: var(--r-sm); padding: 8px 10px;
+  font-size: 0.72rem; line-height: 1.45; white-space: nowrap;
+  transform: translate(-50%, calc(-100% - 10px));
+}
+.chart-tip b { color: #fff; }
+.chart-tip .tipval { font-weight: 800; }
+.tbl-note { font-size: 0.78rem; color: var(--ink-3); font-style: italic; margin-top: 8px; }
+
+/* verdict pills */
+.pill { display: inline-block; font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.pill-steal { background: var(--tint-blue); color: var(--blue-ink); }
+.pill-fair { background: var(--tint-purple-2); color: var(--ink-2); }
+.pill-reach { background: var(--tint-red); color: var(--red-ink); }
+.pill-keeper { background: var(--tint-lavender); color: var(--purple-ink); }
+
+/* ---------- callouts (from rules page) ---------- */
+.callout { display: flex; gap: 10px; align-items: flex-start; border-radius: var(--r-md); padding: 10px 14px; font-size: 0.82rem; max-width: 70ch; }
+.callout .ic { font-weight: 800; }
+.callout-info { background: var(--tint-blue); color: var(--blue-press); }
+.callout-info .ic { color: var(--blue-ink); }
+
+/* player portraits (Yahoo cutout PNGs) on keeper + pick cards */
+.with-portrait { display: flex; gap: 14px; align-items: flex-start; }
+.with-portrait .tx { min-width: 0; }
+.portrait {
+  width: 64px; height: 64px; border-radius: 50%; flex: none;
+  overflow: hidden; background: var(--tint-lavender);
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.portrait-blue { background: var(--tint-blue); }
+.portrait-red { background: var(--tint-red); }
+
+/* best/worst pick cards */
+.pick-card .mod-head.head-blue { background: var(--blue-ink); }
+.pick-card .mod-head.head-red { background: var(--red-ink); }
+.pick-card .who { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.pick-card .who b { font-size: 1rem; }
+.pick-card .who span { font-size: 0.76rem; color: var(--ink-3); font-weight: 700; }
+
+/* keeper cards */
+.keeper-card .value-line { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+.keeper-card .value-line b { font-size: 1rem; }
+.keeper-card .cost { font-size: 0.76rem; color: var(--ink-3); font-weight: 700; }
+/* unused keeper slot: present but visibly inert. Sits a full step darker than
+   the page ground so it reads as a filled slot, not a hole in the layout. */
+.keeper-empty { background: #cfd3e2; }
+.keeper-empty .mod-head { background: #a8aec6; }
+.keeper-empty .mod-head h3 { color: #33384d; }
+.keeper-empty .mod-bd { display: grid; place-items: center; min-height: 96px; }
+.keeper-empty .mod-bd p { color: #4a5068; font-weight: 700; text-align: center; }
+
+/* ---------- roster build: positional value heatmap ---------- */
+/* sequential purple ramp, light→dark = low→high value; red tint = below waiver level */
+.heat-legend { display: flex; align-items: center; gap: 3px; }
+.heat-legend i { width: 14px; height: 10px; border-radius: 2px; display: inline-block; }
+.heat-legend .hl-cap { font-size: 0.62rem; font-weight: 700; color: var(--on-navy-dim); margin-inline: 5px; }
+.roster-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1.25fr 1fr 0.9fr 0.9fr;
+  gap: 10px; align-items: start;
+}
+.pos-col { display: grid; gap: 6px; min-width: 0; }
+.pos-col-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 0 2px 2px;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-3);
+}
+.pos-col-head .pos-total { font-size: 0.78rem; letter-spacing: 0; color: var(--ink); font-variant-numeric: tabular-nums; }
+.heat-cell {
+  display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  border-radius: var(--r-sm); padding: 7px 9px;
+  font-size: 0.74rem; font-weight: 600; min-width: 0;
+}
+.heat-cell span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.heat-cell b { font-variant-numeric: tabular-nums; flex: none; }
+.heat-1 { background: #efe9fb; color: var(--ink); }
+.heat-2 { background: #d5c3f3; color: var(--ink); }
+.heat-3 { background: #b494ea; color: #241245; }
+.heat-4 { background: #8b4de8; color: #fff; }
+.heat-5 { background: #5b2f9e; color: #fff; }
+.heat-neg { background: var(--tint-red); color: var(--red-ink); }
+.heat-na { background: var(--ground); color: var(--ink-3); }
+@media (max-width: 860px) {
+  .roster-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 560px) {
+  .roster-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- offense reliance: biggest-bets rows ---------- */
+.bet-rows { display: grid; }
+.bet-row {
+  display: grid; grid-template-columns: 22px 44px 150px 120px 120px 1fr;
+  gap: 14px; align-items: center;
+  padding: 10px 0; border-top: 1px solid var(--divider);
+  min-width: 0;
+}
+.bet-row:first-child { border-top: 0; padding-top: 2px; }
+.bet-logo { width: 44px; height: 44px; object-fit: contain; display: block; }
+.bet-rank {
+  width: 22px; height: 22px; border-radius: var(--r-sm);
+  background: var(--navy); color: #fff;
+  display: grid; place-items: center;
+  font-size: 0.7rem; font-weight: 800;
+}
+.bet-row:first-child .bet-rank { background: var(--purple); }
+.bet-who { display: grid; gap: 1px; min-width: 0; }
+.bet-who b { font-size: 0.92rem; font-weight: 800; letter-spacing: 0.02em; }
+.bet-who span { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); }
+.pos-badge {
+  font-style: normal; font-size: 0.56rem; font-weight: 800;
+  letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
+  background: var(--tint-purple-2); color: var(--purple-ink);
+  vertical-align: 1px; margin-right: 4px;
+}
+.bet-stat { display: grid; gap: 1px; justify-items: start; }
+.bet-stat .cap { font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); font-weight: 800; }
+.bet-stat b { font-size: 0.94rem; font-variant-numeric: tabular-nums; }
+.rank-chip { font-size: 0.62rem; font-weight: 800; padding: 1px 7px; border-radius: 999px; margin-top: 2px; }
+.rank-good { background: var(--tint-blue); color: var(--blue-ink); }
+.rank-mid { background: var(--tint-purple-2); color: var(--ink-2); }
+.rank-bad { background: var(--tint-red); color: var(--red-ink); }
+.bet-take { font-size: 0.74rem; color: var(--ink-2); line-height: 1.45; }
+@media (max-width: 860px) {
+  .bet-row { grid-template-columns: 22px 44px 1fr 120px 120px; }
+  .bet-row .bet-take { grid-column: 3 / -1; }
+}
+@media (max-width: 560px) {
+  .bet-row { grid-template-columns: 22px 44px 1fr; }
+  .bet-row .bet-stat { grid-column: auto; }
+}
+
+/* ---------- footer ---------- */
+.site-footer { background: var(--navy); margin-top: 12px; }
+.site-footer .container { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 14px; color: var(--on-navy-dim); font-size: 0.74rem; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .summary-grades { grid-template-columns: 1fr; }
+  .duo-even { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .split-main-rail { grid-template-columns: 1fr; }
+  .team-banner { flex-wrap: wrap; padding: 16px 20px; gap: 14px; }
+  .team-banner .ava { width: 56px; height: 56px; }
+  .team-banner .grade-box { border-left: 0; padding-left: 0; margin-left: 0; flex-basis: 100%; justify-items: start; text-align: left; border-top: 1px solid var(--navy-line); padding-top: 10px; }
+  .page-head .summary { padding: 16px 20px 18px; grid-template-columns: 1fr; gap: 18px; }
+  .summary-grades { padding: 0 20px 20px; }
+}
+.team-banner .ava.ava-init { display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1.4rem; background: linear-gradient(135deg, var(--purple), var(--blue)); }
+.bet-logo-abbr { width: 44px; height: 44px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a class="nav-logo" href="index-2025.html">LATE LATE <span>SHIFT</span></a>
+    <span class="nav-crumb"><a href="index-2025.html">2025 Draft Recaps</a> · <b>Eat the W</b></span>
+  </div>
+</nav>
+
+<main>
+  <div class="container page-stack">
+
+    <!-- ===== page head: team banner + summary ===== -->
+    <header class="page-head">
+      <div class="team-banner">
+        <div class="ava"><img src="../../assets/images/manager-avatars/colin.png" alt="Team avatar"></div>
+        <div class="tx">
+          <h1>Eat the W</h1>
+          <p class="sub">Colin · Pick #1</p>
+        </div>
+        <div class="grade-box">
+          <span class="letter">A</span>
+          <span class="cap">Roster Grade</span>
+        </div>
+      </div>
+      <div class="summary">
+        <div class="summary-tx">
+          <h2>The league's best WR room, undercut by an RB group ranked 8th and roughly half the league average.</h2>
+          <p>The top of this draft is genuinely strong — Ja'Marr Chase at the top, two kept starters at real discounts, and the second-best starting lineup in the league. Then the back half happened: deep sleepers taken four rounds before anyone else was thinking about them. It looks reckless on the board and costs almost nothing in practice — every one of those overpays was for a bench slot, while the picks that filled the lineup came in at +54, the best in the league.</p>
+          <p>The second-best starting lineup in the league, built on Chase — the single most valuable starter anyone here will put on the field — a discounted Kittle, and two of the best quarterback values of the night. There's also a bench assembled like a lottery ticket collection, bought at scratch-off prices rounds before anyone would have competed for them. <b>The raw board score says this was the worst draft in the league; the starting lineup says it was one of the best.</b> The difference is that the overpays all landed on players who won't play. That's a survivable mistake until it isn't — this depth chart can't absorb a single injury, and two bye weeks were scheduled disasters the moment the draft ended.</p>
+        </div>
+        <div class="lineup">
+          <div class="lineup-head"><span>Starting Lineup</span><span class="lu-cap">Proj. value</span></div>
+          <div class="lu-rows">
+            <div class="lu-row"><i class="pos-badge">QB</i><span class="lu-name">Baker Mayfield</span><b class="lu-val heat-2">1.4</b></div>
+            <div class="lu-row"><i class="pos-badge">RB</i><span class="lu-name">James Cook I</span><b class="lu-val heat-4">4.3</b></div>
+            <div class="lu-row"><i class="pos-badge">RB</i><span class="lu-name">Isiah Pacheco</span><b class="lu-val heat-2">1.6</b></div>
+            <div class="lu-row"><i class="pos-badge">WR</i><span class="lu-name">Ja'Marr Chase</span><b class="lu-val heat-5">12.4</b></div>
+            <div class="lu-row"><i class="pos-badge">WR</i><span class="lu-name">Tee Higgins</span><b class="lu-val heat-4">4.0</b></div>
+            <div class="lu-row"><i class="pos-badge">WR</i><span class="lu-name">Mike Evans</span><b class="lu-val heat-3">3.8</b></div>
+            <div class="lu-row"><i class="pos-badge">WR</i><span class="lu-name">Courtland Sutton</span><b class="lu-val heat-3">2.5</b></div>
+            <div class="lu-row"><i class="pos-badge">TE</i><span class="lu-name">George Kittle</span><b class="lu-val heat-4">4.0</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="summary-grades">
+      <div class="grade-tile grade-good">
+        <span class="letter">A-</span>
+        <div>
+          <p class="cap">🔒 Keepers</p>
+          <p class="rank">7th in the league</p>
+          <p class="note">Kittle for an 8th quietly aged like wine</p>
+        </div>
+      </div>
+      <div class="grade-tile grade-good">
+        <span class="letter">A-</span>
+        <div>
+          <p class="cap">📊 Draft Picks</p>
+          <p class="rank">2nd in the league</p>
+          <p class="note">Steals where it counts, reaches where it doesn't</p>
+        </div>
+      </div>
+      <div class="grade-tile grade-good">
+        <span class="letter">A</span>
+        <div>
+          <p class="cap">🏗️ Roster Build</p>
+          <p class="rank">2nd in the league</p>
+          <p class="note">2nd-best lineup, dart-throw depth</p>
+        </div>
+      </div>
+      </div>
+    </header>
+
+    <!-- ===== keepers ===== -->
+    <section>
+      <div class="sec-head">
+        <span class="bar"></span>
+        <h2>Keepers: The Quiet Compounders</h2>
+        <span class="grade-chip chip-good">A-</span>
+      </div>
+      <div class="duo-even">
+        <div class="mod keeper-card">
+          <div class="mod-head"><h3>Keeper · Round 8</h3></div>
+          <div class="mod-bd">
+            <div class="value-line"><b>George Kittle</b> <span class="cost">TE · SF</span> <span class="pill pill-steal">+45 picks of value</span></div>
+            <p>Year two of this keep, and the discount has only grown: a top-40 player for an 8th-round cost. Elite tight ends age slowly, and the market keeps forgetting it — Kittle is the fourth-best keeper value in the league this season.</p>
+          </div>
+        </div>
+        <div class="mod keeper-card">
+          <div class="mod-head"><h3>Keeper · Round 5</h3></div>
+          <div class="mod-bd">
+            <div class="value-line"><b>Tee Higgins</b> <span class="cost">WR · CIN</span> <span class="pill pill-steal">+8 picks of value</span></div>
+            <p>A fair-price keep rather than a bargain — Higgins costs a 5th and would go about a round earlier in an open draft. The real payoff isn't the discount, it's the stack: he and Chase now share a locker room and a lineup.</p>
+          </div>
+        </div>
+      </div>
+      <p class="tbl-note">A +53 haul ranks 7th of 10 — middling by this league's absurd standards, but Kittle alone out-earned three managers' entire keeper hauls.</p>
+    </section>
+
+    <!-- ===== draft picks ===== -->
+    <section>
+      <div class="sec-head sec-blue">
+        <span class="bar"></span>
+        <h2>Draft Picks: Boom, Bust, Repeat</h2>
+        <span class="grade-chip chip-good">A-</span>
+      </div>
+
+      <div class="duo-even" style="margin-bottom: var(--gap-sm);">
+        <div class="mod pick-card">
+          <div class="mod-head head-blue"><h3>✓ Best Pick</h3></div>
+          <div class="mod-bd">
+            <div class="who"><b>Baker Mayfield</b> <span>QB · Round 10</span></div>
+            <p>Fell 42 picks past his league price — a top-8 fantasy quarterback last season, acquired in Round 10 while the room chased upside elsewhere. The best quarterback value in the draft, and it wasn't close.</p>
+          </div>
+        </div>
+        <div class="mod pick-card">
+          <div class="mod-head head-red"><h3>✗ Worst Pick</h3></div>
+          <div class="mod-bd">
+            <div class="who"><b>Cedric Tillman</b> <span>WR · Round 14</span></div>
+            <p>Taken 69 picks before his league price — the single biggest reach in the entire LLS draft. A Round 14 flier on a player the market had outside its top 200. When the discount rack is this deep, paying retail for Cleveland's WR2 is a choice.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== ADP analysis chart ===== -->
+      <div class="mod" style="margin-bottom: var(--gap-sm);">
+        <div class="mod-head">
+          <h3>ADP Analysis</h3>
+          <div class="chart-toggle" role="group" aria-label="ADP basis">
+            <button type="button" class="is-active" data-mode="league">League ADP</button>
+            <button type="button" data-mode="market">Market ADP</button>
+          </div>
+        </div>
+        <div class="mod-bd">
+          <div class="chart-legend" aria-hidden="true">
+            <span><i style="background:#2e7cc4"></i>Steal</span>
+            <span><i style="background:#8a90a8"></i>Fair</span>
+            <span><i style="background:#c93b36"></i>Reach</span>
+            <span><i style="background:#7239c9"></i>Keeper</span>
+          </div>
+          <div class="chart-holder">
+            <svg id="adp-chart" viewBox="0 0 940 300" width="100%" role="img" aria-label="Bar chart of pick value versus ADP by round"></svg>
+            <div class="chart-tip" id="chart-tip" hidden></div>
+          </div>
+          <p class="tbl-note" style="margin-top:6px;">Bars above zero: the player fell past his ADP (for keepers, the discount vs. market). Bars below zero: taken earlier than his ADP. Rounds 15 and 17 (DEF, K) aren't graded. Toggle between League ADP (keeper-adjusted) and raw Market ADP.</p>
+        </div>
+      </div>
+
+      <div class="lls-table-wrap">
+        <table class="lls-table">
+          <thead>
+            <tr><th>Rd</th><th>Player</th><th>Pos</th><th class="lls-num">League ADP*</th><th class="lls-num">Pick</th><th class="lls-num">Value</th><th>Verdict</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="lls-num">1</td><td class="lls-strong">Ja'Marr Chase</td><td>WR</td><td class="lls-num">1</td><td class="lls-num">1</td><td class="lls-num">0</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr><td class="lls-num">2</td><td class="lls-strong">James Cook III</td><td>RB</td><td class="lls-num">17</td><td class="lls-num">20</td><td class="lls-num">+3</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr><td class="lls-num">3</td><td class="lls-strong">Mike Evans</td><td>WR</td><td class="lls-num">25</td><td class="lls-num">21</td><td class="lls-num">−4</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr><td class="lls-num">4</td><td class="lls-strong">Courtland Sutton</td><td>WR</td><td class="lls-num">38</td><td class="lls-num">40</td><td class="lls-num">+2</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr class="is-keeper"><td class="lls-num">5</td><td class="lls-strong">Tee Higgins</td><td>WR</td><td class="lls-num">33</td><td class="lls-num">41</td><td class="lls-num val-keeper">+8</td><td><span class="pill pill-keeper">Keeper</span></td></tr>
+            <tr><td class="lls-num">6</td><td class="lls-strong">Isiah Pacheco</td><td>RB</td><td class="lls-num">49</td><td class="lls-num">60</td><td class="lls-num val-steal">+11</td><td><span class="pill pill-steal">Steal</span></td></tr>
+            <tr><td class="lls-num">7</td><td class="lls-strong">Kaleb Johnson</td><td>RB</td><td class="lls-num">66</td><td class="lls-num">61</td><td class="lls-num">−5</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr class="is-keeper"><td class="lls-num">8</td><td class="lls-strong">George Kittle</td><td>TE</td><td class="lls-num">35</td><td class="lls-num">80</td><td class="lls-num val-keeper">+45</td><td><span class="pill pill-keeper">Keeper</span></td></tr>
+            <tr><td class="lls-num">9</td><td class="lls-strong">Javonte Williams</td><td>RB</td><td class="lls-num">105</td><td class="lls-num">81</td><td class="lls-num val-reach">−24</td><td><span class="pill pill-reach">Reach</span></td></tr>
+            <tr><td class="lls-num">10</td><td class="lls-strong">Baker Mayfield</td><td>QB</td><td class="lls-num">58</td><td class="lls-num">100</td><td class="lls-num val-steal">+42</td><td><span class="pill pill-steal">Steal</span></td></tr>
+            <tr><td class="lls-num">11</td><td class="lls-strong">Braelon Allen</td><td>RB</td><td class="lls-num">106</td><td class="lls-num">101</td><td class="lls-num">−5</td><td><span class="pill pill-fair">Fair</span></td></tr>
+            <tr><td class="lls-num">12</td><td class="lls-strong">Ollie Gordon II</td><td>RB</td><td class="lls-num">134</td><td class="lls-num">120</td><td class="lls-num val-reach">−14</td><td><span class="pill pill-reach">Reach</span></td></tr>
+            <tr><td class="lls-num">13</td><td class="lls-strong">Pittsburgh Steelers</td><td>DEF</td><td class="lls-num">—</td><td class="lls-num">121</td><td class="lls-num">—</td><td><span class="pill pill-fair">—</span></td></tr>
+            <tr><td class="lls-num">14</td><td class="lls-strong">Cedric Tillman</td><td>WR</td><td class="lls-num">209</td><td class="lls-num">140</td><td class="lls-num val-reach">−69</td><td><span class="pill pill-reach">Reach</span></td></tr>
+            <tr><td class="lls-num">15</td><td class="lls-strong">Justin Fields</td><td>QB</td><td class="lls-num">109</td><td class="lls-num">141</td><td class="lls-num val-steal">+32</td><td><span class="pill pill-steal">Steal</span></td></tr>
+            <tr><td class="lls-num">16</td><td class="lls-strong">DeMario Douglas</td><td>WR</td><td class="lls-num">219</td><td class="lls-num">160</td><td class="lls-num val-reach">−59</td><td><span class="pill pill-reach">Reach</span></td></tr>
+            <tr><td class="lls-num">17</td><td class="lls-strong">Chris Boswell</td><td>K</td><td class="lls-num">—</td><td class="lls-num">161</td><td class="lls-num">—</td><td><span class="pill pill-fair">—</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-note">*League ADP = where the player should go in <b>this</b> draft: market ADP adjusted for the 19 keepers, who never hit the board while their slots push every pick later. For keepers it's straight market ADP — what he'd cost in an open draft. Value = Pick − League ADP: positive means he fell to you (for keepers, the discount you're keeping him at), negative means you took him early. Verdicts allow a cushion of 5 picks or 10% of League ADP, whichever is larger — inside that window a pick is a preference, not a reach. Kickers and defenses aren't graded — everyone reaches on those.</p>
+    </section>
+
+    <!-- ===== roster build ===== -->
+    <section>
+      <div class="sec-head">
+        <span class="bar"></span>
+        <h2>Roster Build: All Gas, No Spare Tire</h2>
+        <span class="grade-chip chip-good">A</span>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head">
+          <h3>Positional Value</h3>
+          <div class="heat-legend" aria-hidden="true">
+            <span class="hl-cap">Waiver level</span>
+            <i style="background:#fdeceb"></i><i style="background:#efe9fb"></i><i style="background:#d5c3f3"></i><i style="background:#b494ea"></i><i style="background:#8b4de8"></i><i style="background:#5b2f9e"></i>
+            <span class="hl-cap">League-winner</span>
+          </div>
+        </div>
+        <div class="mod-bd">
+          <div class="roster-grid">
+            <div class="pos-col">
+              <div class="pos-col-head"><span>QB</span><span class="pos-total">1.9</span></div>
+              <div class="heat-cell heat-2"><span>Baker Mayfield ★</span><b>1.4</b></div>
+              <div class="heat-cell heat-1"><span>Justin Fields</span><b>0.5</b></div>
+            </div>
+            <div class="pos-col">
+              <div class="pos-col-head"><span>RB</span><span class="pos-total">6.0</span></div>
+              <div class="heat-cell heat-4"><span>James Cook I ★</span><b>4.3</b></div>
+              <div class="heat-cell heat-2"><span>Isiah Pacheco ★</span><b>1.6</b></div>
+              <div class="heat-cell heat-2"><span>Kaleb Johnson</span><b>1.4</b></div>
+              <div class="heat-cell heat-neg"><span>Javonte Williams</span><b>−0.2</b></div>
+              <div class="heat-cell heat-neg"><span>Braelon Allen</span><b>−1.1</b></div>
+              <div class="heat-cell heat-na"><span>Ollie Gordon</span><b>—</b></div>
+            </div>
+            <div class="pos-col">
+              <div class="pos-col-head"><span>WR</span><span class="pos-total">19.7</span></div>
+              <div class="heat-cell heat-5"><span>Ja'Marr Chase ★</span><b>12.4</b></div>
+              <div class="heat-cell heat-4"><span>Tee Higgins ★</span><b>4.0</b></div>
+              <div class="heat-cell heat-3"><span>Mike Evans ★</span><b>3.8</b></div>
+              <div class="heat-cell heat-3"><span>Courtland Sutton ★</span><b>2.5</b></div>
+              <div class="heat-cell heat-neg"><span>Cedric Tillman</span><b>−1.4</b></div>
+              <div class="heat-cell heat-neg"><span>DeMario Douglas</span><b>−1.6</b></div>
+            </div>
+            <div class="pos-col">
+              <div class="pos-col-head"><span>TE</span><span class="pos-total">4.0</span></div>
+              <div class="heat-cell heat-4"><span>George Kittle ★</span><b>4.0</b></div>
+            </div>
+            <div class="pos-col">
+              <div class="pos-col-head"><span>DEF</span><span class="pos-total">—</span></div>
+              <div class="heat-cell heat-na"><span>Steelers ★</span><b>—</b></div>
+            </div>
+            <div class="pos-col">
+              <div class="pos-col-head"><span>K</span><span class="pos-total">—</span></div>
+              <div class="heat-cell heat-na"><span>Chris Boswell ★</span><b>—</b></div>
+            </div>
+          </div>
+          <p class="tbl-note" style="margin-top:10px;">Numbers are each player's projected value over a waiver-level starter (higher is better; 0 ≈ waiver level). ★ = projected starter. Red cells sit below waiver level. DEF and K aren't rated.</p>
+        </div>
+      </div>
+
+      <div class="mod" style="margin-top: var(--gap-sm);">
+        <div class="mod-head">
+          <h3>Team Reliance</h3>
+          <div class="chart-legend chart-legend--dark" aria-hidden="true">
+            <span><i style="background:#2e7cc4"></i>Top 10</span>
+            <span><i style="background:#8a90a8"></i>Middle</span>
+            <span><i style="background:#c93b36"></i>Bottom 10</span>
+          </div>
+        </div>
+        <div class="mod-bd">
+          <div class="bet-rows">
+            <div class="bet-row">
+              <span class="bet-rank">1</span>
+              <img class="bet-logo" src="../../assets/images/team-logos/cincinatti.webp" alt="CIN">
+              <div class="bet-who"><b>CIN</b><span>Ja'Marr Chase <i class="pos-badge">WR</i> Tee Higgins <i class="pos-badge">WR</i></span></div>
+              <div class="bet-stat"><span class="cap">Implied PF</span><b>395.0</b><span class="rank-chip rank-mid">11th</span></div>
+              <div class="bet-stat"><span class="cap">Implied PA</span><b>380.0</b><span class="rank-chip rank-mid">17th</span></div>
+              <p class="bet-take">Nearly half this roster's value (~46%) rides on one offense: Chase and the kept Higgins, stacked. Cincinnati's 11th-ranked implied offense with a leaky-enough defense means volume for both — the stack's ceiling is the best single-game upside in the league. The price: one bad Bengals afternoon craters two starting spots, and their shared Week 10 bye empties the receiver room at once.</p>
+            </div>
+            <div class="bet-row">
+              <span class="bet-rank">2</span>
+              <img class="bet-logo" src="../../assets/images/team-logos/buffalo.webp" alt="BUF">
+              <div class="bet-who"><b>BUF</b><span>James Cook I <i class="pos-badge">RB</i></span></div>
+              <div class="bet-stat"><span class="cap">Implied PF</span><b>430.2</b><span class="rank-chip rank-good">1st</span></div>
+              <div class="bet-stat"><span class="cap">Implied PA</span><b>336.8</b><span class="rank-chip rank-good">1st</span></div>
+              <p class="bet-take">James Cook (~12% of roster value) plays for the league's best team by Vegas math — 1st in implied points scored and fewest allowed. That means leads, and leads mean carries. The only cap is the one Buffalo always imposes: Josh Allen keeps the goal-line touchdowns for himself.</p>
+            </div>
+            <div class="bet-row">
+              <span class="bet-rank">3</span>
+              <img class="bet-logo" src="../../assets/images/team-logos/tampabay.webp" alt="TB">
+              <div class="bet-who"><b>TB</b><span>Mike Evans <i class="pos-badge">WR</i> Baker Mayfield <i class="pos-badge">QB</i></span></div>
+              <div class="bet-stat"><span class="cap">Implied PF</span><b>399.5</b><span class="rank-chip rank-good">10th</span></div>
+              <div class="bet-stat"><span class="cap">Implied PA</span><b>368.5</b><span class="rank-chip rank-mid">14th</span></div>
+              <p class="bet-take">Evans and Mayfield (~15% of roster value) are a quiet second stack in the 10th-ranked implied offense. Mayfield throws it, Evans catches his annual thousand yards, and both were acquired below or at price. The sneaky-good corner of this roster.</p>
+            </div>
+            <div class="bet-row">
+              <span class="bet-rank">4</span>
+              <img class="bet-logo" src="../../assets/images/team-logos/denver.webp" alt="DEN">
+              <div class="bet-who"><b>DEN</b><span>Courtland Sutton <i class="pos-badge">WR</i></span></div>
+              <div class="bet-stat"><span class="cap">Implied PF</span><b>378.5</b><span class="rank-chip rank-mid">15th</span></div>
+              <div class="bet-stat"><span class="cap">Implied PA</span><b>342.5</b><span class="rank-chip rank-good">5th</span></div>
+              <p class="bet-take">Sutton (~7% of roster value) profiles as the classic possession WR2 in a middling implied offense with a strong defense — positive scripts, moderate volume, touchdown-dependent weeks. Fine at the price paid; nothing more.</p>
+            </div>
+            <div class="bet-row">
+              <span class="bet-rank">5</span>
+              <img class="bet-logo" src="../../assets/images/team-logos/kansascity.webp" alt="KC">
+              <div class="bet-who"><b>KC</b><span>Isiah Pacheco <i class="pos-badge">RB</i></span></div>
+              <div class="bet-stat"><span class="cap">Implied PF</span><b>409.0</b><span class="rank-chip rank-good">5th</span></div>
+              <div class="bet-stat"><span class="cap">Implied PA</span><b>339.0</b><span class="rank-chip rank-good">3rd</span></div>
+              <p class="bet-take">Pacheco (~5% of roster value) was a genuine steal at his price, and the 5th-best implied offense with the 3rd-best defense is a running back-friendly script factory. The catch is the committee — the environment is elite, his share of it is not guaranteed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== bye week breakdown ===== -->
+    <section>
+      <div class="sec-head sec-blue">
+        <span class="bar"></span>
+        <h2>Bye Week Breakdown</h2>
+      </div>
+      <div class="mod">
+        <div class="mod-head">
+          <h3>Byes by Week</h3>
+          <div class="chart-legend" aria-hidden="true" style="margin-bottom:0;">
+            <span style="color:#fff"><i style="background:#7239c9"></i>Starters</span>
+            <span style="color:#fff"><i style="background:#d5c3f3"></i>Bench</span>
+          </div>
+        </div>
+        <div class="mod-bd">
+          <div class="chart-holder">
+            <svg id="bye-chart" viewBox="0 0 940 240" width="100%" role="img" aria-label="Bar chart of players on bye by week"></svg>
+            <div class="chart-tip" id="bye-tip" hidden></div>
+          </div>
+          <p class="tbl-note" style="margin-top:6px;">Week 10 is the collision: Chase and Higgins — the entire kept-receiver core — sit together, with Javonte and Fields alongside. Week 14 takes Evans and Kittle in the same week. The stacks give this roster its ceiling and its scheduled disasters.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>Late Late Shift · est. 2020</span>
+    <span>2025 Draft Recaps</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // pick data — verdict drives color in BOTH modes (color follows the entity, not the lens)
+  var PICKS = [{"rd": 1, "player": "Ja'Marr Chase", "verdict": "fair", "pick": 1, "league": 1, "market": 1}, {"rd": 2, "player": "James Cook III", "verdict": "fair", "pick": 20, "league": 17, "market": 29}, {"rd": 3, "player": "Mike Evans", "verdict": "fair", "pick": 21, "league": 25, "market": 40}, {"rd": 4, "player": "Courtland Sutton", "verdict": "fair", "pick": 40, "league": 38, "market": 54}, {"rd": 5, "player": "Tee Higgins", "verdict": "keeper", "pick": 41, "league": 33, "market": 33}, {"rd": 6, "player": "Isiah Pacheco", "verdict": "steal", "pick": 60, "league": 49, "market": 58}, {"rd": 7, "player": "Kaleb Johnson", "verdict": "fair", "pick": 61, "league": 66, "market": 75}, {"rd": 8, "player": "George Kittle", "verdict": "keeper", "pick": 80, "league": 35, "market": 35}, {"rd": 9, "player": "Javonte Williams", "verdict": "reach", "pick": 81, "league": 105, "market": 113}, {"rd": 10, "player": "Baker Mayfield", "verdict": "steal", "pick": 100, "league": 58, "market": 68}, {"rd": 11, "player": "Braelon Allen", "verdict": "fair", "pick": 101, "league": 106, "market": 113}, {"rd": 12, "player": "Ollie Gordon II", "verdict": "reach", "pick": 120, "league": 134, "market": 141}, {"rd": 13, "player": "Pittsburgh Steelers", "verdict": null, "pick": 121, "league": null, "market": null}, {"rd": 14, "player": "Cedric Tillman", "verdict": "reach", "pick": 140, "league": 209, "market": 174}, {"rd": 15, "player": "Justin Fields", "verdict": "steal", "pick": 141, "league": 109, "market": 116}, {"rd": 16, "player": "DeMario Douglas", "verdict": "reach", "pick": 160, "league": 219, "market": 190}, {"rd": 17, "player": "Chris Boswell", "verdict": null, "pick": 161, "league": null, "market": null}];
+  var COLORS = { steal: "#2e7cc4", fair: "#8a90a8", reach: "#c93b36", keeper: "#7239c9" };
+  var VLABEL = { steal: "Steal", fair: "Fair", reach: "Reach", keeper: "Keeper" };
+  var SVGNS = "http://www.w3.org/2000/svg";
+
+  // fixed geometry & scale so League/Market toggle is an honest comparison
+  var W = 940, H = 300, PAD = { l: 40, r: 10, t: 26, b: 30 };
+  var YMIN = -35, YMAX = 55;
+  function yPos(v) { return PAD.t + (YMAX - v) / (YMAX - YMIN) * (H - PAD.t - PAD.b); }
+  function xPos(i) { return PAD.l + (i + 0.5) * (W - PAD.l - PAD.r) / PICKS.length; }
+
+  var svg = document.getElementById("adp-chart");
+  var tip = document.getElementById("chart-tip");
+  var holder = svg.parentNode;
+  var mode = "league";
+
+  function el(name, attrs, text) {
+    var n = document.createElementNS(SVGNS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  // rounded data-end, flat baseline
+  function barPath(cx, v, w) {
+    var r = 4, x0 = cx - w / 2, y0 = yPos(0), y1 = yPos(v);
+    var h = Math.abs(y0 - y1);
+    if (h < r) r = h;
+    if (v >= 0) {
+      return "M" + x0 + " " + y0 + " V" + (y1 + r) + " Q" + x0 + " " + y1 + " " + (x0 + r) + " " + y1 +
+             " H" + (x0 + w - r) + " Q" + (x0 + w) + " " + y1 + " " + (x0 + w) + " " + (y1 + r) + " V" + y0 + " Z";
+    }
+    return "M" + x0 + " " + y0 + " V" + (y1 - r) + " Q" + x0 + " " + y1 + " " + (x0 + r) + " " + y1 +
+           " H" + (x0 + w - r) + " Q" + (x0 + w) + " " + y1 + " " + (x0 + w) + " " + (y1 - r) + " V" + y0 + " Z";
+  }
+
+  function fmt(v) { return (v > 0 ? "+" : "−") + Math.abs(v); }
+
+  function render() {
+    svg.textContent = "";
+    // recessive gridlines + y labels
+    [-20, 0, 20, 40].forEach(function (g) {
+      svg.appendChild(el("line", { x1: PAD.l, x2: W - PAD.r, y1: yPos(g), y2: yPos(g),
+        stroke: g === 0 ? "#8a90a8" : "#edeff6", "stroke-width": g === 0 ? 1.5 : 1 }));
+      svg.appendChild(el("text", { x: PAD.l - 8, y: yPos(g) + 4, "text-anchor": "end",
+        "font-size": 11, fill: "#8a90a8" }, fmt(g).replace("−0", "0").replace("+0", "0")));
+    });
+
+    var labelExtremes = { max: null, min: null };
+    PICKS.forEach(function (p) {
+      if (p.verdict == null) return;
+      var v = p.pick - p[mode];
+      if (!labelExtremes.max || v > labelExtremes.max.v) labelExtremes.max = { p: p, v: v };
+      if (!labelExtremes.min || v < labelExtremes.min.v) labelExtremes.min = { p: p, v: v };
+    });
+
+    PICKS.forEach(function (p, i) {
+      var cx = xPos(i);
+      // x tick label (round number)
+      svg.appendChild(el("text", { x: cx, y: H - 10, "text-anchor": "middle",
+        "font-size": 11, fill: "#8a90a8" }, p.rd));
+      if (p.verdict == null) {
+        svg.appendChild(el("text", { x: cx, y: yPos(0) - 6, "text-anchor": "middle",
+          "font-size": 10, fill: "#8a90a8" }, "—"));
+        return;
+      }
+      var v = p.pick - p[mode];
+      var bar = el("path", { d: barPath(cx, v, 16), fill: COLORS[p.verdict] });
+      svg.appendChild(bar);
+
+      // selective direct labels: keepers + the mode's extremes
+      if (p.verdict === "keeper" || p === labelExtremes.max.p || p === labelExtremes.min.p) {
+        svg.appendChild(el("text", { x: cx, y: v >= 0 ? yPos(v) - 6 : yPos(v) + 14,
+          "text-anchor": "middle", "font-size": 11, "font-weight": 700, fill: "#555b73" }, fmt(v)));
+      }
+
+      // oversized invisible hit target for hover
+      var hit = el("rect", { x: cx - 24, y: PAD.t, width: 48, height: H - PAD.t - PAD.b, fill: "transparent" });
+      hit.addEventListener("mousemove", function (evt) {
+        var hr = holder.getBoundingClientRect();
+        tip.hidden = false;
+        tip.innerHTML = "<b>" + p.player + "</b> · Rd " + p.rd + " (" + VLABEL[p.verdict] + ")<br>" +
+          "Pick " + p.pick + " · League ADP " + p.league + " · Market ADP " + p.market + "<br>" +
+          "<span class='tipval'>" + fmt(v) + "</span> vs " + (mode === "league" ? "League" : "Market") + " ADP";
+        tip.style.left = (evt.clientX - hr.left) + "px";
+        tip.style.top = (evt.clientY - hr.top) + "px";
+      });
+      hit.addEventListener("mouseleave", function () { tip.hidden = true; });
+      svg.appendChild(hit);
+    });
+
+    // axis caption
+    svg.appendChild(el("text", { x: (PAD.l + W - PAD.r) / 2, y: H - 10, "text-anchor": "middle",
+      "font-size": 0 }, ""));
+  }
+
+  document.querySelectorAll(".chart-toggle button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      mode = btn.getAttribute("data-mode");
+      document.querySelectorAll(".chart-toggle button").forEach(function (b) {
+        b.classList.toggle("is-active", b === btn);
+      });
+      render();
+    });
+  });
+
+  render();
+})();
+
+/* ===== bye week chart ===== */
+(function () {
+  var BYES = [{"week": 5, "starters": ["Chris Boswell"], "bench": ["Kaleb Johnson"]}, {"week": 6, "starters": [], "bench": []}, {"week": 7, "starters": ["James Cook III"], "bench": []}, {"week": 8, "starters": ["Isiah Pacheco"], "bench": []}, {"week": 9, "starters": ["Baker Mayfield"], "bench": ["Braelon Allen", "Cedric Tillman"]}, {"week": 10, "starters": ["Ja'Marr Chase", "Tee Higgins"], "bench": ["Javonte Williams", "Justin Fields"]}, {"week": 11, "starters": [], "bench": []}, {"week": 12, "starters": ["Courtland Sutton"], "bench": ["Ollie Gordon II"]}, {"week": 13, "starters": [], "bench": []}, {"week": 14, "starters": ["Mike Evans", "George Kittle"], "bench": ["DeMario Douglas"]}];
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var W = 940, H = 240, PAD = { l: 34, r: 10, t: 18, b: 30 };
+  var YMAX = 5, BARW = 34;
+  function y(v) { return PAD.t + (YMAX - v) / YMAX * (H - PAD.t - PAD.b); }
+  function x(i) { return PAD.l + (i + 0.5) * (W - PAD.l - PAD.r) / BYES.length; }
+
+  var svg = document.getElementById("bye-chart");
+  var tip = document.getElementById("bye-tip");
+  var holder = svg.parentNode;
+  function el(name, attrs, text) {
+    var n = document.createElementNS(SVGNS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  // rounded top, flat bottom
+  function topBar(cx, y0, y1, w) {
+    var r = Math.min(4, y0 - y1), x0 = cx - w / 2;
+    return "M" + x0 + " " + y0 + " V" + (y1 + r) + " Q" + x0 + " " + y1 + " " + (x0 + r) + " " + y1 +
+           " H" + (x0 + w - r) + " Q" + (x0 + w) + " " + y1 + " " + (x0 + w) + " " + (y1 + r) + " V" + y0 + " Z";
+  }
+
+  for (var g = 0; g <= YMAX; g++) {
+    svg.appendChild(el("line", { x1: PAD.l, x2: W - PAD.r, y1: y(g), y2: y(g),
+      stroke: g === 0 ? "#8a90a8" : "#edeff6", "stroke-width": g === 0 ? 1.5 : 1 }));
+    svg.appendChild(el("text", { x: PAD.l - 8, y: y(g) + 4, "text-anchor": "end",
+      "font-size": 11, fill: "#8a90a8" }, g));
+  }
+
+  BYES.forEach(function (b, i) {
+    var cx = x(i), total = b.starters.length + b.bench.length;
+    svg.appendChild(el("text", { x: cx, y: H - 10, "text-anchor": "middle",
+      "font-size": 11, fill: "#8a90a8" }, "W" + b.week));
+    if (!total) return;
+    var s = b.starters.length;
+    if (s) svg.appendChild(el("path", { d: topBar(cx, y(0), y(s), BARW), fill: "#7239c9" }));
+    if (b.bench.length) {
+      // 2px surface gap between stacked segments
+      svg.appendChild(el("path", { d: topBar(cx, y(s) - 2, y(total), BARW), fill: "#d5c3f3" }));
+    }
+    svg.appendChild(el("text", { x: cx, y: y(total) - 7, "text-anchor": "middle",
+      "font-size": 11, "font-weight": 700, fill: "#555b73" }, total));
+
+    var hit = el("rect", { x: cx - 32, y: PAD.t, width: 64, height: H - PAD.t - PAD.b, fill: "transparent" });
+    hit.addEventListener("mousemove", function (evt) {
+      var hr = holder.getBoundingClientRect();
+      tip.hidden = false;
+      tip.innerHTML = "<b>Week " + b.week + "</b> · " + total + " on bye<br>" +
+        (b.starters.length ? "Starters: " + b.starters.join(", ") + "<br>" : "") +
+        (b.bench.length ? "Bench: " + b.bench.join(", ") : "");
+      tip.style.left = (evt.clientX - hr.left) + "px";
+      tip.style.top = (evt.clientY - hr.top) + "px";
+    });
+    hit.addEventListener("mouseleave", function () { tip.hidden = true; });
+    svg.appendChild(hit);
+  });
+})();
+</script>
+</body>
+</html>
+
