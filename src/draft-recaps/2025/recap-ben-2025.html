@@ -312,7 +312,7 @@ p { margin: 0; }
 /* ---------- offense reliance: biggest-bets rows ---------- */
 .bet-rows { display: grid; }
 .bet-row {
-  display: grid; grid-template-columns: 22px 44px 150px 120px 120px 1fr;
+  display: grid; grid-template-columns: 22px 44px minmax(150px, max-content) 120px 120px 1fr;
   gap: 14px; align-items: center;
   padding: 10px 0; border-top: 1px solid var(--divider);
   min-width: 0;
@@ -329,6 +329,8 @@ p { margin: 0; }
 .bet-who { display: grid; gap: 1px; min-width: 0; }
 .bet-who b { font-size: 0.92rem; font-weight: 800; letter-spacing: 0.02em; }
 .bet-who span { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); }
+/* one player per line — a name never wraps away from its badge */
+.bet-who .bet-p { display: block; white-space: nowrap; }
 .pos-badge {
   font-style: normal; font-size: 0.56rem; font-weight: 800;
   letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
@@ -672,7 +674,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">1</span>
               <img class="bet-logo" src="../../assets/images/team-logos/dallas.webp" alt="DAL">
-              <div class="bet-who"><b>DAL</b><span>CeeDee Lamb <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>DAL</b><span><span class="bet-p">CeeDee Lamb <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>361.0</b><span class="rank-chip rank-mid">21st</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>394.0</b><span class="rank-chip rank-bad">30th</span></div>
               <p class="bet-take"><b>Lamb</b> (~24% of roster value) is the anchor bet: a top-5 talent in a middling implied offense with the league's 30th-ranked defense. Dallas trailing means Dallas throwing, and every extra dropback is a <b>Lamb</b> target. The environment's weakness is his volume's strength.</p>
@@ -680,7 +682,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">2</span>
               <img class="bet-logo" src="../../assets/images/team-logos/philadelphia.webp" alt="PHI">
-              <div class="bet-who"><b>PHI</b><span>A.J. Brown <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>PHI</b><span><span class="bet-p">A.J. Brown <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>404.5</b><span class="rank-chip rank-good">8th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>337.5</b><span class="rank-chip rank-good">2nd</span></div>
               <p class="bet-take"><b>A.J. Brown</b> (~15% of roster value) gets the 8th-best implied offense with the 2nd-best defense — a winning team that doesn't need to throw late. Elite efficiency, capped ceilings; the touchdowns come from red-zone gravity, not garbage time.</p>
@@ -688,7 +690,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">3</span>
               <img class="bet-logo" src="../../assets/images/team-logos/carolina.webp" alt="CAR">
-              <div class="bet-who"><b>CAR</b><span>Chuba Hubbard <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>CAR</b><span><span class="bet-p">Chuba Hubbard <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>348.0</b><span class="rank-chip rank-bad">25th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>389.0</b><span class="rank-chip rank-bad">26th</span></div>
               <p class="bet-take"><b>Hubbard</b> (~12% of roster value) is volume in a vacuum: the 25th-ranked implied offense with the 26th-ranked defense. He'll touch the ball plenty on a team Vegas expects to lose with. Floor bet, priced fairly.</p>
@@ -696,7 +698,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">4</span>
               <img class="bet-logo" src="../../assets/images/team-logos/newyorkgiants.webp" alt="NYG">
-              <div class="bet-who"><b>NYG</b><span>Malik Nabers <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>NYG</b><span><span class="bet-p">Malik Nabers <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>313.8</b><span class="rank-chip rank-bad">30th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>393.2</b><span class="rank-chip rank-bad">29th</span></div>
               <p class="bet-take"><b>Nabers</b> (~20% of roster value) is the league's clearest talent-versus-team bet — a top-10 player in the 30th-ranked implied offense. Target share this dominant survives bad quarterbacking; touchdown totals don't. He'll win weeks alone and lose some to his own scoreboard.</p>
@@ -704,7 +706,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">5</span>
               <img class="bet-logo" src="../../assets/images/team-logos/tennessee.webp" alt="TEN">
-              <div class="bet-who"><b>TEN</b><span>Tony Pollard <i class="pos-badge pos-rb">RB</i> Tyjae Spears <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>TEN</b><span><span class="bet-p">Tony Pollard <i class="pos-badge pos-rb">RB</i></span><span class="bet-p">Tyjae Spears <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>331.5</b><span class="rank-chip rank-bad">28th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>385.5</b><span class="rank-chip rank-bad">23rd</span></div>
               <p class="bet-take"><b>Pollard</b> and <b>Spears</b> (~8% of roster value) share the 28th-ranked implied offense — the same backfield and the same bad environment, which at least means the volume can't leave the roster. Insurance masquerading as depth.</p>

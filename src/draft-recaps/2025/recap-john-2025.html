@@ -312,7 +312,7 @@ p { margin: 0; }
 /* ---------- offense reliance: biggest-bets rows ---------- */
 .bet-rows { display: grid; }
 .bet-row {
-  display: grid; grid-template-columns: 22px 44px 150px 120px 120px 1fr;
+  display: grid; grid-template-columns: 22px 44px minmax(150px, max-content) 120px 120px 1fr;
   gap: 14px; align-items: center;
   padding: 10px 0; border-top: 1px solid var(--divider);
   min-width: 0;
@@ -329,6 +329,8 @@ p { margin: 0; }
 .bet-who { display: grid; gap: 1px; min-width: 0; }
 .bet-who b { font-size: 0.92rem; font-weight: 800; letter-spacing: 0.02em; }
 .bet-who span { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); }
+/* one player per line — a name never wraps away from its badge */
+.bet-who .bet-p { display: block; white-space: nowrap; }
 .pos-badge {
   font-style: normal; font-size: 0.56rem; font-weight: 800;
   letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
@@ -672,7 +674,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">1</span>
               <img class="bet-logo" src="../../assets/images/team-logos/baltimore.webp" alt="BAL">
-              <div class="bet-who"><b>BAL</b><span>Derrick Henry <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>BAL</b><span><span class="bet-p">Derrick Henry <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>428.2</b><span class="rank-chip rank-good">2nd</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>339.8</b><span class="rank-chip rank-good">4th</span></div>
               <p class="bet-take"><b>Derrick Henry</b> (~19% of roster value) in the 2nd-highest implied offense with a top-4 defense — the purest positive-script bet in football. Baltimore leads, Baltimore runs, <b>Henry</b> eats. The age risk never left, but no environment hides it better.</p>
@@ -680,7 +682,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">2</span>
               <img class="bet-logo" src="../../assets/images/team-logos/detroit.webp" alt="DET">
-              <div class="bet-who"><b>DET</b><span>A. St. Brown <i class="pos-badge pos-wr">WR</i> David Montgomery <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>DET</b><span><span class="bet-p">A. St. Brown <i class="pos-badge pos-wr">WR</i></span><span class="bet-p">David Montgomery <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>407.2</b><span class="rank-chip rank-good">6th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>368.8</b><span class="rank-chip rank-mid">15th</span></div>
               <p class="bet-take">St. Brown and <b>Montgomery</b> (~24% of roster value together) ride the 6th-ranked implied offense. St. Brown is the safest target-share bet in the league; <b>Montgomery</b> is the touchdown half of a committee. Two players, one elite offense, no shared downside except the Week 8 bye.</p>
@@ -688,7 +690,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">3</span>
               <img class="bet-logo" src="../../assets/images/team-logos/philadelphia.webp" alt="PHI">
-              <div class="bet-who"><b>PHI</b><span>Jalen Hurts <i class="pos-badge pos-qb">QB</i> Eagles <i class="pos-badge pos-def">DEF</i></span></div>
+              <div class="bet-who"><b>PHI</b><span><span class="bet-p">Jalen Hurts <i class="pos-badge pos-qb">QB</i></span><span class="bet-p">Eagles <i class="pos-badge pos-def">DEF</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>404.5</b><span class="rank-chip rank-good">8th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>337.5</b><span class="rank-chip rank-good">2nd</span></div>
               <p class="bet-take"><b>Hurts</b> plus the Eagles defense (~12% of roster value) is a same-team double: the 8th-best implied offense with the 2nd-stingiest defense. <b>Hurts</b>' rushing floor makes him blowout-proof, which matters on a team Vegas expects to blow teams out.</p>
@@ -696,7 +698,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">4</span>
               <span class="bet-logo-abbr">NYJ</span>
-              <div class="bet-who"><b>NYJ</b><span>Garrett Wilson <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>NYJ</b><span><span class="bet-p">Garrett Wilson <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>317.8</b><span class="rank-chip rank-bad">29th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>381.2</b><span class="rank-chip rank-mid">19th</span></div>
               <p class="bet-take"><b>Garrett Wilson</b> (~10% of roster value) is the talent-over-environment bet: a top-30 player in the 29th-ranked implied offense. The volume is guaranteed — nobody else in that building demands targets — but the touchdowns run through an offense Vegas priced near the bottom.</p>
@@ -704,7 +706,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">5</span>
               <img class="bet-logo" src="../../assets/images/team-logos/tennessee.webp" alt="TEN">
-              <div class="bet-who"><b>TEN</b><span>Calvin Ridley <i class="pos-badge pos-wr">WR</i> W. Robinson <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>TEN</b><span><span class="bet-p">Calvin Ridley <i class="pos-badge pos-wr">WR</i></span><span class="bet-p">W. Robinson <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>331.5</b><span class="rank-chip rank-bad">28th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>385.5</b><span class="rank-chip rank-bad">23rd</span></div>
               <p class="bet-take"><b>Ridley</b> and Wan'Dale (~4% of roster value) share the 28th-ranked implied offense and the 23rd-ranked defense — bad team, worse scripts. <b>Ridley</b>'s deep-ball profile needs scoring drives that Tennessee isn't projected to sustain. The cheapest bets on the board, priced accordingly.</p>

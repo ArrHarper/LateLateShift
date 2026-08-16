@@ -312,7 +312,7 @@ p { margin: 0; }
 /* ---------- offense reliance: biggest-bets rows ---------- */
 .bet-rows { display: grid; }
 .bet-row {
-  display: grid; grid-template-columns: 22px 44px 150px 120px 120px 1fr;
+  display: grid; grid-template-columns: 22px 44px minmax(150px, max-content) 120px 120px 1fr;
   gap: 14px; align-items: center;
   padding: 10px 0; border-top: 1px solid var(--divider);
   min-width: 0;
@@ -329,6 +329,8 @@ p { margin: 0; }
 .bet-who { display: grid; gap: 1px; min-width: 0; }
 .bet-who b { font-size: 0.92rem; font-weight: 800; letter-spacing: 0.02em; }
 .bet-who span { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); }
+/* one player per line — a name never wraps away from its badge */
+.bet-who .bet-p { display: block; white-space: nowrap; }
 .pos-badge {
   font-style: normal; font-size: 0.56rem; font-weight: 800;
   letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
@@ -672,7 +674,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">1</span>
               <img class="bet-logo" src="../../assets/images/team-logos/houston.webp" alt="HOU">
-              <div class="bet-who"><b>HOU</b><span>Nico Collins <i class="pos-badge pos-wr">WR</i> Jayden Higgins <i class="pos-badge pos-wr">WR</i> C.J. Stroud <i class="pos-badge pos-qb">QB</i></span></div>
+              <div class="bet-who"><b>HOU</b><span><span class="bet-p">Nico Collins <i class="pos-badge pos-wr">WR</i></span><span class="bet-p">Jayden Higgins <i class="pos-badge pos-wr">WR</i></span><span class="bet-p">C.J. Stroud <i class="pos-badge pos-qb">QB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>363.8</b><span class="rank-chip rank-mid">18th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>368.2</b><span class="rank-chip rank-mid">13th</span></div>
               <p class="bet-take">The biggest exposure (~17% of roster value) is a three-player Houston basket: <b>Collins</b>, <b>Stroud</b>, and rookie Higgins, in a dead-middle implied offense. <b>Collins</b> is the bet that matters — a target-share monster whose floor survives any script. The other two came nearly free.</p>
@@ -680,7 +682,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">2</span>
               <img class="bet-logo" src="../../assets/images/team-logos/greenbay.webp" alt="GB">
-              <div class="bet-who"><b>GB</b><span>Josh Jacobs <i class="pos-badge pos-rb">RB</i> Matthew Golden <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>GB</b><span><span class="bet-p">Josh Jacobs <i class="pos-badge pos-rb">RB</i></span><span class="bet-p">Matthew Golden <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>388.8</b><span class="rank-chip rank-mid">12th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>359.2</b><span class="rank-chip rank-good">7th</span></div>
               <p class="bet-take"><b>Jacobs</b> and <b>Golden</b> (~16% of roster value) ride the 12th-ranked implied offense with a top-7 defense — lead-and-run scripts, which is <b>Jacobs</b>' entire business model. The touchdown volume that made him elite last season is projected to stay.</p>
@@ -688,7 +690,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">3</span>
               <img class="bet-logo" src="../../assets/images/team-logos/arizona.webp" alt="ARI">
-              <div class="bet-who"><b>ARI</b><span>James Conner <i class="pos-badge pos-rb">RB</i> Trey Benson <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>ARI</b><span><span class="bet-p">James Conner <i class="pos-badge pos-rb">RB</i></span><span class="bet-p">Trey Benson <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>401.5</b><span class="rank-chip rank-good">9th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>400.5</b><span class="rank-chip rank-bad">32nd</span></div>
               <p class="bet-take"><b>Conner</b> and <b>Benson</b> (~9% of roster value) own the whole Cardinals backfield in the 9th-ranked implied offense — with the 32nd-ranked defense forcing shootouts. Points in both directions and every carry rostered. Quietly one of the best baskets here.</p>
@@ -696,7 +698,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">4</span>
               <img class="bet-logo" src="../../assets/images/team-logos/losangelesrams.webp" alt="LAR">
-              <div class="bet-who"><b>LAR</b><span>Davante Adams <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>LAR</b><span><span class="bet-p">Davante Adams <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>417.8</b><span class="rank-chip rank-good">4th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>380.2</b><span class="rank-chip rank-mid">18th</span></div>
               <p class="bet-take"><b>Adams</b> (~10% of roster value) joins the 4th-ranked implied offense — the best environment any receiver on this roster plays in. Age is the only discount left in his price, and Stafford's target distribution has made older receivers rich before.</p>
@@ -704,7 +706,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">5</span>
               <img class="bet-logo" src="../../assets/images/team-logos/denver.webp" alt="DEN">
-              <div class="bet-who"><b>DEN</b><span>RJ Harvey <i class="pos-badge pos-rb">RB</i> J.K. Dobbins <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>DEN</b><span><span class="bet-p">RJ Harvey <i class="pos-badge pos-rb">RB</i></span><span class="bet-p">J.K. Dobbins <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>378.5</b><span class="rank-chip rank-mid">15th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>342.5</b><span class="rank-chip rank-good">5th</span></div>
               <p class="bet-take"><b>Harvey</b> and <b>Dobbins</b> (~7% of roster value) split Denver's backfield in a middling offense with a top-5 defense — positive scripts, run-heavy closes, and both halves of the committee rostered. The <b>Harvey</b> pick (+14) was the draft's first steal.</p>

@@ -312,7 +312,7 @@ p { margin: 0; }
 /* ---------- offense reliance: biggest-bets rows ---------- */
 .bet-rows { display: grid; }
 .bet-row {
-  display: grid; grid-template-columns: 22px 44px 150px 120px 120px 1fr;
+  display: grid; grid-template-columns: 22px 44px minmax(150px, max-content) 120px 120px 1fr;
   gap: 14px; align-items: center;
   padding: 10px 0; border-top: 1px solid var(--divider);
   min-width: 0;
@@ -329,6 +329,8 @@ p { margin: 0; }
 .bet-who { display: grid; gap: 1px; min-width: 0; }
 .bet-who b { font-size: 0.92rem; font-weight: 800; letter-spacing: 0.02em; }
 .bet-who span { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); }
+/* one player per line — a name never wraps away from its badge */
+.bet-who .bet-p { display: block; white-space: nowrap; }
 .pos-badge {
   font-style: normal; font-size: 0.56rem; font-weight: 800;
   letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
@@ -672,7 +674,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">1</span>
               <img class="bet-logo" src="../../assets/images/team-logos/minnesota.webp" alt="MIN">
-              <div class="bet-who"><b>MIN</b><span>Justin Jefferson <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>MIN</b><span><span class="bet-p">Justin Jefferson <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>363.2</b><span class="rank-chip rank-mid">20th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>366.8</b><span class="rank-chip rank-mid">11th</span></div>
               <p class="bet-take"><b>Jefferson</b> (~27% of roster value) is the single biggest bet, in the 20th-ranked implied offense with a new quarterback. He's also <b>Justin Jefferson</b> — the most environment-proof receiver alive. The bet isn't on Minnesota scoring; it's on <b>Jefferson</b> eating whatever share of it exists.</p>
@@ -680,7 +682,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">2</span>
               <span class="bet-logo-abbr">NYJ</span>
-              <div class="bet-who"><b>NYJ</b><span>Breece Hall <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>NYJ</b><span><span class="bet-p">Breece Hall <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>317.8</b><span class="rank-chip rank-bad">29th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>381.2</b><span class="rank-chip rank-mid">19th</span></div>
               <p class="bet-take">Breece (~13% of roster value) plays for the 29th-ranked implied offense — the market's whole case against his keeper cost in one number. The volume should be there; the touchdowns are projected not to be. He needs to beat his environment just to break even on his price.</p>
@@ -688,7 +690,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">3</span>
               <img class="bet-logo" src="../../assets/images/team-logos/arizona.webp" alt="ARI">
-              <div class="bet-who"><b>ARI</b><span>Marvin Harrison <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>ARI</b><span><span class="bet-p">Marvin Harrison <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>401.5</b><span class="rank-chip rank-good">9th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>400.5</b><span class="rank-chip rank-bad">32nd</span></div>
               <p class="bet-take"><b>Marvin Harrison</b> Jr. (~12% of roster value) gets the 9th-ranked implied offense and the 32nd-ranked defense — scoring and shootouts, the perfect year-two breakout environment. The best environment-per-dollar bet on this roster.</p>
@@ -696,7 +698,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">4</span>
               <img class="bet-logo" src="../../assets/images/team-logos/chicago.webp" alt="CHI">
-              <div class="bet-who"><b>CHI</b><span>D'Andre Swift <i class="pos-badge pos-rb">RB</i> Caleb Williams <i class="pos-badge pos-qb">QB</i></span></div>
+              <div class="bet-who"><b>CHI</b><span><span class="bet-p">D'Andre Swift <i class="pos-badge pos-rb">RB</i></span><span class="bet-p">Caleb Williams <i class="pos-badge pos-qb">QB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>368.8</b><span class="rank-chip rank-mid">16th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>377.2</b><span class="rank-chip rank-mid">16th</span></div>
               <p class="bet-take"><b>Swift</b> and <b>Caleb Williams</b> (~10% of roster value) share a dead-middle Chicago offense with a new play-caller. <b>Swift</b> was paid a premium for a committee role; Caleb was acquired for free. One of these prices was right.</p>
@@ -704,7 +706,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">5</span>
               <img class="bet-logo" src="../../assets/images/team-logos/baltimore.webp" alt="BAL">
-              <div class="bet-who"><b>BAL</b><span>Lamar Jackson <i class="pos-badge pos-qb">QB</i> Zay Flowers <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>BAL</b><span><span class="bet-p">Lamar Jackson <i class="pos-badge pos-qb">QB</i></span><span class="bet-p">Zay Flowers <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>428.2</b><span class="rank-chip rank-good">2nd</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>339.8</b><span class="rank-chip rank-good">4th</span></div>
               <p class="bet-take">Lamar and <b>Flowers</b> (~25% of roster value) stack the 2nd-highest implied offense with a top-4 defense. Lamar's rushing makes him blowout-proof, and <b>Flowers</b> profits from every scoring drive. The strongest same-team double in the league.</p>
