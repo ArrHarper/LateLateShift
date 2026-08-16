@@ -648,7 +648,10 @@ main { display: block; flex: 1 0 auto; }
 .slot.slot-dst { border-left-color: var(--pos-dst); } .slot-dst i { color: var(--pos-dst); }
 .slot.slot-flex { border-left-color: var(--pos-flex); } .slot-flex i { color: var(--pos-flex); }
 
-.prose { font-size: 0.9rem; color: var(--ink-2); max-width: 66ch; margin-bottom: 14px; }
+/* Body copy sitting directly on the article surface runs to 88ch so it fills
+   most of the content column; text inside its own tinted block (.example,
+   .callout) keeps a narrower measure. */
+.prose { font-size: 0.9rem; color: var(--ink-2); max-width: 88ch; margin-bottom: 14px; }
 .prose b { color: var(--ink); }
 
 .callout {
@@ -676,7 +679,7 @@ main { display: block; flex: 1 0 auto; }
   padding-left: 20px;
   font-size: 0.9rem;
   color: var(--ink-2);
-  max-width: 62ch;
+  max-width: 88ch;
 }
 .rule-list li { margin-bottom: 6px; }
 .rule-list b { color: var(--ink); }
@@ -702,7 +705,7 @@ main { display: block; flex: 1 0 auto; }
 .example ol li { margin-bottom: 3px; }
 
 .faq h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
-.faq p { margin-bottom: 14px; font-size: 0.86rem; color: var(--ink-2); max-width: 64ch; }
+.faq p { margin-bottom: 14px; font-size: 0.86rem; color: var(--ink-2); max-width: 88ch; }
 
 /* ---------- records page ---------- */
 .champ-grid {
