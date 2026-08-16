@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -31,6 +31,9 @@
   --tint-blue: #dfeefb; --tint-red: #fdeceb; --tint-amber: #fdf3df;
   --ink: #1a1d2b; --ink-2: #000000; --ink-3: #8a90a8;
   --on-navy: #eef0fa; --on-navy-dim: #9aa3c0;
+  /* position badges — keep in sync with css/tokens.css --pos-* */
+  --pos-qb: #a31f64; --pos-rb: #0b6f60; --pos-wr: #3650b8; --pos-te: #8a7400;
+  --pos-k: #c93b36; --pos-dst: #4a5270; --pos-flex: #6b5bb5; --pos-none: #8a90a8;
   --font-sans: "Archivo", "Segoe UI", system-ui, -apple-system, sans-serif;
   --r-sm: 4px; --r-md: 6px; --r-lg: 8px;
   --gap: 22px; --gap-sm: 14px; --section-gap: 26px;
@@ -178,6 +181,34 @@ p { margin: 0; }
 .mod-bd p + p { margin-top: 10px; }
 .mod-bd b { color: var(--ink); }
 
+/* ---------- league standings side rail (opt-in, build.py --sidebar) ----------
+   Parked outside the centred column: absolutely positioned off the viewport
+   midline, so the 1080px content column never moves whether the rail is there
+   or not. Needs 1540px of viewport to sit alongside; below that it drops into
+   normal flow underneath the page as a three-across strip — still no shift. */
+main { position: relative; }
+.side-rail { position: absolute; top: 22px; left: calc(50% + 540px + 18px); width: 196px; }
+.side-rail .rail-inner { position: sticky; top: 18px; display: grid; gap: 14px; }
+.rail-mod .mod-head { padding: 6px 12px; min-height: 34px; }
+.rail-mod .mod-head h3 { font-size: 0.6rem; letter-spacing: 0.1em; }
+.rail-list { list-style: none; margin: 0; padding: 6px 0; }
+.rail-list li { display: flex; align-items: center; gap: 8px; padding: 3px 12px; font-size: 0.74rem; }
+.rail-list .rk { width: 13px; text-align: right; flex: none; color: var(--ink-3); font-weight: 700; font-variant-numeric: tabular-nums; }
+.rail-list .nm { margin-right: auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-2); text-decoration: none; }
+.rail-list a.nm:hover { color: var(--ink); text-decoration: underline; }
+.rail-list a.nm:active { color: var(--blue); }
+.rail-list a.nm:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 2px; }
+.rail-list .gr { flex: none; font-size: 0.64rem; font-weight: 800; padding: 1px 6px; border-radius: 999px; }
+.rail-list li.is-me { background: var(--tint-purple); }
+.rail-list li.is-me .nm { color: var(--ink); font-weight: 800; }
+@media (max-width: 1540px) {
+  .side-rail { position: static; width: auto; max-width: 1080px; margin-inline: auto; padding: 0 20px 34px; }
+  .side-rail .rail-inner { position: static; grid-template-columns: repeat(3, 1fr); gap: var(--gap-sm); }
+}
+@media (max-width: 700px) {
+  .side-rail .rail-inner { grid-template-columns: 1fr; }
+}
+
 .split-main-rail { display: grid; grid-template-columns: 1.9fr 1fr; gap: var(--gap); align-items: start; }
 .duo-even { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-sm); align-items: stretch; }
 
@@ -254,7 +285,7 @@ p { margin: 0; }
 .portrait-blue { background: #e0eafb; }
 .portrait-red { background: var(--tint-red); }
 
-/* best/worst pick cards */
+/* biggest value / biggest reach pick cards */
 .pick-card .mod-head.head-blue { background: #2563c9; }
 .pick-card .mod-head.head-red { background: var(--red-ink); }
 .pick-card .who { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
@@ -378,11 +409,14 @@ p { margin: 0; }
 .team-banner .ava.ava-init { display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1.4rem; background: linear-gradient(135deg, var(--purple), var(--blue)); }
 .bet-logo-abbr { width: 44px; height: 44px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.04em; }
 
-/* ---------- per-position badge colors (own coding, separate from the site palette) ---------- */
-.pos-badge.pos-qb { background: #a31f64; color: #ffffff; }
-.pos-badge.pos-rb { background: #0b6f60; color: #ffffff; }
-.pos-badge.pos-wr { background: #3650b8; color: #ffffff; }
-.pos-badge.pos-te { background: #c0a500; color: #ffffff; }
+/* ---------- per-position badge colors — site-wide standard, see css/tokens.css ---------- */
+.pos-badge.pos-qb { background: var(--pos-qb); color: #ffffff; }
+.pos-badge.pos-rb { background: var(--pos-rb); color: #ffffff; }
+.pos-badge.pos-wr { background: var(--pos-wr); color: #ffffff; }
+.pos-badge.pos-te { background: var(--pos-te); color: #ffffff; }
+.pos-badge.pos-k { background: var(--pos-k); color: #ffffff; }
+.pos-badge.pos-dst { background: var(--pos-dst); color: #ffffff; }
+.pos-badge.pos-flex { background: var(--pos-flex); color: #ffffff; }
 
 /* ---------- entrance + scroll-reveal motion (js-anim set only when motion is OK) ---------- */
 @media (prefers-reduced-motion: no-preference) {
@@ -536,7 +570,7 @@ p { margin: 0; }
 
       <div class="duo-even" style="margin-bottom: var(--gap-sm);">
         <div class="mod pick-card">
-          <div class="mod-head head-blue"><h3>✓ Best Pick</h3></div>
+          <div class="mod-head head-blue"><h3>✓ Biggest Value</h3></div>
           <div class="mod-bd with-portrait">
             <div class="portrait portrait-blue"><img src="https://s.yimg.com/iu/api/res/1.2/mvlMpuWhh8joskCw1hiVkg--~C/YXBwaWQ9eXNwb3J0cztmaT1maWxsO2g9MTUwO3E9ODA7dz0xNTA-/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08152025/30295.png" alt="Aaron Jones Sr."></div>
             <div class="tx">
@@ -546,7 +580,7 @@ p { margin: 0; }
           </div>
         </div>
         <div class="mod pick-card">
-          <div class="mod-head head-red"><h3>✗ Worst Pick</h3></div>
+          <div class="mod-head head-red"><h3>✗ Biggest Reach</h3></div>
           <div class="mod-bd with-portrait">
             <div class="portrait portrait-red"><img src="https://s.yimg.com/iu/api/res/1.2/Yvokd.yXoQdWciGZAj120Q--~C/YXBwaWQ9eXNwb3J0cztmaT1maWxsO2g9MTUwO3E9ODA7dz0xNTA-/https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/33394.1.png" alt="Jaylen Waddle"></div>
             <div class="tx">
@@ -746,6 +780,55 @@ p { margin: 0; }
     </section>
 
   </div>
+  <aside class="side-rail" aria-label="League-wide grade standings">
+    <div class="rail-inner">
+      <div class="mod rail-mod">
+        <div class="mod-head"><h3>🔒 Keeper Grades</h3></div>
+        <ol class="rail-list">
+          <li><span class="rk">1</span><a class="nm" href="recap-uzoma-2025.html">Uzoma</a><span class="gr chip-good">A</span></li>
+          <li><span class="rk">2</span><a class="nm" href="recap-ray-2025.html">Ray</a><span class="gr chip-good">A</span></li>
+          <li><span class="rk">3</span><a class="nm" href="recap-john-2025.html">John</a><span class="gr chip-good">A</span></li>
+          <li><span class="rk">4</span><a class="nm" href="recap-harper-2025.html">Harper</a><span class="gr chip-good">A</span></li>
+          <li><span class="rk">5</span><a class="nm" href="recap-price-2025.html">Price</a><span class="gr chip-good">A-</span></li>
+          <li><span class="rk">6</span><a class="nm" href="recap-dave-2025.html">Dave</a><span class="gr chip-good">A-</span></li>
+          <li><span class="rk">7</span><a class="nm" href="recap-colin-2025.html">Colin</a><span class="gr chip-good">A-</span></li>
+          <li><span class="rk">8</span><a class="nm" href="recap-ben-2025.html">Ben</a><span class="gr chip-good">A-</span></li>
+          <li class="is-me"><span class="rk">9</span><span class="nm">TK</span><span class="gr chip-mid">B</span></li>
+          <li><span class="rk">10</span><a class="nm" href="recap-cass-2025.html">Cass</a><span class="gr chip-bad">D</span></li>
+        </ol>
+      </div>
+      <div class="mod rail-mod">
+        <div class="mod-head"><h3>📊 Draft Grades</h3></div>
+        <ol class="rail-list">
+          <li><span class="rk">1</span><a class="nm" href="recap-ray-2025.html">Ray</a><span class="gr chip-good">A-</span></li>
+          <li><span class="rk">2</span><a class="nm" href="recap-colin-2025.html">Colin</a><span class="gr chip-good">A-</span></li>
+          <li><span class="rk">3</span><a class="nm" href="recap-uzoma-2025.html">Uzoma</a><span class="gr chip-mid">B+</span></li>
+          <li><span class="rk">4</span><a class="nm" href="recap-john-2025.html">John</a><span class="gr chip-mid">B+</span></li>
+          <li><span class="rk">5</span><a class="nm" href="recap-dave-2025.html">Dave</a><span class="gr chip-mid">B-</span></li>
+          <li class="is-me"><span class="rk">6</span><span class="nm">TK</span><span class="gr chip-mid">B-</span></li>
+          <li><span class="rk">7</span><a class="nm" href="recap-cass-2025.html">Cass</a><span class="gr chip-bad">C</span></li>
+          <li><span class="rk">8</span><a class="nm" href="recap-harper-2025.html">Harper</a><span class="gr chip-bad">C</span></li>
+          <li><span class="rk">9</span><a class="nm" href="recap-ben-2025.html">Ben</a><span class="gr chip-bad">C</span></li>
+          <li><span class="rk">10</span><a class="nm" href="recap-price-2025.html">Price</a><span class="gr chip-bad">C-</span></li>
+        </ol>
+      </div>
+      <div class="mod rail-mod">
+        <div class="mod-head"><h3>🏗️ Roster Grades</h3></div>
+        <ol class="rail-list">
+          <li class="is-me"><span class="rk">1</span><span class="nm">TK</span><span class="gr chip-good">A</span></li>
+          <li><span class="rk">2</span><a class="nm" href="recap-colin-2025.html">Colin</a><span class="gr chip-good">A</span></li>
+          <li><span class="rk">3</span><a class="nm" href="recap-price-2025.html">Price</a><span class="gr chip-good">A-</span></li>
+          <li><span class="rk">4</span><a class="nm" href="recap-john-2025.html">John</a><span class="gr chip-mid">B+</span></li>
+          <li><span class="rk">5</span><a class="nm" href="recap-ben-2025.html">Ben</a><span class="gr chip-mid">B+</span></li>
+          <li><span class="rk">6</span><a class="nm" href="recap-uzoma-2025.html">Uzoma</a><span class="gr chip-mid">B</span></li>
+          <li><span class="rk">7</span><a class="nm" href="recap-ray-2025.html">Ray</a><span class="gr chip-mid">B</span></li>
+          <li><span class="rk">8</span><a class="nm" href="recap-cass-2025.html">Cass</a><span class="gr chip-bad">C+</span></li>
+          <li><span class="rk">9</span><a class="nm" href="recap-dave-2025.html">Dave</a><span class="gr chip-bad">C+</span></li>
+          <li><span class="rk">10</span><a class="nm" href="recap-harper-2025.html">Harper</a><span class="gr chip-bad">C+</span></li>
+        </ol>
+      </div>
+    </div>
+  </aside>
 </main>
 
 <footer class="site-footer">
@@ -988,4 +1071,3 @@ p { margin: 0; }
 </script>
 </body>
 </html>
-
