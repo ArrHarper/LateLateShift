@@ -11,7 +11,8 @@
 
 body {
   margin: 0;
-  background: var(--ground);
+  /* playbook X's and O's, navy at ~5% opacity on --ground */
+  background: var(--ground) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cg fill='none' stroke='%230b0e1a' stroke-opacity='.055' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M20 20 q4 5 11 12 M31 21 q-5 5 -10 10'/%3E%3Cpath d='M74 67 c4 .4 6.6 3.4 6.2 7.2 c-.4 3.9 -3.8 6.6 -7.4 6 c-3.6 -.6 -5.8 -3.8 -5.2 -7.4 c.5 -3.3 3.2 -6 6.4 -5.8'/%3E%3C/g%3E%3C/svg%3E");
   color: var(--ink);
   font-family: var(--font-sans);
   font-weight: 400;
@@ -542,7 +543,21 @@ main { display: block; flex: 1 0 auto; }
   gap: var(--section-gap);
   align-items: start;
 }
-.rules-col { display: grid; gap: var(--section-gap); min-width: 0; }
+.rules-col {
+  display: grid;
+  gap: var(--section-gap);
+  min-width: 0;
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: 22px 26px 26px;
+}
+/* Inside the white article body, surface-colored elements flip to ground fill
+   so they stay distinct from the article surface. */
+.rules-col .fact,
+.rules-col .slot,
+.rules-col .lls-table-wrap,
+.rules-col .lls-table { background: var(--ground); }
+.rules-col .lls-table td { border-top-color: #dfe2f0; }
 
 .toc-mod { position: sticky; top: 12px; }
 .toc-mod ol { list-style: none; margin: 0; padding: 6px 0; }
@@ -719,6 +734,7 @@ main { display: block; flex: 1 0 auto; }
   .site-nav.nav-open .nav-cta { display: inline-block; margin: 4px 8px 12px; }
   .rules-grid { grid-template-columns: 1fr; }
   .toc-mod { position: static; order: -1; }
+  .rules-col { padding: 16px 16px 20px; }
 }
 
 @media (max-width: 760px) {
