@@ -62,6 +62,8 @@ p { margin: 0; }
   background: var(--navy);
   display: flex; align-items: center; gap: 20px;
   padding: 20px 26px;
+  /* tall enough that 158px hero cutouts keep full headroom; clips their bottom bleed */
+  position: relative; overflow: hidden; min-height: 168px;
 }
 .team-banner .ava {
   width: 74px; height: 74px; border-radius: 50%; flex: none;
@@ -361,7 +363,8 @@ p { margin: 0; }
 }
 @media (max-width: 760px) {
   .split-main-rail { grid-template-columns: 1fr; }
-  .team-banner { flex-wrap: wrap; padding: 16px 20px; gap: 14px; }
+  .team-banner { flex-wrap: wrap; padding: 16px 20px; gap: 14px; min-height: 0; }
+  .hero-art { display: none; }
   .team-banner .ava { width: 56px; height: 56px; }
   .team-banner .grade-box { border-left: 0; padding-left: 0; margin-left: 0; flex-basis: 100%; justify-items: start; text-align: left; border-top: 1px solid var(--navy-line); padding-top: 10px; }
   .page-head .summary { padding: 16px 20px 18px; grid-template-columns: 1fr; gap: 18px; }
@@ -494,16 +497,22 @@ p { margin: 0; }
       <div class="duo-even">
         <div class="mod keeper-card">
           <div class="mod-head"><h3>Keeper · Round 5</h3></div>
-          <div class="mod-bd">
+          <div class="mod-bd with-portrait">
+            <div class="portrait"><img src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08112026/31002.1.png" alt="Lamar Jackson"></div>
+            <div class="tx">
             <div class="value-line"><b>Lamar Jackson</b> <span class="cost">QB · BAL</span> <span class="pill pill-steal">+25 picks of value</span></div>
             <p>The good half of the ledger: a top-3 fantasy quarterback kept for a 5th-round cost. Locking elite QB production while the room pays 2nds and 3rds for the position is real, repeatable value.</p>
+            </div>
           </div>
         </div>
         <div class="mod keeper-card">
           <div class="mod-head"><h3>Keeper · Round 2</h3></div>
-          <div class="mod-bd">
+          <div class="mod-bd with-portrait">
+            <div class="portrait"><img src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09182025/33991.png" alt="Breece Hall"></div>
+            <div class="tx">
             <div class="value-line"><b>Breece Hall</b> <span class="cost">RB · NYJ</span> <span class="pill pill-steal">−24 picks of value</span></div>
             <p>The league's only negative keeper. <b>Hall</b> cost a 2nd-round slot while the market had drifted to the 4th — loyalty to the 2024 version of the player, billed at 2025 prices. Every other manager's keeper page is a brag sheet; this one is a receipt.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -520,16 +529,22 @@ p { margin: 0; }
       <div class="duo-even" style="margin-bottom: var(--gap-sm);">
         <div class="mod pick-card">
           <div class="mod-head head-blue"><h3>✓ Best Pick</h3></div>
-          <div class="mod-bd">
+          <div class="mod-bd with-portrait">
+            <div class="portrait portrait-blue"><img src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08012025/40900.png" alt="Caleb Williams"></div>
+            <div class="tx">
             <div class="who"><b>Caleb Williams</b> <span>QB · Round 16</span></div>
             <p>Fell 47 picks past his league price in Round 16 — a former first-overall pick in a new offense, acquired as a throwaway. With Lamar already rostered it's pure upside insurance, and the best late value on this board.</p>
+            </div>
           </div>
         </div>
         <div class="mod pick-card">
           <div class="mod-head head-red"><h3>✗ Worst Pick</h3></div>
-          <div class="mod-bd">
+          <div class="mod-bd with-portrait">
+            <div class="portrait portrait-red"><img src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/03132026/32704.1.png" alt="Michael Pittman Jr."></div>
+            <div class="tx">
             <div class="who"><b>Michael Pittman Jr.</b> <span>WR · Round 10</span></div>
             <p>Taken 21 picks before his league price in Round 10 — a target-hog reputation attached to the 24th-ranked implied offense. The one clear overpay on an otherwise disciplined board.</p>
+            </div>
           </div>
         </div>
       </div>

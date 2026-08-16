@@ -62,6 +62,8 @@ p { margin: 0; }
   background: var(--navy);
   display: flex; align-items: center; gap: 20px;
   padding: 20px 26px;
+  /* tall enough that 158px hero cutouts keep full headroom; clips their bottom bleed */
+  position: relative; overflow: hidden; min-height: 168px;
 }
 .team-banner .ava {
   width: 74px; height: 74px; border-radius: 50%; flex: none;
@@ -361,7 +363,8 @@ p { margin: 0; }
 }
 @media (max-width: 760px) {
   .split-main-rail { grid-template-columns: 1fr; }
-  .team-banner { flex-wrap: wrap; padding: 16px 20px; gap: 14px; }
+  .team-banner { flex-wrap: wrap; padding: 16px 20px; gap: 14px; min-height: 0; }
+  .hero-art { display: none; }
   .team-banner .ava { width: 56px; height: 56px; }
   .team-banner .grade-box { border-left: 0; padding-left: 0; margin-left: 0; flex-basis: 100%; justify-items: start; text-align: left; border-top: 1px solid var(--navy-line); padding-top: 10px; }
   .page-head .summary { padding: 16px 20px 18px; grid-template-columns: 1fr; gap: 18px; }
@@ -494,16 +497,22 @@ p { margin: 0; }
       <div class="duo-even">
         <div class="mod keeper-card">
           <div class="mod-head"><h3>Keeper · Round 6</h3></div>
-          <div class="mod-bd">
+          <div class="mod-bd with-portrait">
+            <div class="portrait"><img src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252025/40168.png" alt="Puka Nacua"></div>
+            <div class="tx">
             <div class="value-line"><b>Puka Nacua</b> <span class="cost">WR · LAR</span> <span class="pill pill-steal">+45 picks of value</span></div>
             <p>A top-15 player kept for a 6th-round cost, in year two of the keep. The team is named after him for a reason — this is one of the five best keeper values in the league, and the engine of the whole roster.</p>
+            </div>
           </div>
         </div>
         <div class="mod keeper-card">
           <div class="mod-head"><h3>Keeper · Round 5</h3></div>
-          <div class="mod-bd">
+          <div class="mod-bd with-portrait">
+            <div class="portrait"><img src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08052026/34010.1.png" alt="Trey McBride"></div>
+            <div class="tx">
             <div class="value-line"><b>Trey McBride</b> <span class="cost">TE · ARI</span> <span class="pill pill-steal">+14 picks of value</span></div>
             <p>The consensus TE2 for a 5th-round cost — a modest discount on paper, but locking the position's scarcest tier while everyone else bargain-hunts at tight end is worth more than the number shows.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -520,16 +529,22 @@ p { margin: 0; }
       <div class="duo-even" style="margin-bottom: var(--gap-sm);">
         <div class="mod pick-card">
           <div class="mod-head head-blue"><h3>✓ Best Pick</h3></div>
-          <div class="mod-bd">
+          <div class="mod-bd with-portrait">
+            <div class="portrait portrait-blue"><img src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08132026/29235.1.png" alt="Jared Goff"></div>
+            <div class="tx">
             <div class="who"><b>Jared Goff</b> <span>QB · Round 16</span></div>
             <p>Fell 61 picks past his league price — a top-12 fantasy quarterback acquired in Round 16 as an afterthought. The kind of value that only exists because the whole room already had a QB, and the one moment this draft let the board come to it.</p>
+            </div>
           </div>
         </div>
         <div class="mod pick-card">
           <div class="mod-head head-red"><h3>✗ Worst Pick</h3></div>
-          <div class="mod-bd">
+          <div class="mod-bd with-portrait">
+            <div class="portrait portrait-red"><img src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08062025/41907.png" alt="Dylan Sampson"></div>
+            <div class="tx">
             <div class="who"><b>Dylan Sampson</b> <span>RB · Round 10</span></div>
             <p>Taken 50 picks before his league price — a rookie committee back grabbed in Round 10 while proven players sat on the board. The steepest of this draft's six reaches, and the clearest case of drafting the ranking you hope for instead of the one that exists.</p>
+            </div>
           </div>
         </div>
       </div>

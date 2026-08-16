@@ -57,8 +57,11 @@ a { text-decoration:none; color:inherit; }
   clip-path:polygon(22px 0, 100% 0, 100% 100%, 0 100%);
 }
 .grade-panel b { font-size:1.7rem; font-weight:800; line-height:1.05; letter-spacing:-.02em; }
+.grade-panel b.lt-good { color:#6fdb96; }
+.grade-panel b.lt-mid { color:#f2c14e; }
+.grade-panel b.lt-bad { color:#f0837e; }
 .grade-panel i { font-style:normal; font-size:.6rem; font-weight:800; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--red); white-space:nowrap; }
+  text-transform:uppercase; color:var(--on-navy-dim); white-space:nowrap; }
 /* podium: metallic rank badge + a tinted rail down the left edge */
 .medal { position:relative; }
 .medal .rk { color:#241c02; }
@@ -86,11 +89,12 @@ a { text-decoration:none; color:inherit; }
 .fact { background:var(--surface); border-radius:var(--r-md); padding:12px 14px; }
 .fact .cap { font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; font-weight:800; margin-bottom:3px; }
 .fact .val { font-size:1.35rem; font-weight:800; font-variant-numeric:tabular-nums; line-height:1.15; }
-.fact-blue .cap, .fact-blue .val, .fact-qb .cap, .fact-qb .val { color:#1d5d94; }
-.fact-purple .cap, .fact-purple .val, .fact-rb .cap, .fact-rb .val { color:#7239c9; }
-.fact-red .cap, .fact-red .val { color:#c93b36; }
-.fact-wr .cap, .fact-wr .val { color:#5b2f9e; }
-.fact-te .cap, .fact-te .val { color:#7b4fc4; }
+.fact-blue .cap, .fact-blue .val { color:#1d4fa3; }
+.fact-red .cap, .fact-red .val { color:#c43530; }
+.fact-qb .cap, .fact-qb .val { color:#a31f64; }
+.fact-rb .cap, .fact-rb .val { color:#0b6f60; }
+.fact-wr .cap, .fact-wr .val { color:#3650b8; }
+.fact-te .cap, .fact-te .val { color:#8f7b00; }
 .fact .detail { font-size:.74rem; color:var(--ink-2); }
 .tbl-note { font-size:.78rem; color:var(--ink-3); font-style:italic; }
 .lls-table-wrap { overflow-x:auto; max-width:100%; background:var(--surface); border-radius:var(--r-md); }
@@ -111,9 +115,9 @@ a { text-decoration:none; color:inherit; }
 .lls-table th.sortable:focus-visible { outline:2px solid var(--blue); outline-offset:-2px; }
 .pv-team { color:var(--ink-3); font-size:.76rem; max-width:220px; overflow:hidden;
   text-overflow:ellipsis; white-space:nowrap; }
-.pv-hi { background:var(--tint-purple-2); font-weight:700; }
-.pv-lo { background:var(--tint-blue); }
-.pv-neg { background:var(--tint-red); color:var(--red-ink); font-weight:700; }
+.pv-hi { background:#d9e5fa; font-weight:700; }
+.pv-lo { background:#eceef4; }
+.pv-neg { background:var(--tint-red); color:#c43530; font-weight:700; }
 .pv-na { color:var(--ink-3); }
 .pv-total { font-weight:800; }
 .site-footer { background:var(--navy); margin-top:12px; }
@@ -155,70 +159,70 @@ a { text-decoration:none; color:inherit; }
         <span class="ava"><img src="../../assets/images/manager-avatars/tk.png" alt=""></span>
         <span class="who"><b>Gibbs Me Da Gold</b><span>TK · Pick 3</span></span>
         <span class="hook">Dominant RB room with the largest projected point share of any position, paired with the worst WR room in the league.</span>
-        <span class="grade-panel"><b>A</b><i>Roster Grade</i></span>
+        <span class="grade-panel"><b class="lt-good">A</b><i>Roster Grade</i></span>
       </a>
       <a class="team-card medal medal-2" href="recap-colin-2025.html">
         <span class="rk">2</span>
         <span class="ava"><img src="../../assets/images/manager-avatars/colin.png" alt=""></span>
         <span class="who"><b>Eat the W</b><span>Colin · Pick 1</span></span>
         <span class="hook">The league's best WR room, undercut by an RB group ranked 8th and roughly half the league average.</span>
-        <span class="grade-panel"><b>A</b><i>Roster Grade</i></span>
+        <span class="grade-panel"><b class="lt-good">A</b><i>Roster Grade</i></span>
       </a>
       <a class="team-card medal medal-3" href="recap-price-2025.html">
         <span class="rk">3</span>
         <span class="ava"><img src="../../assets/images/manager-avatars/price.png" alt=""></span>
         <span class="who"><b>Nacua Matata</b><span>Price · Pick 2</span></span>
         <span class="hook">Best QB room and second-best TE room, built on the second-worst RB group in the league.</span>
-        <span class="grade-panel"><b>A-</b><i>Roster Grade</i></span>
+        <span class="grade-panel"><b class="lt-good">A-</b><i>Roster Grade</i></span>
       </a>
       <a class="team-card" href="recap-john-2025.html">
         <span class="rk">4</span>
         <span class="ava"><img src="../../assets/images/manager-avatars/john.jpg" alt=""></span>
         <span class="who"><b>Piccolos Cage</b><span>John · Pick 5</span></span>
         <span class="hook">The most balanced roster in the league, but no strong positional dominance.</span>
-        <span class="grade-panel"><b>B+</b><i>Roster Grade</i></span>
+        <span class="grade-panel"><b class="lt-mid">B+</b><i>Roster Grade</i></span>
       </a>
       <a class="team-card" href="recap-ben-2025.html">
         <span class="rk">5</span>
         <span class="ava"><img src="../../assets/images/manager-avatars/ben.jpg" alt=""></span>
         <span class="who"><b>Herbert Fully Loaded</b><span>Ben · Pick 9</span></span>
         <span class="hook">Second-best WR room in the league, paired with the only negative QB value and a bottom-two TE room.</span>
-        <span class="grade-panel"><b>B+</b><i>Roster Grade</i></span>
+        <span class="grade-panel"><b class="lt-mid">B+</b><i>Roster Grade</i></span>
       </a>
       <a class="team-card" href="recap-uzoma-2025.html">
         <span class="rk">6</span>
         <span class="ava"><img src="../../assets/images/manager-avatars/uzoma.png" alt=""></span>
         <span class="who"><b>Wraith's Voidwalkers</b><span>Uzoma · Pick 10</span></span>
         <span class="hook">Top-three at both QB and WR, offset by below-average RB and TE rooms.</span>
-        <span class="grade-panel"><b>B</b><i>Roster Grade</i></span>
+        <span class="grade-panel"><b class="lt-mid">B</b><i>Roster Grade</i></span>
       </a>
       <a class="team-card" href="recap-ray-2025.html">
         <span class="rk">7</span>
         <span class="ava"><img src="../../assets/images/manager-avatars/ray.jpg" alt=""></span>
         <span class="who"><b>Big Diggs and My Chubb</b><span>Ray · Pick 8</span></span>
         <span class="hook">Top-two RB room and a top-three TE room, with receivers the only group below league average.</span>
-        <span class="grade-panel"><b>B</b><i>Roster Grade</i></span>
+        <span class="grade-panel"><b class="lt-mid">B</b><i>Roster Grade</i></span>
       </a>
       <a class="team-card" href="recap-cass-2025.html">
         <span class="rk">8</span>
         <span class="ava"><img src="../../assets/images/manager-avatars/cass.png" alt=""></span>
         <span class="who"><b>Breece's Pieces</b><span>Cass · Pick 7</span></span>
         <span class="hook">Top-two QB and top-four WR rooms, with the worst RB room in the league by a wide margin.</span>
-        <span class="grade-panel"><b>C+</b><i>Roster Grade</i></span>
+        <span class="grade-panel"><b class="lt-bad">C+</b><i>Roster Grade</i></span>
       </a>
       <a class="team-card" href="recap-dave-2025.html">
         <span class="rk">9</span>
         <span class="ava"><img src="../../assets/images/manager-avatars/dave.jpg" alt=""></span>
         <span class="who"><b>Pewter City Gym</b><span>Dave · Pick 6</span></span>
         <span class="hook">The best TE room in the league and a mid-tier backfield, held back by the second-worst WR room.</span>
-        <span class="grade-panel"><b>C+</b><i>Roster Grade</i></span>
+        <span class="grade-panel"><b class="lt-bad">C+</b><i>Roster Grade</i></span>
       </a>
       <a class="team-card" href="recap-harper-2025.html">
         <span class="rk">10</span>
         <span class="ava"><img src="../../assets/images/manager-avatars/harper.png" alt=""></span>
         <span class="who"><b>Live By McCaff Die By Muh Calf</b><span>Harper · Pick 4</span></span>
         <span class="hook">A top-four RB room and nothing else above league average, including the worst TE room.</span>
-        <span class="grade-panel"><b>C+</b><i>Roster Grade</i></span>
+        <span class="grade-panel"><b class="lt-bad">C+</b><i>Roster Grade</i></span>
       </a>
     </div>
     <p class="tbl-note" style="margin-top:8px;">The grade is the roster you walked away with — your starting lineup's projected value, weighted toward the top of it, because studs win weeks and depth doesn't. The keeper and draft marks (K · D) aren't averaged in: they're the story of how the roster got built. Ties broken by that same lineup value.</p>
@@ -229,7 +233,7 @@ a { text-decoration:none; color:inherit; }
     <div class="fact-tiles">
 <div class="fact fact-blue"><p class="cap">Best Value Rd 1–5</p><p class="val">+17</p><p class="detail">Garrett Wilson · John (Rd 5)</p></div>
 <div class="fact fact-blue"><p class="cap">Best Value Rd 6–10</p><p class="val">+42</p><p class="detail">Baker Mayfield · Colin (Rd 10)</p></div>
-<div class="fact fact-purple"><p class="cap">Best Single Keeper Value</p><p class="val">+105</p><p class="detail">Brock Bowers · Dave (Rd 13)</p></div>
+<div class="fact fact-blue"><p class="cap">Best Single Keeper Value</p><p class="val">+105</p><p class="detail">Brock Bowers · Dave (Rd 13)</p></div>
 <div class="fact fact-red"><p class="cap">Worst Single Keeper Value</p><p class="val">−24</p><p class="detail">Breece Hall · Cass (Rd 2)</p></div>
 <div class="fact fact-qb"><p class="cap">Top QB Point Share</p><p class="val">+5.6</p><p class="detail">Price · points over replacement</p></div>
 <div class="fact fact-rb"><p class="cap">Top RB Point Share</p><p class="val">+23.1</p><p class="detail">TK · points over replacement</p></div>
@@ -262,7 +266,7 @@ a { text-decoration:none; color:inherit; }
         </tfoot>
       </table>
     </div>
-    <p class="tbl-note" style="margin-top:8px;">Projected value above replacement per position, summed across each roster — where every team's strength actually sits. Click any column to sort. Shaded cells are the league's top three (purple) and bottom three (blue) at that position; red is a net negative. Kickers and defenses carry no modelled value and are excluded.</p>
+    <p class="tbl-note" style="margin-top:8px;">Projected value above replacement per position, summed across each roster — where every team's strength actually sits. Click any column to sort. Shaded cells are the league's top three (blue) and bottom three (gray) at that position; red is a net negative. Kickers and defenses carry no modelled value and are excluded.</p>
   </section>
 
 </div></main>

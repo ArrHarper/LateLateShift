@@ -62,6 +62,8 @@ p { margin: 0; }
   background: var(--navy);
   display: flex; align-items: center; gap: 20px;
   padding: 20px 26px;
+  /* tall enough that 158px hero cutouts keep full headroom; clips their bottom bleed */
+  position: relative; overflow: hidden; min-height: 168px;
 }
 .team-banner .ava {
   width: 74px; height: 74px; border-radius: 50%; flex: none;
@@ -361,7 +363,8 @@ p { margin: 0; }
 }
 @media (max-width: 760px) {
   .split-main-rail { grid-template-columns: 1fr; }
-  .team-banner { flex-wrap: wrap; padding: 16px 20px; gap: 14px; }
+  .team-banner { flex-wrap: wrap; padding: 16px 20px; gap: 14px; min-height: 0; }
+  .hero-art { display: none; }
   .team-banner .ava { width: 56px; height: 56px; }
   .team-banner .grade-box { border-left: 0; padding-left: 0; margin-left: 0; flex-basis: 100%; justify-items: start; text-align: left; border-top: 1px solid var(--navy-line); padding-top: 10px; }
   .page-head .summary { padding: 16px 20px 18px; grid-template-columns: 1fr; gap: 18px; }
@@ -494,16 +497,22 @@ p { margin: 0; }
       <div class="duo-even">
         <div class="mod keeper-card">
           <div class="mod-head"><h3>Keeper · Round 4</h3></div>
-          <div class="mod-bd">
+          <div class="mod-bd with-portrait">
+            <div class="portrait"><img src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09092025/40899.png" alt="Malik Nabers"></div>
+            <div class="tx">
             <div class="value-line"><b>Malik Nabers</b> <span class="cost">WR · NYG</span> <span class="pill pill-steal">+22 picks of value</span></div>
             <p>A top-10 player kept for a 4th-round cost. The discount is modest because the cost is high — but locking a first-round talent before pick 32 is exactly what the keeper rule is for.</p>
+            </div>
           </div>
         </div>
         <div class="mod keeper-card">
           <div class="mod-head"><h3>Keeper · Round 6</h3></div>
-          <div class="mod-bd">
+          <div class="mod-bd with-portrait">
+            <div class="portrait"><img src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08252025/34120.png" alt="Kyren Williams"></div>
+            <div class="tx">
             <div class="value-line"><b>Kyren Williams</b> <span class="cost">RB · LAR</span> <span class="pill pill-steal">+28 picks of value</span></div>
             <p>Year two of this keep: a top-25 back for a 6th-round cost, in one of the league's best offenses. The quiet, repeatable kind of keeper value.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -520,16 +529,22 @@ p { margin: 0; }
       <div class="duo-even" style="margin-bottom: var(--gap-sm);">
         <div class="mod pick-card">
           <div class="mod-head head-blue"><h3>✓ Best Pick</h3></div>
-          <div class="mod-bd">
+          <div class="mod-bd with-portrait">
+            <div class="portrait portrait-blue"><img src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08182025/40905.png" alt="J.J. McCarthy"></div>
+            <div class="tx">
             <div class="who"><b>J.J. McCarthy</b> <span>QB · Round 15</span></div>
             <p>Fell 17 picks past his league price in Round 15 — the rare moment this draft let a player come to it. A starting quarterback on a loaded roster, acquired at backup price.</p>
+            </div>
           </div>
         </div>
         <div class="mod pick-card">
           <div class="mod-head head-red"><h3>✗ Worst Pick</h3></div>
-          <div class="mod-bd">
+          <div class="mod-bd with-portrait">
+            <div class="portrait portrait-red"><img src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09042025/33415.png" alt="Rashod Bateman"></div>
+            <div class="tx">
             <div class="who"><b>Rashod Bateman</b> <span>WR · Round 12</span></div>
             <p>Taken 61 picks before his league price in Round 12 — a fourth option in Baltimore's offense, drafted where the market had starting receivers available. The steepest single overpay on a board full of them.</p>
+            </div>
           </div>
         </div>
       </div>
