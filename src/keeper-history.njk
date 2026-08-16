@@ -25,7 +25,12 @@
 {% for season in keepers.seasons %}
 <div>
     {{ secHead(season.year + " Keepers", color="blue" if loop.index0 % 2 else "purple") }}
-    {{ llsTable({ columns: keeperColumns, rows: season.rows }, sortable=true, id='keepers-' + season.year) }}
+    {# badge the POS cell (index 3); every other cell passes through #}
+    {% set badgedRows = [] %}
+    {% for row in season.rows %}
+        {% set _ = badgedRows.push([row[0], row[1], row[2], row[3] | posBadge, row[4], row[5]]) %}
+    {% endfor %}
+    {{ llsTable({ columns: keeperColumns, rows: badgedRows }, sortable=true, id='keepers-' + season.year) }}
     {% if season.note %}<p class="tbl-note">{{ season.note }}</p>{% endif %}
 </div>
 {% endfor %}

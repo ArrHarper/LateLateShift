@@ -37,6 +37,17 @@ export default function (eleventyConfig) {
             })
     );
 
+    // "WR" -> <i class="pos-badge pos-wr">WR</i>. Site-wide standard badge,
+    // matching the draft-recap pages. variant="soft" for the outlined version.
+    // Non-positions ("n/a", "—", blank) pass through untouched — no empty badge.
+    const POSITIONS = new Set(["QB", "RB", "WR", "TE", "K", "DST", "FLEX"]);
+    eleventyConfig.addFilter("posBadge", (pos, variant = "") => {
+        const label = String(pos ?? "").trim().toUpperCase();
+        if (!POSITIONS.has(label)) return pos;
+        const soft = variant === "soft" ? " pos-badge--soft" : "";
+        return `<i class="pos-badge${soft} pos-${label.toLowerCase()}">${label}</i>`;
+    });
+
     // 0.476 -> ".476"
     eleventyConfig.addFilter("pct3", (v) => Number(v).toFixed(3).replace(/^0/, ""));
 

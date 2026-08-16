@@ -36,6 +36,19 @@
   --tint-red: #fdeceb;
   --tint-amber: #fdf3df;
 
+  /* position badges — shared with the draft-recap pages (.pos-badge).
+     Own coding, deliberately separate from the palette jobs above: these
+     identify a player's position and never carry status meaning.
+     TE is darkened from the recaps' #c0a500 to clear 4.5:1 on white. */
+  --pos-qb: #a31f64;
+  --pos-rb: #0b6f60;
+  --pos-wr: #3650b8;
+  --pos-te: #8a7400;
+  --pos-k: #c93b36;
+  --pos-dst: #4a5270;
+  --pos-flex: #6b5bb5;
+  --pos-none: #8a90a8;
+
   /* text */
   --ink: #1a1d2b;
   --ink-2: #000000;

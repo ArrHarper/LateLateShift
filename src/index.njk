@@ -67,7 +67,7 @@
             {% set _ = outlookRows.push([
                 k.manager,
                 k.player,
-                k.pos,
+                k.pos | posBadge,
                 k.cost,
                 ("Rd " + k.nextCost) if k.eligible else "—",
                 ('<span class="cell-ok">Eligible</span>' if k.eligible else '<span class="cell-out">Back to pool</span>')
@@ -93,7 +93,7 @@
                 {% if not k.eligible %}
                 <li>
                     <span class="who"><b>{{ k.player }}</b><span>kept 2 yrs by {{ k.manager }}</span></span>
-                    <span class="pill pill-red">{{ k.pos }}</span>
+                    {{ k.pos | posBadge | safe }}
                 </li>
                 {% endif %}
                 {% endfor %}
