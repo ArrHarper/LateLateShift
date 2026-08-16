@@ -312,7 +312,7 @@ p { margin: 0; }
 /* ---------- offense reliance: biggest-bets rows ---------- */
 .bet-rows { display: grid; }
 .bet-row {
-  display: grid; grid-template-columns: 22px 44px 150px 120px 120px 1fr;
+  display: grid; grid-template-columns: 22px 44px minmax(150px, max-content) 120px 120px 1fr;
   gap: 14px; align-items: center;
   padding: 10px 0; border-top: 1px solid var(--divider);
   min-width: 0;
@@ -329,6 +329,8 @@ p { margin: 0; }
 .bet-who { display: grid; gap: 1px; min-width: 0; }
 .bet-who b { font-size: 0.92rem; font-weight: 800; letter-spacing: 0.02em; }
 .bet-who span { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); }
+/* one player per line — a name never wraps away from its badge */
+.bet-who .bet-p { display: block; white-space: nowrap; }
 .pos-badge {
   font-style: normal; font-size: 0.56rem; font-weight: 800;
   letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
@@ -672,7 +674,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">1</span>
               <img class="bet-logo" src="../../assets/images/team-logos/philadelphia.webp" alt="PHI">
-              <div class="bet-who"><b>PHI</b><span>Saquon Barkley <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>PHI</b><span><span class="bet-p">Saquon Barkley <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>404.5</b><span class="rank-chip rank-good">8th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>337.5</b><span class="rank-chip rank-good">2nd</span></div>
               <p class="bet-take"><b>Barkley</b> carries ~29% of this roster's projected value, staked on the 8th-highest implied offense backed by the league's 2nd-stingiest defense. That combination means leads, and leads mean <b>Barkley</b> grinding clocks for 25 touches a week. The one tax: <b>Hurts</b> and the tush push poach the goal-line touchdowns all that volume would normally earn.</p>
@@ -680,7 +682,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">2</span>
               <img class="bet-logo" src="../../assets/images/team-logos/detroit.webp" alt="DET">
-              <div class="bet-who"><b>DET</b><span>Jahmyr Gibbs <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>DET</b><span><span class="bet-p">Jahmyr Gibbs <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>407.2</b><span class="rank-chip rank-good">6th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>368.8</b><span class="rank-chip rank-mid">15th</span></div>
               <p class="bet-take"><b>Gibbs</b> is the single biggest slice of this roster (~30% of its value) inside a top-6 implied offense. The backfield split caps his carry count, but his value never depended on volume — it's explosive plays and receiving work, which survive any game script. The best player-environment pairing on the team, and it isn't close.</p>
@@ -688,7 +690,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">3</span>
               <img class="bet-logo" src="../../assets/images/team-logos/washington.webp" alt="WAS">
-              <div class="bet-who"><b>WAS</b><span>Terry McLaurin <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>WAS</b><span><span class="bet-p">Terry McLaurin <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>407.2</b><span class="rank-chip rank-good">7th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>364.8</b><span class="rank-chip rank-good">10th</span></div>
               <p class="bet-take"><b>McLaurin</b> (~10% of roster value) is the WR1 by default, and the environment finally cooperates: a top-7 implied offense in <b>Jayden Daniels</b>' second year. His profile is touchdown-dependent — he needs the red-zone looks this offense should now generate. If Washington scores like Vegas thinks, the thin WR room's biggest bet pays.</p>
@@ -696,7 +698,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">4</span>
               <img class="bet-logo" src="../../assets/images/team-logos/miami.webp" alt="MIA">
-              <div class="bet-who"><b>MIA</b><span>Jaylen Waddle <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>MIA</b><span><span class="bet-p">Jaylen Waddle <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>365.2</b><span class="rank-chip rank-mid">17th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>381.8</b><span class="rank-chip rank-mid">20th</span></div>
               <p class="bet-take"><b>Waddle</b> (a Round 4 pick, ~4% of roster value, and a starting receiver) is the environment problem: a 17th-ranked implied offense Vegas expects to trail often. The upside case is exactly that — negative scripts forcing pass volume his way. The downside case is <b>Tyreek Hill</b> still eating first. The board's biggest reach, in the roster's shakiest situation.</p>
@@ -704,7 +706,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">5</span>
               <img class="bet-logo" src="../../assets/images/team-logos/kansascity.webp" alt="KC">
-              <div class="bet-who"><b>KC</b><span>Patrick Mahomes <i class="pos-badge pos-qb">QB</i> Travis Kelce <i class="pos-badge pos-te">TE</i></span></div>
+              <div class="bet-who"><b>KC</b><span><span class="bet-p">Patrick Mahomes <i class="pos-badge pos-qb">QB</i></span><span class="bet-p">Travis Kelce <i class="pos-badge pos-te">TE</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>409.0</b><span class="rank-chip rank-good">5th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>339.0</b><span class="rank-chip rank-good">3rd</span></div>
               <p class="bet-take">A double bet (~14% of roster value across <b>Mahomes</b> and <b>Kelce</b>) on football's most comfortable team. The 5th-best implied offense with the 3rd-best defense means wins — but comfortable ones, with fourth quarters spent handing off. <b>Mahomes</b>' floor is elite; a 36-year-old <b>Kelce</b> in a clock-killing offense is a floor play too. Same-game exposure also means one bad Chiefs week hits two lineup slots at once.</p>

@@ -312,7 +312,7 @@ p { margin: 0; }
 /* ---------- offense reliance: biggest-bets rows ---------- */
 .bet-rows { display: grid; }
 .bet-row {
-  display: grid; grid-template-columns: 22px 44px 150px 120px 120px 1fr;
+  display: grid; grid-template-columns: 22px 44px minmax(150px, max-content) 120px 120px 1fr;
   gap: 14px; align-items: center;
   padding: 10px 0; border-top: 1px solid var(--divider);
   min-width: 0;
@@ -329,6 +329,8 @@ p { margin: 0; }
 .bet-who { display: grid; gap: 1px; min-width: 0; }
 .bet-who b { font-size: 0.92rem; font-weight: 800; letter-spacing: 0.02em; }
 .bet-who span { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); }
+/* one player per line — a name never wraps away from its badge */
+.bet-who .bet-p { display: block; white-space: nowrap; }
 .pos-badge {
   font-style: normal; font-size: 0.56rem; font-weight: 800;
   letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
@@ -672,7 +674,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">1</span>
               <img class="bet-logo" src="../../assets/images/team-logos/atlanta.webp" alt="ATL">
-              <div class="bet-who"><b>ATL</b><span>Bijan Robinson <i class="pos-badge pos-rb">RB</i> Tyler Allgeier <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>ATL</b><span><span class="bet-p">Bijan Robinson <i class="pos-badge pos-rb">RB</i></span><span class="bet-p">Tyler Allgeier <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>359.8</b><span class="rank-chip rank-mid">22nd</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>387.2</b><span class="rank-chip rank-bad">24th</span></div>
               <p class="bet-take">Bijan is the single biggest bet here (~32% of roster value) in the 22nd-ranked implied offense — a bet on the player transcending his environment. The saving grace: Atlanta's 24th-ranked defense means plenty of plays, and Bijan's receiving work travels in any script. Elite player, mediocre scoreboard.</p>
@@ -680,7 +682,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">2</span>
               <img class="bet-logo" src="../../assets/images/team-logos/buffalo.webp" alt="BUF">
-              <div class="bet-who"><b>BUF</b><span>Josh Allen <i class="pos-badge pos-qb">QB</i> Keon Coleman <i class="pos-badge pos-wr">WR</i> Bills <i class="pos-badge pos-def">DEF</i></span></div>
+              <div class="bet-who"><b>BUF</b><span><span class="bet-p">Josh Allen <i class="pos-badge pos-qb">QB</i></span><span class="bet-p">Keon Coleman <i class="pos-badge pos-wr">WR</i></span><span class="bet-p">Bills <i class="pos-badge pos-def">DEF</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>430.2</b><span class="rank-chip rank-good">1st</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>336.8</b><span class="rank-chip rank-good">1st</span></div>
               <p class="bet-take"><b>Josh Allen</b> (~17% of roster value, plus <b>Coleman</b> and the Bills DEF) rides the league's best team by Vegas math — 1st in implied points, fewest allowed. Allen is the rare QB whose rushing keeps his ceiling alive even in blowouts. The safest large bet on this roster.</p>
@@ -688,7 +690,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">3</span>
               <img class="bet-logo" src="../../assets/images/team-logos/dallas.webp" alt="DAL">
-              <div class="bet-who"><b>DAL</b><span>George Pickens <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>DAL</b><span><span class="bet-p">George Pickens <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>361.0</b><span class="rank-chip rank-mid">21st</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>394.0</b><span class="rank-chip rank-bad">30th</span></div>
               <p class="bet-take"><b>Pickens</b> (~5% of roster value) was taken 28 picks early into a middling implied offense with the league's 30th-ranked defense — which is actually the upside case: Dallas trailing means Dallas throwing. A volatile talent in a volatile environment, bought at a premium.</p>
@@ -696,7 +698,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">4</span>
               <img class="bet-logo" src="../../assets/images/team-logos/chicago.webp" alt="CHI">
-              <div class="bet-who"><b>CHI</b><span>DJ Moore <i class="pos-badge pos-wr">WR</i> Colston Loveland <i class="pos-badge pos-te">TE</i></span></div>
+              <div class="bet-who"><b>CHI</b><span><span class="bet-p">DJ Moore <i class="pos-badge pos-wr">WR</i></span><span class="bet-p">Colston Loveland <i class="pos-badge pos-te">TE</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>368.8</b><span class="rank-chip rank-mid">16th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>377.2</b><span class="rank-chip rank-mid">16th</span></div>
               <p class="bet-take"><b>DJ Moore</b> and rookie <b>Loveland</b> (~9% of roster value) sit in a dead-middle implied offense (16th in both directions). <b>Moore</b>'s target share is the floor; the Ben <b>Johnson</b> effect is the unpriced upside. A fair bet at fair prices — a rarity on this board.</p>
@@ -704,7 +706,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">5</span>
               <img class="bet-logo" src="../../assets/images/team-logos/arizona.webp" alt="ARI">
-              <div class="bet-who"><b>ARI</b><span>Trey McBride <i class="pos-badge pos-te">TE</i></span></div>
+              <div class="bet-who"><b>ARI</b><span><span class="bet-p">Trey McBride <i class="pos-badge pos-te">TE</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>401.5</b><span class="rank-chip rank-good">9th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>400.5</b><span class="rank-chip rank-bad">32nd</span></div>
               <p class="bet-take"><b>McBride</b> (~15% of roster value) is the league's most defense-proof asset: Arizona's 9th-ranked implied offense funnels red-zone work to him, and the 32nd-ranked defense guarantees passing volume. The best environment on this entire roster belongs to the tight end.</p>
