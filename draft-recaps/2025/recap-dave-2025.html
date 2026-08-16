@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Draft Recap · Pewter City Gym — Late Late Shift</title>
+<link rel="preload" as="image" fetchpriority="high" href="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08272025/40118.png">
+<link rel="preload" as="image" fetchpriority="high" href="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08072025/40878.png">
+<link rel="preload" as="image" fetchpriority="high" href="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09032024/33996.png">
 <style>
 /* ============================================================
    Standalone draft-recap mockup — consumes the LLS "Network"
@@ -395,10 +398,13 @@ p { margin: 0; }
     0% { opacity: 0; transform: scale(2.1) rotate(-7deg); }
     100% { opacity: 1; transform: scale(1) rotate(0); }
   }
-  .js-anim .hero-p { animation: rise 0.65s cubic-bezier(0.2, 0.7, 0.3, 1) backwards; }
-  .js-anim .hero-p1 { animation-delay: 0.05s; }
-  .js-anim .hero-p2 { animation-delay: 0.16s; }
-  .js-anim .hero-p3 { animation-delay: 0.27s; }
+  /* hero cutouts stay hidden until every image has loaded, then rise together —
+     otherwise the animation plays before the network delivers any pixels */
+  .js-anim .hero-art:not(.hero-ready) .hero-p { visibility: hidden; }
+  .js-anim .hero-art.hero-ready .hero-p { animation: rise 0.65s cubic-bezier(0.2, 0.7, 0.3, 1) backwards; }
+  .js-anim .hero-art.hero-ready .hero-p1 { animation-delay: 0.05s; }
+  .js-anim .hero-art.hero-ready .hero-p2 { animation-delay: 0.16s; }
+  .js-anim .hero-art.hero-ready .hero-p3 { animation-delay: 0.27s; }
   @keyframes rise { from { opacity: 0; transform: translateY(36px); } }
   .js-anim .lu-fill { transform: scaleX(0); transform-origin: left; transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) var(--d, 0ms); }
   .js-anim .in .lu-fill { transform: scaleX(1); }
@@ -432,9 +438,9 @@ p { margin: 0; }
         </div>
         <div class="hero-art" aria-hidden="true">
           <span class="hero-glow"></span>
-          <img class="hero-p hero-p3" src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09032024/33996.png" alt="">
-          <img class="hero-p hero-p2" src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08072025/40878.png" alt="">
-          <img class="hero-p hero-p1" src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08272025/40118.png" alt="">
+          <img class="hero-p hero-p3" src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/09032024/33996.png" fetchpriority="high" alt="">
+          <img class="hero-p hero-p2" src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08072025/40878.png" fetchpriority="high" alt="">
+          <img class="hero-p hero-p1" src="https://s.yimg.com/xe/i/us/sp/v/nfl_cutout/players_l/08272025/40118.png" fetchpriority="high" alt="">
         </div>
         <div class="grade-box">
           <span class="letter lt-bad">C+</span>
@@ -934,6 +940,20 @@ p { margin: 0; }
 (function () {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   document.documentElement.classList.add("js-anim");
+
+  // hero art: run the rise only once all cutouts are decoded (see .hero-ready CSS)
+  document.querySelectorAll(".hero-art").forEach(function (art) {
+    var imgs = Array.prototype.slice.call(art.querySelectorAll("img"));
+    var pending = imgs.filter(function (im) { return !(im.complete && im.naturalWidth); });
+    function ready() { art.classList.add("hero-ready"); }
+    if (!pending.length) { ready(); return; }
+    var left = pending.length;
+    function done() { if (--left <= 0) ready(); }
+    pending.forEach(function (im) {
+      im.addEventListener("load", done);
+      im.addEventListener("error", done);
+    });
+  });
   var targets = document.querySelectorAll(
     ".sec-head, .grade-tile, .lu-row, .keeper-card, .pick-card, .mod, .bet-row, .heat-cell, .lls-table-wrap"
   );
