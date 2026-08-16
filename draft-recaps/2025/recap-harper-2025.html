@@ -312,7 +312,7 @@ p { margin: 0; }
 /* ---------- offense reliance: biggest-bets rows ---------- */
 .bet-rows { display: grid; }
 .bet-row {
-  display: grid; grid-template-columns: 22px 44px 150px 120px 120px 1fr;
+  display: grid; grid-template-columns: 22px 44px minmax(150px, max-content) 120px 120px 1fr;
   gap: 14px; align-items: center;
   padding: 10px 0; border-top: 1px solid var(--divider);
   min-width: 0;
@@ -329,6 +329,8 @@ p { margin: 0; }
 .bet-who { display: grid; gap: 1px; min-width: 0; }
 .bet-who b { font-size: 0.92rem; font-weight: 800; letter-spacing: 0.02em; }
 .bet-who span { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); }
+/* one player per line — a name never wraps away from its badge */
+.bet-who .bet-p { display: block; white-space: nowrap; }
 .pos-badge {
   font-style: normal; font-size: 0.56rem; font-weight: 800;
   letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
@@ -672,7 +674,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">1</span>
               <img class="bet-logo" src="../../assets/images/team-logos/sanfrancisco.webp" alt="SF">
-              <div class="bet-who"><b>SF</b><span>C. McCaffrey <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>SF</b><span><span class="bet-p">C. McCaffrey <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>427.2</b><span class="rank-chip rank-good">3rd</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>366.8</b><span class="rank-chip rank-mid">12th</span></div>
               <p class="bet-take"><b>McCaffrey</b> alone carries about a quarter of this roster's projected value — parked in the 3rd-highest implied offense in football, which is exactly where a bet this size belongs. When SF is on the field, everything runs through him. The offense isn't the risk here; the 29-year-old calf attached to it is.</p>
@@ -680,7 +682,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">2</span>
               <img class="bet-logo" src="../../assets/images/team-logos/losangeleschargers.webp" alt="LAC">
-              <div class="bet-who"><b>LAC</b><span>Omarion Hampton <i class="pos-badge pos-rb">RB</i> Keenan Allen <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>LAC</b><span><span class="bet-p">Omarion Hampton <i class="pos-badge pos-rb">RB</i></span><span class="bet-p">Keenan Allen <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>381.0</b><span class="rank-chip rank-mid">14th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>348.0</b><span class="rank-chip rank-good">6th</span></div>
               <p class="bet-take">A split bet (~14% of roster value): <b>Hampton</b> and <b>Keenan Allen</b> want opposite games. The Chargers' 6th-ranked defense means leads, and leads mean clock-killing carries for the rookie — the best possible script for <b>Hampton</b>, and the very script that starves Allen's targets. The valuable half of this bet is the one the game plan favors.</p>
@@ -688,7 +690,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">3</span>
               <img class="bet-logo" src="../../assets/images/team-logos/newengland.webp" alt="NE">
-              <div class="bet-who"><b>NE</b><span>T. Henderson <i class="pos-badge pos-rb">RB</i> R. Stevenson <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>NE</b><span><span class="bet-p">T. Henderson <i class="pos-badge pos-rb">RB</i></span><span class="bet-p">R. Stevenson <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>359.0</b><span class="rank-chip rank-bad">23rd</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>361.0</b><span class="rank-chip rank-good">8th</span></div>
               <p class="bet-take"><b>Henderson</b> and <b>Stevenson</b> (~9% of roster value together) both play for the 23rd-highest implied offense in football — the market says the touchdowns won't be there. A Round 3 pick riding a bottom-10 scoring attack is the draft's most fragile bet.</p>
@@ -696,7 +698,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">4</span>
               <img class="bet-logo" src="../../assets/images/team-logos/kansascity.webp" alt="KC">
-              <div class="bet-who"><b>KC</b><span>Xavier Worthy <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>KC</b><span><span class="bet-p">Xavier Worthy <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>409.0</b><span class="rank-chip rank-good">5th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>339.0</b><span class="rank-chip rank-good">3rd</span></div>
               <p class="bet-take"><b>Worthy</b> (~8% of roster value) plays in the 5th-highest implied offense with the 3rd-best defense — a dominant team that wins comfortably. Blowouts mean fourth quarters spent running the clock, and <b>Mahomes</b> spreads targets too evenly for any one receiver to dominate. Efficient offense, diluted slice of it.</p>
@@ -704,7 +706,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">5</span>
               <img class="bet-logo" src="../../assets/images/team-logos/atlanta.webp" alt="ATL">
-              <div class="bet-who"><b>ATL</b><span>Drake London <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>ATL</b><span><span class="bet-p">Drake London <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>359.8</b><span class="rank-chip rank-mid">22nd</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>387.2</b><span class="rank-chip rank-bad">24th</span></div>
               <p class="bet-take"><b>London</b> (~16% of roster value) is attached to the 22nd-highest implied offense with the 24th-ranked defense. That caps his touchdown ceiling — but negative game scripts mean garbage-time passing volume, and <b>London</b>'s target share soaks up exactly that. Strong floor, fewer spiked weeks than his talent deserves.</p>

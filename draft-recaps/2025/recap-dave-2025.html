@@ -312,7 +312,7 @@ p { margin: 0; }
 /* ---------- offense reliance: biggest-bets rows ---------- */
 .bet-rows { display: grid; }
 .bet-row {
-  display: grid; grid-template-columns: 22px 44px 150px 120px 120px 1fr;
+  display: grid; grid-template-columns: 22px 44px minmax(150px, max-content) 120px 120px 1fr;
   gap: 14px; align-items: center;
   padding: 10px 0; border-top: 1px solid var(--divider);
   min-width: 0;
@@ -329,6 +329,8 @@ p { margin: 0; }
 .bet-who { display: grid; gap: 1px; min-width: 0; }
 .bet-who b { font-size: 0.92rem; font-weight: 800; letter-spacing: 0.02em; }
 .bet-who span { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); }
+/* one player per line — a name never wraps away from its badge */
+.bet-who .bet-p { display: block; white-space: nowrap; }
 .pos-badge {
   font-style: normal; font-size: 0.56rem; font-weight: 800;
   letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
@@ -668,7 +670,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">1</span>
               <img class="bet-logo" src="../../assets/images/team-logos/miami.webp" alt="MIA">
-              <div class="bet-who"><b>MIA</b><span>De'Von Achane <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>MIA</b><span><span class="bet-p">De'Von Achane <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>365.2</b><span class="rank-chip rank-mid">17th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>381.8</b><span class="rank-chip rank-mid">20th</span></div>
               <p class="bet-take"><b>Achane</b> (~21% of roster value) is the roster's biggest bet, in the 17th-ranked implied offense the market expects to trail. For most backs that's a problem; <b>Achane</b>'s receiving profile turns negative scripts into catches. The environment caps the team; it doesn't cap him nearly as much.</p>
@@ -676,7 +678,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">2</span>
               <img class="bet-logo" src="../../assets/images/team-logos/neworleans.webp" alt="NO">
-              <div class="bet-who"><b>NO</b><span>Alvin Kamara <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>NO</b><span><span class="bet-p">Alvin Kamara <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>312.8</b><span class="rank-chip rank-bad">31st</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>397.2</b><span class="rank-chip rank-bad">31st</span></div>
               <p class="bet-take"><b>Kamara</b> (~13% of roster value) plays for the league's worst-projected situation — 31st in implied points scored and allowed. The volume is guaranteed because nobody else in New Orleans demands the ball; the touchdowns are the problem. A floor bet wearing a ceiling player's price tag.</p>
@@ -684,7 +686,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">3</span>
               <img class="bet-logo" src="../../assets/images/team-logos/seattle.webp" alt="SEA">
-              <div class="bet-who"><b>SEA</b><span>Kenneth Walker I <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>SEA</b><span><span class="bet-p">Kenneth Walker I <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>382.8</b><span class="rank-chip rank-mid">13th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>391.2</b><span class="rank-chip rank-bad">27th</span></div>
               <p class="bet-take"><b>Kenneth Walker</b> (~13% of roster value) sits in a middling offense with the 27th-ranked defense — shootout scripts that historically pull Seattle away from the run. The talent is real; the game flow is the enemy.</p>
@@ -692,7 +694,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">4</span>
               <img class="bet-logo" src="../../assets/images/team-logos/pittsburgh.webp" alt="PIT">
-              <div class="bet-who"><b>PIT</b><span>DK Metcalf <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>PIT</b><span><span class="bet-p">DK Metcalf <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>347.5</b><span class="rank-chip rank-bad">26th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>364.5</b><span class="rank-chip rank-good">9th</span></div>
               <p class="bet-take"><b>Metcalf</b> (~8% of roster value) moved to the 26th-ranked implied offense with a strong defense — low-scoring, run-leaning games. He's the only receiver there, which guarantees targets and caps ceilings simultaneously.</p>
@@ -700,7 +702,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">5</span>
               <img class="bet-logo" src="../../assets/images/team-logos/detroit.webp" alt="DET">
-              <div class="bet-who"><b>DET</b><span>Jameson Williams <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>DET</b><span><span class="bet-p">Jameson Williams <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>407.2</b><span class="rank-chip rank-good">6th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>368.8</b><span class="rank-chip rank-mid">15th</span></div>
               <p class="bet-take"><b>Jameson Williams</b> (~7% of roster value) is the one premium environment on this list: the 6th-ranked implied offense. He's also its fourth option. Great neighborhood, small apartment.</p>

@@ -312,7 +312,7 @@ p { margin: 0; }
 /* ---------- offense reliance: biggest-bets rows ---------- */
 .bet-rows { display: grid; }
 .bet-row {
-  display: grid; grid-template-columns: 22px 44px 150px 120px 120px 1fr;
+  display: grid; grid-template-columns: 22px 44px minmax(150px, max-content) 120px 120px 1fr;
   gap: 14px; align-items: center;
   padding: 10px 0; border-top: 1px solid var(--divider);
   min-width: 0;
@@ -329,6 +329,8 @@ p { margin: 0; }
 .bet-who { display: grid; gap: 1px; min-width: 0; }
 .bet-who b { font-size: 0.92rem; font-weight: 800; letter-spacing: 0.02em; }
 .bet-who span { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); }
+/* one player per line — a name never wraps away from its badge */
+.bet-who .bet-p { display: block; white-space: nowrap; }
 .pos-badge {
   font-style: normal; font-size: 0.56rem; font-weight: 800;
   letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
@@ -672,7 +674,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">1</span>
               <img class="bet-logo" src="../../assets/images/team-logos/cincinatti.webp" alt="CIN">
-              <div class="bet-who"><b>CIN</b><span>Ja'Marr Chase <i class="pos-badge pos-wr">WR</i> Tee Higgins <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>CIN</b><span><span class="bet-p">Ja'Marr Chase <i class="pos-badge pos-wr">WR</i></span><span class="bet-p">Tee Higgins <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>395.0</b><span class="rank-chip rank-mid">11th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>380.0</b><span class="rank-chip rank-mid">17th</span></div>
               <p class="bet-take">Nearly half this roster's value (~46%) rides on one offense: <b>Chase</b> and the kept Higgins, stacked. Cincinnati's 11th-ranked implied offense with a leaky-enough defense means volume for both — the stack's ceiling is the best single-game upside in the league. The price: one bad Bengals afternoon craters two starting spots, and their shared Week 10 bye empties the receiver room at once.</p>
@@ -680,7 +682,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">2</span>
               <img class="bet-logo" src="../../assets/images/team-logos/buffalo.webp" alt="BUF">
-              <div class="bet-who"><b>BUF</b><span>James Cook I <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>BUF</b><span><span class="bet-p">James Cook I <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>430.2</b><span class="rank-chip rank-good">1st</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>336.8</b><span class="rank-chip rank-good">1st</span></div>
               <p class="bet-take"><b>James Cook</b> (~12% of roster value) plays for the league's best team by Vegas math — 1st in implied points scored and fewest allowed. That means leads, and leads mean carries. The only cap is the one Buffalo always imposes: <b>Josh Allen</b> keeps the goal-line touchdowns for himself.</p>
@@ -688,7 +690,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">3</span>
               <img class="bet-logo" src="../../assets/images/team-logos/tampabay.webp" alt="TB">
-              <div class="bet-who"><b>TB</b><span>Mike Evans <i class="pos-badge pos-wr">WR</i> Baker Mayfield <i class="pos-badge pos-qb">QB</i></span></div>
+              <div class="bet-who"><b>TB</b><span><span class="bet-p">Mike Evans <i class="pos-badge pos-wr">WR</i></span><span class="bet-p">Baker Mayfield <i class="pos-badge pos-qb">QB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>399.5</b><span class="rank-chip rank-good">10th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>368.5</b><span class="rank-chip rank-mid">14th</span></div>
               <p class="bet-take"><b>Evans</b> and <b>Mayfield</b> (~15% of roster value) are a quiet second stack in the 10th-ranked implied offense. <b>Mayfield</b> throws it, <b>Evans</b> catches his annual thousand yards, and both were acquired below or at price. The sneaky-good corner of this roster.</p>
@@ -696,7 +698,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">4</span>
               <img class="bet-logo" src="../../assets/images/team-logos/denver.webp" alt="DEN">
-              <div class="bet-who"><b>DEN</b><span>Courtland Sutton <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>DEN</b><span><span class="bet-p">Courtland Sutton <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>378.5</b><span class="rank-chip rank-mid">15th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>342.5</b><span class="rank-chip rank-good">5th</span></div>
               <p class="bet-take"><b>Sutton</b> (~7% of roster value) profiles as the classic possession WR2 in a middling implied offense with a strong defense — positive scripts, moderate volume, touchdown-dependent weeks. Fine at the price paid; nothing more.</p>
@@ -704,7 +706,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">5</span>
               <img class="bet-logo" src="../../assets/images/team-logos/kansascity.webp" alt="KC">
-              <div class="bet-who"><b>KC</b><span>Isiah Pacheco <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>KC</b><span><span class="bet-p">Isiah Pacheco <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>409.0</b><span class="rank-chip rank-good">5th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>339.0</b><span class="rank-chip rank-good">3rd</span></div>
               <p class="bet-take"><b>Pacheco</b> (~5% of roster value) was a genuine steal at his price, and the 5th-best implied offense with the 3rd-best defense is a running back-friendly script factory. The catch is the committee — the environment is elite, his share of it is not guaranteed.</p>

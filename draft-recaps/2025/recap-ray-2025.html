@@ -312,7 +312,7 @@ p { margin: 0; }
 /* ---------- offense reliance: biggest-bets rows ---------- */
 .bet-rows { display: grid; }
 .bet-row {
-  display: grid; grid-template-columns: 22px 44px 150px 120px 120px 1fr;
+  display: grid; grid-template-columns: 22px 44px minmax(150px, max-content) 120px 120px 1fr;
   gap: 14px; align-items: center;
   padding: 10px 0; border-top: 1px solid var(--divider);
   min-width: 0;
@@ -329,6 +329,8 @@ p { margin: 0; }
 .bet-who { display: grid; gap: 1px; min-width: 0; }
 .bet-who b { font-size: 0.92rem; font-weight: 800; letter-spacing: 0.02em; }
 .bet-who span { font-size: 0.72rem; font-weight: 700; color: var(--ink-2); }
+/* one player per line — a name never wraps away from its badge */
+.bet-who .bet-p { display: block; white-space: nowrap; }
 .pos-badge {
   font-style: normal; font-size: 0.56rem; font-weight: 800;
   letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
@@ -672,7 +674,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">1</span>
               <img class="bet-logo" src="../../assets/images/team-logos/lasvegas.webp" alt="LV">
-              <div class="bet-who"><b>LV</b><span>Ashton Jeanty <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>LV</b><span><span class="bet-p">Ashton Jeanty <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>334.2</b><span class="rank-chip rank-bad">27th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>382.8</b><span class="rank-chip rank-mid">21st</span></div>
               <p class="bet-take"><b>Jeanty</b> (~18% of roster value) is the bet that defines this roster: the draft's most hyped rookie back, in the 27th-ranked implied offense. The volume will be enormous — bad teams feed their only star — but the touchdowns run through a scoreboard Vegas doesn't believe in. Talent bet, environment tax.</p>
@@ -680,7 +682,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">2</span>
               <img class="bet-logo" src="../../assets/images/team-logos/indianapolis.webp" alt="IND">
-              <div class="bet-who"><b>IND</b><span>Jonathan Taylor <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>IND</b><span><span class="bet-p">Jonathan Taylor <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>348.8</b><span class="rank-chip rank-bad">24th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>385.2</b><span class="rank-chip rank-mid">22nd</span></div>
               <p class="bet-take"><b>Jonathan Taylor</b> (~17% of roster value) tells the same story one shade lighter: elite back, 24th-ranked implied offense, quarterback uncertainty baked into the price. Two of this roster's three biggest bets are on players out-running their teams.</p>
@@ -688,7 +690,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">3</span>
               <img class="bet-logo" src="../../assets/images/team-logos/miami.webp" alt="MIA">
-              <div class="bet-who"><b>MIA</b><span>Tyreek Hill <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>MIA</b><span><span class="bet-p">Tyreek Hill <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>365.2</b><span class="rank-chip rank-mid">17th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>381.8</b><span class="rank-chip rank-mid">20th</span></div>
               <p class="bet-take">Tyreek (~11% of roster value) fell to Round 3 because the market moved on — a 17th-ranked implied offense and a locker room's worth of question marks. At that price, one vintage half-season pays the ticket.</p>
@@ -696,7 +698,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">4</span>
               <img class="bet-logo" src="../../assets/images/team-logos/cincinatti.webp" alt="CIN">
-              <div class="bet-who"><b>CIN</b><span>Joe Burrow <i class="pos-badge pos-qb">QB</i> Chase Brown <i class="pos-badge pos-rb">RB</i></span></div>
+              <div class="bet-who"><b>CIN</b><span><span class="bet-p">Joe Burrow <i class="pos-badge pos-qb">QB</i></span><span class="bet-p">Chase Brown <i class="pos-badge pos-rb">RB</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>395.0</b><span class="rank-chip rank-mid">11th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>380.0</b><span class="rank-chip rank-mid">17th</span></div>
               <p class="bet-take"><b>Burrow</b> plus the kept <b>Chase Brown</b> (~21% of roster value) double up the 11th-ranked implied offense with a defense bad enough to force shootouts. Cincinnati games have no clock-killing script — both halves of this bet feast on exactly that.</p>
@@ -704,7 +706,7 @@ p { margin: 0; }
             <div class="bet-row">
               <span class="bet-rank">5</span>
               <img class="bet-logo" src="../../assets/images/team-logos/philadelphia.webp" alt="PHI">
-              <div class="bet-who"><b>PHI</b><span>DeVonta Smith <i class="pos-badge pos-wr">WR</i></span></div>
+              <div class="bet-who"><b>PHI</b><span><span class="bet-p">DeVonta Smith <i class="pos-badge pos-wr">WR</i></span></span></div>
               <div class="bet-stat"><span class="cap">Implied PF</span><b>404.5</b><span class="rank-chip rank-good">8th</span></div>
               <div class="bet-stat"><span class="cap">Implied PA</span><b>337.5</b><span class="rank-chip rank-good">2nd</span></div>
               <p class="bet-take">DeVonta (~7% of roster value) is the quiet good bet: 8th-ranked implied offense, 2nd-best defense, and a guaranteed second-option target share. The smallest bet on this list and the safest.</p>
