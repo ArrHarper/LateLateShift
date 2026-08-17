@@ -92,6 +92,12 @@
                 {% for k in outlook %}
                 {% if not k.eligible %}
                 <li>
+                    {# portrait when we have one, initials otherwise #}
+                    {% set shot = portraits[k.player] %}
+                    <span class="face{% if not shot %} face-init{% endif %}">
+                        {%- if shot %}<img src="{{ shot | url }}" alt="" loading="lazy" width="34" height="34">
+                        {%- else %}{{ k.player | truncate(2, true, '') }}{% endif -%}
+                    </span>
                     <span class="who"><b>{{ k.player }}</b><span>kept 2 yrs by {{ k.manager }}</span></span>
                     {{ k.pos | posBadge | safe }}
                 </li>

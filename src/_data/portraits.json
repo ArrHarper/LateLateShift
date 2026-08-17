@@ -1,0 +1,22 @@
+{
+  "_comment": "Player portraits for the homepage 'Back in the Pool' rail, keyed by player name exactly as it appears in keepers.json (drop the † marker). Players without an entry fall back to their initials, so this only needs the current keeper class. Images are self-hosted in assets/images/players/ — downscaled to 96px wide from Yahoo's nfl_cutout PNGs, which are ~2MB each at source and must not be hotlinked. To add one: find the URL on the player's page at sports.yahoo.com/nfl/players/<id>/ (grep the HTML for 'nfl_cutout'), then downscale before committing. The draft-recap skill keeps its own copy of the source URLs at .claude/skills/lls-draft-recap/data/portraits-<year>.json.",
+  "Malik Nabers": "/assets/images/players/malik-nabers.png",
+  "Kyren Williams": "/assets/images/players/kyren-williams.png",
+  "Lamar Jackson": "/assets/images/players/lamar-jackson.png",
+  "Breece Hall": "/assets/images/players/breece-hall.png",
+  "Tee Higgins": "/assets/images/players/tee-higgins.png",
+  "George Kittle": "/assets/images/players/george-kittle.png",
+  "Brock Bowers": "/assets/images/players/brock-bowers.png",
+  "Drake London": "/assets/images/players/drake-london.png",
+  "Jaxon Smith-Njigba": "/assets/images/players/jaxon-smith-njigba.png",
+  "Bucky Irving": "/assets/images/players/bucky-irving.png",
+  "T.J. Hockenson": "/assets/images/players/t-j-hockenson.png",
+  "Trey McBride": "/assets/images/players/trey-mcbride.png",
+  "Puka Nacua": "/assets/images/players/puka-nacua.png",
+  "Chase Brown": "/assets/images/players/chase-brown.png",
+  "Ladd McConkey": "/assets/images/players/ladd-mcconkey.png",
+  "Jahmyr Gibbs": "/assets/images/players/jahmyr-gibbs.png",
+  "Khalil Shakir": "/assets/images/players/khalil-shakir.png",
+  "Brian Thomas Jr.": "/assets/images/players/brian-thomas-jr.png",
+  "Jayden Daniels": "/assets/images/players/jayden-daniels.png"
+}

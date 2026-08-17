@@ -22,6 +22,7 @@ League content lives in `src/_data/` — pages are loops over these files:
 - `records.json` — positive/negative record tiles (Records page). Hand-maintained: 7 tiles are checkable against seasonStandings.json, but the 5 stat-based ones (TDs, kicking points, drafted-player points, margin of defeat) need Yahoo
 - `news.json` — homepage League News items (newest first; homepage shows 3)
 - `draftVideos.json` — Wistia media IDs for draft-order reveal videos
+- `portraits.json` — player name → local portrait path, for the homepage "Back in the Pool" rail (missing players fall back to initials). Images are self-hosted in `assets/images/players/`, downscaled to 96px wide; Yahoo's `nfl_cutout` source PNGs are ~2MB each and must not be hotlinked
 
 ## Design system
 
