@@ -280,9 +280,6 @@ main { display: block; flex: 1 0 auto; }
 .draft-hero .when { font-size: 0.8rem; color: var(--on-navy-dim); }
 .draft-hero .when b { color: var(--on-navy); font-weight: 700; }
 .draft-hero .cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 12px; }
-.draft-hero .link-strong { color: var(--blue-bright); }
-.draft-hero .link-strong:hover { color: #fff; }
-.draft-hero .link-strong:active { color: var(--blue); }
 
 /* ---------- page header (interior pages) ---------- */
 .page-head {
