@@ -323,6 +323,23 @@ main { display: block; flex: 1 0 auto; }
 .sec-head a:hover { color: var(--blue-hover); text-decoration: underline; }
 .sec-head a:active { color: var(--blue-press); }
 
+/* season dropdown in a sec-head (keeper history) */
+.season-select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  border-radius: var(--r-sm);
+  background: var(--surface) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%231a1d2b' stroke-width='1.6' stroke-linecap='round'/></svg>") no-repeat right 10px center;
+  padding: 8px 28px 8px 12px;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+}
+.season-select:hover { background-color: var(--tint-purple-2); }
+.season-select:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
+
 /* ---------- modules ---------- */
 .mod {
   background: var(--surface);

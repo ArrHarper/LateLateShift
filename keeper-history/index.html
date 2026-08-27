@@ -56,8 +56,9 @@
 <div class="page-head">
   <div class="tx">
     <h1>Keeper History</h1>
-    <p>Every keeper selection since the rule arrived in 2022. Click column headers to sort.</p>
-    <div class="upd">Last updated Aug 13, 2026</div>
+    <p>Every keeper selection since the rule arrived in 2022. Pick a season from the dropdown;
+    click column headers to sort.</p>
+    <div class="upd">Last updated Aug 27, 2026</div>
   </div>
   
   <div class="media"><img src="https://embed-ssl.wistia.com/deliveries/9f1f8ca636415816f9deadab4d1c3dfa.bin" alt="An NFL referee hugs a Packers player on the ground"></div>
@@ -67,60 +68,69 @@
 
 
 
-
 <div>
-    
-<div class="sec-head">
-  <span class="bar"></span>
-  <h2>2025 Keepers</h2>
-  
-  
-</div>
+    <div class="sec-head">
+        <span class="bar"></span>
+        <h2 id="keeper-season-title">2025 Keepers</h2>
+        <select class="season-select" id="keeper-season-select" aria-label="Choose a season">
+            
+            <option value="2025">2025</option>
+            
+            <option value="2024">2024</option>
+            
+            <option value="2023">2023</option>
+            
+            <option value="2022">2022</option>
+            
+        </select>
+    </div>
 
     
-    
-    
+    <div class="keeper-season" data-year="2025">
         
-    
         
-    
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
-    
+            
+        
+            
+        
+            
+        
+        
 
 <div class="lls-table-wrap">
   <table class="lls-table lls-table--sortable lls-table--collapsible" id="keepers-2025">
@@ -708,62 +718,54 @@
   </table>
 </div>
 
-    <p class="tbl-note">† Kept one round below the correct cost (should have been round 7) due to a commissioner error. One of Price&#39;s and Ben&#39;s 2026 keeper picks will be discounted accordingly.</p>
-</div>
-
-<div>
+        <p class="tbl-note">† Kept one round below the correct cost (should have been round 7) due to a commissioner error. One of Price&#39;s and Ben&#39;s 2026 keeper picks will be discounted accordingly.</p>
+    </div>
     
-<div class="sec-head sec-blue">
-  <span class="bar"></span>
-  <h2>2024 Keepers</h2>
-  
-  
-</div>
-
-    
-    
-    
+    <div class="keeper-season" data-year="2024" hidden>
         
-    
         
-    
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
-    
+            
+        
+            
+        
+            
+        
+        
 
 <div class="lls-table-wrap">
   <table class="lls-table lls-table--sortable lls-table--collapsible" id="keepers-2024">
@@ -1351,62 +1353,54 @@
   </table>
 </div>
 
-    
-</div>
-
-<div>
-    
-<div class="sec-head">
-  <span class="bar"></span>
-  <h2>2023 Keepers</h2>
-  
-  
-</div>
-
-    
-    
-    
         
+    </div>
     
+    <div class="keeper-season" data-year="2023" hidden>
         
-    
         
-    
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
-    
+            
+        
+            
+        
+            
+        
+            
+        
+        
 
 <div class="lls-table-wrap">
   <table class="lls-table lls-table--sortable lls-table--collapsible" id="keepers-2023">
@@ -1994,60 +1988,52 @@
   </table>
 </div>
 
-    
-</div>
-
-<div>
-    
-<div class="sec-head sec-blue">
-  <span class="bar"></span>
-  <h2>2022 Keepers</h2>
-  
-  
-</div>
-
-    
-    
-    
         
+    </div>
     
+    <div class="keeper-season" data-year="2022" hidden>
         
-    
         
-    
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
+            
         
-    
-    
+            
+        
+            
+        
+            
+        
+            
+        
+        
 
 <div class="lls-table-wrap">
   <table class="lls-table lls-table--sortable lls-table--collapsible" id="keepers-2022">
@@ -2607,9 +2593,10 @@
   </table>
 </div>
 
+        
+    </div>
     
 </div>
-
 
         </div>
     </main>
@@ -2622,5 +2609,7 @@
     </footer>
 
     
+<script>(function(){var sel=document.getElementById('keeper-season-select');if(!sel)return;var title=document.getElementById('keeper-season-title');var panels=document.querySelectorAll('.keeper-season');sel.addEventListener('change',function(){panels.forEach(function(p){p.hidden=p.dataset.year!==sel.value;});title.textContent=sel.value+' Keepers';});}());</script>
+
 </body>
 </html>
