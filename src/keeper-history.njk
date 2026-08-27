@@ -1,5 +1,5 @@
 {% extends 'base.njk' %}
-{% from "_components/ui.njk" import pageHero, secHead %}
+{% from "_components/ui.njk" import pageHero %}
 {% from "_components/llsTable.njk" import llsTable %}
 
 {% block title %}LLS Keeper History 🏈 The Late Late Shift{% endblock %}
@@ -7,8 +7,9 @@
 {% block content %}
 {{ pageHero(
     "Keeper History",
-    intro="Every keeper selection since the rule arrived in 2022. Click column headers to sort.",
-    updated="Aug 13, 2026",
+    intro="Every keeper selection since the rule arrived in 2022. Pick a season from the dropdown;
+    click column headers to sort.",
+    updated="Aug 27, 2026",
     image="https://embed-ssl.wistia.com/deliveries/9f1f8ca636415816f9deadab4d1c3dfa.bin",
     imageAlt="An NFL referee hugs a Packers player on the ground"
 ) }}
@@ -22,16 +23,31 @@
     { label: "Years Kept", type: "num" }
 ] %}
 
-{% for season in keepers.seasons %}
 <div>
-    {{ secHead(season.year + " Keepers", color="blue" if loop.index0 % 2 else "purple") }}
-    {# badge the POS cell (index 3); every other cell passes through #}
-    {% set badgedRows = [] %}
-    {% for row in season.rows %}
-        {% set _ = badgedRows.push([row[0], row[1], row[2], row[3] | posBadge, row[4], row[5]]) %}
+    <div class="sec-head">
+        <span class="bar"></span>
+        <h2 id="keeper-season-title">{{ keepers.seasons[0].year }} Keepers</h2>
+        <select class="season-select" id="keeper-season-select" aria-label="Choose a season">
+            {% for season in keepers.seasons %}
+            <option value="{{ season.year }}">{{ season.year }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    {% for season in keepers.seasons %}
+    <div class="keeper-season" data-year="{{ season.year }}"{% if not loop.first %} hidden{% endif %}>
+        {# badge the POS cell (index 3); every other cell passes through #}
+        {% set badgedRows = [] %}
+        {% for row in season.rows %}
+            {% set _ = badgedRows.push([row[0], row[1], row[2], row[3] | posBadge, row[4], row[5]]) %}
+        {% endfor %}
+        {{ llsTable({ columns: keeperColumns, rows: badgedRows }, sortable=true, id='keepers-' + season.year) }}
+        {% if season.note %}<p class="tbl-note">{{ season.note }}</p>{% endif %}
+    </div>
     {% endfor %}
-    {{ llsTable({ columns: keeperColumns, rows: badgedRows }, sortable=true, id='keepers-' + season.year) }}
-    {% if season.note %}<p class="tbl-note">{{ season.note }}</p>{% endif %}
 </div>
-{% endfor %}
+{% endblock %}
+
+{% block scripts %}
+<script>(function(){var sel=document.getElementById('keeper-season-select');if(!sel)return;var title=document.getElementById('keeper-season-title');var panels=document.querySelectorAll('.keeper-season');sel.addEventListener('change',function(){panels.forEach(function(p){p.hidden=p.dataset.year!==sel.value;});title.textContent=sel.value+' Keepers';});}());</script>
 {% endblock %}
