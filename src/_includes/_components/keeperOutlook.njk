@@ -5,7 +5,7 @@
 {% set latestKeepers = keepers.seasons | first %}
 {% set nextYear = latestKeepers.year + 1 %}
 <div>
-    {{ secHead("Keeper Outlook " + ([nextYear] | shortYears), note="who can be kept again, and what it costs", link=(('/keeper-history/' | url) if outlookShowHistoryLink else ''), linkText="Full history →") }}
+    {{ secHead(nextYear + " Keeper Outlook", link=(('/keeper-history/' | url) if outlookShowHistoryLink else ''), linkText="Full history →") }}
     {% set outlook = latestKeepers.rows | keeperOutlook %}
     <div class="split-main-rail outlook-grid">
         {% set outlookRows = [] %}
