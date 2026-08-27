@@ -19,20 +19,29 @@ export default function (eleventyConfig) {
     // Second consecutive keeps (years contains "2") return to the pool; everyone
     // else can be kept again one round earlier (round-1 cost is allowed — the
     // round-1 ban applies to draft position, not keeper cost).
+    // Optional row[6] is the end-of-season disposition when the player left the
+    // keeping manager's roster: "pool" = unrostered (back to pool), or another
+    // manager's name = ended on that roster (keeper rights follow the roster).
     eleventyConfig.addFilter("keeperOutlook", (rows) =>
         rows
             .filter((r) => /^\d+$/.test(String(r[4]).trim()))
             .map((r) => {
                 const secondYear = String(r[5]).includes("2");
                 const cost = Number(r[4]);
+                const disposition = r[6] || null;
+                const unrostered = disposition === "pool";
+                const heir = disposition && !unrostered ? disposition : null;
+                const eligible = !secondYear && !unrostered;
                 return {
-                    manager: r[0],
+                    manager: heir || r[0],
+                    keptBy: r[0],
                     team: r[1],
                     player: String(r[2]).replace(/†/g, "").trim(),
                     pos: r[3],
                     cost,
-                    eligible: !secondYear,
-                    nextCost: secondYear ? null : Math.max(cost - 1, 1),
+                    eligible,
+                    nextCost: eligible ? Math.max(cost - 1, 1) : null,
+                    reason: secondYear ? "second-year" : unrostered ? "unrostered" : null,
                 };
             })
     );

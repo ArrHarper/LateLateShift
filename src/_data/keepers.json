@@ -3,8 +3,9 @@
     {
       "year": 2025,
       "note": "† Kept one round below the correct cost (should have been round 7) due to a commissioner error. One of Price's and Ben's 2026 keeper picks will be discounted accordingly.",
+      "outlookNote": "T.J. Hockenson finished the season on Cass's roster after John dropped him — keeper rights follow the final roster, so the eligible keep belongs to Cass. Malik Nabers (season-ending injury, dropped in October) ended the year unrostered and returns to the pool.",
       "rows": [
-        ["Ben", "Herbert Fully Loaded", "Malik Nabers", "WR", "4", "1"],
+        ["Ben", "Herbert Fully Loaded", "Malik Nabers", "WR", "4", "1", "pool"],
         ["Ben", "Herbert Fully Loaded", "Kyren Williams†", "RB", "6", "2*"],
         ["Cass", "Breece's Pieces", "Lamar Jackson", "QB", "5", "1"],
         ["Cass", "Breece's Pieces", "Breece Hall", "RB", "2", "2*"],
@@ -15,7 +16,7 @@
         ["Harper", "Live By McCaff Die By Muh Calf", "Drake London", "WR", "5", "2*"],
         ["Harper", "Live By McCaff Die By Muh Calf", "Jaxon Smith-Njigba", "WR", "9", "1"],
         ["John", "Piccolos Cage", "Bucky Irving", "RB", "8", "1"],
-        ["John", "Piccolos Cage", "T.J. Hockenson", "TE", "16", "1"],
+        ["John", "Piccolos Cage", "T.J. Hockenson", "TE", "16", "1", "Cass"],
         ["Price", "Nacua Matata", "Trey McBride", "TE", "5", "1"],
         ["Price", "Nacua Matata", "Puka Nacua†", "WR", "6", "2*"],
         ["Ray", "Big Diggs and My Chubb", "Chase Brown", "RB", "9", "1"],
