@@ -42,7 +42,7 @@ League content lives in `src/_data/` — pages are loops over these files:
 
 ## Annual season-update checklist
 
-1. `src/_data/league.json` — add the finished season to `seasons[]` (champion, runner-up, scores, league ID); update `current` (year, seasonNo, new league ID, kickoff timestamp UTC, matchup, trade deadline, prior-year IDs). Everything downstream (homepage, ticker countdown, records page, quick links) updates itself.
+1. `src/_data/league.json` — add the finished season to `seasons[]` (champion, runner-up, scores, league ID); update `current` (year, seasonNo, new league ID, kickoff timestamp UTC, matchup, trade deadline, prior-year IDs) and `current.draft` (draft-night timestamp UTC + display string, keeper deadline display, reveal seed, `order[]` of picks with manager + fate blurb — drives the Draft Central page and its countdown). Everything downstream (homepage, ticker countdown, records page, quick links) updates itself.
 2. `src/_data/keepers.json` — add the new season's keeper rows (newest first).
 3. `src/_data/seasonStandings.json` — add the season's final standings, then run `npm run derive`. **Do not hand-edit `teams.json` or `alumni.json`** — both are generated from it (career totals, averages, title counts). `npm run derive -- --check` fails if they're stale.
 4. `src/_data/records.json` — re-check all-time records (single-season PF, streaks, etc.).

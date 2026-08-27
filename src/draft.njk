@@ -1,42 +1,83 @@
 {% extends 'base.njk' %}
-{% from "_components/ui.njk" import pageHero, mod %}
+{% from "_components/ui.njk" import secHead, mod %}
 
-{% block title %}Draft 🏈 The Late Late Shift{% endblock %}
+{% block title %}Draft Central 🏈 The Late Late Shift{% endblock %}
 
 {% block content %}
 {% set current = league.current %}
+{% set draft = current.draft %}
 {# Seasons with a published recap set — newest last. Add the year when one ships. #}
 {% set recapSeasons = [2025] %}
 {% set latestRecap = recapSeasons | last %}
 {% set recapIndexUrl = ('/draft-recaps/' + latestRecap + '/index-' + latestRecap + '.html') | url %}
 
-{{ pageHero(
-    "The Draft",
-    intro="Everything about draft night in one place: the order reveals that decide who picks
-    where, and the graded recaps of what everyone did with the pick they got.",
-    updated="Aug 2026"
-) }}
-
-<div class="duo">
-    {% call mod("Draft Order Reveals", link=('/draft-order/' | url), linkText="All reveals →") %}
-    <p class="mod-intro">Each season's draft order, revealed the only way we know how:
-    unnecessarily produced videos.</p>
-    <div class="link-list">
-        {% for video in draftVideos %}
-        <a href="{{ '/draft-order/' | url }}#draft-{{ video.year }}">{{ video.year }} Draft Order <span>→</span></a>
-        {% endfor %}
+<div class="draft-hero">
+    <div class="kicker"><span class="dot"></span> Season {{ current.seasonNo }} · Draft Night</div>
+    <h1>Draft Central</h1>
+    <div class="count" id="draft-countdown" data-target="{{ draft.when }}" role="timer" aria-label="Countdown to the draft">
+        <div class="unit"><b id="dc-d">—</b><span>Days</span></div>
+        <div class="unit"><b id="dc-h">—</b><span>Hrs</span></div>
+        <div class="unit"><b id="dc-m">—</b><span>Min</span></div>
+        <div class="unit"><b id="dc-s">—</b><span>Sec</span></div>
     </div>
-    {% endcall %}
-
-    {% call mod("Draft Recaps", link=recapIndexUrl, linkText="Open recaps →") %}
-    <p class="mod-intro">Every pick graded against a keeper-adjusted league ADP — biggest values,
-    biggest reaches, roster grades and league-wide superlatives, one page per team.</p>
-    <div class="link-list">
-        {% for yr in recapSeasons %}
-        <a href="{{ ('/draft-recaps/' + yr + '/index-' + yr + '.html') | url }}">{{ yr }} Draft Recaps <span>→</span></a>
-        {% endfor %}
-        <a href="https://football.fantasysports.yahoo.com/{{ current.priorYear }}/f1/{{ current.priorLeagueId }}/draftresults" target="_blank" rel="noopener">{{ current.priorYear }} Draft Board on Yahoo <span>→</span></a>
+    <div class="when"><b>{{ draft.whenDisplay }}</b> · keepers lock <b>{{ draft.keeperDeadlineDisplay }}</b></div>
+    <div class="cta">
+        <a class="btn-primary" href="https://football.fantasysports.yahoo.com/f1/{{ current.leagueId }}/1/keepers" target="_blank" rel="noopener">Select Your Keepers</a>
+        <a class="link-strong" href="{{ '/draft-order/' | url }}#draft-{{ current.year }}">Watch the Order Reveal →</a>
     </div>
-    {% endcall %}
 </div>
+
+{% call mod("Key Dates") %}
+<ul class="kv-list">
+    <li><span class="k">Keepers lock</span><span class="v">{{ draft.keeperDeadlineDisplay }}</span></li>
+    <li><span class="k">Draft night</span><span class="v">{{ draft.whenDisplay }}</span></li>
+    <li><span class="k">NFL kickoff</span><span class="v">{{ current.kickoffDisplay }}</span></li>
+</ul>
+{% endcall %}
+
+<div class="mod rank-mod">
+    <div class="mod-head">
+        <h3>{{ current.year }} Draft Order</h3>
+        <a href="{{ '/draft-order/' | url }}#draft-{{ current.year }}">Watch the reveal →</a>
+    </div>
+    <ol>
+        {% for slot in draft.order %}
+        <li>
+            <span class="rk">{{ slot.pick }}</span>
+            <span class="who"><b>{{ slot.manager }}</b></span>
+            <span class="note">{{ slot.fate }}</span>
+        </li>
+        {% endfor %}
+    </ol>
+</div>
+
+<div>
+    {{ secHead("The Archive", color="blue", note="order reveals and graded recaps from seasons past") }}
+    <div class="duo">
+        {% call mod("Draft Order Reveals", link=('/draft-order/' | url), linkText="All reveals →") %}
+        <p class="mod-intro">Each season's draft order, revealed the only way we know how:
+        unnecessarily produced videos.</p>
+        <div class="link-list">
+            {% for video in draftVideos %}
+            <a href="{{ '/draft-order/' | url }}#draft-{{ video.year }}">{{ video.year }} Draft Order <span>→</span></a>
+            {% endfor %}
+        </div>
+        {% endcall %}
+
+        {% call mod("Draft Recaps", link=recapIndexUrl, linkText="Open recaps →") %}
+        <p class="mod-intro">Every pick graded against a keeper-adjusted league ADP — biggest values,
+        biggest reaches, roster grades and league-wide superlatives, one page per team.</p>
+        <div class="link-list">
+            {% for yr in recapSeasons %}
+            <a href="{{ ('/draft-recaps/' + yr + '/index-' + yr + '.html') | url }}">{{ yr }} Draft Recaps <span>→</span></a>
+            {% endfor %}
+            <a href="https://football.fantasysports.yahoo.com/{{ current.priorYear }}/f1/{{ current.priorLeagueId }}/draftresults" target="_blank" rel="noopener">{{ current.priorYear }} Draft Board on Yahoo <span>→</span></a>
+        </div>
+        {% endcall %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>(function(){var w=document.getElementById('draft-countdown');if(!w)return;var targetMs=Date.parse(w.dataset.target);function $(id){return document.getElementById(id);}var d=$('dc-d'),h=$('dc-h'),m=$('dc-m'),s=$('dc-s');function pad(n){return String(n).padStart(2,'0');}function tick(){var diff=targetMs-Date.now();if(diff<=0){w.innerHTML='<div class="done">Draft night is here!</div>';clearInterval(t);return;}d.textContent=Math.floor(diff/864e5);h.textContent=pad(Math.floor(diff%864e5/36e5));m.textContent=pad(Math.floor(diff%36e5/6e4));s.textContent=pad(Math.floor(diff%6e4/1e3));}tick();var t=setInterval(tick,1000);}());</script>
 {% endblock %}

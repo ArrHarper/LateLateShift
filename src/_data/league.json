@@ -15,7 +15,25 @@
     "playoffWeeks": "15–17",
     "buyIn": 20,
     "payoutChampion": 150,
-    "payoutRunnerUp": 50
+    "payoutRunnerUp": 50,
+    "draft": {
+      "when": "2026-09-06T01:00:00Z",
+      "whenDisplay": "Sat 9/5 · 9:00 PM ET",
+      "keeperDeadlineDisplay": "Fri 9/4 · 2:59 AM ET",
+      "voyageSeed": "634061022",
+      "order": [
+        { "pick": 1, "manager": "Dave", "fate": "Last ship afloat · 2 sunk" },
+        { "pick": 2, "manager": "Harper", "fate": "Sunk by Dave" },
+        { "pick": 3, "manager": "John", "fate": "Sunk by Dave · 1 sunk" },
+        { "pick": 4, "manager": "Uzoma", "fate": "Taken by the Kraken · 1 sunk" },
+        { "pick": 5, "manager": "Colin", "fate": "Sunk by John" },
+        { "pick": 6, "manager": "TK", "fate": "Capsized by a rogue wave" },
+        { "pick": 7, "manager": "Ray", "fate": "Capsized by a rogue wave" },
+        { "pick": 8, "manager": "Cass", "fate": "Capsized by a rogue wave" },
+        { "pick": 9, "manager": "Price", "fate": "Sunk by Uzoma" },
+        { "pick": 10, "manager": "Ben", "fate": "Capsized by a rogue wave" }
+      ]
+    }
   },
   "seasons": [
     {
