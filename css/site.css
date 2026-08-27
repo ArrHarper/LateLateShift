@@ -216,6 +216,74 @@ main { display: block; flex: 1 0 auto; }
 }
 .hero-wing .dl b { color: var(--on-navy); font-weight: 700; }
 
+/* ---------- draft hero (Draft Central) ---------- */
+.draft-hero {
+  background: var(--navy);
+  color: var(--on-navy);
+  border-radius: var(--r-lg);
+  padding: 42px 28px 38px;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 10px;
+}
+.draft-hero .kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--red);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.draft-hero .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
+@media (prefers-reduced-motion: no-preference) {
+  .draft-hero .dot { animation: pulse 1.6s ease-in-out infinite; }
+}
+.draft-hero h1 {
+  font-size: clamp(1.9rem, 5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.draft-hero .count {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+.draft-hero .unit {
+  min-width: 78px;
+  padding: 12px 10px 10px;
+  background: var(--navy-deep);
+  border-radius: var(--r-md);
+}
+.draft-hero .unit b {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.draft-hero .unit span {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.draft-hero .done { font-size: 1.6rem; font-weight: 800; padding: 10px 0; }
+.draft-hero .when { font-size: 0.8rem; color: var(--on-navy-dim); }
+.draft-hero .when b { color: var(--on-navy); font-weight: 700; }
+.draft-hero .cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 12px; }
+.draft-hero .link-strong { color: var(--blue-bright); }
+.draft-hero .link-strong:hover { color: #fff; }
+.draft-hero .link-strong:active { color: var(--blue); }
+
 /* ---------- page header (interior pages) ---------- */
 .page-head {
   background: var(--surface);
@@ -396,6 +464,12 @@ main { display: block; flex: 1 0 auto; }
 .rank-mod .who { margin-right: auto; }
 .rank-mod .who b { display: block; }
 .rank-mod .who span { color: var(--ink-3); font-size: 0.72rem; }
+/* right-aligned annotation (e.g. draft-order fates) */
+.rank-mod .note {
+  color: var(--ink-3);
+  font-size: 0.72rem;
+  text-align: right;
+}
 .rank-mod .pill {
   background: var(--tint-blue);
   color: var(--blue-ink);
@@ -500,7 +574,6 @@ main { display: block; flex: 1 0 auto; }
   gap: var(--gap);
   align-items: start;
 }
-
 /* ---------- lls-table (restyled) ---------- */
 .lls-table-wrap {
   overflow-x: auto;
