@@ -53,7 +53,8 @@ League content lives in `src/_data/` — pages are loops over these files:
 
 ## Data sources
 
-- Yahoo public (logged-out) pages provide: standings points, per-team records (team pages), draft results by round/team. NOT available logged-out: PA, moves, keeper markers, manager names — those need logged-in screenshots from the commissioner.
-- The Yahoo Fantasy API requires approval via Yahoo's Sports Developer Portal (open self-service access ended 2026); the league's API CLI tool lives outside this repo.
-- Keepers can be inferred from public data: intersect prior-season final rosters with the new draft (same manager, pick round ≈ keeper cost) — but late-round keeps and cost quirks need commissioner confirmation.
-- `seasonStandings.json` was transcribed from logged-in Yahoo standings screenshots (one per season), which is why it carries PA and moves. Yahoo's "Finished Nth" cell in the podium bar reports *the logged-in user's own* finish, not a league-wide fact — useful for identifying Harper's team in a season, misleading if read as anything else.
+- **The Yahoo Fantasy API is the primary source** (approved Aug 2026 via Yahoo's new developer portal). The CLI tool lives in the sibling `yahooFantasyAPIcaller` repo (run `node bin/yahoo-fantasy-cli.js` from its root — credentials load from its `.env`). Standings (incl. PA, moves, waiver priority), scoreboards, rosters, weekly player stats, and draft results are all available; screenshots are no longer needed for those. League/team keys per season: `yahooFantasyAPIcaller/json/YahooLeagueKeys.json`.
+- **API quirk**: Yahoo zeroes weekly per-player *stat lines* (TDs, FGs, yards) for seasons ~3+ years old, but per-player fantasy *points* survive forever. So raw-stat records for 2020–21 are unrecoverable; anything points-based can be recomputed for all seasons. Pull each season's weekly stats within ~2 years while they're live.
+- Stat-based record tiles are computed by `yahooFantasyAPIcaller/scripts/pullRecordsData.js` (fetch) + `computeRecords.js` (aggregate; definition = starters, weeks 1–16). `records.json` has an `_about` with details.
+- `seasonStandings.json` was originally transcribed from logged-in screenshots; every row (all seasons) has since been verified exactly against the API (Aug 2026).
+- Keepers still need commissioner records — the API's `is_keeper` flag on old rosters is unreliable, and keeper costs live in league rules, not Yahoo.

@@ -1,18 +1,19 @@
 {
+  "_about": "Stat-based tiles (TDs, kicking, drafted-player points, margin) are computed from Yahoo API weekly data over starters, weeks 1-16 (2020's full season length, applied uniformly) — see yahooFantasyAPIcaller/scripts/computeRecords.js. Verified vs API Aug 2026. Caveat: Yahoo zeroes weekly stat lines ~3+ seasons back, so TD counts for 2020-2021 are unrecoverable — the 116 TD record is the legacy 2020 value and 2021 can never be checked. Fantasy points survive for all seasons, so kicking/drafted/margin tiles cover full league history.",
   "positive": [
     { "title": "Superbowl Wins, All-Time", "value": "2", "detail": "Koo Runnings · 2021, 2022", "manager": "Colin D." },
     { "title": "Win %, All-Time", "value": "0.59", "detail": "", "manager": "Dave S." },
     { "title": "Avg PF, All-Time", "value": "1689.94", "detail": "", "manager": "Ray S." },
     { "title": "Highest PF, Single Season", "value": "1919.74", "detail": "Nacua Matata · 2025", "manager": "J. Price" },
     { "title": "Most TDs, Single Season", "value": "116", "detail": "Wraith's Voidwalkers · 2020", "manager": "Uzoma E." },
-    { "title": "Kicking Points, Single Season", "value": "174", "detail": "Piccolos Cage · 2020", "manager": "John V." }
+    { "title": "Kicking Points, Single Season", "value": "191", "detail": "Wraith's Voidwalkers · 2024", "manager": "Uzoma E." }
   ],
   "negative": [
     { "title": "Worst Losing Streak, All-Time", "value": "L-11", "detail": "Wraith's Voidwalkers · 2023", "manager": "Uzoma E." },
     { "title": "Lowest Avg PF, All-Time", "value": "1543.51", "detail": "", "manager": "John V." },
     { "title": "Least Pts from Drafted Players, Single Season", "value": "1007.76", "detail": "The Illuminajee · 2022", "manager": "TK" },
-    { "title": "Least TDs, Single Season", "value": "66", "detail": "David's Team · 2020", "manager": "Dave S." },
-    { "title": "Worst Margin of Defeat, Single Game", "value": "-125", "detail": "FrshPrnce of Helaire · Wk 13, 2020", "manager": "Colin D." },
+    { "title": "Least TDs, Single Season", "value": "59", "detail": "Wraith's Voidwalkers · 2023", "manager": "Uzoma E." },
+    { "title": "Worst Margin of Defeat, Single Game", "value": "-125.86", "detail": "FrshPrnce of Helaire · Wk 13, 2020", "manager": "Colin D." },
     { "title": "Most Waiver Moves, Missed Playoffs", "value": "45", "detail": "Brady Aiyukidding Me · 2021", "manager": "J. Price" }
   ]
 }
