@@ -22,18 +22,9 @@
     </div>
     <div class="when"><b>{{ draft.whenDisplay }}</b> · keepers lock <b>{{ draft.keeperDeadlineDisplay }}</b></div>
     <div class="cta">
-        <a class="btn-primary" href="https://football.fantasysports.yahoo.com/f1/{{ current.leagueId }}/1/keepers" target="_blank" rel="noopener">Select Your Keepers</a>
-        <a class="link-strong" href="{{ '/draft-order/' | url }}#draft-{{ current.year }}">Watch the Order Reveal →</a>
+        <a class="btn-primary" href="{{ '/draft-order/' | url }}#draft-{{ current.year }}">Watch the Order Reveal</a>
     </div>
 </div>
-
-{% call mod("Key Dates") %}
-<ul class="kv-list">
-    <li><span class="k">Keepers lock</span><span class="v">{{ draft.keeperDeadlineDisplay }}</span></li>
-    <li><span class="k">Draft night</span><span class="v">{{ draft.whenDisplay }}</span></li>
-    <li><span class="k">NFL kickoff</span><span class="v">{{ current.kickoffDisplay }}</span></li>
-</ul>
-{% endcall %}
 
 <div class="mod rank-mod">
     <div class="mod-head">
