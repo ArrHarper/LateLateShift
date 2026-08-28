@@ -42,8 +42,7 @@
 
 {% call mod("Draft Resources") %}
 <div class="link-list">
-    {# Placeholder until the 2025 season review page ships — update the href when it publishes. #}
-    <a href="#">2025 End of Year Review <span>→</span></a>
+    <a href="{{ '/draft/2025-review/' | url }}">2025 End of Year Review <span>→</span></a>
     {% for yr in recapSeasons %}
     <a href="{{ ('/draft/' + yr + '-recap/') | url }}">{{ yr }} Draft Recaps <span>→</span></a>
     {% endfor %}
