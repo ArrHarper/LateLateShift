@@ -1,0 +1,3352 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Late Late Shift — 2025 Season Review</title>
+<link rel="icon" type="image/x-icon" href="/LateLateShift/assets/favicon.ico">
+<!-- Real site chrome (nav + footer), same pattern as the draft recaps: the live
+     stylesheets load first, the inline block below owns the review-only components. -->
+<link rel="stylesheet" href="/LateLateShift/css/fonts.css">
+<link rel="stylesheet" href="/LateLateShift/css/tokens.css">
+<link rel="stylesheet" href="/LateLateShift/css/site.css">
+<script src="/LateLateShift/js/nav.js" defer></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{--bg:#EEF0FA;--card:#fff;--cardAlt:#F5F3FC;--midnight:#0B0E1A;--text:#171C2E;--sub:#5E6580;--line:#DFE2F0;--purple:#8B4DE8;--blue:#5DA9E9;--red:#F0544F;--gold:#E8A84D;--green:#3BBFA5;--cond:'Barlow Condensed','Arial Narrow',sans-serif;--mono:'IBM Plex Mono',Consolas,monospace;--sans:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+main{max-width:1180px;margin:0 auto;padding:26px 20px 72px}
+.toc-panel{position:fixed;left:calc(50% + 604px);top:120px;z-index:30;width:150px;background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 4px 16px rgba(11,14,26,.12);padding:8px 0 10px;display:none}
+.toc-panel .toc-label{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);padding:6px 14px 4px}
+.toc-panel a{display:flex;align-items:baseline;font-family:var(--cond);font-size:14.5px;font-weight:700;letter-spacing:.03em;color:var(--sub);padding:5px 14px 6px;text-decoration:none;border-left:3px solid transparent;line-height:1.2}
+.toc-rk{width:20px;flex-shrink:0;font-family:var(--mono);font-size:10.5px;color:var(--sub);opacity:.75}
+.toc-trophy{margin-left:5px;align-self:center;flex-shrink:0}
+.badge-trophy{display:block}
+.toc-panel a:hover{color:var(--text);background:var(--cardAlt)}
+.toc-panel a.active{color:var(--purple);border-left-color:var(--purple)}
+@media(min-width:1520px){.toc-panel{display:block}}
+.hero{background:linear-gradient(135deg,var(--midnight),#2A1B52);color:#fff;border-radius:12px;padding:30px 32px;box-shadow:0 4px 16px rgba(11,14,26,.15)}
+.eyebrow{font-family:var(--cond);color:var(--blue);font-weight:700;letter-spacing:.11em;text-transform:uppercase}
+.hero h1{font-family:var(--cond);font-size:clamp(38px,7vw,62px);line-height:.98;margin:8px 0 10px}
+.hero p{max-width:820px;line-height:1.65;color:rgba(255,255,255,.76);margin:0}
+.summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 1px 3px rgba(11,14,26,.06)}
+.summary-card{padding:0;background:var(--card);border:1px solid var(--line);border-radius:10px;color:var(--text);overflow:hidden}
+.award-head{display:flex;align-items:stretch;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line)}
+.award-left{align-self:center;padding:14px 0 12px 20px}
+.award-name{font-family:var(--cond);font-size:23px;font-weight:800;line-height:1.05;letter-spacing:.03em;text-transform:uppercase;background:linear-gradient(100deg,var(--purple),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+.award-name::after{content:'';display:block;width:46px;height:4px;border-radius:2px;background:var(--gold);margin-top:7px}
+.award-sub{font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--sub);margin-top:6px}
+.award-winner{flex-shrink:0;background:var(--midnight);color:#fff;display:flex;align-items:center;gap:9px;padding:10px 18px 10px 32px;clip-path:polygon(24px 0,100% 0,100% 100%,0 100%);font-family:var(--cond);font-weight:800;font-size:17px;letter-spacing:.04em}
+.chip-avatar{width:28px;height:28px;border-radius:50%;object-fit:cover;display:block}
+.summary-card small{display:block;color:var(--sub);font-size:13px;line-height:1.55;padding:13px 20px 17px}
+.team{margin-top:22px;overflow:hidden;scroll-margin-top:16px}
+.team-head{display:flex;align-items:center;gap:16px;padding:18px 20px;background:var(--midnight);color:#fff}
+.avatar-wrap{position:relative;flex-shrink:0}
+.rank-badge{position:absolute;top:-7px;left:-9px;font-family:var(--cond);font-weight:800;font-size:13px;min-width:23px;height:23px;padding:0 5px;border-radius:7px;background:#1B2036;2px solid rgb(223 171 88);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(11,14,26,.4)}
+.rank-badge.champ{background:linear-gradient(135deg,#5A2CA8,#2A5F9E);font-size:14px}
+.mgr-avatar{display:block;width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08)}
+.team-id{flex:1;min-width:0}.team-id h2{font-family:var(--cond);font-size:26px;font-weight:800;margin:0;line-height:1.05}
+.team-meta{font-size:13px;color:rgba(255,255,255,.65);margin-top:3px}.team-meta b{color:var(--blue)}
+.team-stats{display:flex;gap:18px}.tstat{text-align:right}.tstat span{display:block;font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.tstat b{font-family:var(--cond);font-size:22px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+thead th{font-family:var(--cond);font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--sub);text-align:left;padding:10px 12px;border-bottom:2px solid var(--line);background:var(--cardAlt)}
+.thnote{font-weight:600;letter-spacing:0;text-transform:none;color:var(--sub);opacity:.8}
+tbody td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+tr.depth{background:var(--cardAlt)}tr.depth .slot,tr.depth .holders{color:var(--sub)}
+.slot{font-family:var(--cond);font-weight:700;font-size:14.5px;white-space:nowrap}
+.pos-badge{display:inline-flex;justify-content:center;align-items:center;min-width:35px;font-family:var(--cond);font-weight:700;font-size:12px;color:#fff;border-radius:4px;padding:3px 7px;letter-spacing:.04em}
+.pos-badge.QB{background:var(--red)}.pos-badge.RB{background:var(--blue)}.pos-badge.WR{background:var(--purple)}.pos-badge.TE{background:var(--gold)}.pos-badge.K{background:var(--green)}.pos-badge.DEF{background:#7C86A8}
+.pos-badge.FLEX{background:linear-gradient(135deg,var(--blue),var(--purple))}
+tr.depth .pos-badge{opacity:.45}
+.kp-lock{vertical-align:-1px;margin-left:1px}
+.rank1{color:#C07F1E;white-space:nowrap}.rank2,.rank3{color:#3BBFA5}.rank-star{vertical-align:-1px}
+.src-icon{vertical-align:-1px;margin-left:1px}
+.num{text-align:right;white-space:nowrap}.mono{font-family:var(--mono);font-size:12.5px}
+.holders{line-height:1.85}.holder{white-space:nowrap}
+.arrow{color:var(--sub);opacity:.6}
+.src-d,.src-w{font-size:11.5px;font-family:var(--mono)}.src-d{color:var(--sub)}.src-w{color:var(--purple)}
+.kp{color:var(--gold);font-size:11px}
+b.top{color:var(--purple)}
+.dim{color:var(--sub)}
+.team-body{display:grid;grid-template-columns:minmax(0,1fr) 348px}
+.team-main{min-width:0}
+.rail{border-left:1px solid var(--line);padding:14px 16px 18px;display:flex;flex-direction:column;gap:16px;background:var(--card)}
+.rail-card + .rail-card{border-top:2px solid var(--line);padding-top:14px}
+.rail-card .stream-head{margin-bottom:6px}
+.rail-table{width:100%;border-collapse:collapse;font-size:12px}
+.rail-table td{padding:4px 6px 4px 0;border-bottom:1px solid var(--line);vertical-align:middle;white-space:nowrap}
+.rail-table tr:last-child td{border-bottom:0}
+.rail-table thead th{font-family:var(--cond);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);text-align:left;padding:4px 6px;background:var(--cardAlt);border-bottom:1px solid var(--line)}
+.rail-table thead th:first-child{border-radius:4px 0 0 4px}.rail-table thead th:last-child{border-radius:0 4px 4px 0}
+.rail-table thead th.num{text-align:right}
+.rail-pick{width:26px;color:var(--sub);font-size:11px}
+.rail-me td{background:var(--cardAlt)}
+.rail-rank{text-align:right;font-family:var(--cond);font-weight:700;font-size:13px}
+.rail .pos-badge{min-width:28px;font-size:10px;padding:2px 5px}
+.rail .stream-rank{width:auto;font-size:11.5px;text-align:right}
+.rail .mono{font-size:11px}
+.stream-grid{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--line)}
+.ir-panel{border-top:2px solid var(--line);padding:12px 16px 14px}
+.ir-table{max-width:420px}
+.stream-panel{padding:12px 16px 14px}.stream-panel:first-child{border-right:1px solid var(--line)}
+.stream-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.stream-label{font-family:var(--cond);font-weight:700;font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:var(--sub)}
+.stream-agg{margin-left:auto;font-size:12px;color:var(--sub)}.stream-agg .mono{font-size:11.5px;color:var(--text)}
+.sharebar{display:flex;height:5px;border-radius:3px;overflow:hidden;margin-bottom:8px}
+.sharebar div{height:100%}
+.stream-table{width:100%;font-size:12.5px}
+.stream-table td{padding:4px 8px 4px 0;border-bottom:1px solid var(--line)}
+.stream-rank{text-align:right;font-size:12px;white-space:nowrap;width:56px}
+.stream-table tr:last-child td{border-bottom:0}
+.top-pos{width:44px}
+.legend{margin-top:22px;padding:16px 20px;font-size:12.5px;color:var(--sub);line-height:1.7}
+.legend b{color:var(--text)}
+@media(max-width:760px){.summary-grid{grid-template-columns:1fr}.team-head{flex-wrap:wrap}.team-stats{width:100%;justify-content:flex-start}.tstat{text-align:left}.stream-grid{grid-template-columns:1fr}.stream-panel:first-child{border-right:0;border-bottom:1px solid var(--line)}.team-body{grid-template-columns:1fr}.rail{border-left:0;border-top:2px solid var(--line)}}
+</style></head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" id="site-nav" aria-label="Main">
+  <div class="container">
+    <a class="nav-logo" href="/LateLateShift/"><img src="/LateLateShift/assets/images/lls-logo-knockout.svg" alt="The Late Late Shift — home"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">☰</button>
+    <div class="nav-links" id="nav-links">
+      <a href="/LateLateShift/">Home</a>
+      <a href="/LateLateShift/teams/">Teams</a>
+      <a href="/LateLateShift/draft/" class="is-active" aria-current="page">Draft</a>
+      <a href="/LateLateShift/rules/">Rules</a>
+      <a href="/LateLateShift/keeper-history/">Keepers</a>
+      <a href="/LateLateShift/recordBook/">Records</a>
+    </div>
+    <a class="nav-cta" href="https://football.fantasysports.yahoo.com/league/latelateshift" target="_blank" rel="noopener">League on Yahoo</a>
+  </div>
+</nav>
+<aside class="toc-panel" aria-label="Jump to a team">
+  <div class="toc-label">2025 Standings</div>
+  <a href="#tk"><span class="toc-rk">1</span>TK <svg class="toc-trophy" viewBox="0 0 12 12" width="12" height="12" aria-label="league champion"><path fill="#E8A84D" d="M3 0h6v3.5a3 3 0 0 1-2.25 2.9V8h1.75v2h-5V8h1.75V6.4A3 3 0 0 1 3 3.5V0zM0 1h2.5v1H1v.5c0 .83.5 1.55 1.25 1.85.1.36.27.7.47 1A3 3 0 0 1 0 2.5V1zm12 0H9.5v1H11v.5c0 .83-.5 1.55-1.25 1.85-.1.36-.27.7-.47 1A3 3 0 0 0 12 2.5V1z"/></svg></a><a href="#colin"><span class="toc-rk">2</span>Colin</a><a href="#price"><span class="toc-rk">3</span>Price</a><a href="#dave"><span class="toc-rk">4</span>Dave</a><a href="#harper"><span class="toc-rk">5</span>Harper</a><a href="#john"><span class="toc-rk">6</span>John</a><a href="#ben"><span class="toc-rk">7</span>Ben</a><a href="#ray"><span class="toc-rk">8</span>Ray</a><a href="#cass"><span class="toc-rk">9</span>Cass</a><a href="#uzoma"><span class="toc-rk">10</span>Uzoma</a>
+</aside>
+<main id="main">
+<div class="hero">
+  <div class="eyebrow">End of Year Roster Review · LLS 2025</div>
+  <h1>Team by team roster performance</h1>
+  <p>With 2025 on the books, we can look back at each roster for some perspective on how and why the standings shook out as they did. See the actual season numbers for the notable players at every position, analyze whether those streaming defenses helped or hurt, and which teams were held back most by the injury bug. </p>
+  <div class="summary-grid">
+    <div class="summary-card"><div class="award-head"><div class="award-left"><div class="award-name">GM of the Year</div><div class="award-sub">Best roster</div></div><div class="award-winner"><img class="chip-avatar" src="/LateLateShift/assets/images/manager-avatars/price.png" alt="" width="52" height="52" loading="lazy">Price</div></div><small>Ranked 1st in points by position at every positional category other than RB, his 2 keepers were WR1 and TE1 respectively, and he got more waiver value than any other team in the league. Goes to show that in fantasy you can do everything right and still not make the 'bowl.</small></div>
+    <div class="summary-card"><div class="award-head"><div class="award-left"><div class="award-name">Electrical Substation Award</div><div class="award-sub">Worst injury luck</div></div><div class="award-winner"><img class="chip-avatar" src="/LateLateShift/assets/images/manager-avatars/ben.jpg" alt="" width="52" height="52" loading="lazy">Ben</div></div><small>Two potential top-5 players lost to season-enders; Malik Nabers in wk 4, Tucker Kraft (on TE2 pace) in wk 9. Add in a gimpy CeeDee Lamb and 4-week IR stint for Pearsall. Just imagine having Nabers, Lamb, A.J. Brown, and Pearsall, and somehow ending up with the 4th-worst WR room in the league. Pain. Pure pain.</small></div>
+    <div class="summary-card"><div class="award-head"><div class="award-left"><div class="award-name">The Storage Unit</div><div class="award-sub">Worst keepers</div></div><div class="award-winner"><img class="chip-avatar" src="/LateLateShift/assets/images/manager-avatars/cass.png" alt="" width="52" height="52" loading="lazy">Cass</div></div><small>Spending a 2nd rounder to keep Breece Hall, who was expected to go in the 3rd or 4th, was the injury. Spending a 5th to keep Lamar Jackson, projected as the QB1 but who ended the year as the QB20, that was the insult. The one-two punch of overspending and underperforming cements this as the year's worst pair of keepers.</small></div>
+    <div class="summary-card"><div class="award-head"><div class="award-left"><div class="award-name">The Toyota Camry</div><div class="award-sub">Aggressively adequate</div></div><div class="award-winner"><img class="chip-avatar" src="/LateLateShift/assets/images/manager-avatars/john.jpg" alt="" width="52" height="52" loading="lazy">John</div></div><small>The ultimate "B-" team. Fewest roster moves (7), minimal injuries, zero sauce. Highest league rank at any position group was 4th, and drove an 8-6 season to the playoffs for a first-round exit. Paid the bills, showed up to work, made the playoffs. One of the teams of all time.</small></div>
+  </div>
+</div>
+
+<section class="team card" id="tk">
+  <div class="team-head">
+    <div class="avatar-wrap">
+      <img class="mgr-avatar" src="/LateLateShift/assets/images/manager-avatars/tk.png" alt="" width="52" height="52" loading="lazy">
+      <div class="rank-badge champ"><svg class="badge-trophy" viewBox="0 0 12 12" width="12" height="12" aria-label="league champion"><path fill="#E8A84D" d="M3 0h6v3.5a3 3 0 0 1-2.25 2.9V8h1.75v2h-5V8h1.75V6.4A3 3 0 0 1 3 3.5V0zM0 1h2.5v1H1v.5c0 .83.5 1.55 1.25 1.85.1.36.27.7.47 1A3 3 0 0 1 0 2.5V1zm12 0H9.5v1H11v.5c0 .83-.5 1.55-1.25 1.85-.1.36-.27.7-.47 1A3 3 0 0 0 12 2.5V1z"/></svg></div>
+    </div>
+    <div class="team-id">
+      <h2>Gibbs Me Da Gold</h2>
+      <div class="team-meta"><b>TK</b> · League Champion · 8-6, 1734.52 PF</div>
+    </div>
+    <div class="team-stats">
+      <div class="tstat"><span>Captured</span><b>2079.9</b></div>
+      <div class="tstat"><span>From draft</span><b>82.4%</b></div>
+      <div class="tstat"><span>Moves</span><b>20</b></div>
+    </div>
+  </div>
+  <div class="team-body">
+  <div class="team-main">
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Slot</th><th>Player</th><th class="num">Pts captured</th><th class="num">Starts</th><th class="num">Season pts</th><th class="num">Value</th><th>2025 rank</th></tr></thead>
+    <tbody>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Patrick Mahomes</td>
+        <td class="num mono">241.7</td>
+        <td class="num mono">11</td>
+        <td class="num mono">285.2</td>
+        <td class="num mono">+2.6</td>
+        <td><b class="top">QB11</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Drake Maye</td>
+        <td class="num mono">126.1</td>
+        <td class="num mono">6</td>
+        <td class="num mono">351.5</td>
+        <td class="num mono">+6.5</td>
+        <td><b class="rank2">QB2</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB1</span></td>
+        <td class="holders"><b>Jahmyr Gibbs</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">309.6</td>
+        <td class="num mono">16</td>
+        <td class="num mono">328.4</td>
+        <td class="num mono">+11.1</td>
+        <td><b class="top">RB4</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB2</span></td>
+        <td class="holders">Saquon Barkley</td>
+        <td class="num mono">213.8</td>
+        <td class="num mono">16</td>
+        <td class="num mono">213.8</td>
+        <td class="num mono">+4.4</td>
+        <td>RB14</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR1</span></td>
+        <td class="holders">Chris Olave</td>
+        <td class="num mono">188.5</td>
+        <td class="num mono">13</td>
+        <td class="num mono">218.0</td>
+        <td class="num mono">+5.6</td>
+        <td><b class="top">WR6</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR2</span></td>
+        <td class="holders">Jaylen Waddle</td>
+        <td class="num mono">114.4</td>
+        <td class="num mono">13</td>
+        <td class="num mono">162.1</td>
+        <td class="num mono">+2.3</td>
+        <td>WR23</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR3</span></td>
+        <td class="holders"><b>Khalil Shakir</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">81.3</td>
+        <td class="num mono">8</td>
+        <td class="num mono">130.4</td>
+        <td class="num mono">+0.4</td>
+        <td>WR38</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Romeo Doubs <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">63.5</td>
+        <td class="num mono">7</td>
+        <td class="num mono">137.9</td>
+        <td class="num mono">+0.8</td>
+        <td>WR36</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Terry McLaurin</td>
+        <td class="num mono">55.5</td>
+        <td class="num mono">7</td>
+        <td class="num mono">95.2</td>
+        <td class="num mono">−1.7</td>
+        <td>WR54</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Jordan Addison</td>
+        <td class="num mono">44.1</td>
+        <td class="num mono">5</td>
+        <td class="num mono">114.1</td>
+        <td class="num mono">−0.6</td>
+        <td>WR44</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Jake Ferguson</td>
+        <td class="num mono">78.3</td>
+        <td class="num mono">8</td>
+        <td class="num mono">147.1</td>
+        <td class="num mono">+0.6</td>
+        <td><b class="top">TE8</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Travis Kelce</td>
+        <td class="num mono">65.8</td>
+        <td class="num mono">8</td>
+        <td class="num mono">155.2</td>
+        <td class="num mono">+1.1</td>
+        <td><b class="rank3">TE3</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge FLEX">W/R/T</span></td>
+        <td class="holders">Jaylen Warren</td>
+        <td class="num mono">143.7</td>
+        <td class="num mono">14</td>
+        <td class="num mono">197.1</td>
+        <td class="num mono">+3.4</td>
+        <td>RB16</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="stream-grid">
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge K">K</span><span class="stream-label">Kickers</span>
+      <span class="stream-agg"><span class="mono">132.0 pts</span> · ≈<b class="">K19</b></span>
+    </div>
+    <div class="sharebar"><div style="width:22.0%;background:rgb(59,191,165)" title="Michael Badgley 29.0"></div><div style="width:17.4%;background:rgb(87,200,178)" title="Spencer Shrader 23.0"></div><div style="width:17.4%;background:rgb(115,209,191)" title="Evan McPherson 23.0"></div><div style="width:12.9%;background:rgb(143,218,204)" title="Cameron Dicker 17.0"></div><div style="width:11.4%;background:rgb(171,228,216)" title="Will Reichard 15.0"></div><div style="width:11.4%;background:rgb(199,237,229)" title="Andy Borregales 15.0"></div><div style="width:7.6%;background:rgb(227,246,242)" title="Matt Gay 10.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Michael Badgley <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">29.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">62.0</td>
+        <td class="stream-rank">K32</td>
+      </tr>
+      <tr>
+        <td>Spencer Shrader <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">23.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">57.0</td>
+        <td class="stream-rank">K35</td>
+      </tr>
+      <tr>
+        <td>Evan McPherson <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">23.0</td>
+        <td class="num mono">4</td>
+        <td class="num mono">136.0</td>
+        <td class="stream-rank">K14</td>
+      </tr>
+      <tr>
+        <td>Cameron Dicker</td>
+        <td class="num mono">17.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">170.0</td>
+        <td class="stream-rank"><b class="top">K4</b></td>
+      </tr>
+      <tr>
+        <td>Will Reichard <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">15.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">159.0</td>
+        <td class="stream-rank"><b class="top">K6</b></td>
+      </tr>
+      <tr>
+        <td>Andy Borregales <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">15.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">149.0</td>
+        <td class="stream-rank"><b class="top">K11</b></td>
+      </tr>
+      <tr>
+        <td>Matt Gay <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">10.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">91.0</td>
+        <td class="stream-rank">K29</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge DEF">DEF</span><span class="stream-label">Defenses</span>
+      <span class="stream-agg"><span class="mono">185.0 pts</span> · ≈<b class="">DEF4</b></span>
+    </div>
+    <div class="sharebar"><div style="width:45.4%;background:rgb(124,134,168)" title="Patriots 84.0"></div><div style="width:13.5%;background:rgb(143,151,180)" title="Colts 25.0"></div><div style="width:12.4%;background:rgb(161,169,193)" title="Saints 23.0"></div><div style="width:10.8%;background:rgb(180,186,205)" title="Buccaneers 20.0"></div><div style="width:9.2%;background:rgb(199,203,218)" title="Ravens 17.0"></div><div style="width:4.9%;background:rgb(218,220,230)" title="Vikings 9.0"></div><div style="width:3.8%;background:rgb(236,238,243)" title="49ers 7.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Patriots <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">84.0</td>
+        <td class="num mono">8</td>
+        <td class="num mono">184.0</td>
+        <td class="stream-rank"><b class="top">DEF4</b></td>
+      </tr>
+      <tr>
+        <td>Colts <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">25.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">127.0</td>
+        <td class="stream-rank">DEF20</td>
+      </tr>
+      <tr>
+        <td>Saints <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">23.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">159.0</td>
+        <td class="stream-rank"><b class="top">DEF11</b></td>
+      </tr>
+      <tr>
+        <td>Buccaneers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">20.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">128.0</td>
+        <td class="stream-rank">DEF19</td>
+      </tr>
+      <tr>
+        <td>Ravens <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">17.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">128.0</td>
+        <td class="stream-rank">DEF18</td>
+      </tr>
+      <tr>
+        <td>Vikings</td>
+        <td class="num mono">9.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">171.0</td>
+        <td class="stream-rank"><b class="top">DEF8</b></td>
+      </tr>
+      <tr>
+        <td>49ers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">7.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">106.0</td>
+        <td class="stream-rank">DEF24</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </div>
+  </div>
+  <aside class="rail">
+    <div class="rail-card">
+  <div class="stream-head"><span class="stream-label">Points by position</span></div>
+  <table class="rail-table"><thead><tr><th></th><th class="num">Pts captured</th><th class="num">League rank</th></tr></thead><tbody>
+    <tr><td><span class="pos-badge QB">QB</span></td><td class="num mono">367.8</td><td class="num rail-rank rank2">2nd</td></tr>
+    <tr><td><span class="pos-badge RB">RB</span></td><td class="num mono">691.6</td><td class="num rail-rank rank2">2nd</td></tr>
+    <tr><td><span class="pos-badge WR">WR</span></td><td class="num mono">548.3</td><td class="num rail-rank ">8th</td></tr>
+    <tr><td><span class="pos-badge TE">TE</span></td><td class="num mono">155.1</td><td class="num rail-rank ">5th</td></tr>
+    <tr><td><span class="pos-badge K">K</span></td><td class="num mono">132.0</td><td class="num rail-rank ">7th</td></tr>
+    <tr><td><span class="pos-badge DEF">DEF</span></td><td class="num mono">185.0</td><td class="num rail-rank ">5th</td></tr>
+  </tbody></table>
+</div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top draft picks</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td><b>Jahmyr Gibbs</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">309.6</td>
+        <td class="num mono">+11.1</td>
+        <td class="stream-rank"><b class="top">RB4</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Patrick Mahomes</td>
+        <td class="num mono">241.7</td>
+        <td class="num mono">+2.6</td>
+        <td class="stream-rank"><b class="top">QB11</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Saquon Barkley</td>
+        <td class="num mono">213.8</td>
+        <td class="num mono">+4.4</td>
+        <td class="stream-rank">RB14</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top pickups</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge DEF">DEF</span></td>
+        <td>Patriots <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">84.0</td>
+        <td class="num mono">+1.5</td>
+        <td class="stream-rank"><b class="top">DEF4</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Romeo Doubs <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">63.5</td>
+        <td class="num mono">+0.8</td>
+        <td class="stream-rank">WR36</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge K">K</span></td>
+        <td>Michael Badgley <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">29.0</td>
+        <td class="num mono">−5.1</td>
+        <td class="stream-rank">K32</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">IR history</span></div>
+    <table class="rail-table"><thead><tr><th></th><th>Player</th><th class="num">Weeks on IR</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Terry McLaurin</td>
+        <td class="num mono">7</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Aaron Jones Sr.</td>
+        <td class="num mono">5</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Patrick Mahomes</td>
+        <td class="num mono">2</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </aside>
+  </div>
+</section>
+
+<section class="team card" id="colin">
+  <div class="team-head">
+    <div class="avatar-wrap">
+      <img class="mgr-avatar" src="/LateLateShift/assets/images/manager-avatars/colin.png" alt="" width="52" height="52" loading="lazy">
+      <div class="rank-badge">#2</div>
+    </div>
+    <div class="team-id">
+      <h2>Eat the W</h2>
+      <div class="team-meta"><b>Colin</b> · Runner-Up · 8-6, 1630.62 PF</div>
+    </div>
+    <div class="team-stats">
+      <div class="tstat"><span>Captured</span><b>2042.6</b></div>
+      <div class="tstat"><span>From draft</span><b>72%</b></div>
+      <div class="tstat"><span>Moves</span><b>20</b></div>
+    </div>
+  </div>
+  <div class="team-body">
+  <div class="team-main">
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Slot</th><th>Player</th><th class="num">Pts captured</th><th class="num">Starts</th><th class="num">Season pts</th><th class="num">Value</th><th>2025 rank</th></tr></thead>
+    <tbody>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Matthew Stafford <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">189.3</td>
+        <td class="num mono">9</td>
+        <td class="num mono">350.4</td>
+        <td class="num mono">+6.4</td>
+        <td><b class="rank3">QB3</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Baker Mayfield</td>
+        <td class="num mono">95.0</td>
+        <td class="num mono">6</td>
+        <td class="num mono">271.9</td>
+        <td class="num mono">+1.8</td>
+        <td>QB12</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB1</span></td>
+        <td class="holders">James Cook III</td>
+        <td class="num mono">284.2</td>
+        <td class="num mono">16</td>
+        <td class="num mono">285.7</td>
+        <td class="num mono">+8.6</td>
+        <td><b class="top">RB6</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB2</span></td>
+        <td class="holders">Javonte Williams</td>
+        <td class="num mono">205.9</td>
+        <td class="num mono">15</td>
+        <td class="num mono">225.3</td>
+        <td class="num mono">+5.1</td>
+        <td><b class="top">RB11</b></td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">Isiah Pacheco</td>
+        <td class="num mono">28.6</td>
+        <td class="num mono">4</td>
+        <td class="num mono">77.8</td>
+        <td class="num mono">−3.6</td>
+        <td>RB55</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR1</span></td>
+        <td class="holders">Ja'Marr Chase</td>
+        <td class="num mono">231.5</td>
+        <td class="num mono">15</td>
+        <td class="num mono">251.1</td>
+        <td class="num mono">+7.5</td>
+        <td><b class="top">WR4</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR2</span></td>
+        <td class="holders">Courtland Sutton</td>
+        <td class="num mono">181.7</td>
+        <td class="num mono">16</td>
+        <td class="num mono">182.7</td>
+        <td class="num mono">+3.5</td>
+        <td><b class="top">WR11</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR3</span></td>
+        <td class="holders"><b>Tee Higgins</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">126.3</td>
+        <td class="num mono">11</td>
+        <td class="num mono">182.1</td>
+        <td class="num mono">+3.4</td>
+        <td>WR12</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Mike Evans</td>
+        <td class="num mono">65.4</td>
+        <td class="num mono">7</td>
+        <td class="num mono">69.8</td>
+        <td class="num mono">−3.2</td>
+        <td>WR77</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Darnell Mooney <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">20.6</td>
+        <td class="num mono">3</td>
+        <td class="num mono">66.3</td>
+        <td class="num mono">−3.4</td>
+        <td>WR80</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders"><b>George Kittle</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">115.3</td>
+        <td class="num mono">9</td>
+        <td class="num mono">133.0</td>
+        <td class="num mono">−0.2</td>
+        <td>TE13</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Kyle Pitts Sr. <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">93.0</td>
+        <td class="num mono">12</td>
+        <td class="num mono">166.8</td>
+        <td class="num mono">+1.8</td>
+        <td><b class="rank2">TE2</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge FLEX">W/R/T</span></td>
+        <td class="holders">Kyle Monangai <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">38.3</td>
+        <td class="num mono">3</td>
+        <td class="num mono">137.7</td>
+        <td class="num mono">−0.1</td>
+        <td>RB30</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="stream-grid">
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge K">K</span><span class="stream-label">Kickers</span>
+      <span class="stream-agg"><span class="mono">127.0 pts</span> · ≈<b class="">K22</b></span>
+    </div>
+    <div class="sharebar"><div style="width:62.2%;background:rgb(59,191,165)" title="Chris Boswell 79.0"></div><div style="width:25.2%;background:rgb(124,212,195)" title="Chase McLaughlin 32.0"></div><div style="width:12.6%;background:rgb(190,234,225)" title="Joshua Karty 16.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Chris Boswell</td>
+        <td class="num mono">79.0</td>
+        <td class="num mono">11</td>
+        <td class="num mono">151.0</td>
+        <td class="stream-rank"><b class="top">K9</b></td>
+      </tr>
+      <tr>
+        <td>Chase McLaughlin <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">32.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">156.0</td>
+        <td class="stream-rank"><b class="top">K7</b></td>
+      </tr>
+      <tr>
+        <td>Joshua Karty <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">16.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">58.0</td>
+        <td class="stream-rank">K34</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge DEF">DEF</span><span class="stream-label">Defenses</span>
+      <span class="stream-agg"><span class="mono">141.0 pts</span> · ≈<b class="">DEF15</b></span>
+    </div>
+    <div class="sharebar"><div style="width:66.0%;background:rgb(124,134,168)" title="Rams 93.0"></div><div style="width:15.6%;background:rgb(143,151,180)" title="Packers 22.0"></div><div style="width:8.5%;background:rgb(161,169,193)" title="Bills 12.0"></div><div style="width:5.7%;background:rgb(180,186,205)" title="Chargers 8.0"></div><div style="width:2.8%;background:rgb(199,203,218)" title="Falcons 4.0"></div><div style="width:1.4%;background:rgb(218,220,230)" title="Steelers 2.0"></div><div style="width:0.0%;background:rgb(236,238,243)" title="Cowboys 0.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Rams <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">93.0</td>
+        <td class="num mono">9</td>
+        <td class="num mono">183.0</td>
+        <td class="stream-rank"><b class="top">DEF5</b></td>
+      </tr>
+      <tr>
+        <td>Packers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">22.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">120.0</td>
+        <td class="stream-rank">DEF21</td>
+      </tr>
+      <tr>
+        <td>Bills <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">12.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">138.0</td>
+        <td class="stream-rank">DEF16</td>
+      </tr>
+      <tr>
+        <td>Chargers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">8.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">157.0</td>
+        <td class="stream-rank">DEF12</td>
+      </tr>
+      <tr>
+        <td>Falcons <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">4.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">148.0</td>
+        <td class="stream-rank">DEF13</td>
+      </tr>
+      <tr>
+        <td>Steelers</td>
+        <td class="num mono">2.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">161.0</td>
+        <td class="stream-rank"><b class="top">DEF9</b></td>
+      </tr>
+      <tr>
+        <td>Cowboys <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">0.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">61.0</td>
+        <td class="stream-rank">DEF31</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </div>
+  </div>
+  <aside class="rail">
+    <div class="rail-card">
+  <div class="stream-head"><span class="stream-label">Points by position</span></div>
+  <table class="rail-table"><thead><tr><th></th><th class="num">Pts captured</th><th class="num">League rank</th></tr></thead><tbody>
+    <tr><td><span class="pos-badge QB">QB</span></td><td class="num mono">337.4</td><td class="num rail-rank rank3">3rd</td></tr>
+    <tr><td><span class="pos-badge RB">RB</span></td><td class="num mono">564.4</td><td class="num rail-rank ">6th</td></tr>
+    <tr><td><span class="pos-badge WR">WR</span></td><td class="num mono">664.5</td><td class="num rail-rank rank3">3rd</td></tr>
+    <tr><td><span class="pos-badge TE">TE</span></td><td class="num mono">208.3</td><td class="num rail-rank rank2">2nd</td></tr>
+    <tr><td><span class="pos-badge K">K</span></td><td class="num mono">127.0</td><td class="num rail-rank ">9th</td></tr>
+    <tr><td><span class="pos-badge DEF">DEF</span></td><td class="num mono">141.0</td><td class="num rail-rank ">10th</td></tr>
+  </tbody></table>
+</div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top draft picks</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>James Cook III</td>
+        <td class="num mono">284.2</td>
+        <td class="num mono">+8.6</td>
+        <td class="stream-rank"><b class="top">RB6</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Ja'Marr Chase</td>
+        <td class="num mono">231.5</td>
+        <td class="num mono">+7.5</td>
+        <td class="stream-rank"><b class="top">WR4</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Javonte Williams</td>
+        <td class="num mono">205.9</td>
+        <td class="num mono">+5.1</td>
+        <td class="stream-rank"><b class="top">RB11</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top pickups</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Matthew Stafford <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">189.3</td>
+        <td class="num mono">+6.4</td>
+        <td class="stream-rank"><b class="rank3">QB3</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge TE">TE</span></td>
+        <td>Kyle Pitts Sr. <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">93.0</td>
+        <td class="num mono">+1.8</td>
+        <td class="stream-rank"><b class="rank2">TE2</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge DEF">DEF</span></td>
+        <td>Rams <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">93.0</td>
+        <td class="num mono">+1.4</td>
+        <td class="stream-rank"><b class="top">DEF5</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">IR history</span></div>
+    <table class="rail-table"><thead><tr><th></th><th>Player</th><th class="num">Weeks on IR</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Mike Evans</td>
+        <td class="num mono">7</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge TE">TE</span></td>
+        <td><b>George Kittle</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">5</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Cedric Tillman</td>
+        <td class="num mono">5</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Isiah Pacheco</td>
+        <td class="num mono">4</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </aside>
+  </div>
+</section>
+
+<section class="team card" id="price">
+  <div class="team-head">
+    <div class="avatar-wrap">
+      <img class="mgr-avatar" src="/LateLateShift/assets/images/manager-avatars/price.png" alt="" width="52" height="52" loading="lazy">
+      <div class="rank-badge">#3</div>
+    </div>
+    <div class="team-id">
+      <h2>Nacua Matata</h2>
+      <div class="team-meta"><b>Price</b> · Third Place · lost semifinal · 10-4, 1919.74 PF</div>
+    </div>
+    <div class="team-stats">
+      <div class="tstat"><span>Captured</span><b>2392.9</b></div>
+      <div class="tstat"><span>From draft</span><b>72.5%</b></div>
+      <div class="tstat"><span>Moves</span><b>35</b></div>
+    </div>
+  </div>
+  <div class="team-body">
+  <div class="team-main">
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Slot</th><th>Player</th><th class="num">Pts captured</th><th class="num">Starts</th><th class="num">Season pts</th><th class="num">Value</th><th>2025 rank</th></tr></thead>
+    <tbody>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Josh Allen</td>
+        <td class="num mono">364.6</td>
+        <td class="num mono">16</td>
+        <td class="num mono">364.6</td>
+        <td class="num mono">+7.2</td>
+        <td><b class="rank1"><svg class="rank-star" viewBox="0 0 12 12" width="11" height="11" aria-label="#1 at position"><path fill="#E8A84D" d="M6 0l1.76 3.73 3.94.5-2.9 2.77.76 3.9L6 9.02 2.44 10.9l.76-3.9L.3 4.23l3.94-.5z"/></svg> QB1</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB1</span></td>
+        <td class="holders">Bijan Robinson</td>
+        <td class="num mono">325.5</td>
+        <td class="num mono">16</td>
+        <td class="num mono">331.3</td>
+        <td class="num mono">+11.3</td>
+        <td><b class="rank3">RB3</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB2</span></td>
+        <td class="holders">Jacory Croskey-Merritt</td>
+        <td class="num mono">51.7</td>
+        <td class="num mono">6</td>
+        <td class="num mono">135.8</td>
+        <td class="num mono">−0.2</td>
+        <td>RB32</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">Quinshon Judkins <svg class="src-icon" viewBox="0 0 14 12" width="13" height="11" aria-label="acquired by trade"><path fill="#8B4DE8" d="M4 0 0 3l4 3V4h6V2H4V0zm6 6v2H4v2h6v2l4-3-4-3z"/></svg></td>
+        <td class="num mono">49.1</td>
+        <td class="num mono">5</td>
+        <td class="num mono">156.8</td>
+        <td class="num mono">+1.0</td>
+        <td>RB26</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">Tyrone Tracy Jr. <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">38.2</td>
+        <td class="num mono">3</td>
+        <td class="num mono">142.8</td>
+        <td class="num mono">+0.2</td>
+        <td>RB28</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">Zach Charbonnet</td>
+        <td class="num mono">34.4</td>
+        <td class="num mono">4</td>
+        <td class="num mono">171.4</td>
+        <td class="num mono">+1.9</td>
+        <td>RB23</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">Woody Marks <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">28.1</td>
+        <td class="num mono">3</td>
+        <td class="num mono">139.1</td>
+        <td class="num mono">+0.0</td>
+        <td>RB29</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR1</span></td>
+        <td class="holders"><b>Puka Nacua</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">289.5</td>
+        <td class="num mono">15</td>
+        <td class="num mono">310.5</td>
+        <td class="num mono">+11.0</td>
+        <td><b class="rank1"><svg class="rank-star" viewBox="0 0 12 12" width="11" height="11" aria-label="#1 at position"><path fill="#E8A84D" d="M6 0l1.76 3.73 3.94.5-2.9 2.77.76 3.9L6 9.02 2.44 10.9l.76-3.9L.3 4.23l3.94-.5z"/></svg> WR1</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR2</span></td>
+        <td class="holders">George Pickens</td>
+        <td class="num mono">244.0</td>
+        <td class="num mono">16</td>
+        <td class="num mono">245.4</td>
+        <td class="num mono">+7.2</td>
+        <td><b class="top">WR5</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR3</span></td>
+        <td class="holders">Michael Wilson <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">123.1</td>
+        <td class="num mono">7</td>
+        <td class="num mono">181.6</td>
+        <td class="num mono">+3.4</td>
+        <td>WR13</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">DJ Moore</td>
+        <td class="num mono">74.5</td>
+        <td class="num mono">11</td>
+        <td class="num mono">145.2</td>
+        <td class="num mono">+1.3</td>
+        <td>WR32</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders"><b>Trey McBride</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">242.9</td>
+        <td class="num mono">16</td>
+        <td class="num mono">252.9</td>
+        <td class="num mono">+6.9</td>
+        <td><b class="rank1"><svg class="rank-star" viewBox="0 0 12 12" width="11" height="11" aria-label="#1 at position"><path fill="#E8A84D" d="M6 0l1.76 3.73 3.94.5-2.9 2.77.76 3.9L6 9.02 2.44 10.9l.76-3.9L.3 4.23l3.94-.5z"/></svg> TE1</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders"><i>Oronde Gadsden</i> <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">28.3</td>
+        <td class="num mono">3</td>
+        <td class="num mono">106.9</td>
+        <td class="num mono">−1.7</td>
+        <td>TE17</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge FLEX">W/R/T</span></td>
+        <td class="holders"><i>Jakobi Meyers</i></td>
+        <td class="num mono">53.0</td>
+        <td class="num mono">7</td>
+        <td class="num mono">138.3</td>
+        <td class="num mono">+0.9</td>
+        <td>WR35</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="stream-grid">
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge K">K</span><span class="stream-label">Kickers</span>
+      <span class="stream-agg"><span class="mono">181.0 pts</span> · ≈<b class="">K4</b></span>
+    </div>
+    <div class="sharebar"><div style="width:80.7%;background:rgb(59,191,165)" title="Jason Myers 146.0"></div><div style="width:11.0%;background:rgb(124,212,195)" title="Evan McPherson 20.0"></div><div style="width:8.3%;background:rgb(190,234,225)" title="Matt Prater 15.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Jason Myers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">146.0</td>
+        <td class="num mono">12</td>
+        <td class="num mono">202.0</td>
+        <td class="stream-rank"><b class="rank1"><svg class="rank-star" viewBox="0 0 12 12" width="11" height="11" aria-label="#1 at position"><path fill="#E8A84D" d="M6 0l1.76 3.73 3.94.5-2.9 2.77.76 3.9L6 9.02 2.44 10.9l.76-3.9L.3 4.23l3.94-.5z"/></svg> K1</b></td>
+      </tr>
+      <tr>
+        <td>Evan McPherson</td>
+        <td class="num mono">20.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">136.0</td>
+        <td class="stream-rank">K14</td>
+      </tr>
+      <tr>
+        <td>Matt Prater <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">15.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">108.0</td>
+        <td class="stream-rank">K26</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge DEF">DEF</span><span class="stream-label">Defenses</span>
+      <span class="stream-agg"><span class="mono">208.0 pts</span> · ≈<b class="rank3">DEF3</b></span>
+    </div>
+    <div class="sharebar"><div style="width:45.2%;background:rgb(124,134,168)" title="Seahawks 94.0"></div><div style="width:18.3%;background:rgb(143,151,180)" title="Browns 38.0"></div><div style="width:13.0%;background:rgb(161,169,193)" title="Bills 27.0"></div><div style="width:11.5%;background:rgb(180,186,205)" title="Chargers 24.0"></div><div style="width:5.8%;background:rgb(199,203,218)" title="Chiefs 12.0"></div><div style="width:4.3%;background:rgb(218,220,230)" title="Cardinals 9.0"></div><div style="width:1.9%;background:rgb(236,238,243)" title="Falcons 4.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Seahawks <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">94.0</td>
+        <td class="num mono">5</td>
+        <td class="num mono">225.0</td>
+        <td class="stream-rank"><b class="rank1"><svg class="rank-star" viewBox="0 0 12 12" width="11" height="11" aria-label="#1 at position"><path fill="#E8A84D" d="M6 0l1.76 3.73 3.94.5-2.9 2.77.76 3.9L6 9.02 2.44 10.9l.76-3.9L.3 4.23l3.94-.5z"/></svg> DEF1</b></td>
+      </tr>
+      <tr>
+        <td>Browns <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">38.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">160.0</td>
+        <td class="stream-rank"><b class="top">DEF10</b></td>
+      </tr>
+      <tr>
+        <td>Bills</td>
+        <td class="num mono">27.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">138.0</td>
+        <td class="stream-rank">DEF16</td>
+      </tr>
+      <tr>
+        <td>Chargers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">24.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">157.0</td>
+        <td class="stream-rank">DEF12</td>
+      </tr>
+      <tr>
+        <td>Chiefs <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">12.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">139.0</td>
+        <td class="stream-rank">DEF15</td>
+      </tr>
+      <tr>
+        <td>Cardinals <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">9.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">97.0</td>
+        <td class="stream-rank">DEF25</td>
+      </tr>
+      <tr>
+        <td>Falcons <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">4.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">148.0</td>
+        <td class="stream-rank">DEF13</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </div>
+  </div>
+  <aside class="rail">
+    <div class="rail-card">
+  <div class="stream-head"><span class="stream-label">Points by position</span></div>
+  <table class="rail-table"><thead><tr><th></th><th class="num">Pts captured</th><th class="num">League rank</th></tr></thead><tbody>
+    <tr><td><span class="pos-badge QB">QB</span></td><td class="num mono">386.8</td><td class="num rail-rank rank1">1st</td></tr>
+    <tr><td><span class="pos-badge RB">RB</span></td><td class="num mono">529.5</td><td class="num rail-rank ">8th</td></tr>
+    <tr><td><span class="pos-badge WR">WR</span></td><td class="num mono">816.4</td><td class="num rail-rank rank1">1st</td></tr>
+    <tr><td><span class="pos-badge TE">TE</span></td><td class="num mono">271.2</td><td class="num rail-rank rank1">1st</td></tr>
+    <tr><td><span class="pos-badge K">K</span></td><td class="num mono">181.0</td><td class="num rail-rank rank1">1st</td></tr>
+    <tr><td><span class="pos-badge DEF">DEF</span></td><td class="num mono">208.0</td><td class="num rail-rank rank1">1st</td></tr>
+  </tbody></table>
+</div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top draft picks</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Josh Allen</td>
+        <td class="num mono">364.6</td>
+        <td class="num mono">+7.2</td>
+        <td class="stream-rank"><b class="rank1"><svg class="rank-star" viewBox="0 0 12 12" width="11" height="11" aria-label="#1 at position"><path fill="#E8A84D" d="M6 0l1.76 3.73 3.94.5-2.9 2.77.76 3.9L6 9.02 2.44 10.9l.76-3.9L.3 4.23l3.94-.5z"/></svg> QB1</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Bijan Robinson</td>
+        <td class="num mono">325.5</td>
+        <td class="num mono">+11.3</td>
+        <td class="stream-rank"><b class="rank3">RB3</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td><b>Puka Nacua</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">289.5</td>
+        <td class="num mono">+11.0</td>
+        <td class="stream-rank"><b class="rank1"><svg class="rank-star" viewBox="0 0 12 12" width="11" height="11" aria-label="#1 at position"><path fill="#E8A84D" d="M6 0l1.76 3.73 3.94.5-2.9 2.77.76 3.9L6 9.02 2.44 10.9l.76-3.9L.3 4.23l3.94-.5z"/></svg> WR1</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top pickups</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge K">K</span></td>
+        <td>Jason Myers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">146.0</td>
+        <td class="num mono">+3.1</td>
+        <td class="stream-rank"><b class="rank1"><svg class="rank-star" viewBox="0 0 12 12" width="11" height="11" aria-label="#1 at position"><path fill="#E8A84D" d="M6 0l1.76 3.73 3.94.5-2.9 2.77.76 3.9L6 9.02 2.44 10.9l.76-3.9L.3 4.23l3.94-.5z"/></svg> K1</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Michael Wilson <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">123.1</td>
+        <td class="num mono">+3.4</td>
+        <td class="stream-rank">WR13</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge DEF">DEF</span></td>
+        <td>Seahawks <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">94.0</td>
+        <td class="num mono">+3.9</td>
+        <td class="stream-rank"><b class="rank1"><svg class="rank-star" viewBox="0 0 12 12" width="11" height="11" aria-label="#1 at position"><path fill="#E8A84D" d="M6 0l1.76 3.73 3.94.5-2.9 2.77.76 3.9L6 9.02 2.44 10.9l.76-3.9L.3 4.23l3.94-.5z"/></svg> DEF1</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">IR history</span></div>
+    <table class="rail-table"><thead><tr><th></th><th>Player</th><th class="num">Weeks on IR</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Daniel Jones <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">3</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td><b>Puka Nacua</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">2</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Kayshon Boutte <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">2</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Quinshon Judkins <svg class="src-icon" viewBox="0 0 14 12" width="13" height="11" aria-label="acquired by trade"><path fill="#8B4DE8" d="M4 0 0 3l4 3V4h6V2H4V0zm6 6v2H4v2h6v2l4-3-4-3z"/></svg></td>
+        <td class="num mono">2</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Josh Downs</td>
+        <td class="num mono">1</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td><i>Jakobi Meyers</i></td>
+        <td class="num mono">1</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </aside>
+  </div>
+</section>
+
+<section class="team card" id="dave">
+  <div class="team-head">
+    <div class="avatar-wrap">
+      <img class="mgr-avatar" src="/LateLateShift/assets/images/manager-avatars/dave.jpg" alt="" width="52" height="52" loading="lazy">
+      <div class="rank-badge">#4</div>
+    </div>
+    <div class="team-id">
+      <h2>Pewter City Gym</h2>
+      <div class="team-meta"><b>Dave</b> · Fourth Place · lost semifinal · 8-6, 1672.34 PF</div>
+    </div>
+    <div class="team-stats">
+      <div class="tstat"><span>Captured</span><b>1946.5</b></div>
+      <div class="tstat"><span>From draft</span><b>74.5%</b></div>
+      <div class="tstat"><span>Moves</span><b>25</b></div>
+    </div>
+  </div>
+  <div class="team-body">
+  <div class="team-main">
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Slot</th><th>Player</th><th class="num">Pts captured</th><th class="num">Starts</th><th class="num">Season pts</th><th class="num">Value</th><th>2025 rank</th></tr></thead>
+    <tbody>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Dak Prescott</td>
+        <td class="num mono">100.8</td>
+        <td class="num mono">5</td>
+        <td class="num mono">313.8</td>
+        <td class="num mono">+4.2</td>
+        <td><b class="top">QB6</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Jaxson Dart <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">75.7</td>
+        <td class="num mono">4</td>
+        <td class="num mono">241.6</td>
+        <td class="num mono">+0.0</td>
+        <td>QB13</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Kyler Murray <span title="season ended by injury — last scored wk 5"><svg class="src-icon" viewBox="0 0 15 12" width="14" height="11" aria-label="season-ending injury"><path d="M0.5 7.5h3l1.5-5 2 8 1.5-3h6" stroke="#E24B4A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+        <td class="num mono">47.6</td>
+        <td class="num mono">3</td>
+        <td class="num mono">77.8</td>
+        <td class="num mono">−9.6</td>
+        <td>QB38</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Caleb Williams <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">46.7</td>
+        <td class="num mono">4</td>
+        <td class="num mono">317.7</td>
+        <td class="num mono">+4.5</td>
+        <td><b class="top">QB5</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB1</span></td>
+        <td class="holders">De'Von Achane</td>
+        <td class="num mono">289.3</td>
+        <td class="num mono">16</td>
+        <td class="num mono">289.3</td>
+        <td class="num mono">+8.8</td>
+        <td><b class="top">RB5</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB2</span></td>
+        <td class="holders">Kenneth Walker III</td>
+        <td class="num mono">106.9</td>
+        <td class="num mono">11</td>
+        <td class="num mono">176.4</td>
+        <td class="num mono">+2.2</td>
+        <td>RB22</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">Alvin Kamara <span title="season ended by injury — last scored wk 12"><svg class="src-icon" viewBox="0 0 15 12" width="14" height="11" aria-label="season-ending injury"><path d="M0.5 7.5h3l1.5-5 2 8 1.5-3h6" stroke="#E24B4A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+        <td class="num mono">64.9</td>
+        <td class="num mono">9</td>
+        <td class="num mono">84.2</td>
+        <td class="num mono">−3.2</td>
+        <td>RB50</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR1</span></td>
+        <td class="holders">Jameson Williams</td>
+        <td class="num mono">177.0</td>
+        <td class="num mono">16</td>
+        <td class="num mono">187.4</td>
+        <td class="num mono">+3.8</td>
+        <td><b class="top">WR10</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR2</span></td>
+        <td class="holders">DK Metcalf</td>
+        <td class="num mono">139.4</td>
+        <td class="num mono">14</td>
+        <td class="num mono">157.7</td>
+        <td class="num mono">+2.0</td>
+        <td>WR26</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR3</span></td>
+        <td class="holders">Rashee Rice</td>
+        <td class="num mono">123.6</td>
+        <td class="num mono">8</td>
+        <td class="num mono">123.6</td>
+        <td class="num mono">+0.0</td>
+        <td>WR41</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Emeka Egbuka</td>
+        <td class="num mono">122.6</td>
+        <td class="num mono">13</td>
+        <td class="num mono">164.2</td>
+        <td class="num mono">+2.4</td>
+        <td>WR19</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Travis Hunter <span title="season ended by injury — last scored wk 7"><svg class="src-icon" viewBox="0 0 15 12" width="14" height="11" aria-label="season-ending injury"><path d="M0.5 7.5h3l1.5-5 2 8 1.5-3h6" stroke="#E24B4A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+        <td class="num mono">17.9</td>
+        <td class="num mono">3</td>
+        <td class="num mono">49.8</td>
+        <td class="num mono">−4.3</td>
+        <td>WR97</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders"><b>Brock Bowers</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">144.2</td>
+        <td class="num mono">12</td>
+        <td class="num mono">144.2</td>
+        <td class="num mono">+0.5</td>
+        <td><b class="top">TE9</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge FLEX">W/R/T</span></td>
+        <td class="holders">Cam Skattebo <span title="season ended by injury — last scored wk 8"><svg class="src-icon" viewBox="0 0 15 12" width="14" height="11" aria-label="season-ending injury"><path d="M0.5 7.5h3l1.5-5 2 8 1.5-3h6" stroke="#E24B4A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+        <td class="num mono">79.8</td>
+        <td class="num mono">5</td>
+        <td class="num mono">115.7</td>
+        <td class="num mono">−1.4</td>
+        <td>RB39</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="stream-grid">
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge K">K</span><span class="stream-label">Kickers</span>
+      <span class="stream-agg"><span class="mono">148.0 pts</span> · ≈<b class="">K12</b></span>
+    </div>
+    <div class="sharebar"><div style="width:83.8%;background:rgb(59,191,165)" title="Tyler Loop 124.0"></div><div style="width:16.2%;background:rgb(157,223,210)" title="Will Reichard 24.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Tyler Loop <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">124.0</td>
+        <td class="num mono">15</td>
+        <td class="num mono">144.0</td>
+        <td class="stream-rank">K12</td>
+      </tr>
+      <tr>
+        <td>Will Reichard <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">24.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">159.0</td>
+        <td class="stream-rank"><b class="top">K6</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge DEF">DEF</span><span class="stream-label">Defenses</span>
+      <span class="stream-agg"><span class="mono">162.0 pts</span> · ≈<b class="">DEF9</b></span>
+    </div>
+    <div class="sharebar"><div style="width:77.2%;background:rgb(124,134,168)" title="Steelers 125.0"></div><div style="width:22.8%;background:rgb(190,195,212)" title="Chiefs 37.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Steelers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">125.0</td>
+        <td class="num mono">13</td>
+        <td class="num mono">161.0</td>
+        <td class="stream-rank"><b class="top">DEF9</b></td>
+      </tr>
+      <tr>
+        <td>Chiefs</td>
+        <td class="num mono">37.0</td>
+        <td class="num mono">4</td>
+        <td class="num mono">139.0</td>
+        <td class="stream-rank">DEF15</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </div>
+  </div>
+  <aside class="rail">
+    <div class="rail-card">
+  <div class="stream-head"><span class="stream-label">Points by position</span></div>
+  <table class="rail-table"><thead><tr><th></th><th class="num">Pts captured</th><th class="num">League rank</th></tr></thead><tbody>
+    <tr><td><span class="pos-badge QB">QB</span></td><td class="num mono">280.6</td><td class="num rail-rank ">9th</td></tr>
+    <tr><td><span class="pos-badge RB">RB</span></td><td class="num mono">557.9</td><td class="num rail-rank ">7th</td></tr>
+    <tr><td><span class="pos-badge WR">WR</span></td><td class="num mono">614.5</td><td class="num rail-rank ">6th</td></tr>
+    <tr><td><span class="pos-badge TE">TE</span></td><td class="num mono">183.5</td><td class="num rail-rank ">4th</td></tr>
+    <tr><td><span class="pos-badge K">K</span></td><td class="num mono">148.0</td><td class="num rail-rank ">5th</td></tr>
+    <tr><td><span class="pos-badge DEF">DEF</span></td><td class="num mono">162.0</td><td class="num rail-rank ">7th</td></tr>
+  </tbody></table>
+</div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top draft picks</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>De'Von Achane</td>
+        <td class="num mono">289.3</td>
+        <td class="num mono">+8.8</td>
+        <td class="stream-rank"><b class="top">RB5</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Jameson Williams</td>
+        <td class="num mono">177.0</td>
+        <td class="num mono">+3.8</td>
+        <td class="stream-rank"><b class="top">WR10</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge TE">TE</span></td>
+        <td><b>Brock Bowers</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">144.2</td>
+        <td class="num mono">+0.5</td>
+        <td class="stream-rank"><b class="top">TE9</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top pickups</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge DEF">DEF</span></td>
+        <td>Steelers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">125.0</td>
+        <td class="num mono">+0.1</td>
+        <td class="stream-rank"><b class="top">DEF9</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge K">K</span></td>
+        <td>Tyler Loop <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">124.0</td>
+        <td class="num mono">−0.3</td>
+        <td class="stream-rank">K12</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Jaxson Dart <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">75.7</td>
+        <td class="num mono">+0.0</td>
+        <td class="stream-rank">QB13</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">IR history</span></div>
+    <table class="rail-table"><thead><tr><th></th><th>Player</th><th class="num">Weeks on IR</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Joe Mixon</td>
+        <td class="num mono">13</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge K">K</span></td>
+        <td>Tyler Bass</td>
+        <td class="num mono">10</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Cam Skattebo</td>
+        <td class="num mono">7</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Alvin Kamara</td>
+        <td class="num mono">1</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge TE">TE</span></td>
+        <td><b>Brock Bowers</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">1</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </aside>
+  </div>
+</section>
+
+<section class="team card" id="harper">
+  <div class="team-head">
+    <div class="avatar-wrap">
+      <img class="mgr-avatar" src="/LateLateShift/assets/images/manager-avatars/harper.png" alt="" width="52" height="52" loading="lazy">
+      <div class="rank-badge">#5</div>
+    </div>
+    <div class="team-id">
+      <h2>Live By McCaff Die By Muh Calf</h2>
+      <div class="team-meta"><b>Harper</b> · Fifth · lost quarterfinal · 7-7, 1793.92 PF</div>
+    </div>
+    <div class="team-stats">
+      <div class="tstat"><span>Captured</span><b>2106.4</b></div>
+      <div class="tstat"><span>From draft</span><b>81.2%</b></div>
+      <div class="tstat"><span>Moves</span><b>21</b></div>
+    </div>
+  </div>
+  <div class="team-body">
+  <div class="team-main">
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Slot</th><th>Player</th><th class="num">Pts captured</th><th class="num">Starts</th><th class="num">Season pts</th><th class="num">Value</th><th>2025 rank</th></tr></thead>
+    <tbody>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Bo Nix</td>
+        <td class="num mono">217.2</td>
+        <td class="num mono">12</td>
+        <td class="num mono">304.8</td>
+        <td class="num mono">+3.7</td>
+        <td><b class="top">QB7</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Sam Darnold <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">54.6</td>
+        <td class="num mono">4</td>
+        <td class="num mono">235.4</td>
+        <td class="num mono">−0.4</td>
+        <td>QB14</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB1</span></td>
+        <td class="holders">Christian McCaffrey</td>
+        <td class="num mono">356.9</td>
+        <td class="num mono">16</td>
+        <td class="num mono">365.6</td>
+        <td class="num mono">+13.3</td>
+        <td><b class="rank1"><svg class="rank-star" viewBox="0 0 12 12" width="11" height="11" aria-label="#1 at position"><path fill="#E8A84D" d="M6 0l1.76 3.73 3.94.5-2.9 2.77.76 3.9L6 9.02 2.44 10.9l.76-3.9L.3 4.23l3.94-.5z"/></svg> RB1</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB2</span></td>
+        <td class="holders">Omarion Hampton</td>
+        <td class="num mono">119.7</td>
+        <td class="num mono">9</td>
+        <td class="num mono">119.7</td>
+        <td class="num mono">−1.1</td>
+        <td>RB36</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">Rhamondre Stevenson</td>
+        <td class="num mono">23.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">162.8</td>
+        <td class="num mono">+1.4</td>
+        <td>RB25</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR1</span></td>
+        <td class="holders"><b>Jaxon Smith-Njigba</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">289.0</td>
+        <td class="num mono">16</td>
+        <td class="num mono">300.4</td>
+        <td class="num mono">+10.4</td>
+        <td><b class="rank2">WR2</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR2</span></td>
+        <td class="holders"><b>Drake London</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">152.1</td>
+        <td class="num mono">11</td>
+        <td class="num mono">167.9</td>
+        <td class="num mono">+2.6</td>
+        <td>WR17</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR3</span></td>
+        <td class="holders">Rome Odunze</td>
+        <td class="num mono">83.1</td>
+        <td class="num mono">10</td>
+        <td class="num mono">124.1</td>
+        <td class="num mono">+0.0</td>
+        <td>WR40</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Xavier Worthy</td>
+        <td class="num mono">60.6</td>
+        <td class="num mono">9</td>
+        <td class="num mono">88.9</td>
+        <td class="num mono">−2.0</td>
+        <td>WR59</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Keenan Allen</td>
+        <td class="num mono">59.5</td>
+        <td class="num mono">7</td>
+        <td class="num mono">142.2</td>
+        <td class="num mono">+1.1</td>
+        <td>WR34</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Jayden Higgins <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">23.8</td>
+        <td class="num mono">4</td>
+        <td class="num mono">109.0</td>
+        <td class="num mono">−0.9</td>
+        <td>WR46</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Tyler Warren</td>
+        <td class="num mono">145.4</td>
+        <td class="num mono">16</td>
+        <td class="num mono">150.5</td>
+        <td class="num mono">+0.8</td>
+        <td><b class="top">TE5</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge FLEX">W/R/T</span></td>
+        <td class="holders">TreVeyon Henderson</td>
+        <td class="num mono">114.4</td>
+        <td class="num mono">10</td>
+        <td class="num mono">188.7</td>
+        <td class="num mono">+2.9</td>
+        <td>RB19</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge FLEX">W/R/T</span></td>
+        <td class="holders">RJ Harvey <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">55.7</td>
+        <td class="num mono">4</td>
+        <td class="num mono">183.1</td>
+        <td class="num mono">+2.6</td>
+        <td>RB21</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="stream-grid">
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge K">K</span><span class="stream-label">Kickers</span>
+      <span class="stream-agg"><span class="mono">149.0 pts</span> · ≈<b class="">K12</b></span>
+    </div>
+    <div class="sharebar"><div style="width:29.5%;background:rgb(59,191,165)" title="Ka'imi Fairbairn 44.0"></div><div style="width:28.9%;background:rgb(98,204,183)" title="Chase McLaughlin 43.0"></div><div style="width:26.8%;background:rgb(137,217,201)" title="Eddy Pineiro 40.0"></div><div style="width:14.8%;background:rgb(177,229,219)" title="Cairo Santos 22.0"></div><div style="width:0.0%;background:rgb(216,242,237)" title="Parker Romo 0.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Ka'imi Fairbairn <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">44.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">194.0</td>
+        <td class="stream-rank"><b class="rank2">K2</b></td>
+      </tr>
+      <tr>
+        <td>Chase McLaughlin</td>
+        <td class="num mono">43.0</td>
+        <td class="num mono">5</td>
+        <td class="num mono">156.0</td>
+        <td class="stream-rank"><b class="top">K7</b></td>
+      </tr>
+      <tr>
+        <td>Eddy Pineiro <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">40.0</td>
+        <td class="num mono">5</td>
+        <td class="num mono">140.0</td>
+        <td class="stream-rank">K13</td>
+      </tr>
+      <tr>
+        <td>Cairo Santos <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">22.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">132.0</td>
+        <td class="stream-rank">K18</td>
+      </tr>
+      <tr>
+        <td>Parker Romo <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">0.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">48.0</td>
+        <td class="stream-rank">K36</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge DEF">DEF</span><span class="stream-label">Defenses</span>
+      <span class="stream-agg"><span class="mono">150.0 pts</span> · ≈<b class="">DEF13</b></span>
+    </div>
+    <div class="sharebar"><div style="width:32.0%;background:rgb(124,134,168)" title="Browns 48.0"></div><div style="width:20.7%;background:rgb(143,151,180)" title="Packers 31.0"></div><div style="width:20.0%;background:rgb(161,169,193)" title="Buccaneers 30.0"></div><div style="width:9.3%;background:rgb(180,186,205)" title="Chiefs 14.0"></div><div style="width:8.0%;background:rgb(199,203,218)" title="Cardinals 12.0"></div><div style="width:8.0%;background:rgb(218,220,230)" title="49ers 12.0"></div><div style="width:2.0%;background:rgb(236,238,243)" title="Jaguars 3.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Browns <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">48.0</td>
+        <td class="num mono">5</td>
+        <td class="num mono">160.0</td>
+        <td class="stream-rank"><b class="top">DEF10</b></td>
+      </tr>
+      <tr>
+        <td>Packers</td>
+        <td class="num mono">31.0</td>
+        <td class="num mono">4</td>
+        <td class="num mono">120.0</td>
+        <td class="stream-rank">DEF21</td>
+      </tr>
+      <tr>
+        <td>Buccaneers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">30.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">128.0</td>
+        <td class="stream-rank">DEF19</td>
+      </tr>
+      <tr>
+        <td>Chiefs <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">14.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">139.0</td>
+        <td class="stream-rank">DEF15</td>
+      </tr>
+      <tr>
+        <td>Cardinals <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">12.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">97.0</td>
+        <td class="stream-rank">DEF25</td>
+      </tr>
+      <tr>
+        <td>49ers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">12.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">106.0</td>
+        <td class="stream-rank">DEF24</td>
+      </tr>
+      <tr>
+        <td>Jaguars <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">3.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">188.0</td>
+        <td class="stream-rank"><b class="rank3">DEF3</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+  </div>
+  </div>
+  <aside class="rail">
+    <div class="rail-card">
+  <div class="stream-head"><span class="stream-label">Points by position</span></div>
+  <table class="rail-table"><thead><tr><th></th><th class="num">Pts captured</th><th class="num">League rank</th></tr></thead><tbody>
+    <tr><td><span class="pos-badge QB">QB</span></td><td class="num mono">286.8</td><td class="num rail-rank ">7th</td></tr>
+    <tr><td><span class="pos-badge RB">RB</span></td><td class="num mono">679.7</td><td class="num rail-rank rank3">3rd</td></tr>
+    <tr><td><span class="pos-badge WR">WR</span></td><td class="num mono">692.0</td><td class="num rail-rank rank2">2nd</td></tr>
+    <tr><td><span class="pos-badge TE">TE</span></td><td class="num mono">149.0</td><td class="num rail-rank ">6th</td></tr>
+    <tr><td><span class="pos-badge K">K</span></td><td class="num mono">149.0</td><td class="num rail-rank ">4th</td></tr>
+    <tr><td><span class="pos-badge DEF">DEF</span></td><td class="num mono">150.0</td><td class="num rail-rank ">9th</td></tr>
+  </tbody></table>
+</div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top draft picks</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Christian McCaffrey</td>
+        <td class="num mono">356.9</td>
+        <td class="num mono">+13.3</td>
+        <td class="stream-rank"><b class="rank1"><svg class="rank-star" viewBox="0 0 12 12" width="11" height="11" aria-label="#1 at position"><path fill="#E8A84D" d="M6 0l1.76 3.73 3.94.5-2.9 2.77.76 3.9L6 9.02 2.44 10.9l.76-3.9L.3 4.23l3.94-.5z"/></svg> RB1</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td><b>Jaxon Smith-Njigba</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">289.0</td>
+        <td class="num mono">+10.4</td>
+        <td class="stream-rank"><b class="rank2">WR2</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Bo Nix</td>
+        <td class="num mono">217.2</td>
+        <td class="num mono">+3.7</td>
+        <td class="stream-rank"><b class="top">QB7</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top pickups</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>RJ Harvey <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">55.7</td>
+        <td class="num mono">+2.6</td>
+        <td class="stream-rank">RB21</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Sam Darnold <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">54.6</td>
+        <td class="num mono">−0.4</td>
+        <td class="stream-rank">QB14</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge DEF">DEF</span></td>
+        <td>Browns <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">48.0</td>
+        <td class="num mono">+0.1</td>
+        <td class="stream-rank"><b class="top">DEF10</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">IR history</span></div>
+    <table class="rail-table"><thead><tr><th></th><th>Player</th><th class="num">Weeks on IR</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Jayden Reed</td>
+        <td class="num mono">9</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Omarion Hampton</td>
+        <td class="num mono">8</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td><b>Drake London</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">4</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Rome Odunze</td>
+        <td class="num mono">3</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Xavier Worthy</td>
+        <td class="num mono">2</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Rhamondre Stevenson</td>
+        <td class="num mono">1</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </aside>
+  </div>
+</section>
+
+<section class="team card" id="john">
+  <div class="team-head">
+    <div class="avatar-wrap">
+      <img class="mgr-avatar" src="/LateLateShift/assets/images/manager-avatars/john.jpg" alt="" width="52" height="52" loading="lazy">
+      <div class="rank-badge">#6</div>
+    </div>
+    <div class="team-id">
+      <h2>Piccolos Cage</h2>
+      <div class="team-meta"><b>John</b> · Sixth · lost quarterfinal · 8-6, 1545.22 PF</div>
+    </div>
+    <div class="team-stats">
+      <div class="tstat"><span>Captured</span><b>1895.6</b></div>
+      <div class="tstat"><span>From draft</span><b>90.9%</b></div>
+      <div class="tstat"><span>Moves</span><b>7</b></div>
+    </div>
+  </div>
+  <div class="team-body">
+  <div class="team-main">
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Slot</th><th>Player</th><th class="num">Pts captured</th><th class="num">Starts</th><th class="num">Season pts</th><th class="num">Value</th><th>2025 rank</th></tr></thead>
+    <tbody>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Jalen Hurts</td>
+        <td class="num mono">287.0</td>
+        <td class="num mono">15</td>
+        <td class="num mono">299.1</td>
+        <td class="num mono">+3.4</td>
+        <td><b class="top">QB8</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB1</span></td>
+        <td class="holders">Derrick Henry</td>
+        <td class="num mono">259.4</td>
+        <td class="num mono">16</td>
+        <td class="num mono">272.0</td>
+        <td class="num mono">+7.8</td>
+        <td><b class="top">RB7</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB2</span></td>
+        <td class="holders"><b>Bucky Irving</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">113.2</td>
+        <td class="num mono">9</td>
+        <td class="num mono">123.5</td>
+        <td class="num mono">−0.9</td>
+        <td>RB33</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">David Montgomery</td>
+        <td class="num mono">85.5</td>
+        <td class="num mono">10</td>
+        <td class="num mono">154.9</td>
+        <td class="num mono">+0.9</td>
+        <td>RB27</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">Rachaad White</td>
+        <td class="num mono">70.5</td>
+        <td class="num mono">7</td>
+        <td class="num mono">123.0</td>
+        <td class="num mono">−0.9</td>
+        <td>RB34</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR1</span></td>
+        <td class="holders">Amon-Ra St. Brown</td>
+        <td class="num mono">246.1</td>
+        <td class="num mono">16</td>
+        <td class="num mono">265.5</td>
+        <td class="num mono">+8.3</td>
+        <td><b class="rank3">WR3</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR2</span></td>
+        <td class="holders">Deebo Samuel Sr.</td>
+        <td class="num mono">149.1</td>
+        <td class="num mono">15</td>
+        <td class="num mono">152.2</td>
+        <td class="num mono">+1.7</td>
+        <td>WR28</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR3</span></td>
+        <td class="holders">Wan'Dale Robinson</td>
+        <td class="num mono">95.3</td>
+        <td class="num mono">8</td>
+        <td class="num mono">171.9</td>
+        <td class="num mono">+2.8</td>
+        <td>WR16</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Garrett Wilson <span title="season ended by injury — last scored wk 6"><svg class="src-icon" viewBox="0 0 15 12" width="14" height="11" aria-label="season-ending injury"><path d="M0.5 7.5h3l1.5-5 2 8 1.5-3h6" stroke="#E24B4A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+        <td class="num mono">81.5</td>
+        <td class="num mono">6</td>
+        <td class="num mono">81.5</td>
+        <td class="num mono">−2.5</td>
+        <td>WR62</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Tre Tucker <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">45.0</td>
+        <td class="num mono">8</td>
+        <td class="num mono">133.2</td>
+        <td class="num mono">+0.6</td>
+        <td>WR37</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders"><b>T.J. Hockenson</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">47.4</td>
+        <td class="num mono">8</td>
+        <td class="num mono">87.3</td>
+        <td class="num mono">−2.9</td>
+        <td>TE26</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Dalton Kincaid <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">43.6</td>
+        <td class="num mono">9</td>
+        <td class="num mono">106.6</td>
+        <td class="num mono">−1.7</td>
+        <td>TE18</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge FLEX">W/R/T</span></td>
+        <td class="holders">Calvin Ridley</td>
+        <td class="num mono">15.1</td>
+        <td class="num mono">3</td>
+        <td class="num mono">38.8</td>
+        <td class="num mono">−5.0</td>
+        <td>WR117</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="stream-grid">
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge K">K</span><span class="stream-label">Kickers</span>
+      <span class="stream-agg"><span class="mono">134.0 pts</span> · ≈<b class="">K13</b></span>
+    </div>
+    <div class="sharebar"><div style="width:100.0%;background:rgb(59,191,165)" title="Harrison Butker 134.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Harrison Butker</td>
+        <td class="num mono">134.0</td>
+        <td class="num mono">16</td>
+        <td class="num mono">149.0</td>
+        <td class="stream-rank"><b class="top">K10</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge DEF">DEF</span><span class="stream-label">Defenses</span>
+      <span class="stream-agg"><span class="mono">167.0 pts</span> · ≈<b class="">DEF9</b></span>
+    </div>
+    <div class="sharebar"><div style="width:80.8%;background:rgb(124,134,168)" title="Eagles 135.0"></div><div style="width:19.2%;background:rgb(190,195,212)" title="Bears 32.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Eagles</td>
+        <td class="num mono">135.0</td>
+        <td class="num mono">13</td>
+        <td class="num mono">179.0</td>
+        <td class="stream-rank"><b class="top">DEF7</b></td>
+      </tr>
+      <tr>
+        <td>Bears <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">32.0</td>
+        <td class="num mono">4</td>
+        <td class="num mono">143.0</td>
+        <td class="stream-rank">DEF14</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </div>
+  </div>
+  <aside class="rail">
+    <div class="rail-card">
+  <div class="stream-head"><span class="stream-label">Points by position</span></div>
+  <table class="rail-table"><thead><tr><th></th><th class="num">Pts captured</th><th class="num">League rank</th></tr></thead><tbody>
+    <tr><td><span class="pos-badge QB">QB</span></td><td class="num mono">331.3</td><td class="num rail-rank ">4th</td></tr>
+    <tr><td><span class="pos-badge RB">RB</span></td><td class="num mono">528.6</td><td class="num rail-rank ">9th</td></tr>
+    <tr><td><span class="pos-badge WR">WR</span></td><td class="num mono">643.7</td><td class="num rail-rank ">4th</td></tr>
+    <tr><td><span class="pos-badge TE">TE</span></td><td class="num mono">91.0</td><td class="num rail-rank ">10th</td></tr>
+    <tr><td><span class="pos-badge K">K</span></td><td class="num mono">134.0</td><td class="num rail-rank ">6th</td></tr>
+    <tr><td><span class="pos-badge DEF">DEF</span></td><td class="num mono">167.0</td><td class="num rail-rank ">6th</td></tr>
+  </tbody></table>
+</div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top draft picks</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Jalen Hurts</td>
+        <td class="num mono">287.0</td>
+        <td class="num mono">+3.4</td>
+        <td class="stream-rank"><b class="top">QB8</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Derrick Henry</td>
+        <td class="num mono">259.4</td>
+        <td class="num mono">+7.8</td>
+        <td class="stream-rank"><b class="top">RB7</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Amon-Ra St. Brown</td>
+        <td class="num mono">246.1</td>
+        <td class="num mono">+8.3</td>
+        <td class="stream-rank"><b class="rank3">WR3</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top pickups</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Tre Tucker <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">45.0</td>
+        <td class="num mono">+0.6</td>
+        <td class="stream-rank">WR37</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Jacoby Brissett <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">44.3</td>
+        <td class="num mono">−0.8</td>
+        <td class="stream-rank">QB16</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge TE">TE</span></td>
+        <td>Dalton Kincaid <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">43.6</td>
+        <td class="num mono">−1.7</td>
+        <td class="stream-rank">TE18</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">IR history</span></div>
+    <table class="rail-table"><thead><tr><th></th><th>Player</th><th class="num">Weeks on IR</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Garrett Wilson</td>
+        <td class="num mono">10</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </aside>
+  </div>
+</section>
+
+<section class="team card" id="ben">
+  <div class="team-head">
+    <div class="avatar-wrap">
+      <img class="mgr-avatar" src="/LateLateShift/assets/images/manager-avatars/ben.jpg" alt="" width="52" height="52" loading="lazy">
+      <div class="rank-badge">#7</div>
+    </div>
+    <div class="team-id">
+      <h2>Herbert Fully Loaded</h2>
+      <div class="team-meta"><b>Ben</b> · Seventh · 5-9, 1626.00 PF</div>
+    </div>
+    <div class="team-stats">
+      <div class="tstat"><span>Captured</span><b>1946.0</b></div>
+      <div class="tstat"><span>From draft</span><b>59.8%</b></div>
+      <div class="tstat"><span>Moves</span><b>37</b></div>
+    </div>
+  </div>
+  <div class="team-body">
+  <div class="team-main">
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Slot</th><th>Player</th><th class="num">Pts captured</th><th class="num">Starts</th><th class="num">Season pts</th><th class="num">Value</th><th>2025 rank</th></tr></thead>
+    <tbody>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Justin Herbert</td>
+        <td class="num mono">202.5</td>
+        <td class="num mono">11</td>
+        <td class="num mono">286.9</td>
+        <td class="num mono">+2.7</td>
+        <td><b class="top">QB10</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Jordan Love <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">69.8</td>
+        <td class="num mono">5</td>
+        <td class="num mono">235.1</td>
+        <td class="num mono">−0.4</td>
+        <td>QB15</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB1</span></td>
+        <td class="holders"><b>Kyren Williams</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">235.7</td>
+        <td class="num mono">16</td>
+        <td class="num mono">245.3</td>
+        <td class="num mono">+6.2</td>
+        <td><b class="top">RB9</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB2</span></td>
+        <td class="holders">Rico Dowdle <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">137.0</td>
+        <td class="num mono">10</td>
+        <td class="num mono">196.8</td>
+        <td class="num mono">+3.4</td>
+        <td>RB17</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">Kimani Vidal <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">63.4</td>
+        <td class="num mono">7</td>
+        <td class="num mono">109.9</td>
+        <td class="num mono">−1.7</td>
+        <td>RB42</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">Chuba Hubbard</td>
+        <td class="num mono">49.6</td>
+        <td class="num mono">4</td>
+        <td class="num mono">110.4</td>
+        <td class="num mono">−1.7</td>
+        <td>RB41</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR1</span></td>
+        <td class="holders">A.J. Brown</td>
+        <td class="num mono">181.3</td>
+        <td class="num mono">15</td>
+        <td class="num mono">181.3</td>
+        <td class="num mono">+3.4</td>
+        <td>WR14</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR2</span></td>
+        <td class="holders">CeeDee Lamb</td>
+        <td class="num mono">162.5</td>
+        <td class="num mono">13</td>
+        <td class="num mono">163.4</td>
+        <td class="num mono">+2.3</td>
+        <td>WR20</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR3</span></td>
+        <td class="holders">Christian Watson <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">73.5</td>
+        <td class="num mono">6</td>
+        <td class="num mono">114.9</td>
+        <td class="num mono">−0.5</td>
+        <td>WR42</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Quentin Johnston <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">54.7</td>
+        <td class="num mono">7</td>
+        <td class="num mono">145.7</td>
+        <td class="num mono">+1.3</td>
+        <td>WR31</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders"><b>Malik Nabers</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg> <span title="season ended by injury — last scored wk 4"><svg class="src-icon" viewBox="0 0 15 12" width="14" height="11" aria-label="season-ending injury"><path d="M0.5 7.5h3l1.5-5 2 8 1.5-3h6" stroke="#E24B4A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+        <td class="num mono">48.1</td>
+        <td class="num mono">4</td>
+        <td class="num mono">48.1</td>
+        <td class="num mono">−4.4</td>
+        <td>WR99</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Tucker Kraft <span title="season ended by injury — last scored wk 9"><svg class="src-icon" viewBox="0 0 15 12" width="14" height="11" aria-label="season-ending injury"><path d="M0.5 7.5h3l1.5-5 2 8 1.5-3h6" stroke="#E24B4A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+        <td class="num mono">101.2</td>
+        <td class="num mono">8</td>
+        <td class="num mono">101.2</td>
+        <td class="num mono">−2.1</td>
+        <td>TE21</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Dallas Goedert <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">69.2</td>
+        <td class="num mono">8</td>
+        <td class="num mono">155.1</td>
+        <td class="num mono">+1.1</td>
+        <td><b class="top">TE4</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge FLEX">W/R/T</span></td>
+        <td class="holders">Tony Pollard</td>
+        <td class="num mono">54.3</td>
+        <td class="num mono">6</td>
+        <td class="num mono">169.3</td>
+        <td class="num mono">+1.8</td>
+        <td>RB24</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge FLEX">W/R/T</span></td>
+        <td class="holders">Kenny Gainwell <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">32.1</td>
+        <td class="num mono">3</td>
+        <td class="num mono">184.8</td>
+        <td class="num mono">+2.7</td>
+        <td>RB20</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="stream-grid">
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge K">K</span><span class="stream-label">Kickers</span>
+      <span class="stream-agg"><span class="mono">125.0 pts</span> · ≈<b class="">K22</b></span>
+    </div>
+    <div class="sharebar"><div style="width:66.4%;background:rgb(59,191,165)" title="Wil Lutz 83.0"></div><div style="width:33.6%;background:rgb(157,223,210)" title="Jake Elliott 42.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Wil Lutz</td>
+        <td class="num mono">83.0</td>
+        <td class="num mono">11</td>
+        <td class="num mono">134.0</td>
+        <td class="stream-rank">K16</td>
+      </tr>
+      <tr>
+        <td>Jake Elliott <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">42.0</td>
+        <td class="num mono">6</td>
+        <td class="num mono">116.0</td>
+        <td class="stream-rank">K22</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge DEF">DEF</span><span class="stream-label">Defenses</span>
+      <span class="stream-agg"><span class="mono">190.0 pts</span> · ≈<b class="rank3">DEF3</b></span>
+    </div>
+    <div class="sharebar"><div style="width:42.6%;background:rgb(124,134,168)" title="Jaguars 81.0"></div><div style="width:23.2%;background:rgb(146,154,183)" title="Lions 44.0"></div><div style="width:15.3%;background:rgb(168,174,197)" title="Patriots 29.0"></div><div style="width:14.7%;background:rgb(190,195,212)" title="Bears 28.0"></div><div style="width:4.7%;background:rgb(211,215,226)" title="Texans 9.0"></div><div style="width:-0.5%;background:rgb(233,235,241)" title="Chargers -1.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Jaguars <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">81.0</td>
+        <td class="num mono">6</td>
+        <td class="num mono">188.0</td>
+        <td class="stream-rank"><b class="rank3">DEF3</b></td>
+      </tr>
+      <tr>
+        <td>Lions <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">44.0</td>
+        <td class="num mono">4</td>
+        <td class="num mono">117.0</td>
+        <td class="stream-rank">DEF22</td>
+      </tr>
+      <tr>
+        <td>Patriots</td>
+        <td class="num mono">29.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">184.0</td>
+        <td class="stream-rank"><b class="top">DEF4</b></td>
+      </tr>
+      <tr>
+        <td>Bears <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">28.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">143.0</td>
+        <td class="stream-rank">DEF14</td>
+      </tr>
+      <tr>
+        <td>Texans <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">9.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">211.0</td>
+        <td class="stream-rank"><b class="rank2">DEF2</b></td>
+      </tr>
+      <tr>
+        <td>Chargers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">-1.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">157.0</td>
+        <td class="stream-rank">DEF12</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </div>
+  </div>
+  <aside class="rail">
+    <div class="rail-card">
+  <div class="stream-head"><span class="stream-label">Points by position</span></div>
+  <table class="rail-table"><thead><tr><th></th><th class="num">Pts captured</th><th class="num">League rank</th></tr></thead><tbody>
+    <tr><td><span class="pos-badge QB">QB</span></td><td class="num mono">281.6</td><td class="num rail-rank ">8th</td></tr>
+    <tr><td><span class="pos-badge RB">RB</span></td><td class="num mono">602.4</td><td class="num rail-rank ">4th</td></tr>
+    <tr><td><span class="pos-badge WR">WR</span></td><td class="num mono">560.2</td><td class="num rail-rank ">7th</td></tr>
+    <tr><td><span class="pos-badge TE">TE</span></td><td class="num mono">186.7</td><td class="num rail-rank rank3">3rd</td></tr>
+    <tr><td><span class="pos-badge K">K</span></td><td class="num mono">125.0</td><td class="num rail-rank ">10th</td></tr>
+    <tr><td><span class="pos-badge DEF">DEF</span></td><td class="num mono">190.0</td><td class="num rail-rank ">4th</td></tr>
+  </tbody></table>
+</div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top draft picks</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td><b>Kyren Williams</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">235.7</td>
+        <td class="num mono">+6.2</td>
+        <td class="stream-rank"><b class="top">RB9</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Justin Herbert</td>
+        <td class="num mono">202.5</td>
+        <td class="num mono">+2.7</td>
+        <td class="stream-rank"><b class="top">QB10</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>A.J. Brown</td>
+        <td class="num mono">181.3</td>
+        <td class="num mono">+3.4</td>
+        <td class="stream-rank">WR14</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top pickups</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Rico Dowdle <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">137.0</td>
+        <td class="num mono">+3.4</td>
+        <td class="stream-rank">RB17</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge DEF">DEF</span></td>
+        <td>Jaguars <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">81.0</td>
+        <td class="num mono">+1.7</td>
+        <td class="stream-rank"><b class="rank3">DEF3</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Christian Watson <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">73.5</td>
+        <td class="num mono">−0.5</td>
+        <td class="stream-rank">WR42</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">IR history</span></div>
+    <table class="rail-table"><thead><tr><th></th><th>Player</th><th class="num">Weeks on IR</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Tyjae Spears</td>
+        <td class="num mono">4</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Ricky Pearsall</td>
+        <td class="num mono">4</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>CeeDee Lamb</td>
+        <td class="num mono">2</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>A.J. Brown</td>
+        <td class="num mono">2</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Chuba Hubbard</td>
+        <td class="num mono">1</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </aside>
+  </div>
+</section>
+
+<section class="team card" id="ray">
+  <div class="team-head">
+    <div class="avatar-wrap">
+      <img class="mgr-avatar" src="/LateLateShift/assets/images/manager-avatars/ray.jpg" alt="" width="52" height="52" loading="lazy">
+      <div class="rank-badge">#8</div>
+    </div>
+    <div class="team-id">
+      <h2>Big Diggs and My Chubb</h2>
+      <div class="team-meta"><b>Ray</b> · Eighth · 6-8, 1706.58 PF</div>
+    </div>
+    <div class="team-stats">
+      <div class="tstat"><span>Captured</span><b>2052.0</b></div>
+      <div class="tstat"><span>From draft</span><b>73%</b></div>
+      <div class="tstat"><span>Moves</span><b>14</b></div>
+    </div>
+  </div>
+  <div class="team-body">
+  <div class="team-main">
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Slot</th><th>Player</th><th class="num">Pts captured</th><th class="num">Starts</th><th class="num">Season pts</th><th class="num">Value</th><th>2025 rank</th></tr></thead>
+    <tbody>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Jared Goff <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">237.0</td>
+        <td class="num mono">14</td>
+        <td class="num mono">297.1</td>
+        <td class="num mono">+3.3</td>
+        <td><b class="top">QB9</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB1</span></td>
+        <td class="holders">Jonathan Taylor</td>
+        <td class="num mono">334.4</td>
+        <td class="num mono">16</td>
+        <td class="num mono">339.3</td>
+        <td class="num mono">+11.8</td>
+        <td><b class="rank2">RB2</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB2</span></td>
+        <td class="holders"><b>Chase Brown</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">222.5</td>
+        <td class="num mono">15</td>
+        <td class="num mono">248.1</td>
+        <td class="num mono">+6.4</td>
+        <td><b class="top">RB8</b></td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">Ashton Jeanty</td>
+        <td class="num mono">200.4</td>
+        <td class="num mono">15</td>
+        <td class="num mono">217.6</td>
+        <td class="num mono">+4.6</td>
+        <td>RB13</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR1</span></td>
+        <td class="holders">DeVonta Smith</td>
+        <td class="num mono">156.6</td>
+        <td class="num mono">16</td>
+        <td class="num mono">163.3</td>
+        <td class="num mono">+2.3</td>
+        <td>WR21</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR2</span></td>
+        <td class="holders"><b>Ladd McConkey</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">147.9</td>
+        <td class="num mono">16</td>
+        <td class="num mono">147.9</td>
+        <td class="num mono">+1.4</td>
+        <td>WR29</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR3</span></td>
+        <td class="holders">Stefon Diggs</td>
+        <td class="num mono">89.7</td>
+        <td class="num mono">9</td>
+        <td class="num mono">167.8</td>
+        <td class="num mono">+2.6</td>
+        <td>WR18</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Jauan Jennings</td>
+        <td class="num mono">46.2</td>
+        <td class="num mono">4</td>
+        <td class="num mono">145.8</td>
+        <td class="num mono">+1.3</td>
+        <td>WR30</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Tyreek Hill <span title="season ended by injury — last scored wk 4"><svg class="src-icon" viewBox="0 0 15 12" width="14" height="11" aria-label="season-ending injury"><path d="M0.5 7.5h3l1.5-5 2 8 1.5-3h6" stroke="#E24B4A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+        <td class="num mono">43.0</td>
+        <td class="num mono">4</td>
+        <td class="num mono">43.0</td>
+        <td class="num mono">−4.7</td>
+        <td>WR108</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Quentin Johnston <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">32.5</td>
+        <td class="num mono">4</td>
+        <td class="num mono">145.7</td>
+        <td class="num mono">+1.3</td>
+        <td>WR31</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Sam LaPorta <span title="season ended by injury — last scored wk 10"><svg class="src-icon" viewBox="0 0 15 12" width="14" height="11" aria-label="season-ending injury"><path d="M0.5 7.5h3l1.5-5 2 8 1.5-3h6" stroke="#E24B4A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+        <td class="num mono">86.9</td>
+        <td class="num mono">9</td>
+        <td class="num mono">86.9</td>
+        <td class="num mono">−2.9</td>
+        <td>TE27</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Juwan Johnson <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">35.2</td>
+        <td class="num mono">4</td>
+        <td class="num mono">141.4</td>
+        <td class="num mono">+0.3</td>
+        <td><b class="top">TE10</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Dalton Schultz <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">13.7</td>
+        <td class="num mono">3</td>
+        <td class="num mono">136.7</td>
+        <td class="num mono">+0.0</td>
+        <td><b class="top">TE11</b></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="stream-grid">
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge K">K</span><span class="stream-label">Kickers</span>
+      <span class="stream-agg"><span class="mono">129.0 pts</span> · ≈<b class="">K21</b></span>
+    </div>
+    <div class="sharebar"><div style="width:73.6%;background:rgb(59,191,165)" title="Ka'imi Fairbairn 95.0"></div><div style="width:24.8%;background:rgb(108,207,188)" title="Daniel Carlson 32.0"></div><div style="width:1.6%;background:rgb(157,223,210)" title="Matt Prater 2.0"></div><div style="width:0.0%;background:rgb(206,239,233)" title="Joshua Karty 0.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Ka'imi Fairbairn</td>
+        <td class="num mono">95.0</td>
+        <td class="num mono">8</td>
+        <td class="num mono">194.0</td>
+        <td class="stream-rank"><b class="rank2">K2</b></td>
+      </tr>
+      <tr>
+        <td>Daniel Carlson <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">32.0</td>
+        <td class="num mono">7</td>
+        <td class="num mono">103.0</td>
+        <td class="stream-rank">K27</td>
+      </tr>
+      <tr>
+        <td>Matt Prater <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">2.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">108.0</td>
+        <td class="stream-rank">K26</td>
+      </tr>
+      <tr>
+        <td>Joshua Karty <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">0.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">58.0</td>
+        <td class="stream-rank">K34</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge DEF">DEF</span><span class="stream-label">Defenses</span>
+      <span class="stream-agg"><span class="mono">194.0 pts</span> · ≈<b class="rank3">DEF3</b></span>
+    </div>
+    <div class="sharebar"><div style="width:55.7%;background:rgb(124,134,168)" title="Broncos 108.0"></div><div style="width:20.1%;background:rgb(157,164,190)" title="Vikings 39.0"></div><div style="width:16.5%;background:rgb(190,195,212)" title="Packers 32.0"></div><div style="width:7.7%;background:rgb(222,225,233)" title="Ravens 15.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Broncos <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">108.0</td>
+        <td class="num mono">11</td>
+        <td class="num mono">183.0</td>
+        <td class="stream-rank"><b class="top">DEF6</b></td>
+      </tr>
+      <tr>
+        <td>Vikings <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">39.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">171.0</td>
+        <td class="stream-rank"><b class="top">DEF8</b></td>
+      </tr>
+      <tr>
+        <td>Packers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">32.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">120.0</td>
+        <td class="stream-rank">DEF21</td>
+      </tr>
+      <tr>
+        <td>Ravens</td>
+        <td class="num mono">15.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">128.0</td>
+        <td class="stream-rank">DEF18</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </div>
+  </div>
+  <aside class="rail">
+    <div class="rail-card">
+  <div class="stream-head"><span class="stream-label">Points by position</span></div>
+  <table class="rail-table"><thead><tr><th></th><th class="num">Pts captured</th><th class="num">League rank</th></tr></thead><tbody>
+    <tr><td><span class="pos-badge QB">QB</span></td><td class="num mono">274.6</td><td class="num rail-rank ">10th</td></tr>
+    <tr><td><span class="pos-badge RB">RB</span></td><td class="num mono">797.5</td><td class="num rail-rank rank1">1st</td></tr>
+    <tr><td><span class="pos-badge WR">WR</span></td><td class="num mono">515.9</td><td class="num rail-rank ">10th</td></tr>
+    <tr><td><span class="pos-badge TE">TE</span></td><td class="num mono">141.1</td><td class="num rail-rank ">7th</td></tr>
+    <tr><td><span class="pos-badge K">K</span></td><td class="num mono">129.0</td><td class="num rail-rank ">8th</td></tr>
+    <tr><td><span class="pos-badge DEF">DEF</span></td><td class="num mono">194.0</td><td class="num rail-rank rank3">3rd</td></tr>
+  </tbody></table>
+</div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top draft picks</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Jonathan Taylor</td>
+        <td class="num mono">334.4</td>
+        <td class="num mono">+11.8</td>
+        <td class="stream-rank"><b class="rank2">RB2</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td><b>Chase Brown</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">222.5</td>
+        <td class="num mono">+6.4</td>
+        <td class="stream-rank"><b class="top">RB8</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Ashton Jeanty</td>
+        <td class="num mono">200.4</td>
+        <td class="num mono">+4.6</td>
+        <td class="stream-rank">RB13</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top pickups</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Jared Goff <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">237.0</td>
+        <td class="num mono">+3.3</td>
+        <td class="stream-rank"><b class="top">QB9</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge DEF">DEF</span></td>
+        <td>Broncos <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">108.0</td>
+        <td class="num mono">+1.4</td>
+        <td class="stream-rank"><b class="top">DEF6</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge DEF">DEF</span></td>
+        <td>Vikings <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">39.0</td>
+        <td class="num mono">+0.7</td>
+        <td class="stream-rank"><b class="top">DEF8</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">IR history</span></div>
+    <table class="rail-table"><thead><tr><th></th><th>Player</th><th class="num">Weeks on IR</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Brandon Aiyuk</td>
+        <td class="num mono">15</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Joe Burrow</td>
+        <td class="num mono">10</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge TE">TE</span></td>
+        <td>Sam LaPorta</td>
+        <td class="num mono">5</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Christian Kirk</td>
+        <td class="num mono">1</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </aside>
+  </div>
+</section>
+
+<section class="team card" id="cass">
+  <div class="team-head">
+    <div class="avatar-wrap">
+      <img class="mgr-avatar" src="/LateLateShift/assets/images/manager-avatars/cass.png" alt="" width="52" height="52" loading="lazy">
+      <div class="rank-badge">#9</div>
+    </div>
+    <div class="team-id">
+      <h2>Breece's Pieces</h2>
+      <div class="team-meta"><b>Cass</b> · Ninth · 5-9, 1567.06 PF</div>
+    </div>
+    <div class="team-stats">
+      <div class="tstat"><span>Captured</span><b>1889.9</b></div>
+      <div class="tstat"><span>From draft</span><b>73.9%</b></div>
+      <div class="tstat"><span>Moves</span><b>22</b></div>
+    </div>
+  </div>
+  <div class="team-body">
+  <div class="team-main">
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Slot</th><th>Player</th><th class="num">Pts captured</th><th class="num">Starts</th><th class="num">Season pts</th><th class="num">Value</th><th>2025 rank</th></tr></thead>
+    <tbody>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders"><b>Lamar Jackson</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">194.4</td>
+        <td class="num mono">12</td>
+        <td class="num mono">214.9</td>
+        <td class="num mono">−1.6</td>
+        <td>QB20</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Dak Prescott <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">80.5</td>
+        <td class="num mono">4</td>
+        <td class="num mono">313.8</td>
+        <td class="num mono">+4.2</td>
+        <td><b class="top">QB6</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB1</span></td>
+        <td class="holders">Travis Etienne Jr.</td>
+        <td class="num mono">193.8</td>
+        <td class="num mono">13</td>
+        <td class="num mono">235.9</td>
+        <td class="num mono">+5.7</td>
+        <td><b class="top">RB10</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB2</span></td>
+        <td class="holders"><b>Breece Hall</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">170.7</td>
+        <td class="num mono">15</td>
+        <td class="num mono">189.7</td>
+        <td class="num mono">+3.0</td>
+        <td>RB18</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">D'Andre Swift</td>
+        <td class="num mono">150.1</td>
+        <td class="num mono">11</td>
+        <td class="num mono">211.6</td>
+        <td class="num mono">+4.3</td>
+        <td>RB15</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders"><i>Quinshon Judkins</i></td>
+        <td class="num mono">75.5</td>
+        <td class="num mono">6</td>
+        <td class="num mono">156.8</td>
+        <td class="num mono">+1.0</td>
+        <td>RB26</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR1</span></td>
+        <td class="holders">Zay Flowers</td>
+        <td class="num mono">166.9</td>
+        <td class="num mono">15</td>
+        <td class="num mono">200.3</td>
+        <td class="num mono">+4.5</td>
+        <td><b class="top">WR7</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR2</span></td>
+        <td class="holders">Justin Jefferson</td>
+        <td class="num mono">145.1</td>
+        <td class="num mono">16</td>
+        <td class="num mono">159.5</td>
+        <td class="num mono">+2.1</td>
+        <td>WR25</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR3</span></td>
+        <td class="holders">Marvin Harrison Jr.</td>
+        <td class="num mono">97.4</td>
+        <td class="num mono">10</td>
+        <td class="num mono">107.3</td>
+        <td class="num mono">−1.0</td>
+        <td>WR49</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge WR">WR</span></td>
+        <td class="holders">Michael Pittman Jr.</td>
+        <td class="num mono">83.6</td>
+        <td class="num mono">10</td>
+        <td class="num mono">162.4</td>
+        <td class="num mono">+2.3</td>
+        <td>WR22</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Hunter Henry <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">46.8</td>
+        <td class="num mono">7</td>
+        <td class="num mono">148.8</td>
+        <td class="num mono">+0.7</td>
+        <td><b class="top">TE7</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">David Njoku</td>
+        <td class="num mono">26.8</td>
+        <td class="num mono">5</td>
+        <td class="num mono">69.8</td>
+        <td class="num mono">−3.9</td>
+        <td>TE32</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Oronde Gadsden <svg class="src-icon" viewBox="0 0 14 12" width="13" height="11" aria-label="acquired by trade"><path fill="#8B4DE8" d="M4 0 0 3l4 3V4h6V2H4V0zm6 6v2H4v2h6v2l4-3-4-3z"/></svg></td>
+        <td class="num mono">13.7</td>
+        <td class="num mono">4</td>
+        <td class="num mono">106.9</td>
+        <td class="num mono">−1.7</td>
+        <td>TE17</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="stream-grid">
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge K">K</span><span class="stream-label">Kickers</span>
+      <span class="stream-agg"><span class="mono">173.0 pts</span> · ≈<b class="">K4</b></span>
+    </div>
+    <div class="sharebar"><div style="width:59.5%;background:rgb(59,191,165)" title="Cameron Dicker 103.0"></div><div style="width:32.9%;background:rgb(124,212,195)" title="Jake Bates 57.0"></div><div style="width:7.5%;background:rgb(190,234,225)" title="Cam Little 13.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Cameron Dicker <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">103.0</td>
+        <td class="num mono">9</td>
+        <td class="num mono">170.0</td>
+        <td class="stream-rank"><b class="top">K4</b></td>
+      </tr>
+      <tr>
+        <td>Jake Bates</td>
+        <td class="num mono">57.0</td>
+        <td class="num mono">7</td>
+        <td class="num mono">152.0</td>
+        <td class="stream-rank"><b class="top">K8</b></td>
+      </tr>
+      <tr>
+        <td>Cam Little <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">13.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">164.0</td>
+        <td class="stream-rank"><b class="top">K5</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge DEF">DEF</span><span class="stream-label">Defenses</span>
+      <span class="stream-agg"><span class="mono">204.0 pts</span> · ≈<b class="rank3">DEF3</b></span>
+    </div>
+    <div class="sharebar"><div style="width:52.0%;background:rgb(124,134,168)" title="Texans 106.0"></div><div style="width:17.6%;background:rgb(143,151,180)" title="Seahawks 36.0"></div><div style="width:9.3%;background:rgb(161,169,193)" title="Raiders 19.0"></div><div style="width:8.8%;background:rgb(180,186,205)" title="Broncos 18.0"></div><div style="width:6.4%;background:rgb(199,203,218)" title="Chargers 13.0"></div><div style="width:5.9%;background:rgb(218,220,230)" title="Lions 12.0"></div><div style="width:0.0%;background:rgb(236,238,243)" title="Falcons 0.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Texans <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">106.0</td>
+        <td class="num mono">8</td>
+        <td class="num mono">211.0</td>
+        <td class="stream-rank"><b class="rank2">DEF2</b></td>
+      </tr>
+      <tr>
+        <td>Seahawks <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">36.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">225.0</td>
+        <td class="stream-rank"><b class="rank1"><svg class="rank-star" viewBox="0 0 12 12" width="11" height="11" aria-label="#1 at position"><path fill="#E8A84D" d="M6 0l1.76 3.73 3.94.5-2.9 2.77.76 3.9L6 9.02 2.44 10.9l.76-3.9L.3 4.23l3.94-.5z"/></svg> DEF1</b></td>
+      </tr>
+      <tr>
+        <td>Raiders <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">19.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">94.0</td>
+        <td class="stream-rank">DEF28</td>
+      </tr>
+      <tr>
+        <td>Broncos</td>
+        <td class="num mono">18.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">183.0</td>
+        <td class="stream-rank"><b class="top">DEF6</b></td>
+      </tr>
+      <tr>
+        <td>Chargers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">13.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">157.0</td>
+        <td class="stream-rank">DEF12</td>
+      </tr>
+      <tr>
+        <td>Lions <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">12.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">117.0</td>
+        <td class="stream-rank">DEF22</td>
+      </tr>
+      <tr>
+        <td>Falcons <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">0.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">148.0</td>
+        <td class="stream-rank">DEF13</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </div>
+  </div>
+  <aside class="rail">
+    <div class="rail-card">
+  <div class="stream-head"><span class="stream-label">Points by position</span></div>
+  <table class="rail-table"><thead><tr><th></th><th class="num">Pts captured</th><th class="num">League rank</th></tr></thead><tbody>
+    <tr><td><span class="pos-badge QB">QB</span></td><td class="num mono">298.0</td><td class="num rail-rank ">6th</td></tr>
+    <tr><td><span class="pos-badge RB">RB</span></td><td class="num mono">599.8</td><td class="num rail-rank ">5th</td></tr>
+    <tr><td><span class="pos-badge WR">WR</span></td><td class="num mono">520.9</td><td class="num rail-rank ">9th</td></tr>
+    <tr><td><span class="pos-badge TE">TE</span></td><td class="num mono">94.2</td><td class="num rail-rank ">9th</td></tr>
+    <tr><td><span class="pos-badge K">K</span></td><td class="num mono">173.0</td><td class="num rail-rank rank2">2nd</td></tr>
+    <tr><td><span class="pos-badge DEF">DEF</span></td><td class="num mono">204.0</td><td class="num rail-rank rank2">2nd</td></tr>
+  </tbody></table>
+</div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top draft picks</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td><b>Lamar Jackson</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">194.4</td>
+        <td class="num mono">−1.6</td>
+        <td class="stream-rank">QB20</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Travis Etienne Jr.</td>
+        <td class="num mono">193.8</td>
+        <td class="num mono">+5.7</td>
+        <td class="stream-rank"><b class="top">RB10</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td><b>Breece Hall</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">170.7</td>
+        <td class="num mono">+3.0</td>
+        <td class="stream-rank">RB18</td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top pickups</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge DEF">DEF</span></td>
+        <td>Texans <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">106.0</td>
+        <td class="num mono">+3.1</td>
+        <td class="stream-rank"><b class="rank2">DEF2</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge K">K</span></td>
+        <td>Cameron Dicker <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">103.0</td>
+        <td class="num mono">+1.2</td>
+        <td class="stream-rank"><b class="top">K4</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td>Dak Prescott <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">80.5</td>
+        <td class="num mono">+4.2</td>
+        <td class="stream-rank"><b class="top">QB6</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">IR history</span></div>
+    <table class="rail-table"><thead><tr><th></th><th>Player</th><th class="num">Weeks on IR</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Chris Godwin Jr.</td>
+        <td class="num mono">2</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge QB">QB</span></td>
+        <td><b>Lamar Jackson</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">2</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Tyrone Tracy Jr.</td>
+        <td class="num mono">1</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </aside>
+  </div>
+</section>
+
+<section class="team card" id="uzoma">
+  <div class="team-head">
+    <div class="avatar-wrap">
+      <img class="mgr-avatar" src="/LateLateShift/assets/images/manager-avatars/uzoma.png" alt="" width="52" height="52" loading="lazy">
+      <div class="rank-badge">#10</div>
+    </div>
+    <div class="team-id">
+      <h2>Wraith's Voidwalkers</h2>
+      <div class="team-meta"><b>Uzoma</b> · Tenth · 5-9, 1524.50 PF</div>
+    </div>
+    <div class="team-stats">
+      <div class="tstat"><span>Captured</span><b>1802.6</b></div>
+      <div class="tstat"><span>From draft</span><b>75.5%</b></div>
+      <div class="tstat"><span>Moves</span><b>14</b></div>
+    </div>
+  </div>
+  <div class="team-body">
+  <div class="team-main">
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Slot</th><th>Player</th><th class="num">Pts captured</th><th class="num">Starts</th><th class="num">Season pts</th><th class="num">Value</th><th>2025 rank</th></tr></thead>
+    <tbody>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders">Brock Purdy</td>
+        <td class="num mono">172.2</td>
+        <td class="num mono">10</td>
+        <td class="num mono">177.4</td>
+        <td class="num mono">−3.8</td>
+        <td>QB23</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge QB">QB</span></td>
+        <td class="holders"><b>Jayden Daniels</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">76.2</td>
+        <td class="num mono">4</td>
+        <td class="num mono">114.3</td>
+        <td class="num mono">−7.5</td>
+        <td>QB34</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB1</span></td>
+        <td class="holders">Josh Jacobs</td>
+        <td class="num mono">219.1</td>
+        <td class="num mono">16</td>
+        <td class="num mono">219.1</td>
+        <td class="num mono">+4.7</td>
+        <td>RB12</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge RB">RB2</span></td>
+        <td class="holders">Kareem Hunt <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">95.8</td>
+        <td class="num mono">11</td>
+        <td class="num mono">136.4</td>
+        <td class="num mono">−0.2</td>
+        <td>RB31</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">J.K. Dobbins <span title="season ended by injury — last scored wk 10"><svg class="src-icon" viewBox="0 0 15 12" width="14" height="11" aria-label="season-ending injury"><path d="M0.5 7.5h3l1.5-5 2 8 1.5-3h6" stroke="#E24B4A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+        <td class="num mono">66.8</td>
+        <td class="num mono">7</td>
+        <td class="num mono">110.4</td>
+        <td class="num mono">−1.7</td>
+        <td>RB40</td>
+      </tr>
+      <tr class="depth">
+        <td class="slot"><span class="pos-badge RB">RB</span></td>
+        <td class="holders">James Conner <span title="season ended by injury — last scored wk 3"><svg class="src-icon" viewBox="0 0 15 12" width="14" height="11" aria-label="season-ending injury"><path d="M0.5 7.5h3l1.5-5 2 8 1.5-3h6" stroke="#E24B4A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+        <td class="num mono">29.3</td>
+        <td class="num mono">3</td>
+        <td class="num mono">29.3</td>
+        <td class="num mono">−6.5</td>
+        <td>RB78</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR1</span></td>
+        <td class="holders">Nico Collins</td>
+        <td class="num mono">175.0</td>
+        <td class="num mono">13</td>
+        <td class="num mono">190.7</td>
+        <td class="num mono">+3.9</td>
+        <td><b class="top">WR9</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR2</span></td>
+        <td class="holders">Davante Adams</td>
+        <td class="num mono">172.4</td>
+        <td class="num mono">15</td>
+        <td class="num mono">192.9</td>
+        <td class="num mono">+4.1</td>
+        <td><b class="top">WR8</b></td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge WR">WR3</span></td>
+        <td class="holders">Tetairoa McMillan</td>
+        <td class="num mono">135.3</td>
+        <td class="num mono">14</td>
+        <td class="num mono">176.4</td>
+        <td class="num mono">+3.1</td>
+        <td>WR15</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge TE">TE</span></td>
+        <td class="holders">Mark Andrews</td>
+        <td class="num mono">103.7</td>
+        <td class="num mono">15</td>
+        <td class="num mono">107.0</td>
+        <td class="num mono">−1.7</td>
+        <td>TE16</td>
+      </tr>
+      <tr class="">
+        <td class="slot"><span class="pos-badge FLEX">W/R/T</span></td>
+        <td class="holders"><b>Brian Thomas Jr.</b> <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg></td>
+        <td class="num mono">108.4</td>
+        <td class="num mono">16</td>
+        <td class="num mono">114.8</td>
+        <td class="num mono">−0.5</td>
+        <td>WR43</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="stream-grid">
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge K">K</span><span class="stream-label">Kickers</span>
+      <span class="stream-agg"><span class="mono">167.0 pts</span> · ≈<b class="">K5</b></span>
+    </div>
+    <div class="sharebar"><div style="width:55.7%;background:rgb(59,191,165)" title="Brandon Aubrey 93.0"></div><div style="width:44.3%;background:rgb(157,223,210)" title="Jake Bates 74.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Brandon Aubrey</td>
+        <td class="num mono">93.0</td>
+        <td class="num mono">9</td>
+        <td class="num mono">187.6</td>
+        <td class="stream-rank"><b class="rank3">K3</b></td>
+      </tr>
+      <tr>
+        <td>Jake Bates <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">74.0</td>
+        <td class="num mono">8</td>
+        <td class="num mono">152.0</td>
+        <td class="stream-rank"><b class="top">K8</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="stream-panel">
+    <div class="stream-head">
+      <span class="pos-badge DEF">DEF</span><span class="stream-label">Defenses</span>
+      <span class="stream-agg"><span class="mono">160.0 pts</span> · ≈<b class="">DEF11</b></span>
+    </div>
+    <div class="sharebar"><div style="width:56.3%;background:rgb(124,134,168)" title="Panthers 90.0"></div><div style="width:17.5%;background:rgb(157,164,190)" title="Commanders 28.0"></div><div style="width:16.3%;background:rgb(190,195,212)" title="Saints 26.0"></div><div style="width:10.0%;background:rgb(222,225,233)" title="Patriots 16.0"></div></div>
+    <table class="stream-table"><tbody>
+      <tr>
+        <td>Panthers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">90.0</td>
+        <td class="num mono">11</td>
+        <td class="num mono">133.0</td>
+        <td class="stream-rank">DEF17</td>
+      </tr>
+      <tr>
+        <td>Commanders <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">28.0</td>
+        <td class="num mono">3</td>
+        <td class="num mono">87.0</td>
+        <td class="stream-rank">DEF30</td>
+      </tr>
+      <tr>
+        <td>Saints <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">26.0</td>
+        <td class="num mono">2</td>
+        <td class="num mono">159.0</td>
+        <td class="stream-rank"><b class="top">DEF11</b></td>
+      </tr>
+      <tr>
+        <td>Patriots <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">16.0</td>
+        <td class="num mono">1</td>
+        <td class="num mono">184.0</td>
+        <td class="stream-rank"><b class="top">DEF4</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+  </div>
+  </div>
+  <aside class="rail">
+    <div class="rail-card">
+  <div class="stream-head"><span class="stream-label">Points by position</span></div>
+  <table class="rail-table"><thead><tr><th></th><th class="num">Pts captured</th><th class="num">League rank</th></tr></thead><tbody>
+    <tr><td><span class="pos-badge QB">QB</span></td><td class="num mono">323.7</td><td class="num rail-rank ">5th</td></tr>
+    <tr><td><span class="pos-badge RB">RB</span></td><td class="num mono">421.1</td><td class="num rail-rank ">10th</td></tr>
+    <tr><td><span class="pos-badge WR">WR</span></td><td class="num mono">618.4</td><td class="num rail-rank ">5th</td></tr>
+    <tr><td><span class="pos-badge TE">TE</span></td><td class="num mono">112.4</td><td class="num rail-rank ">8th</td></tr>
+    <tr><td><span class="pos-badge K">K</span></td><td class="num mono">167.0</td><td class="num rail-rank rank3">3rd</td></tr>
+    <tr><td><span class="pos-badge DEF">DEF</span></td><td class="num mono">160.0</td><td class="num rail-rank ">8th</td></tr>
+  </tbody></table>
+</div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top draft picks</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Josh Jacobs</td>
+        <td class="num mono">219.1</td>
+        <td class="num mono">+4.7</td>
+        <td class="stream-rank">RB12</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Nico Collins</td>
+        <td class="num mono">175.0</td>
+        <td class="num mono">+3.9</td>
+        <td class="stream-rank"><b class="top">WR9</b></td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge WR">WR</span></td>
+        <td>Davante Adams</td>
+        <td class="num mono">172.4</td>
+        <td class="num mono">+4.1</td>
+        <td class="stream-rank"><b class="top">WR8</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">Top pickups</span></div>
+    <table class="rail-table top-table"><thead><tr><th></th><th>Player</th><th class="num">Pts</th><th class="num">Value</th><th class="num">Rank</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Kareem Hunt <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">95.8</td>
+        <td class="num mono">−0.2</td>
+        <td class="stream-rank">RB31</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge DEF">DEF</span></td>
+        <td>Panthers <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">90.0</td>
+        <td class="num mono">−1.5</td>
+        <td class="stream-rank">DEF17</td>
+      </tr>
+      <tr>
+        <td class="top-pos"><span class="pos-badge K">K</span></td>
+        <td>Jake Bates <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg></td>
+        <td class="num mono">74.0</td>
+        <td class="num mono">+0.2</td>
+        <td class="stream-rank"><b class="top">K8</b></td>
+      </tr>
+    </tbody></table>
+  </div>
+    <div class="rail-card">
+    <div class="stream-head"><span class="stream-label">IR history</span></div>
+    <table class="rail-table"><thead><tr><th></th><th>Player</th><th class="num">Weeks on IR</th></tr></thead><tbody>
+      <tr>
+        <td class="top-pos"><span class="pos-badge RB">RB</span></td>
+        <td>Trey Benson</td>
+        <td class="num mono">13</td>
+      </tr>
+    </tbody></table>
+  </div>
+  </aside>
+  </div>
+</section>
+<div class="card legend">
+  <b>How to read this:</b> <b>Captured</b> = points a player scored in weeks he was in that manager's starting lineup — bench weeks and pre/post-roster weeks don't count. One row per player, on the slot that was his primary job; skill-position players with fewer than 3 <b>GS</b> (games started for this manager) are omitted. Kickers and defenses — the streamed positions — get their own condensed panels under each table: every player used, ordered by contribution, with a share bar showing who carried the position and an aggregate ≈rank (the slot's combined production ranked as if it were one player's 17-week season). <b>Season pts</b> and <b>2025 rank</b> are the player's actual full-season total and end-of-season finish at his position in LLS scoring — they count his whole year, including weeks he wasn't on this roster or sat on the bench, so the gap between Season pts and Captured is what this manager missed. Top-3 finishes are highlighted: gold (with star) for #1, green for #2–3. Bold names with <svg class="kp-lock" viewBox="0 0 12 14" width="10" height="12" aria-label="keeper"><path fill="#3BBFA5" d="M6 0C3.8 0 2 1.8 2 4v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4zm0 1.8c1.2 0 2.2 1 2.2 2.2v2H3.8V4c0-1.2 1-2.2 2.2-2.2z"/></svg> are 2025 keepers; <svg class="src-icon" viewBox="0 0 12 12" width="11" height="11" aria-label="waiver pickup"><path d="M6 1.5v9M1.5 6h9" stroke="#5DA9E9" stroke-width="2.2" stroke-linecap="round"/></svg> marks waiver/FA pickups; <svg class="src-icon" viewBox="0 0 14 12" width="13" height="11" aria-label="acquired by trade"><path fill="#8B4DE8" d="M4 0 0 3l4 3V4h6V2H4V0zm6 6v2H4v2h6v2l4-3-4-3z"/></svg> marks the players who moved in the season's lone trade (Nov 14), and an <i>italicized name</i> means this roster traded him away; no icon = drafted. <svg class="src-icon" viewBox="0 0 15 12" width="14" height="11" aria-label="season-ending injury"><path d="M0.5 7.5h3l1.5-5 2 8 1.5-3h6" stroke="#E24B4A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> marks a season-ending injury — the player never scored again after an exit in week 12 or earlier (hover for the week). <b>Value</b> = the player's average weekly points over a replacement-level starter at his position (full-season VORP ÷ 17 weeks; baselines for this 10-team lineup: QB13 / RB29 / WR41 / TE12 / K11 / DEF11 in LLS scoring); keepers count as draft picks. Data: Yahoo Fantasy API, weeks 1–17.
+</div>
+</main>
+<footer class="site-footer"><div class="container">
+  <div>© ArrHarper 2026 · Late Late Shift · Est. 2020</div>
+  <div><a href="https://football.fantasysports.yahoo.com/league/latelateshift">League on Yahoo</a> · <a href="/LateLateShift/rules/">Rules</a></div>
+</div></footer>
+<script>
+(function () {
+  // The panel's top tracks the first team section (its team-head): aligned with
+  // it at load, riding up with the scroll until it parks 16px from the viewport top.
+  var panel = document.querySelector('.toc-panel');
+  var firstTeam = document.querySelector('.team');
+  if (panel && firstTeam) {
+    // Live position each time — content above reflows as fonts load in.
+    var place = function () { panel.style.top = Math.max(16, firstTeam.getBoundingClientRect().top) + 'px'; };
+    window.addEventListener('scroll', place, { passive: true });
+    window.addEventListener('resize', place, { passive: true });
+    window.addEventListener('load', place);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+    place();
+  }
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc-panel a'));
+  var bySection = new Map();
+  links.forEach(function (a) {
+    var s = document.querySelector(a.getAttribute('href'));
+    if (s) bySection.set(s, a);
+  });
+  if (!('IntersectionObserver' in window) || !bySection.size) return;
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      links.forEach(function (a) { a.classList.remove('active'); });
+      bySection.get(e.target).classList.add('active');
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  bySection.forEach(function (a, s) { obs.observe(s); });
+}());
+</script>
+</body></html>
