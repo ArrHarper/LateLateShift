@@ -8,8 +8,6 @@
 {% set draft = current.draft %}
 {# Seasons with a published recap set — newest last. Add the year when one ships. #}
 {% set recapSeasons = [2025] %}
-{% set latestRecap = recapSeasons | last %}
-{% set recapIndexUrl = ('/draft-recaps/' + latestRecap + '/index-' + latestRecap + '.html') | url %}
 
 <div class="draft-hero">
     <div class="kicker"><span class="dot"></span> Season {{ current.seasonNo }} · Draft Night</div>
@@ -42,31 +40,16 @@
     </ol>
 </div>
 
-<div>
-    {{ secHead("The Archive", color="blue", note="order reveals and graded recaps from seasons past") }}
-    <div class="duo">
-        {% call mod("Draft Order Reveals", link=('/draft-order/' | url), linkText="All reveals →") %}
-        <p class="mod-intro">Each season's draft order, revealed the only way we know how:
-        unnecessarily produced videos.</p>
-        <div class="link-list">
-            {% for video in draftVideos %}
-            <a href="{{ '/draft-order/' | url }}#draft-{{ video.year }}">{{ video.year }} Draft Order <span>→</span></a>
-            {% endfor %}
-        </div>
-        {% endcall %}
-
-        {% call mod("Draft Recaps", link=recapIndexUrl, linkText="Open recaps →") %}
-        <p class="mod-intro">Every pick graded against a keeper-adjusted league ADP — biggest values,
-        biggest reaches, roster grades and league-wide superlatives, one page per team.</p>
-        <div class="link-list">
-            {% for yr in recapSeasons %}
-            <a href="{{ ('/draft-recaps/' + yr + '/index-' + yr + '.html') | url }}">{{ yr }} Draft Recaps <span>→</span></a>
-            {% endfor %}
-            <a href="https://football.fantasysports.yahoo.com/{{ current.priorYear }}/f1/{{ current.priorLeagueId }}/draftresults" target="_blank" rel="noopener">{{ current.priorYear }} Draft Board on Yahoo <span>→</span></a>
-        </div>
-        {% endcall %}
-    </div>
+{% call mod("Draft Resources") %}
+<div class="link-list">
+    {# Placeholder until the 2025 season review page ships — update the href when it publishes. #}
+    <a href="#">2025 End of Year Review <span>→</span></a>
+    {% for yr in recapSeasons %}
+    <a href="{{ ('/draft/' + yr + '-recap/') | url }}">{{ yr }} Draft Recaps <span>→</span></a>
+    {% endfor %}
+    <a href="https://football.fantasysports.yahoo.com/{{ current.priorYear }}/f1/{{ current.priorLeagueId }}/draftresults" target="_blank" rel="noopener">{{ current.priorYear }} Draft Board on Yahoo <span>→</span></a>
 </div>
+{% endcall %}
 {% endblock %}
 
 {% block scripts %}

@@ -1,8 +1,17 @@
+import { readdirSync } from "node:fs";
+
 export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("assets");
     // Unlisted draft-recap pages: prebuilt standalone HTML from
     // .claude/skills/lls-draft-recap — copied verbatim, not templated.
-    eleventyConfig.addPassthroughCopy("src/draft-recaps");
+    // Source stays at src/draft-recaps/<yr>/ (what the skill emits), but each
+    // year publishes at the clean URL /draft/<yr>-recap/ — index-<yr>.html is
+    // also copied as index.html so the directory URL serves it, while the
+    // pages' relative links (recap-*.html, index-<yr>.html) keep resolving.
+    for (const yr of readdirSync("src/draft-recaps")) {
+        eleventyConfig.addPassthroughCopy({ [`src/draft-recaps/${yr}`]: `draft/${yr}-recap` });
+        eleventyConfig.addPassthroughCopy({ [`src/draft-recaps/${yr}/index-${yr}.html`]: `draft/${yr}-recap/index.html` });
+    }
     eleventyConfig.ignores.add("src/draft-recaps/**");
     eleventyConfig.addPassthroughCopy("css");
     eleventyConfig.addPassthroughCopy("js");

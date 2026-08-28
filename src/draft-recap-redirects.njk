@@ -1,0 +1,20 @@
+---
+eleventyExcludeFromCollections: true
+permalink: "draft-recaps/2025/index-2025.html"
+---
+{# Redirect stub for the pre-Aug-2026 recap index URL (shared by link).
+   The pages now live at /draft/2025-recap/; the individual recap pages
+   were never shared, so only the index needs one. #}
+{% set target = ('/draft/2025-recap/') | url %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url={{ target }}">
+<link rel="canonical" href="{{ target }}">
+<title>Moved — The Late Late Shift</title>
+</head>
+<body>
+<p>This page has moved to <a href="{{ target }}">{{ target }}</a>.</p>
+</body>
+</html>
