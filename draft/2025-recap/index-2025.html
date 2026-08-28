@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2025 Draft Recaps — Late Late Shift</title>
+<link rel="icon" type="image/x-icon" href="/LateLateShift/assets/favicon.ico">
+<!-- The site's own chrome: nav, footer and design tokens come from the live
+     stylesheets, so this page's header is the real one, not a stand-in. The
+     inline block below loads after them and owns the recap-only components. -->
+<link rel="stylesheet" href="/LateLateShift/css/fonts.css">
+<link rel="stylesheet" href="/LateLateShift/css/tokens.css">
+<link rel="stylesheet" href="/LateLateShift/css/site.css">
+<script src="/LateLateShift/js/nav.js" defer></script>
+<style>
+:root {
+  --navy:#0b0e1a; --navy-line:#262c47; --purple:#8b4de8; --purple-ink:#7239c9;
+  --blue:#5da9e9; --blue-ink:#2e7cc4; --red:#f0544f; --red-ink:#c93b36;
+  --ground:#eef0fa; --surface:#ffffff; --divider:#edeff6;
+  --tint-purple:#f7f5fd; --tint-purple-2:#efe9fb; --tint-blue:#dfeefb; --tint-red:#fdeceb; --tint-lavender:#f1e9fc;
+  --ink:#1a1d2b; --ink-2:#000000; --ink-3:#8a90a8; --on-navy:#eef0fa; --on-navy-dim:#9aa3c0;
+  --font-sans:"Archivo","Segoe UI",system-ui,sans-serif; --r-sm:4px; --r-md:6px; --r-lg:8px;
+}
+*,*::before,*::after { box-sizing:border-box; }
+body { margin:0; background:var(--ground); color:var(--ink); font-family:var(--font-sans); line-height:1.55; }
+h1,h2,h3 { margin:0; line-height:1.15; }
+p { margin:0; }
+a { text-decoration:none; color:inherit; }
+.container { max-width:1080px; margin-inline:auto; padding-inline:20px; }
+.page-stack { display:grid; gap:26px; padding-block:22px 34px; }
+/* display:block is load-bearing — site.css makes .page-head a 2-col grid for
+   the interior-page hero, which would sit this page's banner and dek side by
+   side. Every rule below that redeclares a site.css property is doing the same
+   job: this page borrows the chrome, not the components. */
+.page-head { display:block; background:var(--surface); border-radius:var(--r-lg); overflow:hidden; }
+.head-banner { background:var(--navy); padding:22px 26px; display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
+.head-banner h1 { color:#fff; font-size:clamp(1.4rem,3.4vw,2rem); font-weight:800; letter-spacing:-.015em; margin-bottom:0; }
+.head-banner .season { color:var(--blue); font-size:.74rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+.page-head .dek { padding:16px 26px 20px; font-size:.92rem; max-width:88ch; }
+.sec-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.sec-head .bar { width:5px; height:20px; border-radius:2px; background:var(--purple); }
+.sec-head.sec-blue .bar { background:var(--blue); }
+.sec-head h2 { font-size:1rem; font-weight:800; }
+.board { display:grid; gap:10px; }
+.team-card {
+  background:var(--surface); border-radius:var(--r-md); overflow:hidden;
+  display:grid; grid-template-columns:26px 46px 240px 1fr auto;
+  grid-template-areas:"rk ava who hook grade";
+  gap:14px; align-items:center; padding:0 0 0 16px; min-width:0;
+  transition:background-color .12s;
+}
+.rk { grid-area:rk; } .ava { grid-area:ava; } .who { grid-area:who; }
+.hook { grid-area:hook; } .grade-panel { grid-area:grade; }
+.team-card:hover { background:var(--tint-purple); }
+.team-card:active { background:var(--tint-purple-2); }
+.rk { width:24px; height:24px; border-radius:var(--r-sm); background:var(--navy); color:#fff;
+  display:grid; place-items:center; font-size:.72rem; font-weight:800; }
+/* angled navy grade panel — bleeds to the card's right edge */
+.grade-panel {
+  align-self:stretch; background:var(--navy); color:#fff;
+  display:grid; place-items:center; align-content:center; gap:1px;
+  padding:14px 18px 14px 30px; margin-left:6px; min-width:118px;
+  clip-path:polygon(22px 0, 100% 0, 100% 100%, 0 100%);
+}
+.grade-panel b { font-size:1.7rem; font-weight:800; line-height:1.05; letter-spacing:-.02em; }
+.grade-panel b.lt-good { color:#6fdb96; }
+.grade-panel b.lt-mid { color:#f2c14e; }
+.grade-panel b.lt-bad { color:#f0837e; }
+.grade-panel i { font-style:normal; font-size:.6rem; font-weight:800; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--on-navy-dim); white-space:nowrap; }
+/* podium: metallic rank badge + a tinted rail down the left edge */
+.medal { position:relative; }
+.medal .rk { color:#241c02; }
+.medal-1 { background:#fdf8e8; }
+.medal-1 .rk { background:linear-gradient(135deg,#e8c45a,#b8912a); }
+.medal-1 .grade-panel { background:linear-gradient(135deg,#8a6d16,#4a3a0a); }
+.medal-2 { background:#f5f6fa; }
+.medal-2 .rk { background:linear-gradient(135deg,#cfd4e0,#9aa1b4); }
+.medal-2 .grade-panel { background:linear-gradient(135deg,#5c6377,#33384a); }
+.medal-3 { background:#fbf1e9; }
+.medal-3 .rk { background:linear-gradient(135deg,#d69a63,#a4682f); }
+.medal-3 .grade-panel { background:linear-gradient(135deg,#7a4a1e,#442810); }
+.medal .grade-panel i { color:#f7dfa5; }
+.medal-2 .grade-panel i { color:#e3e7f0; }
+.medal-3 .grade-panel i { color:#f0cfae; }
+.ava { width:46px; height:46px; border-radius:50%; overflow:hidden; flex:none;
+  background:linear-gradient(135deg,var(--purple),var(--blue)); color:#fff;
+  display:grid; place-items:center; font-weight:800; font-size:.85rem; }
+.ava img { width:100%; height:100%; object-fit:cover; display:block; }
+.who { display:grid; gap:1px; min-width:0; }
+.who b { font-size:.92rem; font-weight:800; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.who span { font-size:.72rem; font-weight:700; color:var(--ink-3); }
+.hook { font-size:.8rem; color:var(--ink-2); font-style:italic; min-width:0; }
+.fact-tiles { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.fact { background:var(--surface); border-radius:var(--r-md); padding:12px 14px; }
+.fact .cap { font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; font-weight:800; margin-bottom:3px; }
+.fact .val { font-size:1.35rem; font-weight:800; font-variant-numeric:tabular-nums; line-height:1.15; }
+.fact-blue .cap, .fact-blue .val { color:#1d4fa3; }
+.fact-red .cap, .fact-red .val { color:#c43530; }
+.fact-qb .cap, .fact-qb .val { color:#a31f64; }
+.fact-rb .cap, .fact-rb .val { color:#0b6f60; }
+.fact-wr .cap, .fact-wr .val { color:#3650b8; }
+.fact-te .cap, .fact-te .val { color:#8f7b00; }
+.fact .detail { font-size:.74rem; color:var(--ink-2); }
+.tbl-note { font-size:.78rem; color:var(--ink-3); font-style:italic; }
+.lls-table-wrap { overflow-x:auto; max-width:100%; background:var(--surface); border-radius:var(--r-md); }
+.lls-table { width:100%; border-collapse:collapse; background:var(--surface); font-size:.82rem; color:var(--ink); }
+.lls-table th { background:var(--navy); color:var(--on-navy); text-transform:uppercase;
+  font-size:.66rem; letter-spacing:.1em; font-weight:700; padding:8px 12px; text-align:left; white-space:nowrap; }
+.lls-table td { padding:8px 12px; border-top:1px solid var(--divider); text-align:left; }
+.lls-table .lls-num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.lls-table .lls-strong { font-weight:700; white-space:nowrap; }
+.lls-table tbody tr:hover { background:var(--tint-purple); }
+.lls-table tfoot td { border-top:2px solid var(--navy-line); font-weight:800; color:var(--ink-3);
+  font-size:.74rem; text-transform:uppercase; letter-spacing:.08em; }
+.lls-table th.sortable { cursor:pointer; user-select:none; }
+.lls-table th.sortable:hover { background:var(--purple-ink); }
+.lls-table th.sortable::after { content:"↕"; opacity:.4; margin-left:6px; font-size:.7rem; }
+.lls-table th.sort-asc::after { content:"↑"; opacity:1; }
+.lls-table th.sort-desc::after { content:"↓"; opacity:1; }
+.lls-table th.sortable:focus-visible { outline:2px solid var(--blue); outline-offset:-2px; }
+.pv-team { color:var(--ink-3); font-size:.76rem; max-width:220px; overflow:hidden;
+  text-overflow:ellipsis; white-space:nowrap; }
+.pv-hi { background:#d9e5fa; font-weight:700; }
+.pv-lo { background:#eceef4; }
+.pv-neg { background:var(--tint-red); color:#c43530; font-weight:700; }
+.pv-na { color:var(--ink-3); }
+.pv-total { font-weight:800; }
+@media (max-width:860px) {
+  .team-card {
+    grid-template-columns:26px 46px 1fr auto;
+    grid-template-areas:"rk ava who grade" "hook hook hook grade";
+    row-gap:6px; padding-bottom:0;
+  }
+  .team-card .hook { padding-bottom:12px; }
+  .grade-panel { padding:12px 14px 12px 26px; min-width:104px; }
+  .grade-panel b { font-size:1.45rem; }
+  .grade-panel i { font-size:.55rem; letter-spacing:.06em; }
+  .fact-tiles { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" id="site-nav" aria-label="Main">
+  <div class="container">
+    <a class="nav-logo" href="/LateLateShift/"><img src="/LateLateShift/assets/images/lls-logo-knockout.svg" alt="The Late Late Shift — home"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">☰</button>
+    <div class="nav-links" id="nav-links">
+      <a href="/LateLateShift/">Home</a>
+      <a href="/LateLateShift/teams/">Teams</a>
+      <a href="/LateLateShift/draft/" class="is-active" aria-current="page">Draft</a>
+      <a href="/LateLateShift/rules/">Rules</a>
+      <a href="/LateLateShift/keeper-history/">Keepers</a>
+      <a href="/LateLateShift/recordBook/">Records</a>
+    </div>
+    <a class="nav-cta" href="https://football.fantasysports.yahoo.com/league/latelateshift" target="_blank" rel="noopener">League on Yahoo</a>
+  </div>
+</nav>
+<main id="main"><div class="container page-stack">
+
+  <header class="page-head">
+    <div class="head-banner">
+      <h1>The 2025 Draft, Graded</h1>
+      <span class="season">Keeper-adjusted · all 10 teams</span>
+    </div>
+    <p class="dek">Ten drafts, 19 keepers, one board. Every pick is graded against League ADP — where a player should go once every kept player is off the board and every keeper slot is accounted for — so nobody gets credit or blame for math they didn't choose. Click any team for the full recap: keepers, pick-by-pick verdicts, roster heat, team reliance, and the verdict.</p>
+  </header>
+
+  <section>
+    <div class="sec-head"><span class="bar"></span><h2>Post-Draft Power Rankings</h2></div>
+    <div class="board">
+      <a class="team-card medal medal-1" href="recap-tk-2025.html">
+        <span class="rk">1</span>
+        <span class="ava"><img src="../../assets/images/manager-avatars/tk.png" alt=""></span>
+        <span class="who"><b>Gibbs Me Da Gold</b><span>TK · Pick 3</span></span>
+        <span class="hook">Dominant RB room with the largest projected point share of any position, paired with the worst WR room in the league.</span>
+        <span class="grade-panel"><b class="lt-good">A</b><i>Roster Grade</i></span>
+      </a>
+      <a class="team-card medal medal-2" href="recap-colin-2025.html">
+        <span class="rk">2</span>
+        <span class="ava"><img src="../../assets/images/manager-avatars/colin.png" alt=""></span>
+        <span class="who"><b>Eat the W</b><span>Colin · Pick 1</span></span>
+        <span class="hook">The league's best WR room, undercut by an RB group ranked 8th and roughly half the league average.</span>
+        <span class="grade-panel"><b class="lt-good">A</b><i>Roster Grade</i></span>
+      </a>
+      <a class="team-card medal medal-3" href="recap-price-2025.html">
+        <span class="rk">3</span>
+        <span class="ava"><img src="../../assets/images/manager-avatars/price.png" alt=""></span>
+        <span class="who"><b>Nacua Matata</b><span>Price · Pick 2</span></span>
+        <span class="hook">Best QB room and second-best TE room, built on the second-worst RB group in the league.</span>
+        <span class="grade-panel"><b class="lt-good">A-</b><i>Roster Grade</i></span>
+      </a>
+      <a class="team-card" href="recap-john-2025.html">
+        <span class="rk">4</span>
+        <span class="ava"><img src="../../assets/images/manager-avatars/john.jpg" alt=""></span>
+        <span class="who"><b>Piccolos Cage</b><span>John · Pick 5</span></span>
+        <span class="hook">The most balanced roster in the league, but no strong positional dominance.</span>
+        <span class="grade-panel"><b class="lt-mid">B+</b><i>Roster Grade</i></span>
+      </a>
+      <a class="team-card" href="recap-ben-2025.html">
+        <span class="rk">5</span>
+        <span class="ava"><img src="../../assets/images/manager-avatars/ben.jpg" alt=""></span>
+        <span class="who"><b>Herbert Fully Loaded</b><span>Ben · Pick 9</span></span>
+        <span class="hook">Second-best WR room in the league, paired with the only negative QB value and a bottom-two TE room.</span>
+        <span class="grade-panel"><b class="lt-mid">B+</b><i>Roster Grade</i></span>
+      </a>
+      <a class="team-card" href="recap-uzoma-2025.html">
+        <span class="rk">6</span>
+        <span class="ava"><img src="../../assets/images/manager-avatars/uzoma.png" alt=""></span>
+        <span class="who"><b>Wraith's Voidwalkers</b><span>Uzoma · Pick 10</span></span>
+        <span class="hook">Top-three at both QB and WR, offset by below-average RB and TE rooms.</span>
+        <span class="grade-panel"><b class="lt-mid">B</b><i>Roster Grade</i></span>
+      </a>
+      <a class="team-card" href="recap-ray-2025.html">
+        <span class="rk">7</span>
+        <span class="ava"><img src="../../assets/images/manager-avatars/ray.jpg" alt=""></span>
+        <span class="who"><b>Big Diggs and My Chubb</b><span>Ray · Pick 8</span></span>
+        <span class="hook">Top-two RB room and a top-three TE room, with receivers the only group below league average.</span>
+        <span class="grade-panel"><b class="lt-mid">B</b><i>Roster Grade</i></span>
+      </a>
+      <a class="team-card" href="recap-cass-2025.html">
+        <span class="rk">8</span>
+        <span class="ava"><img src="../../assets/images/manager-avatars/cass.png" alt=""></span>
+        <span class="who"><b>Breece's Pieces</b><span>Cass · Pick 7</span></span>
+        <span class="hook">Top-two QB and top-four WR rooms, with the worst RB room in the league by a wide margin.</span>
+        <span class="grade-panel"><b class="lt-bad">C+</b><i>Roster Grade</i></span>
+      </a>
+      <a class="team-card" href="recap-dave-2025.html">
+        <span class="rk">9</span>
+        <span class="ava"><img src="../../assets/images/manager-avatars/dave.jpg" alt=""></span>
+        <span class="who"><b>Pewter City Gym</b><span>Dave · Pick 6</span></span>
+        <span class="hook">The best TE room in the league and a mid-tier backfield, held back by the second-worst WR room.</span>
+        <span class="grade-panel"><b class="lt-bad">C+</b><i>Roster Grade</i></span>
+      </a>
+      <a class="team-card" href="recap-harper-2025.html">
+        <span class="rk">10</span>
+        <span class="ava"><img src="../../assets/images/manager-avatars/harper.png" alt=""></span>
+        <span class="who"><b>Live By McCaff Die By Muh Calf</b><span>Harper · Pick 4</span></span>
+        <span class="hook">A top-four RB room and nothing else above league average, including the worst TE room.</span>
+        <span class="grade-panel"><b class="lt-bad">C+</b><i>Roster Grade</i></span>
+      </a>
+    </div>
+    <p class="tbl-note" style="margin-top:8px;">The grade is the roster you walked away with — your starting lineup's projected value, weighted toward the top of it, because studs win weeks and depth doesn't. The keeper and draft marks (K · D) aren't averaged in: they're the story of how the roster got built. Ties broken by that same lineup value.</p>
+  </section>
+
+  <section>
+    <div class="sec-head sec-blue"><span class="bar"></span><h2>League Superlatives</h2></div>
+    <div class="fact-tiles">
+<div class="fact fact-blue"><p class="cap">Best Value Rd 1–5</p><p class="val">+17</p><p class="detail">Garrett Wilson · John (Rd 5)</p></div>
+<div class="fact fact-blue"><p class="cap">Best Value Rd 6–10</p><p class="val">+42</p><p class="detail">Baker Mayfield · Colin (Rd 10)</p></div>
+<div class="fact fact-blue"><p class="cap">Best Single Keeper Value</p><p class="val">+105</p><p class="detail">Brock Bowers · Dave (Rd 13)</p></div>
+<div class="fact fact-red"><p class="cap">Worst Single Keeper Value</p><p class="val">−24</p><p class="detail">Breece Hall · Cass (Rd 2)</p></div>
+<div class="fact fact-qb"><p class="cap">Top QB Point Share</p><p class="val">+5.6</p><p class="detail">Price · points over replacement</p></div>
+<div class="fact fact-rb"><p class="cap">Top RB Point Share</p><p class="val">+23.1</p><p class="detail">TK · points over replacement</p></div>
+<div class="fact fact-wr"><p class="cap">Top WR Point Share</p><p class="val">+19.7</p><p class="detail">Colin · points over replacement</p></div>
+<div class="fact fact-te"><p class="cap">Top TE Point Share</p><p class="val">+6.3</p><p class="detail">Dave · points over replacement</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head sec-blue"><span class="bar"></span><h2>Positional Value</h2></div>
+    <div class="lls-table-wrap">
+      <table class="lls-table" id="pv-table">
+        <thead>
+          <tr><th class="sortable" data-type="text">Manager</th><th class="sortable" data-type="text">Team</th><th class="lls-num sortable" data-type="num">QB</th><th class="lls-num sortable" data-type="num">RB</th><th class="lls-num sortable" data-type="num">WR</th><th class="lls-num sortable" data-type="num">TE</th><th class="lls-num sortable sort-desc" data-type="num">Total</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="lls-strong">John</td><td class="pv-team">Piccolos Cage</td><td class="lls-num " data-v="4.6" title="4th in the league">4.6</td><td class="lls-num pv-hi" data-v="14.2" title="3rd in the league">14.2</td><td class="lls-num " data-v="13.9" title="5th in the league">13.9</td><td class="lls-num " data-v="2.8" title="5th in the league">2.8</td><td class="lls-num pv-total" data-v="35.5">35.5</td></tr>
+            <tr><td class="lls-strong">Ray</td><td class="pv-team">Big Diggs and My Chubb</td><td class="lls-num " data-v="2.6" title="5th in the league">2.6</td><td class="lls-num pv-hi" data-v="16.1" title="2nd in the league">16.1</td><td class="lls-num " data-v="12.1" title="6th in the league">12.1</td><td class="lls-num pv-hi" data-v="4.7" title="3rd in the league">4.7</td><td class="lls-num pv-total" data-v="35.5">35.5</td></tr>
+            <tr><td class="lls-strong">Uzoma</td><td class="pv-team">Wraith's Voidwalkers</td><td class="lls-num pv-hi" data-v="5.3" title="3rd in the league">5.3</td><td class="lls-num " data-v="9.8" title="6th in the league">9.8</td><td class="lls-num pv-hi" data-v="17.5" title="3rd in the league">17.5</td><td class="lls-num " data-v="2.0" title="7th in the league">2.0</td><td class="lls-num pv-total" data-v="34.6">34.6</td></tr>
+            <tr><td class="lls-strong">TK</td><td class="pv-team">Gibbs Me Da Gold</td><td class="lls-num pv-lo" data-v="1.8" title="8th in the league">1.8</td><td class="lls-num pv-hi" data-v="23.1" title="1st in the league">23.1</td><td class="lls-num pv-lo" data-v="5.5" title="10th in the league">5.5</td><td class="lls-num " data-v="2.7" title="6th in the league">2.7</td><td class="lls-num pv-total" data-v="33.1">33.1</td></tr>
+            <tr><td class="lls-strong">Colin</td><td class="pv-team">Eat the W</td><td class="lls-num " data-v="1.9" title="7th in the league">1.9</td><td class="lls-num pv-lo" data-v="6.0" title="8th in the league">6.0</td><td class="lls-num pv-hi" data-v="19.7" title="1st in the league">19.7</td><td class="lls-num " data-v="4.0" title="4th in the league">4.0</td><td class="lls-num pv-total" data-v="31.6">31.6</td></tr>
+            <tr><td class="lls-strong">Dave</td><td class="pv-team">Pewter City Gym</td><td class="lls-num " data-v="2.3" title="6th in the league">2.3</td><td class="lls-num " data-v="12.3" title="5th in the league">12.3</td><td class="lls-num pv-lo" data-v="7.3" title="9th in the league">7.3</td><td class="lls-num pv-hi" data-v="6.3" title="1st in the league">6.3</td><td class="lls-num pv-total" data-v="28.2">28.2</td></tr>
+            <tr><td class="lls-strong">Ben</td><td class="pv-team">Herbert Fully Loaded</td><td class="lls-num pv-neg" data-v="-0.7" title="10th in the league">−0.7</td><td class="lls-num " data-v="8.3" title="7th in the league">8.3</td><td class="lls-num pv-hi" data-v="18.8" title="2nd in the league">18.8</td><td class="lls-num pv-lo" data-v="1.6" title="9th in the league">1.6</td><td class="lls-num pv-total" data-v="28.0">28.0</td></tr>
+            <tr><td class="lls-strong">Price</td><td class="pv-team">Nacua Matata</td><td class="lls-num pv-hi" data-v="5.6" title="1st in the league">5.6</td><td class="lls-num pv-lo" data-v="5.8" title="9th in the league">5.8</td><td class="lls-num " data-v="11.5" title="7th in the league">11.5</td><td class="lls-num pv-hi" data-v="5.0" title="2nd in the league">5.0</td><td class="lls-num pv-total" data-v="27.9">27.9</td></tr>
+            <tr><td class="lls-strong">Harper</td><td class="pv-team">Live By McCaff Die By Muh Calf</td><td class="lls-num pv-lo" data-v="1.0" title="9th in the league">1.0</td><td class="lls-num " data-v="12.9" title="4th in the league">12.9</td><td class="lls-num pv-lo" data-v="10.7" title="8th in the league">10.7</td><td class="lls-num pv-lo" data-v="1.4" title="10th in the league">1.4</td><td class="lls-num pv-total" data-v="26.0">26.0</td></tr>
+            <tr><td class="lls-strong">Cass</td><td class="pv-team">Breece's Pieces</td><td class="lls-num pv-hi" data-v="5.5" title="2nd in the league">5.5</td><td class="lls-num pv-lo" data-v="2.7" title="10th in the league">2.7</td><td class="lls-num " data-v="14.0" title="4th in the league">14.0</td><td class="lls-num pv-lo" data-v="1.7" title="8th in the league">1.7</td><td class="lls-num pv-total" data-v="23.9">23.9</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>League avg</td><td></td><td class="lls-num">3.0</td><td class="lls-num">11.1</td><td class="lls-num">13.1</td><td class="lls-num">3.2</td><td class="lls-num">30.4</td></tr>
+        </tfoot>
+      </table>
+    </div>
+    <p class="tbl-note" style="margin-top:8px;">Projected value above replacement per position, summed across each roster — where every team's strength actually sits. Click any column to sort. Shaded cells are the league's top three (blue) and bottom three (gray) at that position; red is a net negative. Kickers and defenses carry no modelled value and are excluded.</p>
+  </section>
+
+</div></main>
+<footer class="site-footer"><div class="container">
+  <div>© ArrHarper 2026 · Late Late Shift · Est. 2020</div>
+  <div><a href="https://football.fantasysports.yahoo.com/league/latelateshift">League on Yahoo</a> · <a href="/LateLateShift/rules/">Rules</a></div>
+</div></footer>
+<script>
+(function () {
+  var tbl = document.getElementById("pv-table");
+  if (!tbl) return;
+  var ths = Array.prototype.slice.call(tbl.tHead.rows[0].cells);
+  ths.forEach(function (th, col) {
+    if (th.className.indexOf("sortable") < 0) return;
+    th.tabIndex = 0;
+    function sort() {
+      // first click on a new column: numbers high→low, text A→Z; re-click flips
+      var desc = th.classList.contains("sort-desc") ? false
+               : th.classList.contains("sort-asc") ? true
+               : th.dataset.type === "num";
+      ths.forEach(function (o) { o.classList.remove("sort-asc", "sort-desc"); });
+      th.classList.add(desc ? "sort-desc" : "sort-asc");
+      var body = tbl.tBodies[0];
+      var rows = Array.prototype.slice.call(body.rows);
+      rows.sort(function (a, b) {
+        var x = a.cells[col], y = b.cells[col], d;
+        if (th.dataset.type === "num") {
+          // cells with no value ("—") always sink to the bottom
+          var xa = x.hasAttribute("data-v"), ya = y.hasAttribute("data-v");
+          if (!xa || !ya) return xa === ya ? 0 : (xa ? -1 : 1);
+          d = parseFloat(x.dataset.v) - parseFloat(y.dataset.v);
+        } else {
+          d = x.textContent.trim().localeCompare(y.textContent.trim());
+        }
+        return desc ? -d : d;
+      });
+      rows.forEach(function (r) { body.appendChild(r); });
+    }
+    th.addEventListener("click", sort);
+    th.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); sort(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
