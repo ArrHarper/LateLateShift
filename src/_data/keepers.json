@@ -1,6 +1,32 @@
 {
   "seasons": [
     {
+      "year": 2026,
+      "note": "† Discounted one round as the makeup for the 2025 keeper-cost error: A.J. Brown (2nd-round pick, kept for a 3rd) and Trey McBride (second-year cost of a 4th, kept for a 5th).",
+      "rows": [
+        ["Ben", "Herbert Fully Loaded", "A.J. Brown†", "WR", "3", "1"],
+        ["Ben", "Herbert Fully Loaded", "No Keeper", "n/a", "n/a", "n/a"],
+        ["Cass", "Breece's Pieces", "Trevor Lawrence", "QB", "8", "1"],
+        ["Cass", "Breece's Pieces", "Travis Etienne Jr.", "RB", "9", "1"],
+        ["Colin", "Eat the W", "James Cook III", "RB", "2", "1"],
+        ["Colin", "Eat the W", "Javonte Williams", "RB", "9", "1"],
+        ["Dave", "Pewter City Gym", "Dak Prescott", "QB", "15", "1"],
+        ["Dave", "Pewter City Gym", "Brock Bowers", "TE", "12", "2*"],
+        ["Harper", "Live By McCaff Die By Muh Calf", "Omarion Hampton", "RB", "2", "1"],
+        ["Harper", "Live By McCaff Die By Muh Calf", "Jaxon Smith-Njigba", "WR", "8", "2*"],
+        ["John", "Piccolos Cage", "Amon-Ra St. Brown", "WR", "2", "1"],
+        ["John", "Piccolos Cage", "Wan'Dale Robinson", "WR", "17", "1"],
+        ["Price", "Nacua Matata", "Trey McBride†", "TE", "5", "2*"],
+        ["Price", "Nacua Matata", "Quinshon Judkins", "RB", "11", "1"],
+        ["Ray", "Big Diggs and My Chubb", "Jonathan Taylor", "RB", "2", "1"],
+        ["Ray", "Big Diggs and My Chubb", "Chase Brown", "RB", "8", "2*"],
+        ["TK", "Gibbs Me Da Gold", "Jahmyr Gibbs", "RB", "1", "2*"],
+        ["TK", "Gibbs Me Da Gold", "Drake Maye", "QB", "11", "1"],
+        ["Uzoma", "Wraith's Voidwalkers", "No Keeper", "n/a", "n/a", "n/a"],
+        ["Uzoma", "Wraith's Voidwalkers", "No Keeper", "n/a", "n/a", "n/a"]
+      ]
+    },
+    {
       "year": 2025,
       "note": "† Kept one round below the correct cost (should have been round 7) due to a commissioner error. One of Price's and Ben's 2026 keeper picks will be discounted accordingly.",
       "outlookNote": "T.J. Hockenson finished the season on Cass's roster after John dropped him — keeper rights follow the final roster, so the eligible keep belongs to Cass. Malik Nabers (season-ending injury, dropped in October) ended the year unrostered and returns to the pool.",
