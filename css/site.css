@@ -281,6 +281,124 @@ main { display: block; flex: 1 0 auto; }
 .draft-hero .when b { color: var(--on-navy); font-weight: 700; }
 .draft-hero .cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 12px; }
 
+/* post-draft state: no live dot, kicker goes brand-purple, stat tiles reuse .unit */
+.draft-hero.is-done .kicker { color: var(--purple); }
+.draft-hero.is-done .dot { background: var(--purple); animation: none; }
+.draft-hero.is-done .unit b { font-size: 1.6rem; }
+.btn-ghost {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: var(--r-md);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--on-navy);
+  background: var(--navy-deep);
+  text-decoration: none;
+}
+.btn-ghost:hover { background: var(--navy-line); color: #fff; }
+.btn-ghost:active { background: var(--navy-line); color: var(--blue-bright); }
+.btn-ghost:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+/* ---------- draft board (Draft Central, Sleeper-style) ----------
+   Columns = draft slots (manager headers), rows = rounds; even rounds snake
+   right-to-left, flagged by the arrow in the round cell. Cells are tinted by
+   position (--pos-* tokens; the tint is a fill, not a status). Keepers get the
+   recap pages' diagonal-stripe convention plus a K chip. The grid is wider
+   than a phone, so it scrolls inside .board-wrap — never the page. */
+.board-mod { min-width: 0; max-width: 100%; }   /* grid/flex children default to min-content width — without this the wide board stretches the page */
+.board-wrap { overflow-x: auto; overscroll-behavior-x: contain; padding: 0 0 6px; max-width: 100%; }
+.board {
+  --rdw: 40px;
+  --cellw: 96px;
+  display: grid;
+  grid-template-columns: var(--rdw) repeat(var(--cols, 10), var(--cellw));
+  gap: 3px;
+  padding: 10px 10px 6px;
+  min-width: max-content;
+}
+.b-corner, .b-head, .b-rd, .b-cell { border-radius: var(--r-sm); }
+.b-corner {
+  display: grid; place-items: center;
+  font-size: 0.6rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-3);
+}
+.b-head {
+  background: var(--navy);
+  color: var(--on-navy);
+  padding: 7px 8px 8px;
+  display: grid;
+  gap: 1px;
+  line-height: 1.15;
+  min-width: 0;
+}
+.b-head .b-slot { font-size: 0.58rem; font-weight: 800; letter-spacing: 0.14em; color: var(--blue); }
+.b-head b { font-size: 0.8rem; font-weight: 800; }
+.b-head .b-team { font-size: 0.6rem; color: var(--on-navy-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.b-rd {
+  display: grid; place-items: center; align-content: center; gap: 1px;
+  background: var(--tint-purple-2);
+  color: var(--purple-ink);
+  font-size: 0.8rem; font-weight: 800;
+}
+.b-rd span { font-size: 0.68rem; color: var(--ink-3); }
+.b-cell {
+  position: relative;
+  padding: 6px 7px 7px;
+  min-height: 58px;
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  background: var(--ground);
+  color: var(--ink);
+  line-height: 1.15;
+  min-width: 0;
+  --pc: var(--pos-none);
+}
+.b-cell.pos-qb  { --pc: var(--pos-qb); }
+.b-cell.pos-rb  { --pc: var(--pos-rb); }
+.b-cell.pos-wr  { --pc: var(--pos-wr); }
+.b-cell.pos-te  { --pc: var(--pos-te); }
+.b-cell.pos-k   { --pc: var(--pos-k); }
+.b-cell.pos-dst { --pc: var(--pos-dst); }
+.b-cell:not(.b-empty) { background: color-mix(in srgb, var(--pc) 14%, var(--surface)); }
+.b-cell.b-empty { background: var(--divider); }
+.b-top { display: flex; align-items: center; justify-content: space-between; gap: 4px; }
+.b-pick { font-size: 0.58rem; font-weight: 800; letter-spacing: 0.06em; color: var(--pc); font-variant-numeric: tabular-nums; }
+.b-keep {
+  font-size: 0.55rem; font-weight: 800; line-height: 1;
+  padding: 2px 4px; border-radius: 3px;
+  background: var(--navy); color: #fff;
+}
+.b-name {
+  font-size: 0.74rem; font-weight: 800;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.b-meta { font-size: 0.6rem; color: var(--ink-3); font-weight: 700; letter-spacing: 0.02em; }
+.b-meta .b-pos { color: var(--pc); }
+.b-cell.is-keeper {
+  background-image: repeating-linear-gradient(135deg, transparent 0 7px, color-mix(in srgb, var(--pc) 10%, transparent) 7px 9px);
+  background-color: color-mix(in srgb, var(--pc) 14%, var(--surface));
+}
+.b-legend {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
+  padding: 8px 14px 12px;
+  font-size: 0.68rem; font-weight: 700; color: var(--ink-3);
+}
+.b-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.b-sw { width: 12px; height: 12px; border-radius: 3px; background: color-mix(in srgb, var(--pc, var(--pos-none)) 14%, var(--surface)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pc, var(--pos-none)) 45%, transparent); }
+.b-sw.pos-qb  { --pc: var(--pos-qb); }
+.b-sw.pos-rb  { --pc: var(--pos-rb); }
+.b-sw.pos-wr  { --pc: var(--pos-wr); }
+.b-sw.pos-te  { --pc: var(--pos-te); }
+.b-sw.pos-k   { --pc: var(--pos-k); }
+.b-sw.pos-dst { --pc: var(--pos-dst); }
+.b-sw-keep { background-image: repeating-linear-gradient(135deg, transparent 0 3px, var(--ink-3) 3px 4px); }
+.b-hint { margin-left: auto; font-weight: 500; }
+@media (max-width: 760px) {
+  .board { --cellw: 92px; }
+  .b-hint { margin-left: 0; }
+}
+
 /* ---------- page header (interior pages) ---------- */
 .page-head {
   background: var(--surface);

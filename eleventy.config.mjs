@@ -72,6 +72,36 @@ export default function (eleventyConfig) {
         return `<i class="pos-badge${soft} pos-${label.toLowerCase()}">${label}</i>`;
     });
 
+    // Draft board grid for Draft Central: a season from draftBoard.json ->
+    // [{ round, dir, cells: [pick|null per draft slot] }]. Even rounds snake
+    // right-to-left, which the `dir` flag surfaces for the round label.
+    eleventyConfig.addFilter("draftGrid", (season) => {
+        const slots = (season.teams || []).map((t) => t.slot).sort((a, b) => a - b);
+        const byKey = new Map((season.picks || []).map((p) => [`${p.round}-${p.slot}`, p]));
+        const rows = [];
+        for (let rd = 1; rd <= (season.rounds || 0); rd++) {
+            rows.push({
+                round: rd,
+                dir: rd % 2 ? "ltr" : "rtl",
+                cells: slots.map((sl) => byKey.get(`${rd}-${sl}`) || null),
+            });
+        }
+        return rows;
+    });
+
+    // "Jaxon Smith-Njigba" -> "J. Smith-Njigba" when the full name won't fit a
+    // board cell; suffixes dropped whole so "III" never becomes "I".
+    const SUFFIXES = new Set(["II", "III", "IV", "Jr.", "Sr."]);
+    eleventyConfig.addFilter("shortName", (name, max = 15) => {
+        const parts = String(name || "").split(/\s+/).filter((w) => !SUFFIXES.has(w));
+        const full = parts.join(" ");
+        if (full.length <= max || parts.length < 2) return full;
+        return `${parts[0][0]}. ${parts.slice(1).join(" ")}`;
+    });
+
+    // 1, 7 -> "1.07"
+    eleventyConfig.addFilter("pickLabel", (round, slot) => `${round}.${String(slot).padStart(2, "0")}`);
+
     // 0.476 -> ".476"
     eleventyConfig.addFilter("pct3", (v) => Number(v).toFixed(3).replace(/^0/, ""));
 

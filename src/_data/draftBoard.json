@@ -1,0 +1,1763 @@
+{
+ "_about": "Draft boards by season for the Draft Central page. Built from yahooFantasyAPIcaller/output/<yr>/draft-board-<yr>.json (Yahoo API) with keeper flags from the recap skill's draft-<yr>.json. pos DST = team defense. Newest season first.",
+ "seasons": [
+  {
+   "year": 2026,
+   "rounds": 17,
+   "teams": [
+    {
+     "slot": 1,
+     "manager": "Dave",
+     "team": "Pewter City Gym"
+    },
+    {
+     "slot": 2,
+     "manager": "Harper",
+     "team": "Live By McCaff Die By Muh Calf"
+    },
+    {
+     "slot": 3,
+     "manager": "John",
+     "team": "Piccolos Cage"
+    },
+    {
+     "slot": 4,
+     "manager": "Uzoma",
+     "team": "Wraith's Voidwalkers"
+    },
+    {
+     "slot": 5,
+     "manager": "Colin",
+     "team": "Eat the W"
+    },
+    {
+     "slot": 6,
+     "manager": "TK",
+     "team": "Gibbs Me Da Gold"
+    },
+    {
+     "slot": 7,
+     "manager": "Ray",
+     "team": "Big Diggs and My Chubb"
+    },
+    {
+     "slot": 8,
+     "manager": "Cass",
+     "team": "Rice rice baby"
+    },
+    {
+     "slot": 9,
+     "manager": "Price",
+     "team": "The Allen Antlerz"
+    },
+    {
+     "slot": 10,
+     "manager": "Ben",
+     "team": "Herbert Fully Loaded"
+    }
+   ],
+   "picks": [
+    {
+     "round": 1,
+     "overall": 1,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Bijan Robinson",
+     "pos": "RB",
+     "nfl": "ATL",
+     "keeper": false
+    },
+    {
+     "round": 1,
+     "overall": 2,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Ja'Marr Chase",
+     "pos": "WR",
+     "nfl": "CIN",
+     "keeper": false
+    },
+    {
+     "round": 1,
+     "overall": 3,
+     "slot": 3,
+     "manager": "John",
+     "player": "Christian McCaffrey",
+     "pos": "RB",
+     "nfl": "SF",
+     "keeper": false
+    },
+    {
+     "round": 1,
+     "overall": 4,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Saquon Barkley",
+     "pos": "RB",
+     "nfl": "PHI",
+     "keeper": false
+    },
+    {
+     "round": 1,
+     "overall": 5,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Puka Nacua",
+     "pos": "WR",
+     "nfl": "LAR",
+     "keeper": false
+    },
+    {
+     "round": 1,
+     "overall": 6,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Jahmyr Gibbs",
+     "pos": "RB",
+     "nfl": "DET",
+     "keeper": true
+    },
+    {
+     "round": 1,
+     "overall": 7,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Kenneth Walker III",
+     "pos": "RB",
+     "nfl": "KC",
+     "keeper": false
+    },
+    {
+     "round": 1,
+     "overall": 8,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "De'Von Achane",
+     "pos": "RB",
+     "nfl": "MIA",
+     "keeper": false
+    },
+    {
+     "round": 1,
+     "overall": 9,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Derrick Henry",
+     "pos": "RB",
+     "nfl": "BAL",
+     "keeper": false
+    },
+    {
+     "round": 1,
+     "overall": 10,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "CeeDee Lamb",
+     "pos": "WR",
+     "nfl": "DAL",
+     "keeper": false
+    },
+    {
+     "round": 2,
+     "overall": 11,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Nico Collins",
+     "pos": "WR",
+     "nfl": "HOU",
+     "keeper": false
+    },
+    {
+     "round": 2,
+     "overall": 12,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Justin Jefferson",
+     "pos": "WR",
+     "nfl": "MIN",
+     "keeper": false
+    },
+    {
+     "round": 2,
+     "overall": 13,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Drake London",
+     "pos": "WR",
+     "nfl": "ATL",
+     "keeper": false
+    },
+    {
+     "round": 2,
+     "overall": 14,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Jonathan Taylor",
+     "pos": "RB",
+     "nfl": "IND",
+     "keeper": true
+    },
+    {
+     "round": 2,
+     "overall": 15,
+     "slot": 6,
+     "manager": "TK",
+     "player": "George Pickens",
+     "pos": "WR",
+     "nfl": "DAL",
+     "keeper": false
+    },
+    {
+     "round": 2,
+     "overall": 16,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "James Cook III",
+     "pos": "RB",
+     "nfl": "BUF",
+     "keeper": true
+    },
+    {
+     "round": 2,
+     "overall": 17,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Breece Hall",
+     "pos": "RB",
+     "nfl": "NYJ",
+     "keeper": false
+    },
+    {
+     "round": 2,
+     "overall": 18,
+     "slot": 3,
+     "manager": "John",
+     "player": "Amon-Ra St. Brown",
+     "pos": "WR",
+     "nfl": "DET",
+     "keeper": true
+    },
+    {
+     "round": 2,
+     "overall": 19,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Omarion Hampton",
+     "pos": "RB",
+     "nfl": "LAC",
+     "keeper": true
+    },
+    {
+     "round": 2,
+     "overall": 20,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Ashton Jeanty",
+     "pos": "RB",
+     "nfl": "LV",
+     "keeper": false
+    },
+    {
+     "round": 3,
+     "overall": 21,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Chris Olave",
+     "pos": "WR",
+     "nfl": "NO",
+     "keeper": false
+    },
+    {
+     "round": 3,
+     "overall": 22,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Kyren Williams",
+     "pos": "RB",
+     "nfl": "LAR",
+     "keeper": false
+    },
+    {
+     "round": 3,
+     "overall": 23,
+     "slot": 3,
+     "manager": "John",
+     "player": "D'Andre Swift",
+     "pos": "RB",
+     "nfl": "CHI",
+     "keeper": false
+    },
+    {
+     "round": 3,
+     "overall": 24,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "DeVonta Smith",
+     "pos": "WR",
+     "nfl": "PHI",
+     "keeper": false
+    },
+    {
+     "round": 3,
+     "overall": 25,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Zay Flowers",
+     "pos": "WR",
+     "nfl": "BAL",
+     "keeper": false
+    },
+    {
+     "round": 3,
+     "overall": 26,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Jeremiyah Love",
+     "pos": "RB",
+     "nfl": "ARI",
+     "keeper": false
+    },
+    {
+     "round": 3,
+     "overall": 27,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Jaylen Waddle",
+     "pos": "WR",
+     "nfl": "DEN",
+     "keeper": false
+    },
+    {
+     "round": 3,
+     "overall": 28,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Rashee Rice",
+     "pos": "WR",
+     "nfl": "KC",
+     "keeper": false
+    },
+    {
+     "round": 3,
+     "overall": 29,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Josh Allen",
+     "pos": "QB",
+     "nfl": "BUF",
+     "keeper": false
+    },
+    {
+     "round": 3,
+     "overall": 30,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "A.J. Brown",
+     "pos": "WR",
+     "nfl": "NE",
+     "keeper": true
+    },
+    {
+     "round": 4,
+     "overall": 31,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Bucky Irving",
+     "pos": "RB",
+     "nfl": "TB",
+     "keeper": false
+    },
+    {
+     "round": 4,
+     "overall": 32,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Malik Nabers",
+     "pos": "WR",
+     "nfl": "NYG",
+     "keeper": false
+    },
+    {
+     "round": 4,
+     "overall": 33,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Ladd McConkey",
+     "pos": "WR",
+     "nfl": "LAC",
+     "keeper": false
+    },
+    {
+     "round": 4,
+     "overall": 34,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Tee Higgins",
+     "pos": "WR",
+     "nfl": "CIN",
+     "keeper": false
+    },
+    {
+     "round": 4,
+     "overall": 35,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Emeka Egbuka",
+     "pos": "WR",
+     "nfl": "TB",
+     "keeper": false
+    },
+    {
+     "round": 4,
+     "overall": 36,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Luther Burden III",
+     "pos": "WR",
+     "nfl": "CHI",
+     "keeper": false
+    },
+    {
+     "round": 4,
+     "overall": 37,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Cam Skattebo",
+     "pos": "RB",
+     "nfl": "NYG",
+     "keeper": false
+    },
+    {
+     "round": 4,
+     "overall": 38,
+     "slot": 3,
+     "manager": "John",
+     "player": "DJ Moore",
+     "pos": "WR",
+     "nfl": "BUF",
+     "keeper": false
+    },
+    {
+     "round": 4,
+     "overall": 39,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Garrett Wilson",
+     "pos": "WR",
+     "nfl": "NYJ",
+     "keeper": false
+    },
+    {
+     "round": 4,
+     "overall": 40,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Davante Adams",
+     "pos": "WR",
+     "nfl": "LAR",
+     "keeper": false
+    },
+    {
+     "round": 5,
+     "overall": 41,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Terry McLaurin",
+     "pos": "WR",
+     "nfl": "WAS",
+     "keeper": false
+    },
+    {
+     "round": 5,
+     "overall": 42,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Colston Loveland",
+     "pos": "TE",
+     "nfl": "CHI",
+     "keeper": false
+    },
+    {
+     "round": 5,
+     "overall": 43,
+     "slot": 3,
+     "manager": "John",
+     "player": "Jameson Williams",
+     "pos": "WR",
+     "nfl": "DET",
+     "keeper": false
+    },
+    {
+     "round": 5,
+     "overall": 44,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Tyler Warren",
+     "pos": "TE",
+     "nfl": "IND",
+     "keeper": false
+    },
+    {
+     "round": 5,
+     "overall": 45,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Lamar Jackson",
+     "pos": "QB",
+     "nfl": "BAL",
+     "keeper": false
+    },
+    {
+     "round": 5,
+     "overall": 46,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Parker Washington",
+     "pos": "WR",
+     "nfl": "JAC",
+     "keeper": false
+    },
+    {
+     "round": 5,
+     "overall": 47,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Joe Burrow",
+     "pos": "QB",
+     "nfl": "CIN",
+     "keeper": false
+    },
+    {
+     "round": 5,
+     "overall": 48,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "David Montgomery",
+     "pos": "RB",
+     "nfl": "HOU",
+     "keeper": false
+    },
+    {
+     "round": 5,
+     "overall": 49,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Trey McBride",
+     "pos": "TE",
+     "nfl": "ARI",
+     "keeper": true
+    },
+    {
+     "round": 5,
+     "overall": 50,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Rhamondre Stevenson",
+     "pos": "RB",
+     "nfl": "NE",
+     "keeper": false
+    },
+    {
+     "round": 6,
+     "overall": 51,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Mike Evans",
+     "pos": "WR",
+     "nfl": "SF",
+     "keeper": false
+    },
+    {
+     "round": 6,
+     "overall": 52,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Bhayshul Tuten",
+     "pos": "RB",
+     "nfl": "JAC",
+     "keeper": false
+    },
+    {
+     "round": 6,
+     "overall": 53,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Jadarian Price",
+     "pos": "RB",
+     "nfl": "SEA",
+     "keeper": false
+    },
+    {
+     "round": 6,
+     "overall": 54,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Christian Watson",
+     "pos": "WR",
+     "nfl": "GB",
+     "keeper": false
+    },
+    {
+     "round": 6,
+     "overall": 55,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Sam LaPorta",
+     "pos": "TE",
+     "nfl": "DET",
+     "keeper": false
+    },
+    {
+     "round": 6,
+     "overall": 56,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Tucker Kraft",
+     "pos": "TE",
+     "nfl": "GB",
+     "keeper": false
+    },
+    {
+     "round": 6,
+     "overall": 57,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Tetairoa McMillan",
+     "pos": "WR",
+     "nfl": "CAR",
+     "keeper": true
+    },
+    {
+     "round": 6,
+     "overall": 58,
+     "slot": 3,
+     "manager": "John",
+     "player": "Jalen Hurts",
+     "pos": "QB",
+     "nfl": "PHI",
+     "keeper": false
+    },
+    {
+     "round": 6,
+     "overall": 59,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Jaylen Warren",
+     "pos": "RB",
+     "nfl": "PIT",
+     "keeper": false
+    },
+    {
+     "round": 6,
+     "overall": 60,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Rome Odunze",
+     "pos": "WR",
+     "nfl": "CHI",
+     "keeper": false
+    },
+    {
+     "round": 7,
+     "overall": 61,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "TreVeyon Henderson",
+     "pos": "RB",
+     "nfl": "NE",
+     "keeper": false
+    },
+    {
+     "round": 7,
+     "overall": 62,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Carnell Tate",
+     "pos": "WR",
+     "nfl": "TEN",
+     "keeper": false
+    },
+    {
+     "round": 7,
+     "overall": 63,
+     "slot": 3,
+     "manager": "John",
+     "player": "Kyle Pitts Sr.",
+     "pos": "TE",
+     "nfl": "ATL",
+     "keeper": false
+    },
+    {
+     "round": 7,
+     "overall": 64,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "MarShawn Lloyd",
+     "pos": "RB",
+     "nfl": "GB",
+     "keeper": false
+    },
+    {
+     "round": 7,
+     "overall": 65,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Courtland Sutton",
+     "pos": "WR",
+     "nfl": "DEN",
+     "keeper": false
+    },
+    {
+     "round": 7,
+     "overall": 66,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Marvin Harrison Jr.",
+     "pos": "WR",
+     "nfl": "ARI",
+     "keeper": false
+    },
+    {
+     "round": 7,
+     "overall": 67,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Harold Fannin Jr.",
+     "pos": "TE",
+     "nfl": "CLE",
+     "keeper": false
+    },
+    {
+     "round": 7,
+     "overall": 68,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "George Kittle",
+     "pos": "TE",
+     "nfl": "SF",
+     "keeper": false
+    },
+    {
+     "round": 7,
+     "overall": 69,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Alec Pierce",
+     "pos": "WR",
+     "nfl": "IND",
+     "keeper": false
+    },
+    {
+     "round": 7,
+     "overall": 70,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Tony Pollard",
+     "pos": "RB",
+     "nfl": "TEN",
+     "keeper": false
+    },
+    {
+     "round": 8,
+     "overall": 71,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Dallas Goedert",
+     "pos": "TE",
+     "nfl": "PHI",
+     "keeper": false
+    },
+    {
+     "round": 8,
+     "overall": 72,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Chris Godwin Jr.",
+     "pos": "WR",
+     "nfl": "TB",
+     "keeper": false
+    },
+    {
+     "round": 8,
+     "overall": 73,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Trevor Lawrence",
+     "pos": "QB",
+     "nfl": "JAC",
+     "keeper": true
+    },
+    {
+     "round": 8,
+     "overall": 74,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Chase Brown",
+     "pos": "RB",
+     "nfl": "CIN",
+     "keeper": true
+    },
+    {
+     "round": 8,
+     "overall": 75,
+     "slot": 6,
+     "manager": "TK",
+     "player": "J.K. Dobbins",
+     "pos": "RB",
+     "nfl": "DEN",
+     "keeper": false
+    },
+    {
+     "round": 8,
+     "overall": 76,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Jonathon Brooks",
+     "pos": "RB",
+     "nfl": "CAR",
+     "keeper": false
+    },
+    {
+     "round": 8,
+     "overall": 77,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "DK Metcalf",
+     "pos": "WR",
+     "nfl": "PIT",
+     "keeper": false
+    },
+    {
+     "round": 8,
+     "overall": 78,
+     "slot": 3,
+     "manager": "John",
+     "player": "Caleb Williams",
+     "pos": "QB",
+     "nfl": "CHI",
+     "keeper": false
+    },
+    {
+     "round": 8,
+     "overall": 79,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Jaxon Smith-Njigba",
+     "pos": "WR",
+     "nfl": "SEA",
+     "keeper": true
+    },
+    {
+     "round": 8,
+     "overall": 80,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Rico Dowdle",
+     "pos": "RB",
+     "nfl": "PIT",
+     "keeper": false
+    },
+    {
+     "round": 9,
+     "overall": 81,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Brian Thomas Jr.",
+     "pos": "WR",
+     "nfl": "JAC",
+     "keeper": false
+    },
+    {
+     "round": 9,
+     "overall": 82,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Justin Herbert",
+     "pos": "QB",
+     "nfl": "LAC",
+     "keeper": false
+    },
+    {
+     "round": 9,
+     "overall": 83,
+     "slot": 3,
+     "manager": "John",
+     "player": "Chuba Hubbard",
+     "pos": "RB",
+     "nfl": "CAR",
+     "keeper": false
+    },
+    {
+     "round": 9,
+     "overall": 84,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Jayden Reed",
+     "pos": "WR",
+     "nfl": "GB",
+     "keeper": false
+    },
+    {
+     "round": 9,
+     "overall": 85,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Javonte Williams",
+     "pos": "RB",
+     "nfl": "DAL",
+     "keeper": true
+    },
+    {
+     "round": 9,
+     "overall": 86,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Josh Downs",
+     "pos": "WR",
+     "nfl": "IND",
+     "keeper": false
+    },
+    {
+     "round": 9,
+     "overall": 87,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Blake Corum",
+     "pos": "RB",
+     "nfl": "LAR",
+     "keeper": false
+    },
+    {
+     "round": 9,
+     "overall": 88,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Travis Etienne Jr.",
+     "pos": "RB",
+     "nfl": "NO",
+     "keeper": true
+    },
+    {
+     "round": 9,
+     "overall": 89,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Kenny Gainwell",
+     "pos": "RB",
+     "nfl": "TB",
+     "keeper": false
+    },
+    {
+     "round": 9,
+     "overall": 90,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Brock Purdy",
+     "pos": "QB",
+     "nfl": "SF",
+     "keeper": false
+    },
+    {
+     "round": 10,
+     "overall": 91,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Jordan Mason",
+     "pos": "RB",
+     "nfl": "MIN",
+     "keeper": false
+    },
+    {
+     "round": 10,
+     "overall": 92,
+     "slot": 9,
+     "manager": "Price",
+     "player": "De'Zhaun Stribling",
+     "pos": "WR",
+     "nfl": "SF",
+     "keeper": false
+    },
+    {
+     "round": 10,
+     "overall": 93,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Stefon Diggs",
+     "pos": "WR",
+     "nfl": "WAS",
+     "keeper": false
+    },
+    {
+     "round": 10,
+     "overall": 94,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Quentin Johnston",
+     "pos": "WR",
+     "nfl": "LAC",
+     "keeper": false
+    },
+    {
+     "round": 10,
+     "overall": 95,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Dalton Kincaid",
+     "pos": "TE",
+     "nfl": "BUF",
+     "keeper": false
+    },
+    {
+     "round": 10,
+     "overall": 96,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Tyler Allgeier",
+     "pos": "RB",
+     "nfl": "ARI",
+     "keeper": false
+    },
+    {
+     "round": 10,
+     "overall": 97,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Michael Pittman Jr.",
+     "pos": "WR",
+     "nfl": "PIT",
+     "keeper": false
+    },
+    {
+     "round": 10,
+     "overall": 98,
+     "slot": 3,
+     "manager": "John",
+     "player": "Michael Wilson",
+     "pos": "WR",
+     "nfl": "ARI",
+     "keeper": false
+    },
+    {
+     "round": 10,
+     "overall": 99,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Makai Lemon",
+     "pos": "WR",
+     "nfl": "PHI",
+     "keeper": false
+    },
+    {
+     "round": 10,
+     "overall": 100,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Bo Nix",
+     "pos": "QB",
+     "nfl": "DEN",
+     "keeper": false
+    },
+    {
+     "round": 11,
+     "overall": 101,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "RJ Harvey",
+     "pos": "RB",
+     "nfl": "DEN",
+     "keeper": false
+    },
+    {
+     "round": 11,
+     "overall": 102,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Mike Washington Jr.",
+     "pos": "RB",
+     "nfl": "LV",
+     "keeper": false
+    },
+    {
+     "round": 11,
+     "overall": 103,
+     "slot": 3,
+     "manager": "John",
+     "player": "Jacory Croskey-Merritt",
+     "pos": "RB",
+     "nfl": "WAS",
+     "keeper": false
+    },
+    {
+     "round": 11,
+     "overall": 104,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Kyle Monangai",
+     "pos": "RB",
+     "nfl": "CHI",
+     "keeper": false
+    },
+    {
+     "round": 11,
+     "overall": 105,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Jalen Coker",
+     "pos": "WR",
+     "nfl": "CAR",
+     "keeper": false
+    },
+    {
+     "round": 11,
+     "overall": 106,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Drake Maye",
+     "pos": "QB",
+     "nfl": "NE",
+     "keeper": true
+    },
+    {
+     "round": 11,
+     "overall": 107,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Romeo Doubs",
+     "pos": "WR",
+     "nfl": "NE",
+     "keeper": false
+    },
+    {
+     "round": 11,
+     "overall": 108,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "KC Concepcion",
+     "pos": "WR",
+     "nfl": "CLE",
+     "keeper": false
+    },
+    {
+     "round": 11,
+     "overall": 109,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Quinshon Judkins",
+     "pos": "RB",
+     "nfl": "CLE",
+     "keeper": true
+    },
+    {
+     "round": 11,
+     "overall": 110,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Chris Rodriguez Jr.",
+     "pos": "RB",
+     "nfl": "JAC",
+     "keeper": false
+    },
+    {
+     "round": 12,
+     "overall": 111,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Jakobi Meyers",
+     "pos": "WR",
+     "nfl": "JAC",
+     "keeper": false
+    },
+    {
+     "round": 12,
+     "overall": 112,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Isaiah Likely",
+     "pos": "TE",
+     "nfl": "NYG",
+     "keeper": false
+    },
+    {
+     "round": 12,
+     "overall": 113,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Tank Bigsby",
+     "pos": "RB",
+     "nfl": "PHI",
+     "keeper": false
+    },
+    {
+     "round": 12,
+     "overall": 114,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Rams",
+     "pos": "DST",
+     "nfl": "LAR",
+     "keeper": false
+    },
+    {
+     "round": 12,
+     "overall": 115,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Jordan Addison",
+     "pos": "WR",
+     "nfl": "MIN",
+     "keeper": false
+    },
+    {
+     "round": 12,
+     "overall": 116,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Woody Marks",
+     "pos": "RB",
+     "nfl": "HOU",
+     "keeper": false
+    },
+    {
+     "round": 12,
+     "overall": 117,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Jayden Daniels",
+     "pos": "QB",
+     "nfl": "WAS",
+     "keeper": true
+    },
+    {
+     "round": 12,
+     "overall": 118,
+     "slot": 3,
+     "manager": "John",
+     "player": "Matthew Golden",
+     "pos": "WR",
+     "nfl": "GB",
+     "keeper": false
+    },
+    {
+     "round": 12,
+     "overall": 119,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Rashid Shaheed",
+     "pos": "WR",
+     "nfl": "SEA",
+     "keeper": false
+    },
+    {
+     "round": 12,
+     "overall": 120,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Brock Bowers",
+     "pos": "TE",
+     "nfl": "LV",
+     "keeper": true
+    },
+    {
+     "round": 13,
+     "overall": 121,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Josh Jacobs",
+     "pos": "RB",
+     "nfl": "GB",
+     "keeper": false
+    },
+    {
+     "round": 13,
+     "overall": 122,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Aaron Jones Sr.",
+     "pos": "RB",
+     "nfl": "MIN",
+     "keeper": false
+    },
+    {
+     "round": 13,
+     "overall": 123,
+     "slot": 3,
+     "manager": "John",
+     "player": "Travis Kelce",
+     "pos": "TE",
+     "nfl": "KC",
+     "keeper": false
+    },
+    {
+     "round": 13,
+     "overall": 124,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Jordyn Tyson",
+     "pos": "WR",
+     "nfl": "NO",
+     "keeper": false
+    },
+    {
+     "round": 13,
+     "overall": 125,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Deebo Samuel Sr.",
+     "pos": "WR",
+     "nfl": "SF",
+     "keeper": false
+    },
+    {
+     "round": 13,
+     "overall": 126,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Matthew Stafford",
+     "pos": "QB",
+     "nfl": "LAR",
+     "keeper": false
+    },
+    {
+     "round": 13,
+     "overall": 127,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Rachaad White",
+     "pos": "RB",
+     "nfl": "WAS",
+     "keeper": false
+    },
+    {
+     "round": 13,
+     "overall": 128,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Brandon Aubrey",
+     "pos": "K",
+     "nfl": "DAL",
+     "keeper": false
+    },
+    {
+     "round": 13,
+     "overall": 129,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Jason Myers",
+     "pos": "K",
+     "nfl": "SEA",
+     "keeper": false
+    },
+    {
+     "round": 13,
+     "overall": 130,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Jared Goff",
+     "pos": "QB",
+     "nfl": "DET",
+     "keeper": false
+    },
+    {
+     "round": 14,
+     "overall": 131,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Xavier Worthy",
+     "pos": "WR",
+     "nfl": "KC",
+     "keeper": false
+    },
+    {
+     "round": 14,
+     "overall": 132,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Jaxson Dart",
+     "pos": "QB",
+     "nfl": "NYG",
+     "keeper": false
+    },
+    {
+     "round": 14,
+     "overall": 133,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Tyjae Spears",
+     "pos": "RB",
+     "nfl": "TEN",
+     "keeper": false
+    },
+    {
+     "round": 14,
+     "overall": 134,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Harrison Mevis",
+     "pos": "K",
+     "nfl": "LAR",
+     "keeper": false
+    },
+    {
+     "round": 14,
+     "overall": 135,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Texans",
+     "pos": "DST",
+     "nfl": "HOU",
+     "keeper": false
+    },
+    {
+     "round": 14,
+     "overall": 136,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Braelon Allen",
+     "pos": "RB",
+     "nfl": "NYJ",
+     "keeper": false
+    },
+    {
+     "round": 14,
+     "overall": 137,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Broncos",
+     "pos": "DST",
+     "nfl": "DEN",
+     "keeper": false
+    },
+    {
+     "round": 14,
+     "overall": 138,
+     "slot": 3,
+     "manager": "John",
+     "player": "Kyler Murray",
+     "pos": "QB",
+     "nfl": "MIN",
+     "keeper": false
+    },
+    {
+     "round": 14,
+     "overall": 139,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Seahawks",
+     "pos": "DST",
+     "nfl": "SEA",
+     "keeper": false
+    },
+    {
+     "round": 14,
+     "overall": 140,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Khalil Shakir",
+     "pos": "WR",
+     "nfl": "BUF",
+     "keeper": false
+    },
+    {
+     "round": 15,
+     "overall": 141,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Dak Prescott",
+     "pos": "QB",
+     "nfl": "DAL",
+     "keeper": true
+    },
+    {
+     "round": 15,
+     "overall": 142,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Zach Charbonnet",
+     "pos": "RB",
+     "nfl": "SEA",
+     "keeper": false
+    },
+    {
+     "round": 15,
+     "overall": 143,
+     "slot": 3,
+     "manager": "John",
+     "player": "Ka'imi Fairbairn",
+     "pos": "K",
+     "nfl": "HOU",
+     "keeper": false
+    },
+    {
+     "round": 15,
+     "overall": 144,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Brian Robinson",
+     "pos": "RB",
+     "nfl": "ATL",
+     "keeper": false
+    },
+    {
+     "round": 15,
+     "overall": 145,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Eagles",
+     "pos": "DST",
+     "nfl": "PHI",
+     "keeper": false
+    },
+    {
+     "round": 15,
+     "overall": 146,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Keaton Mitchell",
+     "pos": "RB",
+     "nfl": "LAC",
+     "keeper": false
+    },
+    {
+     "round": 15,
+     "overall": 147,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Samaje Perine",
+     "pos": "RB",
+     "nfl": "CIN",
+     "keeper": false
+    },
+    {
+     "round": 15,
+     "overall": 148,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Patriots",
+     "pos": "DST",
+     "nfl": "NE",
+     "keeper": false
+    },
+    {
+     "round": 15,
+     "overall": 149,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Jonah Coleman",
+     "pos": "RB",
+     "nfl": "DEN",
+     "keeper": false
+    },
+    {
+     "round": 15,
+     "overall": 150,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Wil Lutz",
+     "pos": "K",
+     "nfl": "DEN",
+     "keeper": false
+    },
+    {
+     "round": 16,
+     "overall": 151,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Vikings",
+     "pos": "DST",
+     "nfl": "MIN",
+     "keeper": false
+    },
+    {
+     "round": 16,
+     "overall": 152,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Kaytron Allen",
+     "pos": "RB",
+     "nfl": "WAS",
+     "keeper": false
+    },
+    {
+     "round": 16,
+     "overall": 153,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Baker Mayfield",
+     "pos": "QB",
+     "nfl": "TB",
+     "keeper": false
+    },
+    {
+     "round": 16,
+     "overall": 154,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Dylan Sampson",
+     "pos": "RB",
+     "nfl": "CLE",
+     "keeper": false
+    },
+    {
+     "round": 16,
+     "overall": 155,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Cam Little",
+     "pos": "K",
+     "nfl": "JAC",
+     "keeper": false
+    },
+    {
+     "round": 16,
+     "overall": 156,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Patrick Mahomes",
+     "pos": "QB",
+     "nfl": "KC",
+     "keeper": false
+    },
+    {
+     "round": 16,
+     "overall": 157,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Spencer Shrader",
+     "pos": "K",
+     "nfl": "IND",
+     "keeper": false
+    },
+    {
+     "round": 16,
+     "overall": 158,
+     "slot": 3,
+     "manager": "John",
+     "player": "Ravens",
+     "pos": "DST",
+     "nfl": "BAL",
+     "keeper": false
+    },
+    {
+     "round": 16,
+     "overall": 159,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "Cameron Dicker",
+     "pos": "K",
+     "nfl": "LAC",
+     "keeper": false
+    },
+    {
+     "round": 16,
+     "overall": 160,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Jaguars",
+     "pos": "DST",
+     "nfl": "JAC",
+     "keeper": false
+    },
+    {
+     "round": 17,
+     "overall": 161,
+     "slot": 1,
+     "manager": "Dave",
+     "player": "Evan McPherson",
+     "pos": "K",
+     "nfl": "CIN",
+     "keeper": false
+    },
+    {
+     "round": 17,
+     "overall": 162,
+     "slot": 2,
+     "manager": "Harper",
+     "player": "AJ Barner",
+     "pos": "TE",
+     "nfl": "SEA",
+     "keeper": false
+    },
+    {
+     "round": 17,
+     "overall": 163,
+     "slot": 3,
+     "manager": "John",
+     "player": "Wan'Dale Robinson",
+     "pos": "WR",
+     "nfl": "TEN",
+     "keeper": true
+    },
+    {
+     "round": 17,
+     "overall": 164,
+     "slot": 4,
+     "manager": "Uzoma",
+     "player": "Jordan Love",
+     "pos": "QB",
+     "nfl": "GB",
+     "keeper": false
+    },
+    {
+     "round": 17,
+     "overall": 165,
+     "slot": 5,
+     "manager": "Colin",
+     "player": "Eddy Pineiro",
+     "pos": "K",
+     "nfl": "SF",
+     "keeper": false
+    },
+    {
+     "round": 17,
+     "overall": 166,
+     "slot": 6,
+     "manager": "TK",
+     "player": "Tre Tucker",
+     "pos": "WR",
+     "nfl": "LV",
+     "keeper": false
+    },
+    {
+     "round": 17,
+     "overall": 167,
+     "slot": 7,
+     "manager": "Ray",
+     "player": "Najee Harris",
+     "pos": "RB",
+     "nfl": "NYG",
+     "keeper": false
+    },
+    {
+     "round": 17,
+     "overall": 168,
+     "slot": 8,
+     "manager": "Cass",
+     "player": "Kayshon Boutte",
+     "pos": "WR",
+     "nfl": "HOU",
+     "keeper": false
+    },
+    {
+     "round": 17,
+     "overall": 169,
+     "slot": 9,
+     "manager": "Price",
+     "player": "Bears",
+     "pos": "DST",
+     "nfl": "CHI",
+     "keeper": false
+    },
+    {
+     "round": 17,
+     "overall": 170,
+     "slot": 10,
+     "manager": "Ben",
+     "player": "Juwan Johnson",
+     "pos": "TE",
+     "nfl": "NO",
+     "keeper": false
+    }
+   ]
+  }
+ ]
+}

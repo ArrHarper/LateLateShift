@@ -42,7 +42,7 @@ League content lives in `src/_data/` — pages are loops over these files:
 
 ## Annual season-update checklist
 
-1. `src/_data/league.json` — add the finished season to `seasons[]` (champion, runner-up, scores, league ID); update `current` (year, seasonNo, new league ID, kickoff timestamp UTC, matchup, trade deadline, prior-year IDs) and `current.draft` (draft-night timestamp UTC + display string, keeper deadline display, reveal seed, `order[]` of picks with manager + fate blurb — drives the Draft Central page and its countdown). Everything downstream (homepage, ticker countdown, records page, quick links) updates itself.
+1. `src/_data/league.json` — add the finished season to `seasons[]` (champion, runner-up, scores, league ID); update `current` (year, seasonNo, new league ID, kickoff timestamp UTC, matchup, trade deadline, prior-year IDs) and `current.draft` (draft-night timestamp UTC + display string, keeper deadline display, reveal seed, `order[]` of picks with manager + fate blurb — drives the Draft Central page and its countdown). **After the draft**, set `current.draft.complete: true` and `recapPath` (Draft Central then shows the post-draft hero + the draft board instead of the countdown + order), and regenerate `src/_data/draftBoard.json` from the Yahoo board (see the recap skill's HANDOFF). Reset `complete` to false when the next season's `current` block goes in. Everything downstream (homepage, ticker countdown, records page, quick links) updates itself.
 2. `src/_data/keepers.json` — add the new season's keeper rows (newest first).
 3. `src/_data/seasonStandings.json` — add the season's final standings, then run `npm run derive`. **Do not hand-edit `teams.json` or `alumni.json`** — both are generated from it (career totals, averages, title counts). `npm run derive -- --check` fails if they're stale.
 4. `src/_data/records.json` — re-check all-time records (single-season PF, streaks, etc.).
@@ -50,6 +50,21 @@ League content lives in `src/_data/` — pages are loops over these files:
 6. `src/_data/news.json` — add/refresh items.
 7. Champ avatar → `assets/images/`, referenced from the season's `champion.avatar` in league.json.
 8. Update the "Last updated" strings passed to `pageHero(...)` in changed pages.
+
+## Draft recaps and season reviews (project skills)
+
+- **Draft recaps**: `.claude/skills/lls-draft-recap/` — `SKILL.md` (checklist),
+  `HANDOFF.md` (state + lessons), `references/methodology.md` (grading). The
+  `.claude/` folder is gitignored, so the skill exists only on this machine and
+  only loads when the working directory is inside this repo. Published output
+  goes to `src/draft-recaps/<yr>/` (passthrough-copied to `/draft/<yr>-recap/`);
+  add the year to `recapSeasons` in `src/draft.njk`. The deprecated
+  `../lls-draft-recap-skill/` at the workspace root is not the pipeline.
+- **Season review**: `../season-review-mockups/` (see its `HANDOFF.md`);
+  published copy at `src/season-reviews/<yr>/`.
+- Annual recap inputs: Yahoo API (`../yahooFantasyAPIcaller/scripts/pullDraftBoard.py`),
+  FantasyPros ADP CSV, the **10-team** Subvertadown LLS sheet, Vegas implied
+  PF/PA, player portraits. Step 9 of the season checklist, effectively.
 
 ## Data sources
 

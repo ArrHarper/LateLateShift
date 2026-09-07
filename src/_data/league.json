@@ -20,18 +20,60 @@
       "when": "2026-09-06T01:00:00Z",
       "whenDisplay": "Sat 9/5 · 9:00 PM ET",
       "keeperDeadlineDisplay": "Fri 9/4 · 2:59 AM ET",
+      "complete": true,
+      "recapPath": "/draft/2026-recap/",
       "voyageSeed": "634061022",
       "order": [
-        { "pick": 1, "manager": "Dave", "fate": "Last ship afloat · 2 sunk" },
-        { "pick": 2, "manager": "Harper", "fate": "Sunk by Dave" },
-        { "pick": 3, "manager": "John", "fate": "Sunk by Dave · 1 sunk" },
-        { "pick": 4, "manager": "Uzoma", "fate": "Taken by the Kraken · 1 sunk" },
-        { "pick": 5, "manager": "Colin", "fate": "Sunk by John" },
-        { "pick": 6, "manager": "TK", "fate": "Capsized by a rogue wave" },
-        { "pick": 7, "manager": "Ray", "fate": "Capsized by a rogue wave" },
-        { "pick": 8, "manager": "Cass", "fate": "Capsized by a rogue wave" },
-        { "pick": 9, "manager": "Price", "fate": "Sunk by Uzoma" },
-        { "pick": 10, "manager": "Ben", "fate": "Capsized by a rogue wave" }
+        {
+          "pick": 1,
+          "manager": "Dave",
+          "fate": "Last ship afloat · 2 sunk"
+        },
+        {
+          "pick": 2,
+          "manager": "Harper",
+          "fate": "Sunk by Dave"
+        },
+        {
+          "pick": 3,
+          "manager": "John",
+          "fate": "Sunk by Dave · 1 sunk"
+        },
+        {
+          "pick": 4,
+          "manager": "Uzoma",
+          "fate": "Taken by the Kraken · 1 sunk"
+        },
+        {
+          "pick": 5,
+          "manager": "Colin",
+          "fate": "Sunk by John"
+        },
+        {
+          "pick": 6,
+          "manager": "TK",
+          "fate": "Capsized by a rogue wave"
+        },
+        {
+          "pick": 7,
+          "manager": "Ray",
+          "fate": "Capsized by a rogue wave"
+        },
+        {
+          "pick": 8,
+          "manager": "Cass",
+          "fate": "Capsized by a rogue wave"
+        },
+        {
+          "pick": 9,
+          "manager": "Price",
+          "fate": "Sunk by Uzoma"
+        },
+        {
+          "pick": 10,
+          "manager": "Ben",
+          "fate": "Capsized by a rogue wave"
+        }
       ]
     }
   },
@@ -40,43 +82,86 @@
       "year": 2020,
       "seasonNo": 1,
       "leagueId": 1008211,
-      "champion": { "manager": "Uzoma", "team": "Wraith's Voidwalkers", "score": "176.10" },
-      "runnerUp": { "team": "Gurley girl", "score": "109.82" }
+      "champion": {
+        "manager": "Uzoma",
+        "team": "Wraith's Voidwalkers",
+        "score": "176.10"
+      },
+      "runnerUp": {
+        "team": "Gurley girl",
+        "score": "109.82"
+      }
     },
     {
       "year": 2021,
       "seasonNo": 2,
       "leagueId": 929371,
-      "champion": { "manager": "Colin", "team": "Koo Runnings", "score": "123.24" },
-      "runnerUp": { "team": "Can you diggs it", "score": "111.84" }
+      "champion": {
+        "manager": "Colin",
+        "team": "Koo Runnings",
+        "score": "123.24"
+      },
+      "runnerUp": {
+        "team": "Can you diggs it",
+        "score": "111.84"
+      }
     },
     {
       "year": 2022,
       "seasonNo": 3,
       "leagueId": 855021,
-      "champion": { "manager": "Colin", "team": "Koo Runnings", "score": "128.02" },
-      "runnerUp": { "team": "Wraith's Voidwalkers", "score": "90.20" }
+      "champion": {
+        "manager": "Colin",
+        "team": "Koo Runnings",
+        "score": "128.02"
+      },
+      "runnerUp": {
+        "team": "Wraith's Voidwalkers",
+        "score": "90.20"
+      }
     },
     {
       "year": 2023,
       "seasonNo": 4,
       "leagueId": 189611,
-      "champion": { "manager": "Ben", "team": "Brown Bros TD Emporium", "score": "153.74" },
-      "runnerUp": { "team": "Olave and the Chipmunks", "score": "103.28" }
+      "champion": {
+        "manager": "Ben",
+        "team": "Brown Bros TD Emporium",
+        "score": "153.74"
+      },
+      "runnerUp": {
+        "team": "Olave and the Chipmunks",
+        "score": "103.28"
+      }
     },
     {
       "year": 2024,
       "seasonNo": 5,
       "leagueId": 455458,
-      "champion": { "manager": "John", "team": "Piccolos Cage", "score": "164.78" },
-      "runnerUp": { "team": "My Chubb's Gone", "score": "146.40" }
+      "champion": {
+        "manager": "John",
+        "team": "Piccolos Cage",
+        "score": "164.78"
+      },
+      "runnerUp": {
+        "team": "My Chubb's Gone",
+        "score": "146.40"
+      }
     },
     {
       "year": 2025,
       "seasonNo": 6,
       "leagueId": 716831,
-      "champion": { "manager": "TK", "team": "Gibbs Me Da Gold", "score": "112.54", "avatar": "/assets/images/tk-manager-avatar.png" },
-      "runnerUp": { "team": "Eat the W", "score": "94.96" }
+      "champion": {
+        "manager": "TK",
+        "team": "Gibbs Me Da Gold",
+        "score": "112.54",
+        "avatar": "/assets/images/tk-manager-avatar.png"
+      },
+      "runnerUp": {
+        "team": "Eat the W",
+        "score": "94.96"
+      }
     }
   ]
 }

@@ -6,9 +6,33 @@
 {% block content %}
 {% set current = league.current %}
 {% set draft = current.draft %}
-{# Seasons with a published recap set — newest last. Add the year when one ships. #}
+{# Seasons with a published recap set — newest first. Add the year when one ships. #}
 {% set recapSeasons = [2026, 2025] %}
+{# This season's board from draftBoard.json (newest season first). #}
+{% set board = draftBoard.seasons | first %}
+{% set boardIsCurrent = board and board.year == current.year %}
 
+{% if draft.complete %}
+{# ---------- post-draft hero: the draft is done, the grades are in ---------- #}
+{% set keeperCount = 0 %}
+{% for p in board.picks %}{% if p.keeper %}{% set keeperCount = keeperCount + 1 %}{% endif %}{% endfor %}
+<div class="draft-hero is-done">
+    <div class="kicker"><span class="dot"></span> Season {{ current.seasonNo }} · Draft Complete</div>
+    <h1>Draft Central</h1>
+    <div class="count" role="group" aria-label="{{ current.year }} draft at a glance">
+        <div class="unit"><b>{{ board.rounds }}</b><span>Rounds</span></div>
+        <div class="unit"><b>{{ board.picks | length }}</b><span>Picks</span></div>
+        <div class="unit"><b>{{ keeperCount }}</b><span>Keepers</span></div>
+        <div class="unit"><b>{{ board.teams | length }}</b><span>Teams</span></div>
+    </div>
+    <div class="when">Drafted <b>{{ draft.whenDisplay }}</b> · every team graded, keeper-adjusted</div>
+    <div class="cta">
+        <a class="btn-primary" href="{{ draft.recapPath | url }}">See the {{ current.year }} Draft Grades</a>
+        <a class="btn-ghost" href="{{ '/draft-order/' | url }}#draft-{{ current.year }}">Watch the Order Reveal</a>
+    </div>
+</div>
+{% else %}
+{# ---------- pre-draft hero: countdown to draft night ---------- #}
 <div class="draft-hero">
     <div class="kicker"><span class="dot"></span> Season {{ current.seasonNo }} · Draft Night</div>
     <h1>Draft Central</h1>
@@ -23,7 +47,53 @@
         <a class="btn-primary" href="{{ '/draft-order/' | url }}#draft-{{ current.year }}">Watch the Order Reveal</a>
     </div>
 </div>
+{% endif %}
 
+{% if draft.complete and boardIsCurrent %}
+{# ---------- Sleeper-style draft board: columns = draft slots, rows = rounds ---------- #}
+<div class="mod board-mod">
+    <div class="mod-head">
+        <h3>{{ board.year }} Draft Board</h3>
+        <a href="https://football.fantasysports.yahoo.com/f1/{{ current.leagueId }}/draftresults" target="_blank" rel="noopener">On Yahoo →</a>
+    </div>
+    <div class="board-wrap">
+        <div class="board" style="--cols: {{ board.teams | length }}">
+            <div class="b-corner" aria-hidden="true">Rd</div>
+            {% for t in board.teams %}
+            <div class="b-head">
+                <span class="b-slot">{{ t.slot }}</span>
+                <b>{{ t.manager }}</b>
+                <span class="b-team">{{ t.team }}</span>
+            </div>
+            {% endfor %}
+            {% for row in board | draftGrid %}
+            <div class="b-rd b-{{ row.dir }}"><b>{{ row.round }}</b><span aria-hidden="true">{{ "→" if row.dir == "ltr" else "←" }}</span></div>
+            {% for p in row.cells %}
+            {% if p %}
+            <div class="b-cell pos-{{ p.pos | lower }}{{ ' is-keeper' if p.keeper }}" title="{{ p.player }} · {{ p.pos }} · {{ p.nfl }} · pick {{ p.overall }}{{ ' · keeper' if p.keeper }}">
+                <div class="b-top"><span class="b-pick">{{ p.round | pickLabel(p.slot) }}</span>{% if p.keeper %}<span class="b-keep">K</span>{% endif %}</div>
+                <b class="b-name">{{ p.player | shortName }}</b>
+                <span class="b-meta"><span class="b-pos">{{ p.pos }}</span> · {{ p.nfl }}</span>
+            </div>
+            {% else %}
+            <div class="b-cell b-empty"></div>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="b-legend">
+        <span><i class="b-sw pos-qb"></i>QB</span>
+        <span><i class="b-sw pos-rb"></i>RB</span>
+        <span><i class="b-sw pos-wr"></i>WR</span>
+        <span><i class="b-sw pos-te"></i>TE</span>
+        <span><i class="b-sw pos-k"></i>K</span>
+        <span><i class="b-sw pos-dst"></i>DST</span>
+        <span><i class="b-sw b-sw-keep"></i>Keeper, at cost round</span>
+        <span class="b-hint">Even rounds snake right to left · scroll sideways on small screens</span>
+    </div>
+</div>
+{% else %}
 <div class="mod rank-mod">
     <div class="mod-head">
         <h3>{{ current.year }} Draft Order</h3>
@@ -39,18 +109,23 @@
         {% endfor %}
     </ol>
 </div>
+{% endif %}
 
 {% call mod("Draft Resources") %}
 <div class="link-list">
-    <a href="{{ '/draft/2025-review/' | url }}">2025 End of Year Review <span>→</span></a>
     {% for yr in recapSeasons %}
     <a href="{{ ('/draft/' + yr + '-recap/') | url }}">{{ yr }} Draft Recaps <span>→</span></a>
     {% endfor %}
+    <a href="{{ '/draft/2025-review/' | url }}">2025 End of Year Review <span>→</span></a>
+    <a href="{{ '/draft-order/' | url }}#draft-{{ current.year }}">{{ current.year }} Draft Order Reveal <span>→</span></a>
+    <a href="https://football.fantasysports.yahoo.com/f1/{{ current.leagueId }}/draftresults" target="_blank" rel="noopener">{{ current.year }} Draft Board on Yahoo <span>→</span></a>
     <a href="https://football.fantasysports.yahoo.com/{{ current.priorYear }}/f1/{{ current.priorLeagueId }}/draftresults" target="_blank" rel="noopener">{{ current.priorYear }} Draft Board on Yahoo <span>→</span></a>
 </div>
 {% endcall %}
 {% endblock %}
 
 {% block scripts %}
+{% if not league.current.draft.complete %}
 <script>(function(){var w=document.getElementById('draft-countdown');if(!w)return;var targetMs=Date.parse(w.dataset.target);function $(id){return document.getElementById(id);}var d=$('dc-d'),h=$('dc-h'),m=$('dc-m'),s=$('dc-s');function pad(n){return String(n).padStart(2,'0');}function tick(){var diff=targetMs-Date.now();if(diff<=0){w.innerHTML='<div class="done">Draft night is here!</div>';clearInterval(t);return;}d.textContent=Math.floor(diff/864e5);h.textContent=pad(Math.floor(diff%864e5/36e5));m.textContent=pad(Math.floor(diff%36e5/6e4));s.textContent=pad(Math.floor(diff%6e4/1e3));}tick();var t=setInterval(tick,1000);}());</script>
+{% endif %}
 {% endblock %}
