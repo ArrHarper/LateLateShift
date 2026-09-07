@@ -391,8 +391,16 @@ main { position: relative; }
   .bet-row .bet-take { grid-column: 3 / -1; }
 }
 @media (max-width: 560px) {
-  .bet-row { grid-template-columns: 22px 44px 1fr; }
-  .bet-row .bet-stat { grid-column: auto; }
+  /* phone: rank · logo · team on row 1; the two stats side by side on row 2
+     (explicit placement — auto-flow dropped them into the 22px/44px badge
+     columns and PF/PA overlapped); the take on row 3 */
+  .bet-row { grid-template-columns: 22px 44px 1fr 1fr; row-gap: 8px; }
+  .bet-row .bet-rank { grid-column: 1; grid-row: 1; }
+  .bet-row .bet-logo, .bet-row .bet-logo-abbr { grid-column: 2; grid-row: 1; }
+  .bet-row .bet-who { grid-column: 3 / -1; grid-row: 1; }
+  .bet-row .bet-stat:nth-child(4) { grid-column: 3; grid-row: 2; }
+  .bet-row .bet-stat:nth-child(5) { grid-column: 4; grid-row: 2; }
+  .bet-row .bet-take { grid-column: 3 / -1; grid-row: 3; }
 }
 
 /* ---------- footer ---------- */
