@@ -9,11 +9,9 @@
 
 <div class="hero-panel">
     <div class="hero-main">
-        <div class="kicker">Season Preview</div>
+        <div class="kicker">Season Seven</div>
         <h1>Welcome back for the {{ current.year }} season</h1>
-        <p class="dek">Year {{ current.seasonNo }} of never being late, always right on time. The draft
-        is around the corner — review last season's results, scout the keeper board, and lock your two
-        before the deadline.</p>
+        <p class="dek">Year {{ current.seasonNo }} of never being late, always right on time.</p>
         <div class="byline">From the Commissioner's Desk</div>
         <a class="btn-primary" href="{{ '/keeper-history/' | url }}">Keeper Central</a>
         <a class="link-strong" href="https://football.fantasysports.yahoo.com/{{ current.priorYear }}/f1/{{ current.priorLeagueId }}/draftresults" target="_blank" rel="noopener">{{ current.priorYear }} Draft Results →</a>
@@ -37,9 +35,9 @@
 
     {% call mod("Yahoo Quick Links") %}
     <div class="link-list">
-        <a href="https://football.fantasysports.yahoo.com/{{ current.priorYear }}/f1/{{ current.priorLeagueId }}/draftresults" target="_blank" rel="noopener">{{ current.priorYear }} Draft Results <span>→</span></a>
-        <a href="https://football.fantasysports.yahoo.com/{{ current.priorYear }}/f1/{{ current.priorLeagueId }}/starters" target="_blank" rel="noopener">{{ current.priorYear }} Final Rosters <span>→</span></a>
-        <a href="https://football.fantasysports.yahoo.com/f1/{{ current.leagueId }}/1/keepers" target="_blank" rel="noopener">Select {{ current.year }} Keepers <span>→</span></a>
+        <a href="https://football.fantasysports.yahoo.com/f1/{{ current.leagueId }}" target="_blank" rel="noopener">{{ current.year }} League Home · Matchups <span>→</span></a>
+        <a href="https://football.fantasysports.yahoo.com/f1/{{ current.leagueId }}/standings" target="_blank" rel="noopener">{{ current.year }} Standings <span>→</span></a>
+        <a href="https://football.fantasysports.yahoo.com/f1/{{ current.leagueId }}/draftresults" target="_blank" rel="noopener">{{ current.year }} Draft Results <span>→</span></a>
     </div>
     {% endcall %}
 
@@ -52,8 +50,24 @@
     {% endcall %}
 </div>
 
-{% set outlookShowHistoryLink = true %}
-{% include "_components/keeperOutlook.njk" %}
+{# ---------- post-draft power rankings (draftGrades.json, newest season first) ---------- #}
+{% set grades = draftGrades.seasons | first %}
+<div>
+    {{ secHead(grades.year + " Post-Draft Power Rankings", link=(grades.recapPath | url), linkText="All grades & recaps →") }}
+    <div class="mod rank-mod grade-board">
+        <ol>
+            {% for r in grades.rows %}
+            <li>
+                <span class="rk">{{ r.rank }}</span>
+                <a class="face" href="{{ (grades.recapPath + 'recap-' + r.slug + '-' + grades.year + '.html') | url }}"><img src="{{ r.avatar | url }}" alt=""></a>
+                <span class="who"><a href="{{ (grades.recapPath + 'recap-' + r.slug + '-' + grades.year + '.html') | url }}"><b>{{ r.team }}</b></a><span>{{ r.manager }} · Pick {{ r.draftSlot }}</span></span>
+                <span class="hook">{{ r.boardLine }}</span>
+                <span class="grade-pill {{ 'g-good' if r.grade in ['A','A-'] else ('g-mid' if r.grade in ['B+','B','B-'] else 'g-bad') }}">{{ r.grade }}</span>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
 
 <div>
     {{ secHead("League News", color="red") }}

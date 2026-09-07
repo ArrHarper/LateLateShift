@@ -1,28 +1,35 @@
 [
-  {
-    "date": "2026-08-26",
-    "tag": "draft",
-    "title": "Draft night is set: Saturday, Sep 5 at 9 PM ET",
-    "blurb": "Keepers lock Friday, Sep 4 at 2:59 AM ET. Dave picks first — see the full order on Draft Central.",
-    "href": "/draft/"
-  },
-  {
-    "date": "2026-08-13",
-    "tag": "draft",
-    "title": "The 2026 draft order reveal video is out",
-    "blurb": "A naval battle royale decides the order. Watch it on the draft page.",
-    "href": "/draft-order/"
-  },
-  {
-    "date": "2026-08-13",
-    "tag": "rules",
-    "title": "Commissioner error rewrites two 2026 keeper costs",
-    "blurb": "Kyren Williams and Puka Nacua were kept a round below their true cost; one of Ben's and Price's 2026 keeper picks will be discounted accordingly."
-  },
-  {
-    "date": "2026-08-11",
-    "tag": "league",
-    "title": "All managers confirmed for 2026",
-    "blurb": "All ten are back for Year Seven."
-  }
+ {
+  "date": "2026-09-06",
+  "tag": "draft",
+  "title": "The 2026 draft is complete — every team is graded",
+  "blurb": "Ten rosters set, 19 keepers locked. See the full board on Draft Central and the keeper-adjusted grades for all ten teams.",
+  "href": "/draft/2026-recap/"
+ },
+ {
+  "date": "2026-08-26",
+  "tag": "draft",
+  "title": "Draft night is set: Saturday, Sep 5 at 9 PM ET",
+  "blurb": "Keepers lock Friday, Sep 4 at 2:59 AM ET. Dave picks first — see the full order on Draft Central.",
+  "href": "/draft/"
+ },
+ {
+  "date": "2026-08-13",
+  "tag": "draft",
+  "title": "The 2026 draft order reveal video is out",
+  "blurb": "A naval battle royale decides the order. Watch it on the draft page.",
+  "href": "/draft-order/"
+ },
+ {
+  "date": "2026-08-13",
+  "tag": "rules",
+  "title": "Commissioner error rewrites two 2026 keeper costs",
+  "blurb": "Kyren Williams and Puka Nacua were kept a round below their true cost; one of Ben's and Price's 2026 keeper picks will be discounted accordingly."
+ },
+ {
+  "date": "2026-08-11",
+  "tag": "league",
+  "title": "All managers confirmed for 2026",
+  "blurb": "All ten are back for Year Seven."
+ }
 ]

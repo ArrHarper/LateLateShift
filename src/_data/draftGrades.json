@@ -1,0 +1,111 @@
+{
+ "_about": "Post-draft power rankings for the homepage. Built from the recap skill's out/recap-data-<yr>.json (final roster grade, ordered by grade then weighted lineup value — same order as the recap index) plus each prose file's boardLine. Newest season first. Regenerate when recaps are rebuilt.",
+ "seasons": [
+  {
+   "year": 2026,
+   "recapPath": "/draft/2026-recap/",
+   "rows": [
+    {
+     "rank": 1,
+     "slug": "harper",
+     "manager": "Harper",
+     "team": "Live By McCaff Die By Muh Calf",
+     "draftSlot": 2,
+     "grade": "A",
+     "avatar": "/assets/images/manager-avatars/harper.png",
+     "boardLine": "The best WR room in the league by a wide margin, carrying a middling RB group and a TE room whose value is all in its starter."
+    },
+    {
+     "rank": 2,
+     "slug": "ray",
+     "manager": "Ray",
+     "team": "Big Diggs and My Chubb",
+     "draftSlot": 7,
+     "grade": "A",
+     "avatar": "/assets/images/manager-avatars/ray.jpg",
+     "boardLine": "The best RB room in the league by a wide margin, three deep with top-ten backs, over a WR group tied for the league's thinnest."
+    },
+    {
+     "rank": 3,
+     "slug": "colin",
+     "manager": "Colin",
+     "team": "Eat the W",
+     "draftSlot": 5,
+     "grade": "A-",
+     "avatar": "/assets/images/manager-avatars/colin.png",
+     "boardLine": "Top-heavy and well-placed: two elite starters and the second-best QB slot, every major bet in a top-ten Vegas offense, and a bench built from reaches."
+    },
+    {
+     "rank": 4,
+     "slug": "dave",
+     "manager": "Dave",
+     "team": "Pewter City Gym",
+     "draftSlot": 1,
+     "grade": "A-",
+     "avatar": "/assets/images/manager-avatars/dave.jpg",
+     "boardLine": "Second-best RB room and the league's best TE slot, built on three offenses Vegas ranks in the bottom ten."
+    },
+    {
+     "rank": 5,
+     "slug": "tk",
+     "manager": "TK",
+     "team": "Gibbs Me Da Gold",
+     "draftSlot": 6,
+     "grade": "B+",
+     "avatar": "/assets/images/manager-avatars/tk.png",
+     "boardLine": "The best single player in the league at the top of a fifth-ranked RB room; the WR group ranks eighth and leans on Arizona, Vegas's lowest-scoring offense."
+    },
+    {
+     "rank": 6,
+     "slug": "john",
+     "manager": "John",
+     "team": "Piccolos Cage",
+     "draftSlot": 3,
+     "grade": "B",
+     "avatar": "/assets/images/manager-avatars/john.jpg",
+     "boardLine": "Two elite starters in McCaffrey and St. Brown over a flat middle: every position group lands in the middle of the pack."
+    },
+    {
+     "rank": 7,
+     "slug": "cass",
+     "manager": "Cass",
+     "team": "Rice rice baby",
+     "draftSlot": 8,
+     "grade": "B-",
+     "avatar": "/assets/images/manager-avatars/cass.png",
+     "boardLine": "Third-best RB room and a solid WR trio undercut by the lowest-rated QB room in the league."
+    },
+    {
+     "rank": 8,
+     "slug": "uzoma",
+     "manager": "Uzoma",
+     "team": "Wraith's Voidwalkers",
+     "draftSlot": 4,
+     "grade": "C+",
+     "avatar": "/assets/images/manager-avatars/uzoma.png",
+     "boardLine": "A three-deep RB room that ranks fourth, paired with the league's thinnest WR group and a QB slot at waiver level."
+    },
+    {
+     "rank": 9,
+     "slug": "ben",
+     "manager": "Ben",
+     "team": "Herbert Fully Loaded",
+     "draftSlot": 10,
+     "grade": "C+",
+     "avatar": "/assets/images/manager-avatars/ben.jpg",
+     "boardLine": "Second-best WR room in the league carrying the worst RB and TE groups; three-quarters of the roster's value sits at one position."
+    },
+    {
+     "rank": 10,
+     "slug": "price",
+     "manager": "Price",
+     "team": "The Allen Antlerz",
+     "draftSlot": 9,
+     "grade": "C",
+     "avatar": "/assets/images/manager-avatars/price.png",
+     "boardLine": "The best QB slot and second-best TE slot in the league, but no top-tier RB or WR: the top two starters project lowest of any roster."
+    }
+   ]
+  }
+ ]
+}

@@ -596,6 +596,27 @@ main { display: block; flex: 1 0 auto; }
 .rank-mod .who { margin-right: auto; }
 .rank-mod .who b { display: block; }
 .rank-mod .who span { color: var(--ink-3); font-size: 0.72rem; }
+/* homepage post-draft power rankings: rank-mod rows + a grade pill.
+   Letter colors mirror the recap pages' bands (green / amber / crimson). */
+.grade-board .who { flex: 0 0 230px; margin-right: 0; }   /* fixed so the one-liners align */
+.grade-board .who a { color: inherit; text-decoration: none; }
+.grade-board .who a:hover b { color: var(--purple-ink); }
+.grade-board .hook { flex: 1 1 260px; min-width: 0; color: var(--ink-3); font-size: 0.74rem; font-style: italic; line-height: 1.35; }
+.grade-board .grade-pill {
+  flex: none; min-width: 42px; padding: 4px 8px; border-radius: var(--r-sm);
+  text-align: center; font-size: 0.95rem; font-weight: 800; letter-spacing: -0.01em;
+}
+.grade-board .g-good { background: #e3f5ea; color: #1e8a4c; }
+.grade-board .g-mid { background: var(--tint-amber); color: #8a5a00; }
+.grade-board .g-bad { background: var(--tint-red); color: #c43530; }
+@media (max-width: 760px) {
+  /* phone: rank · avatar · team · grade stay on one line (team shrinks and
+     wraps its own text); only the one-liner drops to a second row */
+  .grade-board li { flex-wrap: wrap; }
+  .grade-board .who { flex: 1 1 0; min-width: 0; }
+  .grade-board .hook { flex-basis: 100%; order: 9; padding-left: 46px; }
+}
+
 /* right-aligned annotation (e.g. draft-order fates) */
 .rank-mod .note {
   color: var(--ink-3);
