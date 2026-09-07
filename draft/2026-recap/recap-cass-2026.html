@@ -108,7 +108,14 @@ p { margin: 0; }
 .hero-p1 { right: 0;     height: 158px; z-index: 3; }
 .hero-p2 { right: 114px; height: 132px; z-index: 2; opacity: 0.95; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.5)) brightness(0.92); }
 .hero-p3 { right: 212px; height: 114px; z-index: 1; opacity: 0.85; filter: drop-shadow(0 5px 12px rgba(0,0,0,0.5)) brightness(0.8); }
-@media (max-width: 900px) { .hero-art { width: 120px; } .hero-p2, .hero-p3 { display: none; } }
+/* tablet: keep all three cutouts, just smaller and tighter */
+@media (max-width: 900px) {
+  .hero-art { width: 250px; }
+  .hero-glow { width: 300px; height: 300px; right: 20px; }
+  .hero-p1 { height: 134px; }
+  .hero-p2 { right: 92px;  height: 112px; }
+  .hero-p3 { right: 170px; height: 96px; }
+}
 .page-head .summary {
   display: grid; grid-template-columns: 1.7fr 1fr; gap: 26px;
   align-items: start; padding: 20px 26px 22px;
@@ -400,7 +407,14 @@ main { position: relative; }
 @media (max-width: 760px) {
   .split-main-rail { grid-template-columns: 1fr; }
   .team-banner { flex-wrap: wrap; padding: 16px 20px; gap: 14px; min-height: 0; }
-  .hero-art { display: none; }
+  /* phone: the banner wraps, so the hero art becomes its own full-width strip
+     between the title row and the grade box, cutouts anchored to the right */
+  .hero-art { flex-basis: 100%; width: auto; align-self: auto; height: 118px; margin: -4px 0 -14px; }
+  .hero-glow { width: 260px; height: 260px; right: 10px; top: 50%; transform: translateY(-50%); }
+  .hero-p { bottom: -16px; }
+  .hero-p1 { right: 6px;   height: 128px; }
+  .hero-p2 { right: 96px;  height: 108px; }
+  .hero-p3 { right: 172px; height: 92px; }
   .team-banner .ava { width: 56px; height: 56px; }
   .team-banner .grade-box { border-left: 0; padding-left: 0; margin-left: 0; flex-basis: 100%; justify-items: start; text-align: left; border-top: 1px solid var(--navy-line); padding-top: 10px; }
   .page-head .summary { padding: 16px 20px 18px; grid-template-columns: 1fr; gap: 18px; }
