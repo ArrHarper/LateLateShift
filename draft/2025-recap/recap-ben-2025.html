@@ -409,12 +409,14 @@ main { position: relative; }
   .team-banner { flex-wrap: wrap; padding: 16px 20px; gap: 14px; min-height: 0; }
   /* phone: the banner wraps, so the hero art becomes its own full-width strip
      between the title row and the grade box, cutouts anchored to the right */
-  .hero-art { flex-basis: 100%; width: auto; align-self: auto; height: 118px; margin: -4px 0 -14px; }
-  .hero-glow { width: 260px; height: 260px; right: 10px; top: 50%; transform: translateY(-50%); }
-  .hero-p { bottom: -16px; }
-  .hero-p1 { right: 6px;   height: 128px; }
-  .hero-p2 { right: 96px;  height: 108px; }
-  .hero-p3 { right: 172px; height: 92px; }
+  /* the strip's bottom edge IS the rule (banner gap 14px cancelled by the
+     negative margin), and the cutouts sit exactly on it — no bleed below */
+  .hero-art { flex-basis: 100%; width: auto; align-self: auto; height: 132px; margin: -6px 0 -14px; }
+  .hero-glow { width: 260px; height: 260px; right: 10px; top: 55%; transform: translateY(-50%); }
+  .hero-p { bottom: 0; filter: drop-shadow(0 -2px 12px rgba(0,0,0,0.45)); }
+  .hero-p1 { right: 6px;   height: 132px; }
+  .hero-p2 { right: 100px; height: 112px; }
+  .hero-p3 { right: 178px; height: 96px; }
   .team-banner .ava { width: 56px; height: 56px; }
   .team-banner .grade-box { border-left: 0; padding-left: 0; margin-left: 0; flex-basis: 100%; justify-items: start; text-align: left; border-top: 1px solid var(--navy-line); padding-top: 10px; }
   .page-head .summary { padding: 16px 20px 18px; grid-template-columns: 1fr; gap: 18px; }
