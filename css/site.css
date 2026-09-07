@@ -304,10 +304,10 @@ main { display: block; flex: 1 0 auto; }
    right-to-left, flagged by the arrow in the round cell. Cells are tinted by
    position (--pos-* tokens; the tint is a fill, not a status). Keepers get the
    recap pages' diagonal-stripe convention plus a K chip. The grid is wider
-   than a phone, so it scrolls inside .board-wrap — never the page. */
-.board-mod { min-width: 0; max-width: 100%; }   /* grid/flex children default to min-content width — without this the wide board stretches the page */
-.board-wrap { overflow-x: auto; overscroll-behavior-x: contain; padding: 0 0 6px; max-width: 100%; }
-.board {
+   than a phone, so it scrolls inside .draft-board-wrap — never the page. */
+.draft-board-mod { min-width: 0; max-width: 100%; }   /* grid/flex children default to min-content width — without this the wide board stretches the page */
+.draft-board-wrap { overflow-x: auto; overscroll-behavior-x: contain; padding: 0 0 6px; max-width: 100%; }
+.draft-board {
   --rdw: 40px;
   --cellw: 96px;
   display: grid;
@@ -395,7 +395,7 @@ main { display: block; flex: 1 0 auto; }
 .b-sw-keep { background-image: repeating-linear-gradient(135deg, transparent 0 3px, var(--ink-3) 3px 4px); }
 .b-hint { margin-left: auto; font-weight: 500; }
 @media (max-width: 760px) {
-  .board { --cellw: 92px; }
+  .draft-board { --cellw: 92px; }
   .b-hint { margin-left: 0; }
 }
 

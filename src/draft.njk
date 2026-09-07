@@ -51,13 +51,13 @@
 
 {% if draft.complete and boardIsCurrent %}
 {# ---------- Sleeper-style draft board: columns = draft slots, rows = rounds ---------- #}
-<div class="mod board-mod">
+<div class="mod draft-board-mod">
     <div class="mod-head">
         <h3>{{ board.year }} Draft Board</h3>
         <a href="https://football.fantasysports.yahoo.com/f1/{{ current.leagueId }}/draftresults" target="_blank" rel="noopener">On Yahoo →</a>
     </div>
-    <div class="board-wrap">
-        <div class="board" style="--cols: {{ board.teams | length }}">
+    <div class="draft-board-wrap">
+        <div class="draft-board" style="--cols: {{ board.teams | length }}">
             <div class="b-corner" aria-hidden="true">Rd</div>
             {% for t in board.teams %}
             <div class="b-head">
