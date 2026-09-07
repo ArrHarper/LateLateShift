@@ -1,4 +1,6 @@
-import { readdirSync } from "node:fs";
+import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+import { assetVersion } from "./scripts/asset-version.mjs";
 
 export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("assets");
@@ -19,6 +21,28 @@ export default function (eleventyConfig) {
         eleventyConfig.addPassthroughCopy({ [`src/season-reviews/${yr}`]: `draft/${yr}-review` });
     }
     eleventyConfig.ignores.add("src/season-reviews/**");
+    // Cache-busting for the passthrough recap/review pages: they link the site
+    // CSS/JS as static HTML, so stamp the current asset hash onto those links
+    // after the copy (templated pages get it from base.njk via assetVersion).
+    eleventyConfig.on("eleventy.after", ({ dir }) => {
+        const v = assetVersion();
+        const re = /((?:css\/(?:fonts|tokens|site)\.css)|(?:js\/(?:nav|lls-table)\.js))(?:\?v=[0-9a-f]+)?(")/g;
+        const walk = (d) => {
+            for (const ent of readdirSync(d, { withFileTypes: true })) {
+                const p = join(d, ent.name);
+                if (ent.isDirectory()) walk(p);
+                else if (ent.name.endsWith(".html")) {
+                    const html = readFileSync(p, "utf8");
+                    const out = html.replace(re, `$1?v=${v}$2`);
+                    if (out !== html) writeFileSync(p, out);
+                }
+            }
+        };
+        for (const sub of readdirSync(join(dir.output, "draft"), { withFileTypes: true })) {
+            if (sub.isDirectory() && /-(recap|review)$/.test(sub.name)) walk(join(dir.output, "draft", sub.name));
+        }
+    });
+
     eleventyConfig.addPassthroughCopy("css");
     eleventyConfig.addPassthroughCopy("js");
 

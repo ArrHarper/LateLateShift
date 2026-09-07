@@ -10,6 +10,7 @@ Public repo; deployed to GitHub Pages. Redesigned Aug 2026 ("Network" design sys
 - Config: `eleventy.config.mjs` (ESM, Eleventy 3). Defines filters: `topValueKeeps`, `pct3`, `num2`, `newsDate`, `shortYears`.
 - Deploys to GitHub Pages automatically on push to `main` (gh-pages branch is CI-built; never edit it or `_site/` directly)
 - Zero runtime dependencies beyond Eleventy. No jQuery, no Bootstrap.
+- CSS/JS links carry `?v=<content hash>` (`scripts/asset-version.mjs`; `assetVersion` global for templates, an `eleventy.after` hook stamps the passthrough recap/review pages). Pages caches assets for 10 minutes, so this is what makes a stylesheet change land immediately.
 
 ## Architecture: data-driven
 

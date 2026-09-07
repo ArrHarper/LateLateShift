@@ -7,11 +7,11 @@
     <meta name="author" content="ArrHarper">
     <title>{% block title %}The Late Late Shift{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | url }}">
-    <link rel="stylesheet" href="{{ '/css/fonts.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/tokens.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/site.css' | url }}">
-    <script src="{{ '/js/lls-table.js' | url }}" defer></script>
-    <script src="{{ '/js/nav.js' | url }}" defer></script>
+    <link rel="stylesheet" href="{{ '/css/fonts.css' | url }}?v={{ assetVersion }}">
+    <link rel="stylesheet" href="{{ '/css/tokens.css' | url }}?v={{ assetVersion }}">
+    <link rel="stylesheet" href="{{ '/css/site.css' | url }}?v={{ assetVersion }}">
+    <script src="{{ '/js/lls-table.js' | url }}?v={{ assetVersion }}" defer></script>
+    <script src="{{ '/js/nav.js' | url }}?v={{ assetVersion }}" defer></script>
     {% block head %}{% endblock %}
 </head>
 <body>
