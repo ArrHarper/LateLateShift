@@ -14,18 +14,9 @@
 
 {% if draft.complete %}
 {# ---------- post-draft hero: the draft is done, the grades are in ---------- #}
-{% set keeperCount = 0 %}
-{% for p in board.picks %}{% if p.keeper %}{% set keeperCount = keeperCount + 1 %}{% endif %}{% endfor %}
 <div class="draft-hero is-done">
     <div class="kicker"><span class="dot"></span> Season {{ current.seasonNo }} · Draft Complete</div>
     <h1>Draft Central</h1>
-    <div class="count" role="group" aria-label="{{ current.year }} draft at a glance">
-        <div class="unit"><b>{{ board.rounds }}</b><span>Rounds</span></div>
-        <div class="unit"><b>{{ board.picks | length }}</b><span>Picks</span></div>
-        <div class="unit"><b>{{ keeperCount }}</b><span>Keepers</span></div>
-        <div class="unit"><b>{{ board.teams | length }}</b><span>Teams</span></div>
-    </div>
-    <div class="when">Drafted <b>{{ draft.whenDisplay }}</b> · every team graded, keeper-adjusted</div>
     <div class="cta">
         <a class="btn-primary" href="{{ draft.recapPath | url }}">See the {{ current.year }} Draft Grades</a>
         <a class="btn-ghost" href="{{ '/draft-order/' | url }}#draft-{{ current.year }}">Watch the Order Reveal</a>
